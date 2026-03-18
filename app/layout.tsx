@@ -4,8 +4,8 @@ import { MantineClientProvider } from '@/components/providers/MantineClientProvi
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vixio Worldbuilder',
-  description: 'Visual asset-driven creative platform for worldbuilding and production',
+  title: 'Vixio Creatives',
+  description: 'AI-assisted creative production studio. Hong Kong.',
 }
 
 export default function RootLayout({
@@ -17,6 +17,12 @@ export default function RootLayout({
     <html lang="en" data-mantine-color-scheme="light" suppressHydrationWarning>
       <head>
         <ColorSchemeScript forceColorScheme="light" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className="min-h-screen bg-white antialiased">
         <MantineClientProvider>
