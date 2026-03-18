@@ -1,11 +1,17 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
+}
+
+const logoReveal = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: 'easeOut' as const } },
 }
 
 const stagger = {
@@ -25,6 +31,19 @@ export function HeroSection() {
         animate="visible"
         className="relative z-10 text-center px-6 max-w-4xl"
       >
+        {/* Logo centerpiece with glow */}
+        <motion.div variants={logoReveal} className="relative mb-10 flex justify-center">
+          <div className="absolute inset-0 mx-auto w-80 h-40 bg-cyan-400/15 rounded-full blur-3xl top-1/2 -translate-y-1/2" />
+          <Image
+            src="/vixio-logo.svg"
+            alt="Vixio Creatives"
+            width={360}
+            height={100}
+            className="relative z-10 w-[240px] sm:w-[320px] md:w-[360px]"
+            priority
+          />
+        </motion.div>
+
         <motion.h1
           variants={fadeInUp}
           className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05]"
