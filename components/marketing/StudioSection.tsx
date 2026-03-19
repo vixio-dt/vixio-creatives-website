@@ -1,77 +1,71 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Lightbulb, Clapperboard, Cpu } from 'lucide-react'
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 }
 
 const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
-const pillars = [
-  {
-    icon: Lightbulb,
-    title: 'Original IP',
-    body: 'We develop our own stories, characters, and worlds from the ground up.',
-  },
-  {
-    icon: Clapperboard,
-    title: 'Cinematics Service',
-    body: 'Virtual production, 3D asset creation, and cinematic visual development for hire.',
-  },
-  {
-    icon: Cpu,
-    title: 'Vixio Studio',
-    body: 'Our internal AI-assisted preproduction tool. From brief or script to visualized preproduction.',
-  },
+const letters = [
+  { char: 'V', meaning: 'Logic &\nStructure' },
+  { char: 'I', meaning: 'The\nDirector' },
+  { char: 'X', meaning: 'Synthesis &\nBridge' },
+  { char: 'I', meaning: 'The\nArtist' },
+  { char: 'O', meaning: 'Flow &\nEmotion' },
 ]
 
 export function StudioSection() {
   return (
-    <section id="studio" className="relative py-28 px-6">
-      <div className="mx-auto max-w-5xl">
-        <motion.div
-          variants={stagger}
+    <section id="vixio" className="py-20 sm:py-28 px-6 text-center">
+      <div className="mx-auto max-w-3xl">
+        <motion.p
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-base sm:text-lg text-[#888] italic mb-10"
+          style={{ fontFamily: 'Georgia, serif' }}
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-white"
-          >
-            Vixio Creatives
-          </motion.h2>
-
-          <motion.p
-            variants={fadeInUp}
-            className="mt-4 text-lg text-slate-400 max-w-2xl"
-          >
-            A creative production studio building original worlds with AI-assisted preproduction.
-          </motion.p>
-        </motion.div>
+          Every letter is a principle. Every principle serves the story.
+        </motion.p>
 
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 mt-14"
+          className="flex justify-center gap-4 sm:gap-5 flex-wrap mb-10"
         >
-          {pillars.map((p) => (
-            <motion.div key={p.title} variants={fadeInUp} className="space-y-4">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-400/10 text-cyan-400">
-                <p.icon size={24} />
+          {letters.map((l, i) => (
+            <motion.div key={i} variants={fadeInUp} className="text-center w-[80px] sm:w-[90px]">
+              <div className="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] mx-auto border border-[#ddd] rounded-[10px] flex items-center justify-center text-[#1a6b8a] text-xl sm:text-2xl hover:border-[#1a6b8a] transition-colors"
+                style={{ fontFamily: 'Georgia, serif' }}
+              >
+                {l.char}
               </div>
-              <h3 className="font-heading text-xl font-semibold text-white">{p.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{p.body}</p>
+              <div className="text-[11px] text-[#999] mt-2 leading-snug whitespace-pre-line">
+                {l.meaning}
+              </div>
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-sm text-[#777] leading-[1.9] max-w-[520px] mx-auto"
+        >
+          We develop and produce <strong className="text-[#222] font-medium">original story IP</strong> using
+          AI-assisted production — closing the gap between a compelling story and the craft it
+          deserves. <strong className="text-[#222] font-medium">Human vision is irreplaceable.</strong> AI is the instrument.
+        </motion.p>
       </div>
     </section>
   )

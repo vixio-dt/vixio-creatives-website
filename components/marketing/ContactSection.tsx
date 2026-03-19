@@ -1,11 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
+const fadeInScale = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' as const } },
 }
 
 const stagger = {
@@ -14,81 +13,48 @@ const stagger = {
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative py-28 px-6">
-      <div className="mx-auto max-w-3xl">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+    <section id="contact" className="py-20 sm:py-28 px-6 text-center">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="mx-auto max-w-3xl"
+      >
+        <motion.h2
+          variants={fadeInScale}
+          className="text-2xl sm:text-[28px] text-[#222] mb-6"
+          style={{ fontFamily: 'Georgia, serif' }}
         >
-          <motion.h2
-            variants={fadeInUp}
-            className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-white"
-          >
-            Work with us
-          </motion.h2>
+          Let&apos;s tell a story together.
+        </motion.h2>
 
-          <motion.p variants={fadeInUp} className="mt-4 text-lg text-slate-400">
-            We&apos;re open to collaborations, commissions, and co-productions.
-          </motion.p>
+        <motion.a
+          variants={fadeInScale}
+          href="mailto:hello@vixiocreatives.com"
+          className="inline-block px-10 py-3.5 border border-[#ddd] rounded-lg text-sm text-[#1a6b8a] tracking-wide hover:border-[#1a6b8a] hover:bg-[rgba(26,107,138,0.04)] transition-all no-underline"
+        >
+          Get in Touch
+        </motion.a>
 
-          <motion.a
-            variants={fadeInUp}
-            href="mailto:hello@vixiocreatives.com"
-            className="inline-flex items-center gap-2 mt-6 text-cyan-400 hover:text-cyan-300 transition-colors"
-          >
-            <Mail size={18} />
-            hello@vixiocreatives.com
-          </motion.a>
+        <motion.p variants={fadeInScale} className="text-sm text-[#999] mt-3">
+          <a href="tel:+85263372258" className="text-[#999] no-underline hover:text-[#1a6b8a] transition-colors">
+            +852 6337 2258
+          </a>
+        </motion.p>
 
-          {/* Simple contact form */}
-          <motion.form
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            action={`mailto:hello@vixiocreatives.com`}
-            method="POST"
-            encType="text/plain"
-            className="mt-12 space-y-5"
-          >
-            <motion.div variants={fadeInUp} className="grid sm:grid-cols-2 gap-5">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-                className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-400/50 transition-colors"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-400/50 transition-colors"
-              />
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <textarea
-                name="message"
-                placeholder="Tell us about your project"
-                rows={5}
-                required
-                className="w-full rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-400/50 transition-colors resize-none"
-              />
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <button
-                type="submit"
-                className="px-8 py-3 rounded-full bg-cyan-400 text-slate-950 font-semibold text-sm hover:bg-cyan-300 transition-colors"
-              >
-                Send Message
-              </button>
-            </motion.div>
-          </motion.form>
-        </motion.div>
-      </div>
+        <motion.p variants={fadeInScale} className="text-sm text-[#bbb] mt-2">
+          vixiocreatives.com · Hong Kong
+        </motion.p>
+
+        <motion.p
+          variants={fadeInScale}
+          className="text-[11px] text-[#ddd] italic mt-12"
+          style={{ fontFamily: 'Georgia, serif' }}
+        >
+          Human craft. AI tools. Meaningful stories.
+        </motion.p>
+      </motion.div>
     </section>
   )
 }

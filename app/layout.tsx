@@ -4,8 +4,15 @@ import { MantineClientProvider } from '@/components/providers/MantineClientProvi
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vixio Creatives',
-  description: 'AI-assisted creative production studio. Hong Kong.',
+  title: 'Vixio Creatives — Creative Production Studio',
+  description: 'We develop and produce original story IP using AI-assisted production. Great stories deserve great execution.',
+  openGraph: {
+    title: 'Vixio Creatives — Creative Production Studio',
+    description: 'We develop and produce original story IP using AI-assisted production.',
+    url: 'https://vixiocreatives.com',
+    siteName: 'Vixio Creatives',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

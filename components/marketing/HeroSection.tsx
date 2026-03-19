@@ -4,70 +4,62 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
-}
-
-const logoReveal = {
-  hidden: { opacity: 0, scale: 0.9 },
+const fadeIn = {
+  hidden: { opacity: 0, scale: 0.95 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: 'easeOut' as const } },
 }
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+}
+
 const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.2 } },
 }
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
-      {/* Animated bloom background */}
-      <div className="absolute inset-0 hero-bloom" />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950" />
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <motion.div
         variants={stagger}
         initial="hidden"
         animate="visible"
         className="relative z-10 text-center px-6 max-w-4xl"
       >
-        {/* Logo centerpiece with glow */}
-        <motion.div variants={logoReveal} className="relative mb-10 flex justify-center">
-          <div className="absolute inset-0 mx-auto w-80 h-40 bg-cyan-400/15 rounded-full blur-3xl top-1/2 -translate-y-1/2" />
+        <motion.div variants={fadeIn} className="mb-10 flex justify-center">
           <Image
             src="/vixio-logo.svg"
             alt="Vixio Creatives"
-            width={360}
-            height={100}
-            className="relative z-10 w-[240px] sm:w-[320px] md:w-[360px]"
+            width={400}
+            height={200}
+            className="w-[180px] sm:w-[240px] md:w-[300px]"
             priority
           />
         </motion.div>
 
-        <motion.h1
+        <motion.p
           variants={fadeInUp}
-          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05]"
+          className="text-[11px] tracking-[0.3em] text-[#999] uppercase mb-4"
         >
-          Stories at the edge
-          <br />
-          of perception
-        </motion.h1>
+          Creative Production Studio
+        </motion.p>
 
         <motion.p
           variants={fadeInUp}
-          className="mt-6 text-lg sm:text-xl text-slate-400 tracking-wide"
+          className="font-heading text-xl sm:text-2xl text-[#666] italic"
+          style={{ fontFamily: 'Georgia, serif' }}
         >
-          AI-assisted. Human-driven. Cinematic.
+          Great stories deserve great execution.
         </motion.p>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.a
-        href="#boundary"
+        href="#vixio"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-slate-500 hover:text-cyan-400 transition-colors"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-[#ccc] hover:text-[#1a6b8a] transition-colors"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
