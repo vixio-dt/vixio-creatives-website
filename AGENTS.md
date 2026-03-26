@@ -7,13 +7,13 @@ alwaysApply: true
 
 ## Project Overview
 
-This is the marketing landing page for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 static-export site with Mantine, Tailwind CSS v4, and Framer Motion.
+This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 static-export site with 7 pages, using Mantine, Tailwind CSS v4, and Framer Motion.
 
 ## Mandatory Rules
 
 1. **95% Confidence Rule**: Do NOT make changes until you have 95% confidence you understand what to build.
 2. **Verify Before Claiming Done**: Run `npm run typecheck` and `npm run lint` before claiming work is complete.
-3. **Keep It Simple**: This is a landing page. Avoid adding unnecessary complexity, server-side features, or heavy dependencies.
+3. **Keep It Simple**: This is a marketing site. Avoid adding unnecessary complexity, server-side features, or heavy dependencies.
 
 ## Tech Stack
 
@@ -22,16 +22,43 @@ This is the marketing landing page for Vixio Creatives (`vixiocreatives.com`). I
 | Framework | Next.js 16 (App Router, static export) |
 | Language | TypeScript |
 | UI Library | Mantine |
-| Styling | Tailwind CSS v4 |
+| Styling | Tailwind CSS v4 + CSS custom properties |
 | Animation | Framer Motion |
 | Icons | Lucide React |
+| Fonts | Space Grotesk (headlines/labels) + Manrope (body) |
 
-## Key Files
+## Site Architecture
 
-- `app/page.tsx` — The landing page (single route)
-- `app/layout.tsx` — Root layout with Mantine provider
-- `components/marketing/` — The 6 landing page sections
-- `lib/theme/mantine-theme.ts` — Mantine theme configuration
+| Route | Page |
+|-------|------|
+| `/` | Homepage |
+| `/experiences` | Original Experiences |
+| `/services` | Studio Services |
+| `/lab` | The Lab (R&D) |
+| `/about` | About / Manifesto |
+| `/journal` | Journal |
+| `/contact` | Contact |
+
+## Key Directories
+
+- `app/` — Pages (App Router)
+- `components/layout/` — OrbitalNav, FullScreenMenu, Footer
+- `components/ui/` — Shared components (buttons, inputs, placeholders)
+- `components/home/` — Homepage sections
+- `components/experiences/` — Experiences page sections
+- `components/services/` — Services page sections
+- `components/lab/` — Lab page sections
+- `components/about/` — About page sections
+- `components/journal/` — Journal page sections
+- `components/contact/` — Contact page sections
+- `lib/theme/` — Mantine theme configuration
+
+## Design System
+
+- CSS custom properties defined in `app/globals.css`
+- "Morning Light" aesthetic: warm off-whites, no pure #FFFFFF
+- No 1px borders — use tonal layering
+- Gradient placeholders instead of images
 
 ## Scripts
 

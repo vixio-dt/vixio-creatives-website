@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
 import { ColorSchemeScript } from '@mantine/core'
 import { MantineClientProvider } from '@/components/providers/MantineClientProvider'
+import { OrbitalNav } from '@/components/layout/OrbitalNav'
+import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vixio Creatives — Creative Production Studio',
-  description: 'We develop and produce original story IP using AI-assisted production. Great stories deserve great execution.',
+  title: 'Vixio Creatives — Transmedia Creative Studio, Hong Kong',
+  description: 'Vixio Creatives is a Hong Kong-based transmedia creative studio building cooperative immersive experiences. Projection mapping, NFC interaction, and physical collectibles. Launching October 2026.',
   openGraph: {
-    title: 'Vixio Creatives — Creative Production Studio',
-    description: 'We develop and produce original story IP using AI-assisted production.',
+    title: 'Vixio Creatives — Transmedia Creative Studio, Hong Kong',
+    description: 'Cooperative immersive experiences where groups create something together — and take it home.',
     url: 'https://vixiocreatives.com',
     siteName: 'Vixio Creatives',
     type: 'website',
@@ -27,13 +29,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-white antialiased">
+      <body>
         <MantineClientProvider>
-          {children}
+          <OrbitalNav />
+          <main>{children}</main>
+          <Footer />
         </MantineClientProvider>
       </body>
     </html>
