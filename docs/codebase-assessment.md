@@ -1,229 +1,287 @@
-# Codebase Assessment: Vixio Worldbuilder
+# Codebase Assessment: Vixio Creatives Landing Page
 
-**Date:** 2026-03-26
-**Branch:** `main` (HEAD: `e3b2601`)
-**Repository:** `vixio-dt/vixio-world`
+**Date:** 2026-03-26  
+**Branch:** `main` (HEAD: `e3b2601`)  
+**Repository:** `vixio-dt/vixio-creatives-website`
 
 ---
 
 ## Executive Summary
 
-Vixio Worldbuilder is an early-stage Next.js 16 web application for filmmakers and creative teams to build, organize, and visualize fictional worlds during preproduction. The codebase contains ~8,900 lines of TypeScript/TSX across app, components, and lib directories, plus ~725 lines of SQL schema. It is undergoing a strategic pivot from a "worldbuilder-first" product into **Vixio Studio** — a project-first, visualization-first preproduction workspace.
+This repository is intended to be a **landing page** for Vixio Creatives (`vixiocreatives.com`), a creative production studio. It is a Next.js 16 static-export site that renders a single marketing page with six sections: Hero, Studio, Boundary Showcase, Capabilities, Founder, and Contact.
 
-**Current state:** The codebase has a comprehensive set of components and server actions built, but the Next.js app router only exposes a single marketing landing page (`/`). All dashboard and entity routes referenced in the sprint docs and components are **not present in `app/`**, meaning the bulk of the application UI is unreachable. TypeScript compiles cleanly, but unit tests have 8 failures and lint has 8 errors.
-
----
-
-## Technology Stack
-
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| Framework | Next.js (App Router) | ^16.1.6 |
-| Language | TypeScript | ^5 |
-| UI Library | Mantine | @mantine/core + hooks + notifications + spotlight |
-| Styling | Tailwind CSS v4 | via @tailwindcss/postcss |
-| Database | Supabase (PostgreSQL) | @supabase/supabase-js, @supabase/ssr |
-| AI | OpenRouter (OpenAI SDK) | deepseek/deepseek-v3.2 |
-| Build | Turbopack (default in Next.js 16) | — |
-| Testing | Vitest + Testing Library (unit/integration), Playwright (e2e/visual) | vitest 4.x, @playwright/test |
-| Motion | Framer Motion | — |
-| Icons | Lucide React | — |
-| Graph | react-force-graph-2d | — |
-| Export | @react-pdf/renderer, jszip | — |
-| Deployment | Static export (`output: 'export'`) via `serve` | — |
+However, the repo contains a large amount of **foreign code from another project** (the Vixio Worldbuilder/Studio app). Only **11 source files** out of ~170 are actually used by the landing page. The rest — 60+ components, 15 server action modules, database schemas, AI integrations, a Slack dev-bot, and extensive product planning docs — are dead weight that should be removed.
 
 ---
 
-## Architecture Overview
+## What Actually Powers the Landing Page
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  Next.js 16 App Router (Static Export)                       │
-│  ┌────────────────────────────────────────────────────────┐  │
-│  │  app/                                                  │  │
-│  │  ├── layout.tsx  (MantineProvider, global CSS)         │  │
-│  │  ├── page.tsx    (Marketing landing - only live route) │  │
-│  │  └── globals.css                                       │  │
-│  └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐  │
-│  │  components/ (63 files, ~4,400 LOC)                    │  │
-│  │  ├── marketing/     (6 landing page sections)          │  │
-│  │  ├── shell/         (DashboardShell, Sidebar, Header)  │  │
-│  │  ├── ui/            (9 shared primitives)              │  │
-│  │  ├── characters/    (Card + Form)                      │  │
-│  │  ├── locations/     (Card + Form)                      │  │
-│  │  ├── organizations/ (Card + Form)                      │  │
-│  │  ├── items/         (Card + Form)                      │  │
-│  │  ├── stories/       (Card + Form)                      │  │
-│  │  ├── rules/         (Card + Form)                      │  │
-│  │  ├── timeline/      (EventCard + EventForm)            │  │
-│  │  ├── chat/          (ChatMessage, ChatInput, Actions)  │  │
-│  │  ├── content-blocks/(Display + Editor)                 │  │
-│  │  ├── graph/         (RelationshipGraph + Controls)     │  │
-│  │  ├── mentions/      (MentionInput + Dropdown)          │  │
-│  │  ├── models/        (ModelEmbed + AddModelButton)      │  │
-│  │  ├── search/        (CommandPalette)                   │  │
-│  │  └── providers/     (MantineClientProvider)            │  │
-│  └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐  │
-│  │  lib/ (29 files, ~3,500 LOC)                           │  │
-│  │  ├── actions/       (15 server action modules)         │  │
-│  │  ├── ai/            (OpenRouter, entity extraction)    │  │
-│  │  ├── supabase/      (client, server, middleware)       │  │
-│  │  ├── hooks/         (useToast, useKeyboardShortcuts)   │  │
-│  │  ├── theme/         (Mantine theme config)             │  │
-│  │  ├── types/         (database.ts - all types)          │  │
-│  │  └── utils/         (cn, world-context, model-url, ai) │  │
-│  └────────────────────────────────────────────────────────┘  │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐  │
-│  │  supabase/ (~725 LOC SQL)                              │  │
-│  │  ├── schema.sql           (full DDL, RLS, triggers)    │  │
-│  │  ├── migration-2026-01-29 (content blocks, mentions)   │  │
-│  │  └── migrations/2026-02-05-chat.sql (chat feature)     │  │
-│  └────────────────────────────────────────────────────────┘  │
-└──────────────────────────────────────────────────────────────┘
-```
+### Files in the dependency tree (11 source files + 1 asset)
 
-### Data Model
+| # | File | Purpose |
+|---|------|---------|
+| 1 | `app/layout.tsx` | Root layout — HTML shell, fonts, MantineProvider |
+| 2 | `app/page.tsx` | Home route — renders 6 marketing sections |
+| 3 | `app/globals.css` | Tailwind + Mantine CSS, custom marketing styles |
+| 4 | `components/marketing/HeroSection.tsx` | Hero with logo, tagline, framer-motion animations |
+| 5 | `components/marketing/StudioSection.tsx` | Studio overview section |
+| 6 | `components/marketing/BoundaryShowcase.tsx` | Creative boundaries showcase |
+| 7 | `components/marketing/CapabilitiesSection.tsx` | Capabilities grid |
+| 8 | `components/marketing/FounderSection.tsx` | Founder bio section |
+| 9 | `components/marketing/ContactSection.tsx` | Contact/CTA section |
+| 10 | `components/providers/MantineClientProvider.tsx` | Mantine + Notifications wrapper |
+| 11 | `lib/theme/mantine-theme.ts` | Custom Mantine theme config |
+| — | `public/vixio-logo.svg` | Logo asset used by HeroSection |
 
-The database schema is well-structured with 10 core entity tables, 8 junction tables, and 2 chat tables:
+### npm dependencies actually used
 
-**Core Entities:** `worlds`, `characters`, `locations`, `organizations`, `events`, `items`, `rules`, `stories`, `scenes`, `shots`
+| Package | Used By |
+|---------|---------|
+| `next` | Framework, `<Image>` in Hero |
+| `react`, `react-dom` | Core |
+| `@mantine/core` | UI provider, theme, ColorSchemeScript |
+| `@mantine/notifications` | Notifications provider (wired but no toasts on landing) |
+| `framer-motion` | All 6 marketing sections (scroll animations) |
+| `tailwindcss`, `@tailwindcss/postcss` | Utility styling |
+| `lucide-react` | Icons in HeroSection |
+| `serve` | Static file server for `npm run start` |
 
-**Junction Tables:** `character_relationships`, `character_organizations`, `character_locations`, `event_characters`, `scene_characters`, `shot_characters`, `story_characters`, `item_owners`
+### Technology stack (landing page)
 
-**Support Tables:** `entity_mentions`, `chat_sessions`, `chat_messages`
-
-All tables use UUID primary keys, have RLS policies (owner-based via `auth.uid()`), `updated_at` triggers, and appropriate indexes.
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router, static export) |
+| Language | TypeScript |
+| UI Library | Mantine (theme + provider only) |
+| Styling | Tailwind CSS v4 + custom CSS |
+| Animation | Framer Motion |
+| Icons | Lucide React |
+| Fonts | Space Grotesk (headings) + Inter (body) via Google Fonts |
+| Deployment | Static export (`out/`) served via `serve` |
 
 ---
 
-## Codebase Health
+## Foreign Code (from Vixio Worldbuilder repo)
+
+The following directories and files are **not used** by the landing page and appear to be from a separate Vixio Worldbuilder/Studio application:
+
+### Components (~57 unused files)
+
+| Directory | Contents | Landing page usage |
+|-----------|----------|-------------------|
+| `components/characters/` | CharacterCard, CharacterForm | **None** |
+| `components/locations/` | LocationCard, LocationForm | **None** |
+| `components/organizations/` | OrganizationCard, OrganizationForm | **None** |
+| `components/items/` | ItemCard, ItemForm | **None** |
+| `components/stories/` | StoryCard, StoryForm | **None** |
+| `components/rules/` | RuleCard, RuleForm | **None** |
+| `components/timeline/` | EventCard, EventForm | **None** |
+| `components/chat/` | ChatMessage, ChatInput, QuickActions | **None** |
+| `components/content-blocks/` | ContentBlocksDisplay, ContentBlocksEditor | **None** |
+| `components/graph/` | RelationshipGraph, GraphControls | **None** |
+| `components/mentions/` | MentionInput, MentionDropdown | **None** |
+| `components/models/` | ModelEmbed, AddModelButton | **None** |
+| `components/search/` | CommandPalette | **None** |
+| `components/shell/` | DashboardShell, Sidebar, Header, WorldSwitcher, WorldOnboarding | **None** |
+| `components/ui/` | Button, Card, Input, Select, Textarea, Toast, etc. | **None** |
+
+### Library code (~29 unused files)
+
+| Directory | Contents | Landing page usage |
+|-----------|----------|-------------------|
+| `lib/actions/` | 15 server action modules (auth, CRUD for all entities, chat, import/export, search) | **None** |
+| `lib/ai/` | OpenRouter client, entity extraction, AI types | **None** |
+| `lib/supabase/` | Supabase client, server, middleware | **None** |
+| `lib/hooks/` | useToast, useKeyboardShortcuts | **None** |
+| `lib/types/` | database.ts (422-line type definitions) | **None** |
+| `lib/utils/` | world-context, model-url, ai-context | **None** |
+| `lib/utils.ts` | `cn()` utility (clsx + tailwind-merge) | **None** |
+
+### Infrastructure files (unused)
+
+| File/Directory | Purpose | Landing page usage |
+|----------------|---------|-------------------|
+| `proxy.ts` | Next.js middleware for Supabase auth | **None** (static export ignores middleware) |
+| `supabase/` | Database schema + migrations (725 LOC SQL) | **None** |
+| `dev-bot/` | Slack dev-bot for task automation (~1,047 LOC) | **None** |
+| `.dev-tasks/` | Dev-bot task storage | **None** |
+| `tests/` | Unit, integration, e2e, visual tests | **None** (tests reference worldbuilder components) |
+| `product-plan/` | 61 files of product strategy docs + prototype components | **None** |
+| `docs/plans/` | Implementation plans for worldbuilder features | **None** |
+| `scripts/` | Remote dev scripts | **None** |
+| `.env.example` | Supabase + OpenRouter + Slack env vars | **None** (landing page needs no env vars) |
+| `vitest.config.ts` | Test config | **None** |
+| `playwright.config.ts` | E2E test config | **None** |
+| `tsconfig.test.json` | Test TypeScript config | **None** |
+
+### Unused npm dependencies
+
+These packages are installed but not used by the landing page:
+
+| Package | Why it exists |
+|---------|---------------|
+| `@supabase/ssr`, `@supabase/supabase-js` | Worldbuilder auth/database |
+| `@mantine/spotlight` | Worldbuilder command palette |
+| `@react-pdf/renderer` | Worldbuilder PDF export |
+| `openai` | Worldbuilder AI features (via OpenRouter) |
+| `react-force-graph-2d` | Worldbuilder relationship graph |
+| `react-markdown` | Worldbuilder content rendering |
+| `jszip` | Worldbuilder export |
+| `clsx`, `tailwind-merge` | Worldbuilder `cn()` utility |
+| `@testing-library/*`, `vitest`, `jsdom`, `@vitejs/plugin-react` | Test infrastructure |
+| `@playwright/test` | E2E test infrastructure |
+| `lightningcss` | CSS minification (may be used by build) |
+
+### Unused static asset
+
+| File | Note |
+|------|------|
+| `public/vixio creatives logo.svg.svg` | Not referenced anywhere (likely a duplicate with a typo in the filename) |
+
+---
+
+## Codebase Health (as-is)
 
 ### TypeScript Compilation
-- **Status: PASS** — `tsc --noEmit` exits cleanly with zero errors
+- **PASS** — `tsc --noEmit` exits cleanly
 
-### Lint (ESLint)
-- **Status: 8 errors, 7 warnings**
-- All 8 errors are `@typescript-eslint/no-explicit-any` in `dev-bot/src/index.ts` (separate Slack bot package)
-- Warnings include: missing `alt` prop, `<img>` instead of `<Image>`, unused imports in `product-plan/` demo components, custom font placement
-- **Core app code has zero lint errors**
+### ESLint
+- **8 errors** — all in `dev-bot/src/index.ts` (`no-explicit-any`), which is foreign code
+- **7 warnings** — mix of foreign code issues + 1 valid landing page warning (custom font in layout)
+- **Core landing page code: zero errors, 1 warning**
 
-### Unit/Integration Tests (Vitest)
-- **Status: 8 failed, 16 passed (24 total)**
-- 8 failures in `button.test.tsx` — all due to missing `MantineProvider` wrapper in test setup
-- 1 suite error: `ui-regression.spec.ts` (Playwright test accidentally included in Vitest config scope)
-- Passing suites: `world-context.test.ts` (6), `studio-navigation.test.ts` (2), `world-switcher.test.tsx` (4, with `act()` warnings), `world-onboarding.test.tsx` (2), `dark-mode-disable.test.tsx` (2)
+### Tests
+- **8 failures** in `button.test.tsx` — tests a foreign component (`components/ui/Button`) missing MantineProvider
+- **16 passing** — test foreign worldbuilder features (world context, navigation, world switcher, onboarding, dark mode)
+- **No tests exist for the actual landing page**
 
-### E2E Tests (Playwright)
-- Not runnable without a Supabase instance and env vars
-
-### Dependency Health
-- 758 packages installed
-- 7 npm vulnerabilities (2 moderate, 5 high) — `npm audit fix` recommended
-- All core dependencies are modern and maintained
+### npm Audit
+- 7 vulnerabilities (2 moderate, 5 high) — largely from unused dependencies
 
 ---
 
-## Key Findings
+## Quantified Impact of Foreign Code
 
-### 1. Missing Routes (Critical Gap)
-
-The `app/` directory contains only 3 files (`layout.tsx`, `page.tsx`, `globals.css`), rendering a single marketing landing page. Yet the codebase contains:
-
-- 15 server action modules in `lib/actions/` (auth, characters, locations, etc.)
-- 7 entity feature folders in `components/` with Card + Form components
-- Shell components (DashboardShell, Sidebar, Header, WorldSwitcher)
-- Chat, graph, search, import, export components
-- Navigation config referencing `/dashboard`, `/characters`, `/locations`, `/timeline`, `/items`, `/rules`, `/stories`, `/chat`, `/graph`, `/export`, `/import`
-
-**Impact:** ~90% of the UI components and all server actions are dead code — they exist but are unreachable through the app router. The sprint docs reference routes like `app/(dashboard)/characters/page.tsx` that were apparently created and then removed (possibly during the static export pivot).
-
-**Root cause:** The `next.config.ts` has `output: 'export'` (static site generation), which is incompatible with server-side features like `cookies()`, `headers()`, Supabase auth middleware, and server actions. The app was likely simplified to a static marketing site for initial deployment to Hostinger.
-
-### 2. Static Export vs. Full-Stack Mismatch
-
-The app is configured for static export but the codebase is built for a full-stack app:
-
-| Feature | Requires Server | Compatible with Static Export? |
-|---------|----------------|-------------------------------|
-| Supabase Auth (cookies) | Yes | No |
-| Server Actions (`lib/actions/*`) | Yes | No |
-| Middleware (`proxy.ts`) | Yes | No |
-| AI Chat (OpenRouter) | Yes | No |
-| Entity CRUD | Yes | No |
-| Marketing landing | No | Yes |
-
-### 3. Test Quality Issues
-
-- **Button tests broken:** Missing `MantineProvider` wrapper — easy fix
-- **Playwright test in Vitest:** `ui-regression.spec.ts` uses `@playwright/test`'s `test()` but is picked up by Vitest's glob pattern (should be excluded more precisely)
-- **`act()` warnings** in `world-switcher.test.tsx` — async state updates not properly wrapped
-- **No test for any server action** — all 15 action modules are untested
-- **Test coverage is low** — only 24 tests total for ~8,900 LOC
-
-### 4. Code Organization Strengths
-
-- **Clean domain separation:** Each entity type has its own `components/{entity}/` folder with Card + Form + barrel export
-- **Consistent patterns:** Card/Form naming convention, barrel `index.ts` exports, shared `ui/` primitives
-- **Well-typed:** Complete TypeScript types for all database entities, junction tables, and chat metadata
-- **Rich schema:** The SQL schema has proper RLS, triggers, indexes, and check constraints
-- **Good documentation:** Sprint history in `docs/current-sprint.md` provides excellent context
-
-### 5. Strategic Context
-
-The project is mid-pivot from "Vixio Worldbuilder" to "Vixio Studio" — a project-first preproduction workspace. The `product-plan/` directory (61 files) contains extensive product strategy, feature specs, and even prototype components. The current codebase represents the "Worldbuilder" implementation that will evolve into the Studio vision.
-
----
-
-## Risks and Technical Debt
-
-| Risk | Severity | Description |
-|------|----------|-------------|
-| Dead code | High | ~90% of components/actions unreachable — increases maintenance burden |
-| Static/server mismatch | High | Architecture assumes server features that static export can't support |
-| No server action tests | Medium | 15 action modules with zero test coverage |
-| Broken tests | Medium | 8 failing tests (easy fix) + test infrastructure issues |
-| npm vulnerabilities | Medium | 7 vulnerabilities (2 moderate, 5 high) |
-| Dev-bot lint errors | Low | 8 `any` type errors in dev-bot (separate package) |
-| `act()` warnings | Low | Async test patterns need cleanup |
-| README version stale | Low | README says Next.js 15, actual is 16 |
+| Metric | Landing Page | Foreign Code | Foreign % |
+|--------|-------------|-------------|-----------|
+| Source files (TS/TSX) | 11 | ~94 | **90%** |
+| Lines of code | ~550 | ~8,350 | **94%** |
+| npm dependencies | 8 used | 14 unused | **64%** |
+| npm devDependencies | 3 used | 8 unused | **73%** |
+| SQL schema lines | 0 | 725 | **100%** |
+| Test files | 0 | 10 | **100%** |
 
 ---
 
 ## Recommendations
 
-### Immediate (fix now)
-1. **Fix button tests** — wrap renders in `MantineProvider`
-2. **Exclude visual tests from Vitest** — add `tests/visual/**` to vitest exclude
-3. **Run `npm audit fix`** — address known vulnerabilities
+### 1. Remove foreign code (high priority)
 
-### Short-term (next sprint)
-4. **Decide deployment model** — either commit to static export (remove server-side code) or switch to server deployment (remove `output: 'export'`)
-5. **Re-add dashboard routes** — if going server-side, restore the `app/(dashboard)/` route group that the components expect
-6. **Add MantineProvider to test setup** — global wrapper in `tests/setup.ts` to prevent future test failures
+Remove all directories and files that belong to the worldbuilder repo:
 
-### Medium-term
-7. **Add server action tests** — at minimum, test the core CRUD actions with mocked Supabase
-8. **Clean up dead code or restore routes** — the ~4,000 LOC of unreachable components should either be wired up or removed
-9. **Address the Studio pivot** — align codebase with the project-first, boards-based architecture described in `product-plan/`
+**Directories to remove:**
+- `components/characters/`, `locations/`, `organizations/`, `items/`, `stories/`, `rules/`, `timeline/`
+- `components/chat/`, `content-blocks/`, `graph/`, `mentions/`, `models/`, `search/`, `shell/`, `ui/`
+- `lib/actions/`, `lib/ai/`, `lib/supabase/`, `lib/hooks/`, `lib/types/`, `lib/utils/`
+- `supabase/`
+- `dev-bot/`
+- `.dev-tasks/`
+- `tests/`
+- `product-plan/`
+- `docs/plans/`
+- `scripts/`
+
+**Files to remove:**
+- `lib/utils.ts`
+- `proxy.ts`
+- `.env.example`
+- `vitest.config.ts`, `tsconfig.test.json`, `playwright.config.ts`
+- `public/vixio creatives logo.svg.svg`
+
+### 2. Slim down package.json
+
+Remove unused dependencies after foreign code is removed. The landing page only needs:
+
+```json
+{
+  "dependencies": {
+    "next": "^16.1.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@mantine/core": "^7.17.4",
+    "framer-motion": "^12.4.10",
+    "lucide-react": "^0.474.0",
+    "serve": "^14.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.1.6"
+  }
+}
+```
+
+Consider also removing `@mantine/notifications` and `@mantine/spotlight` from `globals.css` imports since no landing page component uses them.
+
+### 3. Clean up globals.css
+
+Remove unused Mantine CSS imports:
+- `@mantine/spotlight/styles.css` — not used
+- `@mantine/notifications/styles.css` — provider exists but no toasts fire on landing page
+- Dark mode scrollbar/variant CSS — forced light mode
+
+### 4. Add landing page tests
+
+Currently zero tests exist for the actual landing page. Consider adding:
+- Smoke test that the page renders without errors
+- Visual regression test for the marketing page
+
+### 5. Clean up AGENTS.md and docs
+
+The `AGENTS.md` and `docs/current-sprint.md` reference worldbuilder features, skills, and workflows that don't apply to a landing page repo. Either simplify or remove.
+
+### 6. Fix the font warning
+
+The Google Fonts `<link>` in `layout.tsx` triggers `@next/next/no-page-custom-font`. Consider using `next/font/google` instead for better performance.
 
 ---
 
-## File Statistics
+## Files to Keep (complete list)
 
-| Category | Files | Lines of Code |
-|----------|-------|---------------|
-| App (routes) | 3 | 60 |
-| Components | 63 | 4,434 |
-| Library/Utils | 29 | 3,462 |
-| Tests | 10 | 721 |
-| SQL Schema | 3 | 725 |
-| Dev Bot | ~15 | 1,047 |
-| Config files | 8 | ~200 |
-| Product plan | 61 | ~5,000+ |
-| **Total (app)** | **~105** | **~8,900** |
-| **Total (all)** | **~170+** | **~15,000+** |
+If cleaning the repo down to just the landing page:
+
+```
+app/
+  layout.tsx
+  page.tsx
+  globals.css
+components/
+  marketing/
+    HeroSection.tsx
+    StudioSection.tsx
+    BoundaryShowcase.tsx
+    CapabilitiesSection.tsx
+    FounderSection.tsx
+    ContactSection.tsx
+  providers/
+    MantineClientProvider.tsx
+lib/
+  theme/
+    mantine-theme.ts
+public/
+  vixio-logo.svg
+.gitignore
+eslint.config.mjs
+next.config.ts
+next-env.d.ts
+package.json (slimmed)
+package-lock.json (regenerated)
+postcss.config.mjs
+tsconfig.json
+README.md (updated)
+```
