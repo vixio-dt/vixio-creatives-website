@@ -1,9 +1,14 @@
 'use client'
 
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
+
+const ParticleLogo = dynamic(
+  () => import('@/components/ui/ParticleLogo').then(mod => ({ default: mod.ParticleLogo })),
+  { ssr: false, loading: () => <div style={{ width: 280, height: 140 }} /> }
+)
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -24,15 +29,8 @@ export function HeroSection() {
       }}
     >
       <div style={{ textAlign: 'center', maxWidth: '680px' }}>
-        <motion.div {...fadeUp(0)} style={{ marginBottom: 'var(--spacing-8)' }}>
-          <Image
-            src="/vixio-logo.svg"
-            alt="Vixio Creatives"
-            width={300}
-            height={150}
-            className="w-[180px] md:w-[240px] mx-auto"
-            priority
-          />
+        <motion.div {...fadeUp(0)} style={{ marginBottom: 'var(--spacing-8)', display: 'flex', justifyContent: 'center' }}>
+          <ParticleLogo width={280} height={140} />
         </motion.div>
 
         <motion.h1
