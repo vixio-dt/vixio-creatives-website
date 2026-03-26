@@ -1,148 +1,44 @@
 ---
-description: Project rules and skills for vixio-world development
+description: Project rules for vixio-creatives-website development
 alwaysApply: true
 ---
 
 # AGENTS.md
 
-<project_rules priority="0">
+## Project Overview
+
+This is the marketing landing page for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 static-export site with Mantine, Tailwind CSS v4, and Framer Motion.
 
 ## Mandatory Rules
 
-1. **MCP-First (ALWAYS)**: Before ANY implementation, you MUST query relevant MCPs first:
-   - **Context7** for any library (Mantine, React, Motion, etc.) - get current docs
-   - **Sequential Thinking** for complex decisions (2+ approaches)
-   - **next-devtools** for Next.js code - check runtime state
-   - **Playwright** for UI testing and verification
-   - **eslint** for linting issues
-   - Show what you learned from MCPs before proceeding. This is NOT optional.
+1. **95% Confidence Rule**: Do NOT make changes until you have 95% confidence you understand what to build.
+2. **Verify Before Claiming Done**: Run `npm run typecheck` and `npm run lint` before claiming work is complete.
+3. **Keep It Simple**: This is a landing page. Avoid adding unnecessary complexity, server-side features, or heavy dependencies.
 
-2. **95% Confidence Rule**: Do NOT make changes until you have 95% confidence you understand what to build. Ask clarifying questions until you reach that confidence.
+## Tech Stack
 
-3. **Always Recommend with Reasoning**: When presenting options, ALWAYS include your recommendation and explain WHY. Lead with your recommendation and reasoning.
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router, static export) |
+| Language | TypeScript |
+| UI Library | Mantine |
+| Styling | Tailwind CSS v4 |
+| Animation | Framer Motion |
+| Icons | Lucide React |
 
-4. **Brainstorm Before Build**: Use the `brainstorming` skill before any creative work. Never skip this step.
+## Key Files
 
-5. **Verify Before Claiming Done**: Use the `verification-before-completion` skill before claiming any work is complete.
+- `app/page.tsx` — The landing page (single route)
+- `app/layout.tsx` — Root layout with Mantine provider
+- `components/marketing/` — The 6 landing page sections
+- `lib/theme/mantine-theme.ts` — Mantine theme configuration
 
-6. **Update Docs After Actions**: After completing any task, update relevant documentation:
-   - Update `docs/current-sprint.md` with progress
-   - Update roadmap if scope changes
-   - Never leave documentation stale
+## Scripts
 
-</project_rules>
-
-<skills_system priority="1">
-
-## Available Skills
-
-Skills are in `.claude/skills/`. Read the SKILL.md file when the situation matches.
-
-| Skill | When to Use |
-|-------|-------------|
-| `brainstorming` | Before any creative work - features, components, modifications |
-| `writing-plans` | When you have a spec and need an implementation plan |
-| `executing-plans` | To execute a plan in a separate session with checkpoints |
-| `subagent-driven-development` | To execute a plan with subagents in current session |
-| `dispatching-parallel-agents` | When facing 2+ independent tasks |
-| `systematic-debugging` | When encountering any bug or unexpected behavior |
-| `test-driven-development` | Before writing implementation code |
-| `verification-before-completion` | Before claiming work is done |
-| `requesting-code-review` | Before merging or after major features |
-| `receiving-code-review` | When getting code review feedback |
-| `using-git-worktrees` | To isolate feature work in a worktree |
-| `finishing-a-development-branch` | When implementation is complete, deciding merge/PR |
-| `using-superpowers` | Overview of the skills system |
-| `writing-skills` | When creating or editing skills |
-| `supabase-postgres-best-practices` | When writing SQL, designing schemas, or optimizing DB |
-| `react-best-practices` | When writing React/Next.js components or optimizing performance |
-| `code-execution` | For bulk operations (10+ files) to save 90%+ tokens |
-| `code-auditor` | When auditing code quality, security, or finding technical debt |
-| `dev-bot-agent` | When processing tasks from the Slack dev-bot |
-| `remote-headless-development` | When controlling Cursor remotely from mobile or another machine |
-
-</skills_system>
-
-<mcp_servers priority="2">
-
-## MCP Servers (Live Data Tools)
-
-MCP servers provide REAL-TIME access to external systems. **Prefer them over static approaches.**
-
-### Core MCPs (Always Enabled)
-
-| MCP Server | Tools | Use For |
-|------------|-------|---------|
-| **Context7** | 2 | Library docs (React, Mantine, Motion, any npm package) |
-| **Sequential Thinking** | 1 | Complex multi-step reasoning, debugging |
-| **next-devtools** | 7 | Next.js runtime errors, routes, Server Actions |
-| **Playwright** | 22 | E2E testing, screenshots, UI verification |
-| **eslint** | 1 | Linting diagnostics and fixes |
-| **Memory** | 9 | Persist decisions across sessions |
-| **Fetch** | 1 | Web content retrieval |
-
-### Optional MCPs (Enable When Needed)
-
-These are disabled by default to stay under the 80-tool limit. Enable in Cursor settings when needed:
-
-| MCP Server | Tools | Enable When |
-|------------|-------|-------------|
-| **Supabase** | ~10 | Database schema changes, RLS policies |
-| **Sentry** | 22 | Debugging production errors |
-| **GitHub** | 26 | Complex PR/issue workflows |
-| **AntVis Chart** | 27 | Generating charts for export |
-| **tailwindcss** | ~8 | Heavy Tailwind styling work |
-
-### When to Use MCP First
-
-| Situation | MCP to Use |
-|-----------|------------|
-| "Implement X using Mantine/React/any library" | **Context7** (get docs first!) |
-| "Build a Next.js route or Server Action" | **next-devtools** |
-| "Fix this lint error" | **eslint** |
-| "Test the login flow" | **Playwright** |
-| "Complex problem needs step-by-step thinking" | **Sequential Thinking** |
-| "Remember this architectural decision" | **Memory** |
-
-</mcp_servers>
-
-<commands priority="3">
-
-## Commands
-
-Use `/command` in chat to trigger workflows:
-
-| Command | Triggers |
-|---------|----------|
-| `/continue` | **Query MCPs first, show summary, then proceed** |
-| `/brainstorm` | Design session before building |
-| `/plan` | Create implementation plan |
-| `/execute` | Run plan with checkpoints |
-| `/subagent` | Run plan with subagents |
-| `/parallel` | Dispatch parallel agents |
-| `/debug` | Systematic debugging |
-| `/tdd` | Test-driven development |
-| `/verify` | Pre-completion verification |
-| `/review` | Request code review |
-| `/respond-review` | Respond to code review |
-| `/worktree` | Create git worktree |
-| `/finish` | Complete a branch |
-| `/superpowers` | Skills overview |
-| `/new-skill` | Create a new skill |
-| `/audit` | Run code auditor |
-
-</commands>
-
-<subagents priority="4">
-
-## Subagents
-
-Specialized agents for parallel execution:
-
-| Subagent | Purpose |
-|----------|---------|
-| `implementer` | Execute single task from plan |
-| `spec-reviewer` | Verify work matches requirements |
-| `code-reviewer` | Review code quality and standards |
-
-</subagents>
+| Script | Purpose |
+|--------|---------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Build static export |
+| `npm run start` | Serve static build |
+| `npm run lint` | ESLint check |
+| `npm run typecheck` | TypeScript check |

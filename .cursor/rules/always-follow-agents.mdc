@@ -1,47 +1,9 @@
----
-description: Enforce AGENTS.md and superpowers workflow for all development
-alwaysApply: true
----
-
 # Always Follow AGENTS.md
 
 Read and follow `AGENTS.md` at the repository root for all development work.
 
 ## Key Requirements
 
-1. **95% Confidence** - Ask clarifying questions before making changes
-2. **Recommend with Reasoning** - Always explain WHY when presenting options
-3. **Brainstorm Before Build** - Use `/brainstorm` before creative work
-4. **Verify Before Done** - Use `/verify` before claiming completion
-5. **Update Docs** - Keep `docs/current-sprint.md` current
-6. **MCP-First** - Consult MCP specialists before implementing (see `mcp-first.mdc`)
-
-## Pre-Action Checklist
-
-**Before ANY implementation work**, run the checklist in `pre-action-checklist.mdc`:
-- 95% confidence check
-- Brainstorm if creative work
-- MCP consultation if external data/APIs
-- Plan exists for complex work
-- Matching skill identified
-
-## Key Commands
-
-| Command | Use |
-|---------|-----|
-| `/continue` | **Run checklist and proceed** - Use instead of "continue" |
-| `/brainstorm` | Design session before building |
-| `/verify` | Pre-completion verification |
-
-See AGENTS.md for full command list.
-
-## Skills Location
-
-Skills are in `.claude/skills/`. The commands read them automatically.
-
-## Subagents
-
-Three subagents available for parallel execution:
-- `implementer` - Execute tasks
-- `spec-reviewer` - Verify spec compliance 
-- `code-reviewer` - Review code quality
+1. **95% Confidence** - Understand the change before making it
+2. **Verify Before Done** - Run `npm run typecheck` and `npm run lint` before claiming completion
+3. **Keep It Simple** - This is a static landing page, avoid unnecessary complexity
