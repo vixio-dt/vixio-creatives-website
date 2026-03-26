@@ -1,0 +1,27 @@
+import type { Metadata } from 'next'
+import { ServicesHero } from '@/components/services/ServicesHero'
+import { ServiceCards } from '@/components/services/ServiceCards'
+import { ToolkitSection } from '@/components/services/ToolkitSection'
+import { ProcessSection } from '@/components/services/ProcessSection'
+import { EnquiryForm } from '@/components/services/EnquiryForm'
+
+export const metadata: Metadata = {
+  title: 'Studio Services — Vixio Creatives',
+  description: 'Immersive experience design for brands, malls, and cultural venues. Projection mapping, NFC interaction, body tracking, and physical collectible production. Hong Kong.',
+  openGraph: {
+    title: 'Studio Services — Vixio Creatives',
+    description: 'We build immersive experiences for brands, malls, and cultural venues.',
+  },
+}
+
+export default function ServicesPage() {
+  return (
+    <>
+      <ServicesHero />
+      <ServiceCards />
+      <ToolkitSection />
+      <ProcessSection />
+      <EnquiryForm />
+    </>
+  )
+}
