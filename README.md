@@ -1,36 +1,18 @@
-# Vixio Worldbuilder
+# Vixio Creatives Website
 
-Cloud-based worldbuilding tool for filmmakers and storytellers. Visual asset-driven approach for managing characters, locations, organizations, and narratives.
-
-## Current Status
-
-**MVP Phase** — Auth + Characters CRUD complete. See [docs/current-sprint.md](docs/current-sprint.md) for progress.
-
-## Features (MVP)
-
-- **Authentication** — Login/signup with Supabase Auth
-- **Characters** — Full CRUD (create, read, update, delete)
-- **Multi-world support** — Switch between different world projects
-- **Responsive design** — Works on desktop and mobile
-
-## Roadmap Features
-
-- **World Bible** — Characters, Locations, Organizations, Events, Items, Rules, Stories
-- **AI World Chat** — Natural language queries about your world
-- **Import** — Paste/upload existing world documents, AI extracts entities
-- **Visualization** — Node-based relationship maps and timelines
-- **Production Exports** — Screenplay format, shot lists, storyboards
+Marketing landing page for [vixiocreatives.com](https://vixiocreatives.com) — a creative production studio that develops and produces original story IP using AI-assisted production.
 
 ## Tech Stack
 
 | Layer | Technology |
-|-------|------------|
-| Framework | Next.js 15 (App Router) |
+|-------|-----------|
+| Framework | Next.js 16 (App Router, static export) |
 | Language | TypeScript |
+| UI Library | Mantine |
 | Styling | Tailwind CSS v4 |
-| Database | Supabase (PostgreSQL) |
-| Auth | Supabase Auth |
-| Deployment | Vercel |
+| Animation | Framer Motion |
+| Icons | Lucide React |
+| Fonts | Space Grotesk + Inter (Google Fonts) |
 
 ## Development
 
@@ -41,42 +23,46 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Environment Variables
+## Build & Serve
 
-Create a `.env.local` file:
-
+```bash
+npm run build     # Static export to out/
+npm run start     # Serve out/ on port 3000
 ```
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-Get these from your [Supabase project settings](https://supabase.com/dashboard/project/_/settings/api).
-
-## Database Setup
-
-Run `supabase/schema.sql` in your Supabase SQL Editor to create all tables.
 
 ## Project Structure
 
 ```
-vixio-world/
-├── app/                    # Next.js App Router pages
-│   ├── (auth)/             # Login, signup
-│   └── (dashboard)/        # Protected app pages
+vixio-creatives-website/
+├── app/
+│   ├── layout.tsx                  # Root layout (Mantine, fonts, CSS)
+│   ├── page.tsx                    # Home page
+│   └── globals.css                 # Tailwind + marketing styles
 ├── components/
-│   ├── ui/                 # Design system (Button, Card, Input, etc.)
-│   ├── shell/              # App shell (Header, Sidebar, WorldSwitcher)
-│   └── characters/         # Character-specific components
+│   ├── marketing/                  # Landing page sections
+│   │   ├── HeroSection.tsx
+│   │   ├── StudioSection.tsx
+│   │   ├── BoundaryShowcase.tsx
+│   │   ├── CapabilitiesSection.tsx
+│   │   ├── FounderSection.tsx
+│   │   └── ContactSection.tsx
+│   └── providers/
+│       └── MantineClientProvider.tsx
 ├── lib/
-│   ├── actions/            # Server actions
-│   ├── supabase/           # Supabase client config
-│   └── types/              # TypeScript types
-├── docs/                   # Sprint tracking and plans
-└── product-plan/           # Product documentation
+│   └── theme/
+│       └── mantine-theme.ts        # Mantine theme config
+├── public/
+│   └── vixio-logo.svg
+└── docs/
+    └── codebase-assessment.md
 ```
 
-## Documentation
+## Scripts
 
-- [Product Overview](product-plan/product-overview.md)
-- [Roadmap](product-plan/roadmap.md)
-- [Current Sprint](docs/current-sprint.md)
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start dev server |
+| `npm run build` | Build static export |
+| `npm run start` | Serve static build |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | TypeScript check |

@@ -1,77 +1,14 @@
 {
   "mcpServers": {
-    "next-devtools": {
-      "command": "npx",
-      "args": ["-y", "next-devtools-mcp@latest"],
-      "description": "Next.js runtime errors, application state, routes, and Server Actions inspection"
-    },
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp@latest"],
-      "description": "Up-to-date documentation for 4000+ libraries including Next.js, React, Supabase"
+      "description": "Up-to-date documentation for libraries including Next.js, React, Mantine"
     },
     "eslint": {
       "command": "npx",
       "args": ["-y", "@eslint/mcp@latest"],
       "description": "Official ESLint MCP for linting diagnostics and fixes"
-    },
-    "tailwindcss": {
-      "command": "npx",
-      "args": ["-y", "tailwindcss-mcp-server@latest"],
-      "description": "Tailwind CSS utilities, class lookups, and CSS-to-Tailwind conversion"
-    },
-    "sequential-thinking": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-      "description": "Dynamic problem-solving through structured thought sequences"
-    },
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "description": "Persistent memory across sessions using knowledge graph"
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
-      "description": "Secure file operations with configurable access controls"
-    },
-    "fetch": {
-      "command": "uvx",
-      "args": ["mcp-server-fetch"],
-      "description": "Fetch web content and convert to LLM-friendly format"
-    },
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"],
-      "description": "Browser automation for E2E testing, web scraping, and UI interaction"
-    },
-    "supabase": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@supabase/mcp-server-supabase@latest",
-        "--access-token",
-        "${SUPABASE_ACCESS_TOKEN}"
-      ],
-      "description": "Direct access to Supabase database, auth, and edge functions"
-    },
-    "sentry": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote@latest", "https://mcp.sentry.dev/mcp"],
-      "description": "Error monitoring, crash reports, and AI debugging from Sentry"
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
-      },
-      "description": "GitHub repository management, PRs, issues, and code search"
-    },
-    "antvis-chart": {
-      "command": "npx",
-      "args": ["-y", "@antv/mcp-server-chart"],
-      "description": "25+ visualization charts including network graphs for data analysis and exports"
     }
   }
 }

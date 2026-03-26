@@ -36,9 +36,6 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "product-plan",
-    "tests",
-    "dev-bot"
+    "node_modules"
   ]
 }
