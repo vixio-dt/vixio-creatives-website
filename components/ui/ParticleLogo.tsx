@@ -29,7 +29,10 @@ export function ParticleLogo({ width = 280, height = 140, className = '' }: Part
   const rafRef = useRef<number>(0)
   const timeRef = useRef(0)
 
-  const sampleLogo = useCallback(async (canvas: HTMLCanvasElement) => {
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
@@ -38,145 +41,122 @@ export function ParticleLogo({ width = 280, height = 140, className = '' }: Part
     canvas.height = height * dpr
     canvas.style.width = `${width}px`
     canvas.style.height = `${height}px`
-    ctx.scale(dpr, dpr)
 
-    // Load SVG as image
+    // Load and sample SVG
     const img = new Image()
     img.crossOrigin = 'anonymous'
+    img.src = '/vixio-logo.svg'
 
-    await new Promise<void>((resolve, reject) => {
-      img.onload = () => resolve()
-      img.onerror = reject
-      img.src = '/vixio-logo.svg'
-    })
+    img.onload = () => {
+      // Draw SVG to offscreen canvas to sample pixels
+      const offscreen = document.createElement('canvas')
+      const offCtx = offscreen.getContext('2d')
+      if (!offCtx) return
 
-    // Draw SVG to offscreen canvas to sample pixels
-    const offscreen = document.createElement('canvas')
-    const offCtx = offscreen.getContext('2d')
-    if (!offCtx) return
+      offscreen.width = width
+      offscreen.height = height
 
-    offscreen.width = width
-    offscreen.height = height
+      const scale = Math.min(width / img.naturalWidth, height / img.naturalHeight) * 0.85
+      const drawW = img.naturalWidth * scale
+      const drawH = img.naturalHeight * scale
+      const offsetX = (width - drawW) / 2
+      const offsetY = (height - drawH) / 2
 
-    // Scale SVG to fit canvas
-    const scale = Math.min(width / img.naturalWidth, height / img.naturalHeight) * 0.85
-    const drawW = img.naturalWidth * scale
-    const drawH = img.naturalHeight * scale
-    const offsetX = (width - drawW) / 2
-    const offsetY = (height - drawH) / 2
+      offCtx.drawImage(img, offsetX, offsetY, drawW, drawH)
 
-    offCtx.drawImage(img, offsetX, offsetY, drawW, drawH)
+      const imageData = offCtx.getImageData(0, 0, width, height)
+      const pixels = imageData.data
+      const particles: Particle[] = []
+      const gap = 2
 
-    // Sample pixels
-    const imageData = offCtx.getImageData(0, 0, width, height)
-    const pixels = imageData.data
-    const particles: Particle[] = []
-    const gap = 2 // sample every 2px
-
-    for (let y = 0; y < height; y += gap) {
-      for (let x = 0; x < width; x += gap) {
-        const i = (y * width + x) * 4
-        const a = pixels[i + 3]
-        if (a > 30) { // visible pixel
-          particles.push({
-            originX: x,
-            originY: y,
-            x,
-            y,
-            vx: 0,
-            vy: 0,
-            r: pixels[i],
-            g: pixels[i + 1],
-            b: pixels[i + 2],
-            a: a / 255,
-            size: 1.4 + Math.random() * 1.0,
-          })
-        }
-      }
-    }
-
-    particlesRef.current = particles
-  }, [width, height])
-
-  const animate = useCallback(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    const mouse = mouseRef.current
-    const particles = particlesRef.current
-    timeRef.current += 0.016 // ~60fps
-
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i]
-
-      if (mouse.active) {
-        // Repulsion force from cursor — strong inverse-distance field
-        const dx = p.x - mouse.x
-        const dy = p.y - mouse.y
-        const distSq = dx * dx + dy * dy
-        const dist = Math.sqrt(distSq)
-        const forceRadius = 120
-
-        if (dist < forceRadius && dist > 1) {
-          const force = (forceRadius - dist) / forceRadius
-          const forcePow = force * force * force * 18 // cubic falloff, strong push
-          p.vx += (dx / dist) * forcePow
-          p.vy += (dy / dist) * forcePow
+      for (let y = 0; y < height; y += gap) {
+        for (let x = 0; x < width; x += gap) {
+          const i = (y * width + x) * 4
+          const a = pixels[i + 3]
+          if (a > 30) {
+            particles.push({
+              originX: x,
+              originY: y,
+              x,
+              y,
+              vx: 0,
+              vy: 0,
+              r: pixels[i],
+              g: pixels[i + 1],
+              b: pixels[i + 2],
+              a: a / 255,
+              size: 1.4 + Math.random() * 1.0,
+            })
+          }
         }
       }
 
-      // Spring force back to origin (magnetic reassembly)
-      const homeX = p.originX - p.x
-      const homeY = p.originY - p.y
-      const homeDist = Math.sqrt(homeX * homeX + homeY * homeY)
+      particlesRef.current = particles
 
-      // Softer spring when far (lets particles fly), stronger when close (snap back)
-      const springStrength = homeDist > 30 ? 0.025 : 0.07
-      p.vx += homeX * springStrength
-      p.vy += homeY * springStrength
+      // Start animation loop
+      const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Damping — slightly lower for more floaty feel
-      p.vx *= 0.92
-      p.vy *= 0.92
+        const mouse = mouseRef.current
+        const pts = particlesRef.current
+        timeRef.current += 0.016
 
-      // Subtle idle drift (sinusoidal breathing)
-      const driftX = Math.sin(timeRef.current * 1.2 + i * 0.017) * 0.4
-      const driftY = Math.cos(timeRef.current * 0.9 + i * 0.013) * 0.3
-      
-      // Update position
-      p.x += p.vx + driftX * 0.15
-      p.y += p.vy + driftY * 0.12
+        for (let j = 0; j < pts.length; j++) {
+          const p = pts[j]
 
-      // Draw particle
-      ctx.globalAlpha = p.a * 0.9
-      ctx.fillStyle = `rgb(${p.r},${p.g},${p.b})`
-      ctx.beginPath()
-      ctx.arc(p.x * dpr, p.y * dpr, p.size * dpr, 0, Math.PI * 2)
-      ctx.fill()
-    }
+          if (mouse.active) {
+            const dx = p.x - mouse.x
+            const dy = p.y - mouse.y
+            const distSq = dx * dx + dy * dy
+            const dist = Math.sqrt(distSq)
+            const forceRadius = 120
 
-    ctx.globalAlpha = 1
-    rafRef.current = requestAnimationFrame(animate)
-  }, [])
+            if (dist < forceRadius && dist > 1) {
+              const force = (forceRadius - dist) / forceRadius
+              const forcePow = force * force * force * 18
+              p.vx += (dx / dist) * forcePow
+              p.vy += (dy / dist) * forcePow
+            }
+          }
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+          // Spring force back to origin
+          const homeX = p.originX - p.x
+          const homeY = p.originY - p.y
+          const homeDist = Math.sqrt(homeX * homeX + homeY * homeY)
+          const springStrength = homeDist > 30 ? 0.025 : 0.07
+          p.vx += homeX * springStrength
+          p.vy += homeY * springStrength
 
-    sampleLogo(canvas).then(() => {
+          // Damping
+          p.vx *= 0.92
+          p.vy *= 0.92
+
+          // Idle drift
+          const driftX = Math.sin(timeRef.current * 1.2 + j * 0.017) * 0.4
+          const driftY = Math.cos(timeRef.current * 0.9 + j * 0.013) * 0.3
+
+          p.x += p.vx + driftX * 0.15
+          p.y += p.vy + driftY * 0.12
+
+          // Draw
+          ctx.globalAlpha = p.a * 0.9
+          ctx.fillStyle = `rgb(${p.r},${p.g},${p.b})`
+          ctx.beginPath()
+          ctx.arc(p.x * dpr, p.y * dpr, p.size * dpr, 0, Math.PI * 2)
+          ctx.fill()
+        }
+
+        ctx.globalAlpha = 1
+        rafRef.current = requestAnimationFrame(animate)
+      }
+
       rafRef.current = requestAnimationFrame(animate)
-    })
+    }
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
     }
-  }, [sampleLogo, animate])
+  }, [width, height])
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
