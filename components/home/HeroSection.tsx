@@ -51,7 +51,7 @@ export function HeroSection() {
           className="display-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
         >
-          Where stories become spaces people step inside.
+          Logic and emotion. Digital and physical. Body and mind.
         </motion.h1>
 
         <motion.p
@@ -64,8 +64,7 @@ export function HeroSection() {
             marginBottom: 'var(--spacing-8)',
           }}
         >
-          Vixio Creatives is a Hong Kong-based transmedia creative studio. We design and build cooperative
-          environments — projection-mapped rooms where groups of people create something together, and take it home.
+          A transmedia studio in Hong Kong. We build story worlds across every medium.
         </motion.p>
 
         <motion.div

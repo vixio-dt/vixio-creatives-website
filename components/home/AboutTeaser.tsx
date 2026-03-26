@@ -32,8 +32,8 @@ export function AboutTeaser() {
               Denis Tam
             </h3>
             <p className="body-md" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-4)' }}>
-              Mechanical engineer turned creative producer. Now building Hong Kong&apos;s first cooperative
-              immersive experience studio.
+              Mechanical engineer turned creative producer. Now building a transmedia studio
+              in Hong Kong.
             </p>
             <Link href="/about" className="text-link body-md">
               Read our story →

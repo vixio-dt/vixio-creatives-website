@@ -42,8 +42,8 @@ export function ServicesHero() {
           className="body-lg"
           style={{ color: 'var(--on-surface-variant)', maxWidth: '600px' }}
         >
-          From concept through technical design, content production, installation, and on-site
-          operation — we handle the full journey across Hong Kong and the Greater Bay Area.
+          We bring the same storytelling and technical craft behind our original worlds to
+          client projects — from concept through installation, across Hong Kong and the Greater Bay Area.
         </motion.p>
       </motion.div>
     </section>
