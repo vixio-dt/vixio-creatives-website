@@ -28,13 +28,13 @@ export function ManifestoSection() {
         animate="visible"
         style={{ maxWidth: '720px', textAlign: 'center' }}
       >
-        <motion.p
+        <motion.h1
           variants={fadeUp}
           className="headline-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-8)' }}
         >
           We believe the most powerful stories are the ones you live inside.
-        </motion.p>
+        </motion.h1>
 
         <motion.p
           variants={fadeUp}
