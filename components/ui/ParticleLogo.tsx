@@ -89,7 +89,7 @@ export function ParticleLogo({ width = 280, height = 140, className = '' }: Part
             g: pixels[i + 1],
             b: pixels[i + 2],
             a: a / 255,
-            size: 1.2 + Math.random() * 0.8,
+            size: 1.4 + Math.random() * 1.0,
           })
         }
       }
@@ -116,16 +116,16 @@ export function ParticleLogo({ width = 280, height = 140, className = '' }: Part
       const p = particles[i]
 
       if (mouse.active) {
-        // Repulsion force from cursor
+        // Repulsion force from cursor — strong inverse-distance field
         const dx = p.x - mouse.x
         const dy = p.y - mouse.y
         const distSq = dx * dx + dy * dy
         const dist = Math.sqrt(distSq)
-        const forceRadius = 80
+        const forceRadius = 120
 
-        if (dist < forceRadius && dist > 0) {
+        if (dist < forceRadius && dist > 1) {
           const force = (forceRadius - dist) / forceRadius
-          const forcePow = force * force * 8
+          const forcePow = force * force * force * 18 // cubic falloff, strong push
           p.vx += (dx / dist) * forcePow
           p.vy += (dy / dist) * forcePow
         }
@@ -134,19 +134,24 @@ export function ParticleLogo({ width = 280, height = 140, className = '' }: Part
       // Spring force back to origin (magnetic reassembly)
       const homeX = p.originX - p.x
       const homeY = p.originY - p.y
-      p.vx += homeX * 0.06
-      p.vy += homeY * 0.06
+      const homeDist = Math.sqrt(homeX * homeX + homeY * homeY)
 
-      // Damping
-      p.vx *= 0.88
-      p.vy *= 0.88
+      // Softer spring when far (lets particles fly), stronger when close (snap back)
+      const springStrength = homeDist > 30 ? 0.025 : 0.07
+      p.vx += homeX * springStrength
+      p.vy += homeY * springStrength
 
-      // Subtle idle drift (sinusoidal)
-      const drift = Math.sin(timeRef.current * 1.5 + i * 0.01) * 0.3
+      // Damping — slightly lower for more floaty feel
+      p.vx *= 0.92
+      p.vy *= 0.92
+
+      // Subtle idle drift (sinusoidal breathing)
+      const driftX = Math.sin(timeRef.current * 1.2 + i * 0.017) * 0.4
+      const driftY = Math.cos(timeRef.current * 0.9 + i * 0.013) * 0.3
       
       // Update position
-      p.x += p.vx + drift * 0.1
-      p.y += p.vy + Math.cos(timeRef.current * 1.2 + i * 0.013) * 0.1
+      p.x += p.vx + driftX * 0.15
+      p.y += p.vy + driftY * 0.12
 
       // Draw particle
       ctx.globalAlpha = p.a * 0.9
