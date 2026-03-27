@@ -192,6 +192,41 @@ body {
 }
 
 /* ============================================
+   CSS ENTRANCE ANIMATIONS
+   These work without JS — no SSR opacity:0 issue
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Scroll reveal: JS adds .scroll-reveal-pending to below-fold elements,
+   then .scroll-reveal-visible when they enter viewport.
+   Content is ALWAYS visible by default (no JS = no hiding). */
+.scroll-reveal-pending {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
    ANIMATION ACCESSIBILITY
    ============================================ */
 
