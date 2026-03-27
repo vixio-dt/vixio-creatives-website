@@ -69,3 +69,10 @@ This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is 
 | `npm run start` | Serve static build |
 | `npm run lint` | ESLint check |
 | `npm run typecheck` | TypeScript check |
+
+## Cursor Cloud specific instructions
+
+- **Single service**: This is a purely static front-end site with no backend, database, or external services. The only service to run is `npm run dev` (Next.js dev server on port 3000).
+- **Lint warning**: `npm run lint` produces one expected warning (`@next/next/no-page-custom-font` in `app/layout.tsx`) about custom fonts not in `pages/_document.js`. This is harmless for App Router projects and can be ignored.
+- **Static export**: `npm run build` outputs to `out/`. `npm run start` uses the `serve` package to host `out/` on port 3000 — do not run `dev` and `start` on the same port simultaneously.
+- **No test framework**: There are no automated test suites (no Jest, Vitest, etc.). Verification is done via `npm run typecheck` and `npm run lint`.
