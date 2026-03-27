@@ -7,10 +7,10 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Vixio Creatives — Transmedia Creative Studio, Hong Kong',
-  description: 'Vixio Creatives is a transmedia studio in Hong Kong. We build story worlds across every medium — immersive experiences, physical collectibles, and interactive media. Launching October 2026.',
+  description: 'Vixio Creatives is a transmedia creative studio based in Hong Kong. We create original stories and bring them to life across formats — immersive phygital experiences, interactive collectibles, film, and content.',
   openGraph: {
     title: 'Vixio Creatives — Transmedia Creative Studio, Hong Kong',
-    description: 'A transmedia studio in Hong Kong. We build story worlds across every medium.',
+    description: 'Stories across worlds. A transmedia creative studio based in Hong Kong.',
     url: 'https://vixiocreatives.com',
     siteName: 'Vixio Creatives',
     type: 'website',

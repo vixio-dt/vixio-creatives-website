@@ -192,9 +192,7 @@ body {
 }
 
 /* ============================================
-   SSR ANIMATION FALLBACK
-   Framer Motion sets opacity:0 inline on SSR.
-   This ensures content is visible if JS is slow.
+   ANIMATION ACCESSIBILITY
    ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
