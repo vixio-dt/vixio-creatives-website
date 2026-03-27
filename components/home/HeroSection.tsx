@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
 
-const ParticleLogo = dynamic(
-  () => import('@/components/ui/ParticleLogo').then(mod => ({ default: mod.ParticleLogo })),
+const LogoReveal = dynamic(
+  () => import('@/components/ui/LogoReveal').then(mod => ({ default: mod.LogoReveal })),
   { ssr: false, loading: () => <div style={{ width: 280, height: 140 }} /> }
 )
 
@@ -29,9 +29,9 @@ export function HeroSection() {
       }}
     >
       <div style={{ textAlign: 'center', maxWidth: '680px' }}>
-        <motion.div {...fadeUp(0)} style={{ marginBottom: 'var(--spacing-8)', display: 'flex', justifyContent: 'center' }}>
-          <ParticleLogo width={280} height={140} />
-        </motion.div>
+        <div style={{ marginBottom: 'var(--spacing-8)', display: 'flex', justifyContent: 'center' }}>
+          <LogoReveal width={280} height={140} />
+        </div>
 
         <motion.h1
           {...fadeUp(0.15)}
