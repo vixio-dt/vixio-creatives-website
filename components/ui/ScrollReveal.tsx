@@ -21,33 +21,35 @@ export function ScrollReveal({ children, delay = 0, className = '' }: ScrollReve
     const el = ref.current
     if (!el) return
 
-    // Check if element is already in or near the viewport
-    const rect = el.getBoundingClientRect()
-    if (rect.top < window.innerHeight * 1.1) {
-      // Already visible — keep as-is (SSR rendered visible)
-      return
-    }
-
-    // Below viewport — hide via DOM, set up observer
-    el.style.opacity = '0'
-    el.style.transform = 'translateY(20px)'
-    el.style.transition = 'none'
-
+    // Use IntersectionObserver for all elements — it handles
+    // both "already in viewport" and "scrolled into view" cases
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Element is visible — ensure it's shown with animation
           applyReveal(el)
           observer.disconnect()
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0, rootMargin: '100px 0px' } // trigger 100px BEFORE entering viewport
     )
 
-    observer.observe(el)
+    // Small delay to let layout settle, then hide if not yet visible
+    requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top > window.innerHeight) {
+        // Truly below viewport — hide for scroll reveal
+        el.style.opacity = '0'
+        el.style.transform = 'translateY(20px)'
+        el.style.transition = 'none'
+      }
+      observer.observe(el)
+    })
+
     return () => observer.disconnect()
   }, [applyReveal])
 
-  // SSR default: fully visible — no opacity:0, no transforms
+  // SSR: always visible
   const style: CSSProperties = {
     opacity: 1,
     transform: 'translateY(0)',
