@@ -2,14 +2,11 @@
 
 import { motion } from 'framer-motion'
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.2 } },
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' as const } },
-}
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.4, 0, 0.2, 1] as const },
+})
 
 export function ManifestoSection() {
   return (
@@ -22,14 +19,9 @@ export function ManifestoSection() {
         padding: 'var(--spacing-20) var(--spacing-6)',
       }}
     >
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        style={{ maxWidth: '720px', textAlign: 'center' }}
-      >
+      <div style={{ maxWidth: '720px', textAlign: 'center' }}>
         <motion.h1
-          variants={fadeUp}
+          {...fadeUp(0)}
           className="headline-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-8)' }}
         >
@@ -37,7 +29,7 @@ export function ManifestoSection() {
         </motion.h1>
 
         <motion.p
-          variants={fadeUp}
+          {...fadeUp(0.2)}
           className="headline-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-8)' }}
         >
@@ -46,14 +38,14 @@ export function ManifestoSection() {
         </motion.p>
 
         <motion.p
-          variants={fadeUp}
+          {...fadeUp(0.4)}
           className="body-lg"
           style={{ color: 'var(--on-surface-variant)', maxWidth: '560px', margin: '0 auto' }}
         >
           Vixio Creatives aims to be the bridge between logic and emotion, digital and physical,
           body and mind — connecting people through great stories.
         </motion.p>
-      </motion.div>
+      </div>
     </section>
   )
 }

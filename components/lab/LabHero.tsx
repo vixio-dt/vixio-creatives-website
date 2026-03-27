@@ -3,30 +3,22 @@
 import { motion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
-}
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.4, 0, 0.2, 1] as const },
+})
 
 export function LabHero() {
   return (
     <section style={{ padding: 'var(--spacing-20) var(--spacing-6) var(--spacing-16)' }}>
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        style={{ maxWidth: '700px' }}
-      >
-        <motion.div variants={fadeUp}>
+      <div style={{ maxWidth: '700px' }}>
+        <motion.div {...fadeUp(0)}>
           <SectionLabel color="primary">The Lab</SectionLabel>
         </motion.div>
 
         <motion.h1
-          variants={fadeUp}
+          {...fadeUp(0.15)}
           className="display-md"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-4)' }}
         >
@@ -34,13 +26,13 @@ export function LabHero() {
         </motion.h1>
 
         <motion.p
-          variants={fadeUp}
+          {...fadeUp(0.3)}
           className="body-lg"
           style={{ color: 'var(--on-surface-variant)' }}
         >
           Experiments in projection, interaction, and physical-digital connection. Everything here is real.
         </motion.p>
-      </motion.div>
+      </div>
     </section>
   )
 }

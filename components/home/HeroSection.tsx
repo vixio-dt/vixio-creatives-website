@@ -1,18 +1,20 @@
 'use client'
 
-import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-}
+const ParticleLogo = dynamic(
+  () => import('@/components/ui/ParticleLogo').then(mod => ({ default: mod.ParticleLogo })),
+  { ssr: false, loading: () => <div style={{ width: 280, height: 140 }} /> }
+)
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const } },
-}
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.4, 0, 0.2, 1] as const },
+})
 
 export function HeroSection() {
   return (
@@ -26,36 +28,21 @@ export function HeroSection() {
         padding: 'var(--spacing-20) var(--spacing-6)',
       }}
     >
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        style={{
-          textAlign: 'center',
-          maxWidth: '680px',
-        }}
-      >
-        <motion.div variants={fadeUp} style={{ marginBottom: 'var(--spacing-8)' }}>
-          <Image
-            src="/vixio-logo.svg"
-            alt="Vixio Creatives"
-            width={300}
-            height={150}
-            className="w-[180px] md:w-[240px] mx-auto"
-            priority
-          />
+      <div style={{ textAlign: 'center', maxWidth: '680px' }}>
+        <motion.div {...fadeUp(0)} style={{ marginBottom: 'var(--spacing-8)', display: 'flex', justifyContent: 'center' }}>
+          <ParticleLogo width={280} height={140} />
         </motion.div>
 
         <motion.h1
-          variants={fadeUp}
+          {...fadeUp(0.15)}
           className="display-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
         >
-          Where stories become spaces people step inside.
+          Logic and emotion. Digital and physical. Body and mind.
         </motion.h1>
 
         <motion.p
-          variants={fadeUp}
+          {...fadeUp(0.3)}
           className="body-lg"
           style={{
             color: 'var(--on-surface-variant)',
@@ -64,18 +51,17 @@ export function HeroSection() {
             marginBottom: 'var(--spacing-8)',
           }}
         >
-          Vixio Creatives is a Hong Kong-based transmedia creative studio. We design and build cooperative
-          environments — projection-mapped rooms where groups of people create something together, and take it home.
+          A transmedia studio in Hong Kong. We build story worlds across every medium.
         </motion.p>
 
         <motion.div
-          variants={fadeUp}
+          {...fadeUp(0.45)}
           style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <GradientButton href="/experiences">Our Vision</GradientButton>
           <GhostButton href="/services">Work With Us</GhostButton>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

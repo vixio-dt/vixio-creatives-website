@@ -36,7 +36,7 @@ export function FounderSection() {
               Mechanical engineer by training, with a decade operating across Hong Kong and Dongguan
               in international trade and manufacturing. Creative producer for a 200-person college
               variety show — writing, performing, coordinating every element of production. Now
-              channelling both worlds into building immersive experiences that bridge great stories
+              channelling both worlds into building a transmedia studio that bridges great stories
               and the craft they deserve.
             </p>
             <p className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>

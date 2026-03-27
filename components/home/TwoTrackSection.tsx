@@ -22,9 +22,8 @@ export function TwoTrackSection() {
               Original Experiences
             </h2>
             <p className="body-md" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-6)' }}>
-              Cooperative immersive experiences where groups enter a projection-mapped room and work together to create
-              something that crosses from digital to physical. Walk out with an artifact that remembers your journey.
-              Launching October 2026, Hong Kong.
+              Our debut story world comes to life as a cooperative immersive experience — where groups
+              create something together that crosses from digital to physical. Launching October 2026, Hong Kong.
             </p>
             <Link href="/experiences" className="text-link body-md" style={{ marginBottom: 'var(--spacing-8)', display: 'inline-block' }}>
               Explore the Vision →
@@ -40,8 +39,8 @@ export function TwoTrackSection() {
               Studio Services
             </h2>
             <p className="body-md" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-6)' }}>
-              Projection mapping, NFC interaction, body tracking, and physical collectible production — designed and
-              delivered for malls, brands, and cultural venues.
+              We bring story worlds to life for clients — immersive activations, brand experiences, and interactive
+              installations for malls, brands, and cultural venues.
             </p>
             <Link href="/services" className="text-link body-md" style={{ marginBottom: 'var(--spacing-8)', display: 'inline-block' }}>
               Start a Project →

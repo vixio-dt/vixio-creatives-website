@@ -10,7 +10,7 @@ export function EmailCaptureSection() {
       <div style={{ maxWidth: '480px', margin: '0 auto', textAlign: 'center' }}>
         <ScrollReveal>
           <h2 className="headline-sm" style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-2)' }}>
-            Be the first to experience it.
+            Be the first to step into our world.
           </h2>
           <p className="body-md" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-8)' }}>
             Early access to our October 2026 launch and behind-the-scenes updates.

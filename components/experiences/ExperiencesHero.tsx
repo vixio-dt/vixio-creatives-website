@@ -3,14 +3,11 @@
 import { motion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
-}
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease: [0.4, 0, 0.2, 1] as const },
+})
 
 export function ExperiencesHero() {
   return (
@@ -24,18 +21,13 @@ export function ExperiencesHero() {
         padding: 'var(--spacing-20) var(--spacing-6)',
       }}
     >
-      <motion.div
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-        style={{ textAlign: 'center', maxWidth: '640px' }}
-      >
-        <motion.div variants={fadeUp}>
+      <div style={{ textAlign: 'center', maxWidth: '640px' }}>
+        <motion.div {...fadeUp(0)}>
           <SectionLabel color="primary">Original Experiences</SectionLabel>
         </motion.div>
 
         <motion.h1
-          variants={fadeUp}
+          {...fadeUp(0.15)}
           className="display-lg"
           style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
         >
@@ -43,7 +35,7 @@ export function ExperiencesHero() {
         </motion.h1>
 
         <motion.p
-          variants={fadeUp}
+          {...fadeUp(0.3)}
           className="body-lg"
           style={{ color: 'var(--on-surface-variant)' }}
         >
@@ -52,7 +44,7 @@ export function ExperiencesHero() {
           what happens next. 45 minutes. Walk out with a physical artifact that didn&apos;t exist before
           you arrived.
         </motion.p>
-      </motion.div>
+      </div>
     </section>
   )
 }
