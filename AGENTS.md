@@ -7,7 +7,7 @@ alwaysApply: true
 
 ## Project Overview
 
-This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 static-export site with 7 pages, using Mantine, Tailwind CSS v4, and Framer Motion.
+This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 site with 7 pages (all statically prerendered), using Mantine, Tailwind CSS v4, and Framer Motion. Deployed on Hostinger Node.js hosting.
 
 ## Mandatory Rules
 
@@ -19,7 +19,7 @@ This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is 
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | Next.js 16 (App Router, static export) |
+| Framework | Next.js 16 (App Router, SSR with static prerender) |
 | Language | TypeScript |
 | UI Library | Mantine |
 | Styling | Tailwind CSS v4 + CSS custom properties |
@@ -65,14 +65,14 @@ This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is 
 | Script | Purpose |
 |--------|---------|
 | `npm run dev` | Start dev server |
-| `npm run build` | Build static export |
-| `npm run start` | Serve static build |
+| `npm run build` | Production build |
+| `npm run start` | Start production server (`next start`) |
 | `npm run lint` | ESLint check |
 | `npm run typecheck` | TypeScript check |
 
 ## Cursor Cloud specific instructions
 
-- **Single service**: This is a purely static front-end site with no backend, database, or external services. The only service to run is `npm run dev` (Next.js dev server on port 3000).
+- **Single service**: This is a front-end site with no backend, database, or external services. The only service to run is `npm run dev` (Next.js dev server on port 3000).
+- **Hosting**: Deployed on Hostinger Node.js hosting. Hostinger runs `npm run build` then `npm run start -- -p $PORT`. Do NOT use `output: 'export'` — Hostinger requires `next start` (server mode).
 - **Lint warning**: `npm run lint` produces one expected warning (`@next/next/no-page-custom-font` in `app/layout.tsx`) about custom fonts not in `pages/_document.js`. This is harmless for App Router projects and can be ignored.
-- **Static export**: `npm run build` outputs to `out/`. `npm run start` uses the `serve` package to host `out/` on port 3000 — do not run `dev` and `start` on the same port simultaneously.
 - **No test framework**: There are no automated test suites (no Jest, Vitest, etc.). Verification is done via `npm run typecheck` and `npm run lint`.
