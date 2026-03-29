@@ -25,13 +25,16 @@ export function LabPreviewSection() {
         <div className="grid md:grid-cols-3 gap-6" style={{ marginBottom: 'var(--spacing-8)' }}>
           {labEntries.map((entry, i) => (
             <ScrollReveal key={entry.title} delay={i * 0.1}>
-              <div
+              <Link
+                href="/lab"
                 className="card-hover"
                 style={{
+                  display: 'block',
                   background: 'var(--surface-container-high)',
                   borderRadius: 'var(--radius-lg)',
                   overflow: 'hidden',
-                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  color: 'inherit',
                 }}
               >
                 <GradientPlaceholder variant={entry.variant} aspectRatio="16/9" />
@@ -43,7 +46,7 @@ export function LabPreviewSection() {
                     {entry.tag}
                   </span>
                 </div>
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

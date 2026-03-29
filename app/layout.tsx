@@ -34,9 +34,10 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <MantineClientProvider>
           <OrbitalNav />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </MantineClientProvider>
       </body>

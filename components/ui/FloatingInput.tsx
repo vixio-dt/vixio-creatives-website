@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
 
 interface FloatingInputProps {
   label: string
@@ -11,6 +11,8 @@ interface FloatingInputProps {
 }
 
 export function FloatingInput({ label, name, type = 'text', options, required }: FloatingInputProps) {
+  const generatedId = useId()
+  const inputId = `floating-input-${generatedId}`
   const [focused, setFocused] = useState(false)
   const [value, setValue] = useState('')
 
@@ -60,8 +62,9 @@ export function FloatingInput({ label, name, type = 'text', options, required }:
   if (type === 'textarea') {
     return (
       <div style={wrapperStyle}>
-        <label style={labelStyle}>{label}</label>
+        <label htmlFor={inputId} style={labelStyle}>{label}</label>
         <textarea
+          id={inputId}
           name={name}
           required={required}
           rows={3}
@@ -79,8 +82,9 @@ export function FloatingInput({ label, name, type = 'text', options, required }:
   if (type === 'select' && options) {
     return (
       <div style={wrapperStyle}>
-        <label style={labelStyle}>{label}</label>
+        <label htmlFor={inputId} style={labelStyle}>{label}</label>
         <select
+          id={inputId}
           name={name}
           required={required}
           style={{ ...inputStyle, cursor: 'pointer', appearance: 'none' }}
@@ -101,8 +105,9 @@ export function FloatingInput({ label, name, type = 'text', options, required }:
 
   return (
     <div style={wrapperStyle}>
-      <label style={labelStyle}>{label}</label>
+      <label htmlFor={inputId} style={labelStyle}>{label}</label>
       <input
+        id={inputId}
         type={type}
         name={name}
         required={required}

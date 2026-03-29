@@ -10,7 +10,8 @@ interface GhostButtonProps {
 
 export function GhostButton({ children, href, onClick, type = 'button', className = '' }: GhostButtonProps) {
   const styles: React.CSSProperties = {
-    border: '1px solid rgba(200, 196, 191, 0.3)',
+    boxShadow: 'inset 0 0 0 1.5px rgba(200, 196, 191, 0.3)',
+    border: 'none',
     color: 'var(--primary)',
     background: 'transparent',
     borderRadius: 'var(--radius-md)',

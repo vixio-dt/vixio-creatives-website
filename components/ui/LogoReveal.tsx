@@ -1,9 +1,16 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 export function LogoReveal() {
   const [phase, setPhase] = useState<'playing' | 'fading' | 'done'>('playing')
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (mq.matches) {
+      setPhase('done')
+    }
+  }, [])
 
   const handleVideoEnded = useCallback(() => {
     setPhase('fading')
@@ -18,18 +25,19 @@ export function LogoReveal() {
         position: 'fixed',
         inset: 0,
         zIndex: 200,
-        background: '#000000',
+        background: phase === 'fading' ? 'var(--surface)' : '#000000',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         opacity: phase === 'fading' ? 0 : 1,
-        transition: 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        transition: 'opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
       <video
         autoPlay
         muted
         playsInline
+        poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
         onEnded={handleVideoEnded}
         style={{
           width: '100%',

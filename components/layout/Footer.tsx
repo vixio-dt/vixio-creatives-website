@@ -10,8 +10,6 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ]
 
-const socialLinks = ['Instagram', 'LinkedIn', 'YouTube']
-
 export function Footer() {
   return (
     <footer
@@ -50,11 +48,9 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="body-sm"
+                className="body-sm text-link"
                 style={{
                   color: 'var(--on-surface-variant)',
-                  textDecoration: 'none',
-                  transition: 'color var(--duration-fast) var(--ease-default)',
                 }}
               >
                 {link.label}
@@ -62,24 +58,8 @@ export function Footer() {
             ))}
           </nav>
 
-          {/* Right — Social + Email */}
+          {/* Right — Email */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-            <div className="flex gap-4">
-              {socialLinks.map((label) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="label-sm"
-                  style={{
-                    color: 'var(--on-surface-variant)',
-                    textDecoration: 'none',
-                    transition: 'color var(--duration-fast) var(--ease-default)',
-                  }}
-                >
-                  {label}
-                </a>
-              ))}
-            </div>
             <a
               href="mailto:hello@vixiocreatives.com"
               className="body-sm"

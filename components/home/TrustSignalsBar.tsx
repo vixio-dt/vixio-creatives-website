@@ -18,8 +18,8 @@ export function TrustSignalsBar() {
             gap: 'var(--spacing-8)',
           }}
         >
-          <span className="label-sm" style={{ color: 'var(--outline-variant)' }}>TEA Member</span>
-          <span className="label-sm" style={{ color: 'var(--outline-variant)' }}>IAAPA 2026</span>
+          <span className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>TEA Member</span>
+          <span className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>IAAPA 2026</span>
         </div>
       </ScrollReveal>
     </section>
