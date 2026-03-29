@@ -12,7 +12,7 @@ export function HeroSection() {
         alignItems: 'center',
         justifyContent: 'center',
         background: 'var(--surface)',
-        padding: 'var(--spacing-20) var(--spacing-6)',
+        padding: 'calc(var(--spacing-20) + 80px) var(--spacing-6) var(--spacing-20)',
       }}
     >
       <div style={{ textAlign: 'center', maxWidth: '700px' }}>
@@ -43,7 +43,7 @@ export function HeroSection() {
           className="fade-in-up"
           style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap', animationDelay: '0.7s' }}
         >
-          <GradientButton href="/experiences">Our Vision</GradientButton>
+          <GradientButton href="/about">Our Vision</GradientButton>
           <GhostButton href="/services">Work With Us</GhostButton>
         </div>
       </div>

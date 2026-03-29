@@ -10,6 +10,7 @@ export function OrbitalNav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [logoHeroVisible, setLogoHeroVisible] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,6 +23,38 @@ export function OrbitalNav() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    let intersectionObserver: IntersectionObserver | null = null
+
+    function observeLogoHero() {
+      const logoHero = document.getElementById('logo-hero')
+      if (!logoHero) return
+
+      intersectionObserver = new IntersectionObserver(
+        ([entry]) => setLogoHeroVisible(entry.isIntersecting),
+        { threshold: 0.1 }
+      )
+      intersectionObserver.observe(logoHero)
+      mutationObserver.disconnect()
+    }
+
+    const mutationObserver = new MutationObserver(() => {
+      if (document.getElementById('logo-hero')) {
+        observeLogoHero()
+      }
+    })
+
+    observeLogoHero()
+    if (!intersectionObserver) {
+      mutationObserver.observe(document.body, { childList: true, subtree: true })
+    }
+
+    return () => {
+      intersectionObserver?.disconnect()
+      mutationObserver.disconnect()
+    }
   }, [])
 
   const circumference = 2 * Math.PI * 16
@@ -53,13 +86,16 @@ export function OrbitalNav() {
           top: 'var(--spacing-6)',
           left: 'var(--spacing-6)',
           zIndex: 50,
+          opacity: logoHeroVisible ? 0 : 1,
+          transition: 'opacity 300ms var(--ease-default)',
+          pointerEvents: logoHeroVisible ? 'none' : 'auto',
         }}
       >
         <Image
           src="/vixio-logo.svg"
           alt="Vixio Creatives"
-          width={140}
-          height={70}
+          width={130}
+          height={65}
           className="w-[100px] md:w-[130px]"
           priority
         />
@@ -91,36 +127,6 @@ export function OrbitalNav() {
         <Menu size={20} color="var(--on-surface)" />
       </button>
 
-      {/* Bottom Left — Social Links (hidden on mobile) */}
-      <div
-        className="hidden md:flex"
-        style={{
-          position: 'fixed',
-          bottom: 'var(--spacing-6)',
-          left: 'var(--spacing-6)',
-          zIndex: 50,
-          flexDirection: 'column',
-          gap: 'var(--spacing-2)',
-        }}
-      >
-        {['Instagram', 'LinkedIn', 'YouTube'].map((label) => (
-          <a
-            key={label}
-            href="#"
-            className="label-sm text-link"
-            style={{
-              color: 'var(--on-surface-variant)',
-              textDecoration: 'none',
-              transition: 'color var(--duration-fast) var(--ease-default)',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--on-surface-variant)')}
-          >
-            {label}
-          </a>
-        ))}
-      </div>
-
       {/* Bottom Right — Scroll Progress */}
       <div
         style={{
@@ -130,7 +136,7 @@ export function OrbitalNav() {
           zIndex: 50,
         }}
       >
-        <svg width="40" height="40" viewBox="0 0 36 36">
+        <svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true">
           <circle
             cx="18"
             cy="18"

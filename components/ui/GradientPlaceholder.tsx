@@ -5,9 +5,9 @@ interface GradientPlaceholderProps {
 }
 
 const gradients = {
-  primary: 'linear-gradient(135deg, #3AAED8, #8FE1FF)',
-  warm: 'linear-gradient(135deg, #D4A843, #FDF5E6)',
-  neutral: 'linear-gradient(135deg, #EDEAE6, #FAFAF8)',
+  primary: 'linear-gradient(135deg, var(--primary), var(--primary-soft))',
+  warm: 'linear-gradient(135deg, var(--tertiary), var(--tertiary-container))',
+  neutral: 'linear-gradient(135deg, var(--surface-container-high), var(--surface))',
 }
 
 export function GradientPlaceholder({ variant = 'neutral', aspectRatio = '16/9', className = '' }: GradientPlaceholderProps) {

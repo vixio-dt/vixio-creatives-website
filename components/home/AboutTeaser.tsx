@@ -16,7 +16,7 @@ export function AboutTeaser() {
               width: '120px',
               height: '120px',
               borderRadius: 'var(--radius-full)',
-              border: '1px solid rgba(200, 196, 191, 0.3)',
+              boxShadow: '0 0 0 2px var(--surface-container-high)',
               overflow: 'hidden',
               flexShrink: 0,
             }}
