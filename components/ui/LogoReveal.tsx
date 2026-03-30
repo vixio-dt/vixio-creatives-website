@@ -1,23 +1,18 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
+import { useReducedMotion } from 'framer-motion'
 
 export function LogoReveal() {
+  const prefersReducedMotion = useReducedMotion()
   const [phase, setPhase] = useState<'playing' | 'fading' | 'done'>('playing')
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (mq.matches) {
-      setPhase('done')
-    }
-  }, [])
 
   const handleVideoEnded = useCallback(() => {
     setPhase('fading')
     setTimeout(() => setPhase('done'), 1200)
   }, [])
 
-  if (phase === 'done') return null
+  if (prefersReducedMotion || phase === 'done') return null
 
   return (
     <div
