@@ -10,7 +10,7 @@ export function OrbitalNav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [logoHeroVisible, setLogoHeroVisible] = useState(false)
+  const [revealVisible, setRevealVisible] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,25 +28,25 @@ export function OrbitalNav() {
   useEffect(() => {
     let intersectionObserver: IntersectionObserver | null = null
 
-    function observeLogoHero() {
-      const logoHero = document.getElementById('logo-hero')
-      if (!logoHero) return
+    function observeReveal() {
+      const reveal = document.getElementById('scroll-logo-reveal')
+      if (!reveal) return
 
       intersectionObserver = new IntersectionObserver(
-        ([entry]) => setLogoHeroVisible(entry.isIntersecting),
-        { threshold: 0.1 }
+        ([entry]) => setRevealVisible(entry.isIntersecting),
+        { threshold: 0.01 }
       )
-      intersectionObserver.observe(logoHero)
+      intersectionObserver.observe(reveal)
       mutationObserver.disconnect()
     }
 
     const mutationObserver = new MutationObserver(() => {
-      if (document.getElementById('logo-hero')) {
-        observeLogoHero()
+      if (document.getElementById('scroll-logo-reveal')) {
+        observeReveal()
       }
     })
 
-    observeLogoHero()
+    observeReveal()
     if (!intersectionObserver) {
       mutationObserver.observe(document.body, { childList: true, subtree: true })
     }
@@ -69,9 +69,10 @@ export function OrbitalNav() {
           left: 0,
           right: 0,
           height: '80px',
-          background: scrolled ? 'rgba(250, 250, 248, 0.75)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+          background: scrolled && !revealVisible ? 'rgba(250, 250, 248, 0.75)' : 'transparent',
+          backdropFilter: scrolled && !revealVisible ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled && !revealVisible ? 'blur(16px)' : 'none',
+          opacity: revealVisible ? 0 : 1,
           transition: 'all var(--duration-fast) var(--ease-default)',
           zIndex: 49,
           pointerEvents: 'none',
@@ -86,9 +87,9 @@ export function OrbitalNav() {
           top: 'var(--spacing-6)',
           left: 'var(--spacing-6)',
           zIndex: 50,
-          opacity: logoHeroVisible ? 0 : 1,
+          opacity: revealVisible ? 0 : 1,
           transition: 'opacity 300ms var(--ease-default)',
-          pointerEvents: logoHeroVisible ? 'none' : 'auto',
+          pointerEvents: revealVisible ? 'none' : 'auto',
         }}
       >
         <Image
@@ -120,7 +121,9 @@ export function OrbitalNav() {
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: '0 4px 24px var(--shadow-ambient)',
-          transition: 'background var(--duration-fast) var(--ease-default)',
+          opacity: revealVisible ? 0 : 1,
+          transition: 'background var(--duration-fast) var(--ease-default), opacity 300ms var(--ease-default)',
+          pointerEvents: revealVisible ? 'none' : 'auto',
         }}
         className="menu-trigger"
       >
@@ -134,6 +137,9 @@ export function OrbitalNav() {
           bottom: 'var(--spacing-6)',
           right: 'var(--spacing-6)',
           zIndex: 50,
+          opacity: revealVisible ? 0 : 1,
+          transition: 'opacity 300ms var(--ease-default)',
+          pointerEvents: revealVisible ? 'none' : 'auto',
         }}
       >
         <svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true">

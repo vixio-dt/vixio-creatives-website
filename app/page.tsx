@@ -4,14 +4,12 @@ import { LabPreviewSection } from '@/components/home/LabPreviewSection'
 import { AboutTeaser } from '@/components/home/AboutTeaser'
 import { TrustSignalsBar } from '@/components/home/TrustSignalsBar'
 import { EmailCaptureSection } from '@/components/home/EmailCaptureSection'
-import { LogoReveal } from '@/components/ui/LogoReveal'
-import { LogoHero } from '@/components/home/LogoHero'
+import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
 
 export default function Home() {
   return (
     <>
-      <LogoReveal />
-      <LogoHero />
+      <ScrollLogoReveal />
       <HeroSection />
       <TwoTrackSection />
       <LabPreviewSection />
