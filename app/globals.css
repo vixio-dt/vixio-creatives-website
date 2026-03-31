@@ -58,11 +58,20 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Manrope', sans-serif;
 
+  /* Logo sizing (shared between LogoReveal + LogoHero) */
+  --logo-width: 280px;
+
   /* Motion */
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 300ms;
   --duration-medium: 500ms;
   --duration-slow: 700ms;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --logo-width: 400px;
+  }
 }
 
 /* ============================================
