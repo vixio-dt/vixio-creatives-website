@@ -81,6 +81,8 @@ This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is 
 
 - For planning open-ended or creative UI work, use the superpowers brainstorming skill instead of the deprecated `/brainstorm` Cursor command.
 - For the homepage logo moment, prefer scroll-scrubbed (Apple-style) reveals over autoplay video or timer-only sequences.
+- After the scroll-driven logo reveal settles, hold the logo centered in its original brand colors briefly before the following section (e.g. hero) slides or transitions in.
+- On the homepage, keep the OrbitalNav menu trigger and header wordmark hidden until the scroll logo-reveal sequence has finished, then show them.
 
 ## Learned Workspace Facts
 

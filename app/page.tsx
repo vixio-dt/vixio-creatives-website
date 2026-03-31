@@ -1,4 +1,3 @@
-import { HeroSection } from '@/components/home/HeroSection'
 import { TwoTrackSection } from '@/components/home/TwoTrackSection'
 import { LabPreviewSection } from '@/components/home/LabPreviewSection'
 import { AboutTeaser } from '@/components/home/AboutTeaser'
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <>
       <ScrollLogoReveal />
-      <HeroSection />
       <TwoTrackSection />
       <LabPreviewSection />
       <AboutTeaser />

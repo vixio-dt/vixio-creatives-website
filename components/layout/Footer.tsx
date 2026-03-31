@@ -34,9 +34,9 @@ export function Footer() {
             <Image
               src="/vixio-logo.svg"
               alt="Vixio Creatives"
-              width={60}
-              height={30}
-              className="w-[60px]"
+              width={120}
+              height={60}
+              className="w-[120px]"
             />
             <span className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>Hong Kong</span>
             <span className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>© 2026 Vixio Creatives</span>

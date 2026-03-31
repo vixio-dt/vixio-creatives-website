@@ -84,8 +84,8 @@ export function OrbitalNav() {
         href="/"
         style={{
           position: 'fixed',
-          top: 'var(--spacing-6)',
-          left: 'var(--spacing-6)',
+          top: '-10px',
+          left: 'var(--spacing-4)',
           zIndex: 50,
           opacity: revealVisible ? 0 : 1,
           transition: 'opacity 300ms var(--ease-default)',
@@ -95,9 +95,9 @@ export function OrbitalNav() {
         <Image
           src="/vixio-logo.svg"
           alt="Vixio Creatives"
-          width={130}
-          height={65}
-          className="w-[100px] md:w-[130px]"
+          width={200}
+          height={100}
+          className="w-[150px] md:w-[200px]"
           priority
         />
       </Link>
@@ -108,11 +108,11 @@ export function OrbitalNav() {
         aria-label="Open menu"
         style={{
           position: 'fixed',
-          top: 'var(--spacing-6)',
-          right: 'var(--spacing-6)',
+          top: 'var(--spacing-2)',
+          right: 'var(--spacing-4)',
           zIndex: 50,
-          width: '48px',
-          height: '48px',
+          width: '56px',
+          height: '56px',
           borderRadius: 'var(--radius-full)',
           background: 'var(--surface-container-high)',
           border: 'none',
@@ -127,7 +127,7 @@ export function OrbitalNav() {
         }}
         className="menu-trigger"
       >
-        <Menu size={20} color="var(--on-surface)" />
+        <Menu size={24} color="var(--on-surface)" />
       </button>
 
       {/* Bottom Right — Scroll Progress */}
