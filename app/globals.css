@@ -57,6 +57,14 @@
   /* Typography */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Manrope', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Kinetic surfaces (dark) */
+  --ink: #0E0F12;
+  --ink-soft: #1E2128;
+
+  /* Brand gradient */
+  --vixio-gradient: linear-gradient(45deg, #3AAED8, #D4A843);
 
   /* Logo sizing (shared between LogoReveal + LogoHero) */
   --logo-width: 280px;
@@ -93,6 +101,15 @@ body {
 /* ============================================
    TYPOGRAPHY UTILITIES
    ============================================ */
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
 
 .display-lg {
   font-family: var(--font-display);
@@ -184,6 +201,22 @@ body {
   text-transform: uppercase;
 }
 
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+}
+
+.gradient-text {
+  background: var(--vixio-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ============================================
    RESPONSIVE TYPOGRAPHY
    ============================================ */
@@ -218,6 +251,41 @@ body {
 
 .fade-in-up {
   animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes vxMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: vxMarquee 40s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Dark capability tile — flips to brand cyan on hover */
+.cap-tile {
+  background: var(--ink);
+  color: #F2F0EC;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 300ms var(--ease-default), background 300ms var(--ease-default);
+}
+.cap-tile:hover {
+  transform: translateY(-4px);
+  background: var(--primary);
 }
 
 /* Scroll reveal: JS adds .scroll-reveal-pending to below-fold elements,

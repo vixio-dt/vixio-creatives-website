@@ -1,19 +1,21 @@
-import { TwoTrackSection } from '@/components/home/TwoTrackSection'
-import { LabPreviewSection } from '@/components/home/LabPreviewSection'
-import { AboutTeaser } from '@/components/home/AboutTeaser'
-import { TrustSignalsBar } from '@/components/home/TrustSignalsBar'
-import { EmailCaptureSection } from '@/components/home/EmailCaptureSection'
 import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
+import { MarqueeStrip } from '@/components/home/MarqueeStrip'
+import { PillarsSection } from '@/components/home/PillarsSection'
+import { CapabilitiesAtlas } from '@/components/home/CapabilitiesAtlas'
+import { FeaturedStat } from '@/components/home/FeaturedStat'
+import { AboutTeaser } from '@/components/home/AboutTeaser'
+import { EmailCaptureCTA } from '@/components/home/EmailCaptureCTA'
 
 export default function Home() {
   return (
     <>
       <ScrollLogoReveal />
-      <TwoTrackSection />
-      <LabPreviewSection />
+      <MarqueeStrip />
+      <PillarsSection />
+      <CapabilitiesAtlas />
+      <FeaturedStat />
       <AboutTeaser />
-      <TrustSignalsBar />
-      <EmailCaptureSection />
+      <EmailCaptureCTA />
     </>
   )
 }
