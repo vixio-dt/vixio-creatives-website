@@ -1,12 +1,29 @@
 'use client'
 
 import Image from 'next/image'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
 
 export function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const prefersReducedMotion = useReducedMotion() ?? false
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, prefersReducedMotion ? 0 : 120],
+  )
+
   return (
     <section
+      ref={sectionRef}
       style={{
         minHeight: '100dvh',
         display: 'flex',
@@ -17,16 +34,23 @@ export function HeroSection() {
         padding: 'calc(var(--spacing-20) + 80px) var(--spacing-6) var(--spacing-20)',
       }}
     >
-      {/* Background image */}
-      <div
+      {/* Parallax background image — extends beyond section for travel room */}
+      <motion.div
         style={{
           position: 'absolute',
-          inset: 0,
+          top: '-60px',
+          left: 0,
+          right: 0,
+          bottom: '-60px',
           zIndex: 0,
+          y,
         }}
+        initial={{ scale: 1.0 }}
+        animate={prefersReducedMotion ? {} : { scale: 1.05 }}
+        transition={{ duration: 3, ease: 'linear' }}
       >
         <Image
-          src="/images/hero-experience-room.png"
+          src="/images/hero-experience-room-v2.webp"
           alt="Vixio experience room — visitors gathered around an oak table examining brass objects in a concrete-walled space"
           fill
           priority
@@ -36,20 +60,34 @@ export function HeroSection() {
           }}
           sizes="100vw"
         />
-        {/* Tonal overlay for text legibility — no pure black */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, rgba(28,27,31,0.55) 0%, rgba(28,27,31,0.40) 50%, rgba(28,27,31,0.65) 100%)',
-          }}
-        />
-      </div>
+      </motion.div>
 
-      <div style={{ textAlign: 'center', maxWidth: '700px', position: 'relative', zIndex: 1 }}>
+      {/* Tonal overlay for text legibility */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background:
+            'linear-gradient(to bottom, rgba(28,27,31,0.60) 0%, rgba(28,27,31,0.40) 50%, rgba(28,27,31,0.70) 100%)',
+        }}
+      />
+
+      <div
+        style={{
+          textAlign: 'center',
+          maxWidth: '700px',
+          position: 'relative',
+          zIndex: 2,
+        }}
+      >
         <h1
           className="display-lg fade-in-up"
-          style={{ color: 'var(--surface-bright)', marginBottom: 'var(--spacing-6)', animationDelay: '0.3s' }}
+          style={{
+            color: '#F2F0EC',
+            marginBottom: 'var(--spacing-6)',
+            animationDelay: '0.3s',
+          }}
         >
           Stories Across Worlds.
         </h1>
@@ -57,7 +95,7 @@ export function HeroSection() {
         <p
           className="body-lg fade-in-up"
           style={{
-            color: 'var(--surface-container-highest)',
+            color: 'rgba(242, 240, 236, 0.85)',
             maxWidth: '580px',
             margin: '0 auto',
             marginBottom: 'var(--spacing-8)',
@@ -72,7 +110,13 @@ export function HeroSection() {
 
         <div
           className="fade-in-up"
-          style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap', animationDelay: '0.7s' }}
+          style={{
+            display: 'flex',
+            gap: 'var(--spacing-4)',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            animationDelay: '0.7s',
+          }}
         >
           <GradientButton href="/about">Our Vision</GradientButton>
           <GhostButton href="/services">Work With Us</GhostButton>

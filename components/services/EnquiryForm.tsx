@@ -9,7 +9,20 @@ export function EnquiryForm() {
     <section style={{ padding: 'var(--spacing-16) var(--spacing-6)' }}>
       <div style={{ maxWidth: '560px', margin: '0 auto' }}>
         <ScrollReveal>
-          <h2 className="headline-sm" style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-8)' }}>
+          <div
+            aria-hidden="true"
+            style={{
+              width: '2rem',
+              height: '2px',
+              background: 'var(--vixio-gradient)',
+              borderRadius: 'var(--radius-full)',
+              marginBottom: 'var(--spacing-4)',
+            }}
+          />
+          <h2
+            className="headline-sm"
+            style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-8)' }}
+          >
             Tell us about your project.
           </h2>
         </ScrollReveal>
@@ -19,6 +32,12 @@ export function EnquiryForm() {
             action="mailto:hello@vixiocreatives.com"
             method="post"
             encType="text/plain"
+            style={{
+              background: 'var(--surface-container-low)',
+              borderRadius: 'var(--radius-xl)',
+              padding: 'var(--spacing-8)',
+              border: '1px solid rgba(200, 196, 191, 0.25)',
+            }}
           >
             <FloatingInput label="Name" name="name" type="text" required />
             <FloatingInput label="Email" name="email" type="email" required />
@@ -29,7 +48,7 @@ export function EnquiryForm() {
               options={['Mall Activation', 'Brand Experience', 'Art Installation', 'Other']}
             />
             <FloatingInput label="Brief Description" name="description" type="textarea" />
-            <div style={{ marginTop: 'var(--spacing-4)' }}>
+            <div style={{ marginTop: 'var(--spacing-6)' }}>
               <GradientButton type="submit">Start the Conversation</GradientButton>
             </div>
           </form>
