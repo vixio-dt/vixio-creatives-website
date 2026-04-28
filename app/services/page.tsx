@@ -7,10 +7,10 @@ import { EnquiryForm } from '@/components/services/EnquiryForm'
 
 export const metadata: Metadata = {
   title: 'Studio Services — Vixio Creatives',
-  description: 'Immersive experience design for brands, malls, and cultural venues. Projection mapping, NFC interaction, body tracking, and physical collectible production. Hong Kong.',
+  description: 'Cooperative experience design for brands, malls, and cultural venues. Spatial environments, body tracking, and physical artifact production. Hong Kong.',
   openGraph: {
     title: 'Studio Services — Vixio Creatives',
-    description: 'We build immersive experiences for brands, malls, and cultural venues.',
+    description: 'We build cooperative experiences for brands, malls, and cultural venues.',
   },
 }
 

@@ -228,7 +228,7 @@ export function ScrollLogoReveal() {
               className="display-lg"
               style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
             >
-              Stories across worlds.
+              Stories Across Worlds.
             </h1>
             <p
               className="body-lg"
@@ -239,10 +239,10 @@ export function ScrollLogoReveal() {
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Vixio Creatives is a transmedia creative studio based in Hong Kong. We create original
-              stories and bring them to life across formats — immersive phygital experiences, interactive
-              collectibles, film, and content. Every format serves the story. Every story deserves more
-              than one way to be experienced.
+              Vixio Creatives is a creative studio based in Hong Kong. We create original
+              stories and bring them to life across formats — physical + digital experiences,
+              artifacts, film, and content. Every format serves the story. Every story deserves more
+              than one world.
             </p>
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
@@ -356,7 +356,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Stories across worlds.
+              Stories Across Worlds.
             </motion.h1>
 
             <motion.p
@@ -370,10 +370,10 @@ export function ScrollLogoReveal() {
                 opacity: bodyOpacity,
               }}
             >
-              Vixio Creatives is a transmedia creative studio based in Hong Kong. We create original
-              stories and bring them to life across formats — immersive phygital experiences, interactive
-              collectibles, film, and content. Every format serves the story. Every story deserves more
-              than one way to be experienced.
+              Vixio Creatives is a creative studio based in Hong Kong. We create original
+              stories and bring them to life across formats — physical + digital experiences,
+              artifacts, film, and content. Every format serves the story. Every story deserves more
+              than one world.
             </motion.p>
 
             <motion.div

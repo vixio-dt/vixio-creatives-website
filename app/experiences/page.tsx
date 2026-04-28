@@ -5,10 +5,10 @@ import { ExperiencesWaitlist } from '@/components/experiences/ExperiencesWaitlis
 
 export const metadata: Metadata = {
   title: 'Original Experiences — Vixio Creatives',
-  description: 'A cooperative immersive experience where groups work together inside a projection-mapped room. 45 minutes. 4–12 visitors. Walk out with something that didn\'t exist before you arrived. Launching Hong Kong, October 2026.',
+  description: 'A cooperative experience where groups work together inside a spatial room. 45 minutes. 4–12 visitors. Walk out with something that didn\'t exist before you arrived. Launching Hong Kong, October 2026.',
   openGraph: {
     title: 'Original Experiences — Vixio Creatives',
-    description: 'A cooperative immersive experience. 45 minutes. Walk out with a physical artifact.',
+    description: 'A cooperative experience. 45 minutes. Walk out with a physical artifact.',
   },
 }
 

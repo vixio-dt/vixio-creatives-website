@@ -58,7 +58,7 @@ export function AboutTeaser() {
                 maxWidth: '50ch',
               }}
             >
-              Mechanical engineer turned creative producer. Building a transmedia studio in Hong Kong
+              Mechanical engineer turned creative producer. Building a creative studio in Hong Kong
               — designing rooms you can step inside.
             </p>
             <Link href="/about" className="text-link body-md">
