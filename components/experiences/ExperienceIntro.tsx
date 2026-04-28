@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GradientPlaceholder } from '@/components/ui/GradientPlaceholder'
 
 export function ExperienceIntro() {
   return (
@@ -22,7 +22,16 @@ export function ExperienceIntro() {
           </div>
           <div className="md:w-1/2">
             <ScrollReveal delay={0.15}>
-              <GradientPlaceholder variant="warm" aspectRatio="16/9" />
+              <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '16/9' }}>
+                <Image
+                  src="/images/experience-format-demo.webp"
+                  alt="NFC wristband hovering over a projection-responsive surface"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'rgba(28,27,31,0.10)' }} />
+              </div>
             </ScrollReveal>
           </div>
         </div>
@@ -43,7 +52,16 @@ export function ExperienceIntro() {
           </div>
           <div className="md:w-1/2">
             <ScrollReveal delay={0.15}>
-              <GradientPlaceholder variant="primary" aspectRatio="16/9" />
+              <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', aspectRatio: '16/9' }}>
+                <Image
+                  src="/images/experience-nfc-artifact.webp"
+                  alt="NFC-embedded resin collectible on concrete surface with warm brass lamp light"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'rgba(28,27,31,0.10)' }} />
+              </div>
             </ScrollReveal>
           </div>
         </div>

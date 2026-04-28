@@ -1,6 +1,7 @@
 export function ManifestoSection() {
   return (
     <section
+      className="grain-overlay"
       style={{
         minHeight: '100vh',
         display: 'flex',

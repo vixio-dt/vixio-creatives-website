@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GradientPlaceholder } from '@/components/ui/GradientPlaceholder'
 
 export function AboutTeaser() {
   return (
@@ -25,9 +25,16 @@ export function AboutTeaser() {
               boxShadow: '0 0 0 2px var(--surface-container-high)',
               overflow: 'hidden',
               flexShrink: 0,
+              position: 'relative',
             }}
           >
-            <GradientPlaceholder variant="neutral" aspectRatio="1/1" />
+            <Image
+              src="/images/about-founder-circle.webp"
+              alt="Creative workshop tools — brass gears, oak calipers, linen sketch pad"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="140px"
+            />
           </div>
         </ScrollReveal>
 

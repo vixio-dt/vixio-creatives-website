@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GradientPlaceholder } from '@/components/ui/GradientPlaceholder'
 
 const projects = [
   {
@@ -7,42 +7,48 @@ const projects = [
     description: 'Sub-200ms from wristband tap to projection change.',
     tags: ['NFC', 'TouchDesigner', 'Python'],
     date: 'April 2026',
-    variant: 'primary' as const,
+    image: '/images/lab-nfc-tap.webp',
+    imageAlt: 'Hand tapping NFC wristband on brass reader with projected response',
   },
   {
     title: '3-Wall Projection Alignment',
     description: 'Edge-blended mapping across three surfaces from a single laptop.',
     tags: ['Projection Mapping', 'TouchDesigner'],
     date: 'April 2026',
-    variant: 'neutral' as const,
+    image: '/images/lab-projection-mapping.webp',
+    imageAlt: 'Three projection beams converging on white walls with TouchDesigner interface',
   },
   {
     title: 'Depth Camera Silhouette',
     description: 'Real-time body tracking generating responsive shadow projections.',
     tags: ['Body Tracking', 'TouchDesigner'],
     date: 'May 2026',
-    variant: 'warm' as const,
+    image: '/images/lab-body-tracking.webp',
+    imageAlt: 'Person with depth camera silhouette projected on wall',
   },
   {
     title: 'Collective Action Prototype',
     description: 'Multiple NFC inputs accumulate to trigger a shared state change.',
     tags: ['Unity', 'OSC', 'NFC'],
     date: 'May 2026',
-    variant: 'primary' as const,
+    image: '/images/lab-collective-action.webp',
+    imageAlt: 'Four hands at oak table near brass NFC readers with projected light building',
   },
   {
     title: 'Vessel LED Sync',
     description: 'Physical prop LEDs synchronised to projection fade via OSC.',
     tags: ['Arduino', 'OSC', 'Lighting'],
     date: 'June 2026',
-    variant: 'neutral' as const,
+    image: '/images/lab-vessel-led.webp',
+    imageAlt: 'Resin vessel prop with warm LED glow on concrete surface',
   },
   {
     title: 'Haze + Volumetric Light',
     description: 'Atmospheric haze with wireless LED pars for visible light beams.',
     tags: ['Lighting', 'DMX', 'Atmosphere'],
     date: 'June 2026',
-    variant: 'warm' as const,
+    image: '/images/lab-haze-volumetric.webp',
+    imageAlt: 'Atmospheric haze with three volumetric light beams from LED pars',
   },
 ]
 
@@ -67,7 +73,15 @@ export function ProjectGrid() {
                   overflow: 'hidden',
                 }}
               >
-                <GradientPlaceholder variant={project.variant} aspectRatio="16/9" />
+                <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    style={{ objectFit: 'cover', transition: 'transform 0.5s var(--ease-default)' }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <div style={{ padding: 'var(--spacing-4) var(--spacing-6)' }}>
                   <h3 className="title-md" style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-1)' }}>
                     {project.title}
@@ -81,7 +95,7 @@ export function ProjectGrid() {
                         {tag}
                       </span>
                     ))}
-                    <span className="label-sm" style={{ color: 'var(--outline-variant)', marginLeft: 'auto' }}>
+                    <span className="label-sm" style={{ color: 'var(--on-surface-variant)', marginLeft: 'auto' }}>
                       {project.date}
                     </span>
                   </div>

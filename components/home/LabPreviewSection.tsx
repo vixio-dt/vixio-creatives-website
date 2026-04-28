@@ -1,12 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { SectionLabel } from '@/components/ui/SectionLabel'
-import { GradientPlaceholder } from '@/components/ui/GradientPlaceholder'
 
 const labEntries = [
-  { title: 'NFC Tap-to-Response Test', tag: 'NFC · TouchDesigner', variant: 'primary' as const },
-  { title: '3-Wall Projection Alignment', tag: 'Projection Mapping', variant: 'neutral' as const },
-  { title: 'Depth Camera Silhouette', tag: 'Body Tracking', variant: 'warm' as const },
+  { title: 'NFC Tap-to-Response Test', tag: 'NFC · TouchDesigner', image: '/images/lab-nfc-tap.webp', imageAlt: 'NFC wristband tap test on brass reader with projected response' },
+  { title: '3-Wall Projection Alignment', tag: 'Projection Mapping', image: '/images/lab-projection-mapping.webp', imageAlt: 'Three projection beams converging on white walls in darkened room' },
+  { title: 'Depth Camera Silhouette', tag: 'Body Tracking', image: '/images/lab-body-tracking.webp', imageAlt: 'Person with depth camera silhouette projected on wall' },
 ]
 
 export function LabPreviewSection() {
@@ -37,7 +37,15 @@ export function LabPreviewSection() {
                   color: 'inherit',
                 }}
               >
-                <GradientPlaceholder variant={entry.variant} aspectRatio="16/9" />
+                <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
+                  <Image
+                    src={entry.image}
+                    alt={entry.imageAlt}
+                    fill
+                    style={{ objectFit: 'cover', transition: 'transform 0.5s var(--ease-default)' }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
                 <div style={{ padding: 'var(--spacing-4)' }}>
                   <h3 className="title-md" style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-1)' }}>
                     {entry.title}

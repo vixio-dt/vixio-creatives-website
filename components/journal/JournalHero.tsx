@@ -2,7 +2,9 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 
 export function JournalHero() {
   return (
-    <section style={{ padding: 'var(--spacing-20) var(--spacing-6) var(--spacing-16)' }}>
+    <section
+      className="grain-overlay"
+      style={{ padding: 'var(--spacing-20) var(--spacing-6) var(--spacing-16)' }}>
       <div style={{ maxWidth: '600px' }}>
         <div className="fade-in-up" style={{ animationDelay: '0.1s' }}>
           <SectionLabel color="primary">Journal</SectionLabel>

@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { SectionLabel } from '@/components/ui/SectionLabel'
-import { GradientPlaceholder } from '@/components/ui/GradientPlaceholder'
 
 export function FounderSection() {
   return (
@@ -9,7 +9,7 @@ export function FounderSection() {
         style={{ maxWidth: '900px', margin: '0 auto' }}
         className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
       >
-        {/* Photo placeholder */}
+        {/* Photo */}
         <ScrollReveal>
           <div
             style={{
@@ -19,9 +19,16 @@ export function FounderSection() {
               border: '1px solid rgba(200, 196, 191, 0.3)',
               overflow: 'hidden',
               flexShrink: 0,
+              position: 'relative',
             }}
           >
-            <GradientPlaceholder variant="neutral" aspectRatio="1/1" />
+            <Image
+              src="/images/about-founder-circle.webp"
+              alt="Creative workshop — brass gears, oak calipers, linen sketch pad"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="200px"
+            />
           </div>
         </ScrollReveal>
 

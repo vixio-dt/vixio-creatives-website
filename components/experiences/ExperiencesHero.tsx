@@ -1,9 +1,28 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 export function ExperiencesHero() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const prefersReducedMotion = useReducedMotion() ?? false
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, prefersReducedMotion ? 0 : 120],
+  )
+
   return (
     <section
+      ref={sectionRef}
       style={{
         minHeight: '100dvh',
         display: 'flex',
@@ -14,17 +33,24 @@ export function ExperiencesHero() {
         padding: 'var(--spacing-20) var(--spacing-6)',
       }}
     >
-      {/* Background image */}
-      <div
+      {/* Parallax background image */}
+      <motion.div
         style={{
           position: 'absolute',
-          inset: 0,
+          top: '-60px',
+          left: 0,
+          right: 0,
+          bottom: '-60px',
           zIndex: 0,
+          y,
         }}
+        initial={{ scale: 1.0 }}
+        animate={prefersReducedMotion ? {} : { scale: 1.05 }}
+        transition={{ duration: 3, ease: 'linear' }}
       >
         <Image
-          src="/images/experiences-collaboration.png"
-          alt="Collaborative workspace — group gathered around an oak table with brass artifacts, linen sketches, and concrete models"
+          src="/images/hero-collaboration-v2.webp"
+          alt="Group gathered around an oak table with brass artifacts, projection-mapped wall behind"
           fill
           priority
           style={{
@@ -33,17 +59,19 @@ export function ExperiencesHero() {
           }}
           sizes="100vw"
         />
-        {/* Tonal overlay for text legibility */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, rgba(28,27,31,0.55) 0%, rgba(28,27,31,0.40) 50%, rgba(28,27,31,0.65) 100%)',
-          }}
-        />
-      </div>
+      </motion.div>
 
-      <div style={{ textAlign: 'center', maxWidth: '640px', position: 'relative', zIndex: 1 }}>
+      {/* Tonal overlay for text legibility */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(28,27,31,0.55) 0%, rgba(28,27,31,0.40) 50%, rgba(28,27,31,0.65) 100%)',
+          zIndex: 1,
+        }}
+      />
+
+      <div style={{ textAlign: 'center', maxWidth: '640px', position: 'relative', zIndex: 2 }}>
         <div className="fade-in-up" style={{ animationDelay: '0.1s' }}>
           <SectionLabel color="primary">Original Experiences</SectionLabel>
         </div>
