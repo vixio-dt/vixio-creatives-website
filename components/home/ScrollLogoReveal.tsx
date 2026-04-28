@@ -46,15 +46,13 @@ export function ScrollLogoReveal() {
   /*
    * TIMELINE (400vh section = 300vh scroll distance)
    *
-   * Every useTransform spans the FULL [0…1] range to prevent extrapolation.
-   *
-   * Phase 1  (0.00→0.15)  Emergence       ~45vh  Logo fades in, deblurs
-   * Phase 2  (0.15→0.40)  Peak glow       ~75vh  Brightness peaks, glow/streak
-   * Phase 3  (0.40→0.50)  Effects fade    ~30vh  ALL effects → 0, brightness → 1
-   * Phase 4  (0.48→0.58)  Bg transition   ~30vh  Dark → light background
-   * Phase 4b (0.58→0.70)  Logo moment     ~36vh  Logo rests centered, natural colors
-   * Phase 5  (0.70→0.90)  The Handoff     ~60vh  Logo exits, hero enters
-   * Phase 6  (0.90→1.00)  Settle          ~30vh  Hero fully visible
+   * Phase 1  (0.00→0.15)  Emergence       Logo fades in, deblurs
+   * Phase 2  (0.15→0.40)  Peak glow       Brightness peaks, glow/streak
+   * Phase 3  (0.40→0.50)  Effects fade    ALL effects → 0
+   * Phase 4  (0.48→0.58)  Bg transition   Dark → light
+   * Phase 4b (0.58→0.70)  Logo moment     Logo rests centered
+   * Phase 5  (0.70→0.85)  Logo pull-back  Logo zooms out + fades (camera pulls back)
+   * Phase 6  (0.85→1.00)  Hero entrance   Hero fades up into the space the logo vacated
    */
 
   // --- Background: stays dark through phases 1-3, transitions in phase 4 ---
@@ -77,10 +75,11 @@ export function ScrollLogoReveal() {
     [6, 3,    0,    0],
   )
 
+  // --- Logo scale: settles at 1.0 through cinematic, zooms OUT during Phase 5 pull-back ---
   const logoScale = useTransform(
     scrollYProgress,
-    [0, 0.15, 1],
-    [0.97, 1.0, 1.0],
+    [0,    0.15, 0.70, 0.85, 1],
+    [0.97, 1.0,  1.0,  0.45, 0.45],
   )
 
   // --- Drop shadow: ends by 0.44, well before bg lightens at 0.48 ---
@@ -100,21 +99,21 @@ export function ScrollLogoReveal() {
 
   const logoFilter = useCompositeFilter(logoBrightness, logoBlur, dsRadius, dsR, dsG, dsB, dsOpacity)
 
-  // --- Logo opacity: fade in (phase 1), hold through moment, fade out (phase 5) ---
+  // --- Logo opacity: fade in (phase 1), hold through moment, fade out during pull-back ---
   const logoOpacity = useTransform(scrollYProgress, (p) => {
     if (p <= 0) return 0.15
     if (p <= 0.06) return 0.15 + (p / 0.06) * 0.35
     if (p <= 0.15) return 0.5 + ((p - 0.06) / 0.09) * 0.5
     if (p <= 0.70) return 1
-    if (p >= 0.84) return 0
-    return 1 - (p - 0.70) / 0.14
+    if (p >= 0.85) return 0
+    return 1 - (p - 0.70) / 0.15
   })
 
-  // --- Logo exit: drift left during handoff (starts at 0.70) ---
-  const logoX = useTransform(scrollYProgress, (p) => {
+  // --- Logo Y: subtle translate UP during pull-back to reinforce camera receding ---
+  const logoY = useTransform(scrollYProgress, (p) => {
     if (p <= 0.70) return 0
-    if (p >= 0.86) return -300
-    return -300 * ((p - 0.70) / 0.16)
+    if (p >= 0.85) return -60
+    return -60 * ((p - 0.70) / 0.15)
   })
 
   // --- Radial glow: ends by 0.44 ---
@@ -156,38 +155,39 @@ export function ScrollLogoReveal() {
     return 0.4 * (1 - (p - 0.04) / 0.06)
   })
 
-  // --- Hero content entrance: slides in from right during phase 5 (starts 0.70) ---
-  const headlineX = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.70) return 400
-    if (p >= 0.82) return 0
-    return 400 * (1 - (p - 0.70) / 0.12)
+  // --- Hero entrance (Phase 6, 0.85→1.00): fades up AFTER logo pull-back completes ---
+  // Staggered Y-rise: headline first, body, buttons last
+  const headlineY = useTransform(scrollYProgress, (p) => {
+    if (p <= 0.85) return 40
+    if (p >= 0.93) return 0
+    return 40 * (1 - (p - 0.85) / 0.08)
   })
   const headlineOpacity = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.70) return 0
-    if (p >= 0.82) return 1
-    return (p - 0.70) / 0.12
+    if (p <= 0.85) return 0
+    if (p >= 0.93) return 1
+    return (p - 0.85) / 0.08
   })
 
-  const bodyX = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.74) return 500
-    if (p >= 0.86) return 0
-    return 500 * (1 - (p - 0.74) / 0.12)
+  const bodyY = useTransform(scrollYProgress, (p) => {
+    if (p <= 0.88) return 40
+    if (p >= 0.96) return 0
+    return 40 * (1 - (p - 0.88) / 0.08)
   })
   const bodyOpacity = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.74) return 0
-    if (p >= 0.86) return 1
-    return (p - 0.74) / 0.12
+    if (p <= 0.88) return 0
+    if (p >= 0.96) return 1
+    return (p - 0.88) / 0.08
   })
 
-  const buttonsX = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.78) return 600
-    if (p >= 0.90) return 0
-    return 600 * (1 - (p - 0.78) / 0.12)
+  const buttonsY = useTransform(scrollYProgress, (p) => {
+    if (p <= 0.91) return 40
+    if (p >= 1.0) return 0
+    return 40 * (1 - (p - 0.91) / 0.09)
   })
   const buttonsOpacity = useTransform(scrollYProgress, (p) => {
-    if (p <= 0.78) return 0
-    if (p >= 0.90) return 1
-    return (p - 0.78) / 0.12
+    if (p <= 0.91) return 0
+    if (p >= 1.0) return 1
+    return (p - 0.91) / 0.09
   })
 
   if (prefersReducedMotion) {
@@ -303,7 +303,7 @@ export function ScrollLogoReveal() {
             opacity: logoOpacity,
             scale: logoScale,
             filter: logoFilter,
-            x: logoX,
+            y: logoY,
             willChange: 'filter, transform, opacity',
           }}
         >
@@ -352,7 +352,7 @@ export function ScrollLogoReveal() {
               style={{
                 color: 'var(--on-surface)',
                 marginBottom: 'var(--spacing-6)',
-                x: headlineX,
+                y: headlineY,
                 opacity: headlineOpacity,
               }}
             >
@@ -366,7 +366,7 @@ export function ScrollLogoReveal() {
                 maxWidth: '580px',
                 margin: '0 auto',
                 marginBottom: 'var(--spacing-8)',
-                x: bodyX,
+                y: bodyY,
                 opacity: bodyOpacity,
               }}
             >
@@ -382,7 +382,7 @@ export function ScrollLogoReveal() {
                 gap: 'var(--spacing-4)',
                 justifyContent: 'center',
                 flexWrap: 'wrap',
-                x: buttonsX,
+                y: buttonsY,
                 opacity: buttonsOpacity,
                 pointerEvents: 'auto',
               }}
