@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
 
@@ -7,18 +8,48 @@ export function HeroSection() {
   return (
     <section
       style={{
-        minHeight: '100vh',
+        minHeight: '100dvh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'var(--surface)',
+        position: 'relative',
+        overflow: 'hidden',
         padding: 'calc(var(--spacing-20) + 80px) var(--spacing-6) var(--spacing-20)',
       }}
     >
-      <div style={{ textAlign: 'center', maxWidth: '700px' }}>
+      {/* Background image */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+        }}
+      >
+        <Image
+          src="/images/hero-experience-room.png"
+          alt="Vixio experience room — visitors gathered around an oak table examining brass objects in a concrete-walled space"
+          fill
+          priority
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center',
+          }}
+          sizes="100vw"
+        />
+        {/* Tonal overlay for text legibility — no pure black */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(28,27,31,0.55) 0%, rgba(28,27,31,0.40) 50%, rgba(28,27,31,0.65) 100%)',
+          }}
+        />
+      </div>
+
+      <div style={{ textAlign: 'center', maxWidth: '700px', position: 'relative', zIndex: 1 }}>
         <h1
           className="display-lg fade-in-up"
-          style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)', animationDelay: '0.3s' }}
+          style={{ color: 'var(--surface-bright)', marginBottom: 'var(--spacing-6)', animationDelay: '0.3s' }}
         >
           Stories Across Worlds.
         </h1>
@@ -26,7 +57,7 @@ export function HeroSection() {
         <p
           className="body-lg fade-in-up"
           style={{
-            color: 'var(--on-surface-variant)',
+            color: 'var(--surface-container-highest)',
             maxWidth: '580px',
             margin: '0 auto',
             marginBottom: 'var(--spacing-8)',

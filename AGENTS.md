@@ -84,6 +84,34 @@ This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is 
 - After the scroll-driven logo reveal settles, hold the logo centered in its original brand colors briefly before the following section (e.g. hero) slides or transitions in.
 - On the homepage, keep the OrbitalNav menu trigger and header wordmark hidden until the scroll logo-reveal sequence has finished, then show them.
 
+## Design Skills (Taste Skill)
+
+The following Claude Code skills are installed in `.agents/skills/` and should be loaded for all design work:
+
+| Skill | Use When |
+|-------|----------|
+| `design-taste-frontend` | Default frontend design — anti-slop, high-agency |
+| `high-end-visual-design` | Premium visual effects, liquid glass, micro-interactions |
+| `minimalist-ui` | Clean, reduced interfaces |
+| `industrial-brutalist-ui` | Raw, utilitarian aesthetics |
+| `redesign-existing-projects` | Auditing and upgrading current UI |
+| `image-to-code` | Converting reference images to code |
+| `stitch-design-taste` | Combining multiple design systems |
+| `full-output-enforcement` | Ensuring complete implementation |
+| `gpt-taste` | GPT-specific taste rules |
+
+**Key parameters:**
+- `DESIGN_VARIANCE: 8` (1=symmetry, 10=chaos)
+- `MOTION_INTENSITY: 6` (1=static, 10=cinematic)
+- `VISUAL_DENSITY: 4` (1=airy, 10=packed)
+
+**Critical rules:**
+- NO emojis in code or markup
+- NO "AI Purple/Blue" — use neutral bases + 1 accent
+- NO `h-screen` — use `min-h-[100dvh]`
+- Use `grid` over flex-math for layouts
+- Animate only `transform` and `opacity`
+
 ## Learned Workspace Facts
 
 - When present, homepage design review notes live at `.kombai/resources/design-review-homepage.md`.
