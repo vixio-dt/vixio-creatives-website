@@ -293,13 +293,13 @@ body {
    Content is ALWAYS visible by default (no JS = no hiding). */
 .scroll-reveal-pending {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) translateX(-8px);
 }
 
 .scroll-reveal-visible {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+  transform: translateY(0) translateX(0);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
               transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -319,8 +319,8 @@ body {
    ============================================ */
 
 .gradient-btn:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 32px rgba(58, 174, 216, 0.25) !important;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(58, 174, 216, 0.35) !important;
 }
 
 .gradient-btn:focus-visible {
@@ -330,7 +330,7 @@ body {
 
 .ghost-btn:hover {
   background: var(--primary-container) !important;
-  box-shadow: inset 0 0 0 1.5px rgba(200, 196, 191, 0.6) !important;
+  box-shadow: inset 0 0 0 1.5px rgba(58, 174, 216, 0.4) !important;
 }
 
 .ghost-btn:focus-visible {
@@ -398,4 +398,117 @@ body {
 .card-hover:hover {
   background-color: var(--surface-container-highest);
   box-shadow: 0 8px 40px var(--shadow-ambient);
+}
+
+/* OrbitalNav floating button hover */
+.menu-trigger {
+  transition: background var(--duration-fast) var(--ease-default),
+              opacity 300ms var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default) !important;
+}
+
+.menu-trigger:hover {
+  box-shadow: 0 8px 32px var(--shadow-ambient), 0 2px 16px var(--shadow-primary) !important;
+}
+
+/* FullScreenMenu nav item hover */
+.menu-nav-wrapper {
+  position: relative;
+  padding-left: 0;
+  transition: padding-left var(--duration-medium) var(--ease-default);
+}
+
+.menu-nav-wrapper:hover {
+  padding-left: 0.75rem;
+}
+
+.menu-nav-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  transition: width var(--duration-medium) var(--ease-default);
+}
+
+.menu-nav-wrapper:hover::before {
+  width: 0.5rem;
+}
+
+.menu-nav-link {
+  color: var(--on-surface);
+  text-decoration: none;
+  transition: color var(--duration-medium) var(--ease-default);
+}
+
+.menu-nav-link:hover {
+  color: var(--primary);
+}
+
+.menu-nav-link[data-active='true'] {
+  color: var(--primary);
+}
+
+/* Footer nav link hover */
+.footer-link {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default);
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width var(--duration-fast) var(--ease-default);
+}
+
+.footer-link:hover {
+  color: var(--on-surface);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   GRAIN TEXTURE OVERLAY
+   ============================================ */
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/texture-grain-overlay.webp');
+  background-repeat: repeat;
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.grain-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle concrete wall texture */
+.texture-concrete-bg {
+  background-image: url('/images/texture-concrete-wall.webp');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  background-blend-mode: overlay;
 }
