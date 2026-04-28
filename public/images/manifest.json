@@ -1,0 +1,151 @@
+[
+  {
+    "filename": "hero-experience-room-v2",
+    "prompt": "Four visitors gathered around a low oak table in a concrete-walled room, leaning in to examine brass mechanical objects. Overcast Hong Kong afternoon, north-facing window with linen curtains diffusing",
+    "seed": 2613069011,
+    "size": "landscape_16_9",
+    "png_bytes": 849581,
+    "png_path": "/tmp/vixio-creatives-website/public/images/hero-experience-room-v2.png"
+  },
+  {
+    "filename": "hero-collaboration-v2",
+    "prompt": "Group of six people standing in a dimly lit concrete space, facing a large projection-mapped wall displaying abstract warm-toned patterns. Brass pendant lights overhead, oak flooring. Overcast Hong Ko",
+    "seed": 3776712200,
+    "size": "landscape_16_9",
+    "png_bytes": 863551,
+    "png_path": "/tmp/vixio-creatives-website/public/images/hero-collaboration-v2.png"
+  },
+  {
+    "filename": "experience-format-demo",
+    "prompt": "Close-up of a hand hovering an NFC wristband over a concrete surface, warm projection glow responding on the surface above. Brass hardware details, oak edge visible. Warm ambient light from projection",
+    "seed": 4244637850,
+    "size": "landscape_16_9",
+    "png_bytes": 857149,
+    "png_path": "/tmp/vixio-creatives-website/public/images/experience-format-demo.png"
+  },
+  {
+    "filename": "experience-nfc-artifact",
+    "prompt": "Close-up of a small resin figurine with embedded NFC chip resting on a concrete surface, warm light from a brass desk lamp. Oak shadow visible at edge of frame. Warm directional light from brass lamp,",
+    "seed": 2047894533,
+    "size": "landscape_16_9",
+    "png_bytes": 747092,
+    "png_path": "/tmp/vixio-creatives-website/public/images/experience-nfc-artifact.png"
+  },
+  {
+    "filename": "track-original-experiences",
+    "prompt": "Darkened room with three people silhouetted against a projection-mapped wall showing a deep blue-green landscape. Concrete floor, one brass floor lamp in corner. Warm practical light from a side table",
+    "seed": 3473525213,
+    "size": "landscape_16_9",
+    "png_bytes": 768790,
+    "png_path": "/tmp/vixio-creatives-website/public/images/track-original-experiences.png"
+  },
+  {
+    "filename": "track-studio-services",
+    "prompt": "Mall atrium pop-up installation with white oak framework and brass accent panels, two visitors interacting with a touch-responsive surface. Concrete planters with dried foliage. Overcast afternoon lig",
+    "seed": 3450469993,
+    "size": "landscape_16_9",
+    "png_bytes": 951919,
+    "png_path": "/tmp/vixio-creatives-website/public/images/track-studio-services.png"
+  },
+  {
+    "filename": "lab-nfc-tap",
+    "prompt": "Hand tapping an NFC wristband against a small brass reader on an oak workbench, a projected response visible on a white panel behind. Workshop environment with concrete wall. Overcast window light, wa",
+    "seed": 1991465601,
+    "size": "landscape_16_9",
+    "png_bytes": 789895,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-nfc-tap.png"
+  },
+  {
+    "filename": "lab-projection-mapping",
+    "prompt": "Three projection beams converging on white walls in a darkened room, TouchDesigner interface visible on a laptop screen to the side. Concrete floor, brass equipment rack. Practical light from laptop s",
+    "seed": 3055817378,
+    "size": "landscape_16_9",
+    "png_bytes": 634840,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-projection-mapping.png"
+  },
+  {
+    "filename": "lab-body-tracking",
+    "prompt": "Person standing in a darkened room with depth camera visible on tripod, their silhouette projected on the wall behind them responding to movement. Concrete floor, oak bench at side. Warm light from pr",
+    "seed": 2410360521,
+    "size": "landscape_16_9",
+    "png_bytes": 611445,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-body-tracking.png"
+  },
+  {
+    "filename": "lab-collective-action",
+    "prompt": "Four hands at different positions on an oak table, each near a small brass NFC reader, accumulated colored light building on a projection wall behind. Workshop environment. Warm overhead practical lig",
+    "seed": 2675150543,
+    "size": "landscape_16_9",
+    "png_bytes": 938176,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-collective-action.png"
+  },
+  {
+    "filename": "lab-vessel-led",
+    "prompt": "Small resin vessel prop with warm LED glow emanating from inside, resting on concrete surface next to an oscilloscope display. Dark workshop background. LED light from vessel, cool monitor glow from o",
+    "seed": 1354027402,
+    "size": "landscape_16_9",
+    "png_bytes": 794935,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-vessel-led.png"
+  },
+  {
+    "filename": "lab-haze-volumetric",
+    "prompt": "Darkened room filled with atmospheric haze, three visible light beams from wireless LED pars cutting through the mist. Concrete walls, brass floor lamp. Haze-lit volumetric light beams, no other sourc",
+    "seed": 4212276385,
+    "size": "landscape_16_9",
+    "png_bytes": 711221,
+    "png_path": "/tmp/vixio-creatives-website/public/images/lab-haze-volumetric.png"
+  },
+  {
+    "filename": "service-mall-activation",
+    "prompt": "Mall pop-up experience with white oak framework, brass accent panels, and projection surface. Two visitors interacting while a small group watches. Concrete planters. Overcast afternoon from glass cei",
+    "seed": 1793157220,
+    "size": "landscape_16_9",
+    "png_bytes": 989019,
+    "png_path": "/tmp/vixio-creatives-website/public/images/service-mall-activation.png"
+  },
+  {
+    "filename": "service-brand-experience",
+    "prompt": "Corporate product launch event with projection-mapped product reveal on concrete wall, audience seated on oak benches. Warm ambient from brass floor lamps. 35mm, f/2.0, documentary photography. Name b",
+    "seed": 1369229281,
+    "size": "landscape_16_9",
+    "png_bytes": 893118,
+    "png_path": "/tmp/vixio-creatives-website/public/images/service-brand-experience.png"
+  },
+  {
+    "filename": "service-art-installation",
+    "prompt": "Gallery space with responsive projection on far wall, three visitors moving through the space affecting the projection. Concrete floors, brass handrails. Cool gallery lighting with warm projection fil",
+    "seed": 2087807594,
+    "size": "landscape_16_9",
+    "png_bytes": 829439,
+    "png_path": "/tmp/vixio-creatives-website/public/images/service-art-installation.png"
+  },
+  {
+    "filename": "about-founder-workshop",
+    "prompt": "Workshop bench with mechanical prototypes, brass components, oak tools, and hand-drawn sketches pinned to a concrete wall above. No people visible. Overcast Hong Kong afternoon, north-facing window. 5",
+    "seed": 1150045848,
+    "size": "landscape_16_9",
+    "png_bytes": 1061529,
+    "png_path": "/tmp/vixio-creatives-website/public/images/about-founder-workshop.png"
+  },
+  {
+    "filename": "about-founder-circle",
+    "status": "success",
+    "prompt": "Workshop bench detail: brass gears, oak calipers, linen sketch pad on a worn oak surface. Warm desk lamp light. 85mm, f/2.0, documentary product photography. Patina on brass, pencil marks on linen, du",
+    "png_bytes": 424746,
+    "png_path": "/tmp/vixio-creatives-website/public/images/about-founder-circle.png"
+  },
+  {
+    "filename": "texture-grain-overlay",
+    "status": "success",
+    "prompt": "Abstract texture: warm off-white with subtle film grain noise at very low density, no pure white. Flat even light. 50mm, f/8, flat even focus. Slight irregular density variation, hand-applied grain qu",
+    "png_bytes": 381998,
+    "png_path": "/tmp/vixio-creatives-website/public/images/texture-grain-overlay.png"
+  },
+  {
+    "filename": "texture-concrete-wall",
+    "status": "success",
+    "prompt": "Warm-toned concrete wall texture with subtle color variation and very slight surface irregularity. Overcast light, no shadows, no direct sun. 50mm, f/8, flat even focus. Hairline crack detail, slight ",
+    "png_bytes": 439747,
+    "png_path": "/tmp/vixio-creatives-website/public/images/texture-concrete-wall.png"
+  }
+]
