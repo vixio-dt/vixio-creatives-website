@@ -30,7 +30,11 @@ export function OrbitalNav() {
 
     function observeReveal() {
       const reveal = document.getElementById('scroll-logo-reveal')
-      if (!reveal) return
+      if (!reveal) {
+        // Not on a page with the hero section — nav should be visible
+        setRevealVisible(false)
+        return
+      }
 
       intersectionObserver = new IntersectionObserver(
         ([entry]) => setRevealVisible(entry.isIntersecting),
