@@ -224,11 +224,14 @@ export function ScrollLogoReveal() {
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '700px' }}>
+            <p className="label-sm" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-4)' }}>
+              Stories Across Worlds
+            </p>
             <h1
               className="display-lg"
               style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
             >
-              Stories Across Worlds.
+              Game-designed experiences for physical spaces.
             </h1>
             <p
               className="body-lg"
@@ -239,16 +242,14 @@ export function ScrollLogoReveal() {
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Vixio Creatives is a creative studio based in Hong Kong. We create original
-              stories and bring them to life across formats — physical + digital experiences,
-              artifacts, film, and content. Every format serves the story. Every story deserves more
-              than one world.
+              Cooperative game experiences that turn visitors into players and spaces into
+              stories. 4-6 players. 60-90 minutes. Your venue.
             </p>
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
             >
-              <GradientButton href="/about">Our Vision</GradientButton>
-              <GhostButton href="/services">Work With Us</GhostButton>
+              <GradientButton href="/experiences">See the Experience</GradientButton>
+              <GhostButton href="/contact">Bring This to Your Venue</GhostButton>
             </div>
           </div>
         </section>
@@ -347,6 +348,18 @@ export function ScrollLogoReveal() {
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '700px', padding: '0 var(--spacing-6)' }}>
+            <motion.p
+              className="label-sm"
+              style={{
+                color: 'var(--on-surface-variant)',
+                marginBottom: 'var(--spacing-4)',
+                y: headlineY,
+                opacity: headlineOpacity,
+              }}
+            >
+              Stories Across Worlds
+            </motion.p>
+
             <motion.h1
               className="display-lg"
               style={{
@@ -356,7 +369,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Stories Across Worlds.
+              Game-designed experiences for physical spaces.
             </motion.h1>
 
             <motion.p
@@ -370,10 +383,8 @@ export function ScrollLogoReveal() {
                 opacity: bodyOpacity,
               }}
             >
-              Vixio Creatives is a creative studio based in Hong Kong. We create original
-              stories and bring them to life across formats — physical + digital experiences,
-              artifacts, film, and content. Every format serves the story. Every story deserves more
-              than one world.
+              Cooperative game experiences that turn visitors into players and spaces into
+              stories. 4-6 players. 60-90 minutes. Your venue.
             </motion.p>
 
             <motion.div
@@ -387,8 +398,8 @@ export function ScrollLogoReveal() {
                 pointerEvents: 'auto',
               }}
             >
-              <GradientButton href="/about">Our Vision</GradientButton>
-              <GhostButton href="/services">Work With Us</GhostButton>
+              <GradientButton href="/experiences">See the Experience</GradientButton>
+              <GhostButton href="/contact">Bring This to Your Venue</GhostButton>
             </motion.div>
           </div>
         </div>
