@@ -1,6 +1,7 @@
 'use client'
 
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import { TiltCard } from '@/components/ui/TiltCard'
 
 const capabilities = [
   {
@@ -66,17 +67,19 @@ export function WhatWeDo() {
         >
           {capabilities.map((cap, i) => (
             <ScrollReveal key={cap.title} delay={0.1 * (i + 1)}>
-              <div className="cap-tile">
-                <p
-                  className="headline-md"
-                  style={{ marginBottom: 'var(--spacing-4)' }}
-                >
-                  {cap.title}
-                </p>
-                <p className="body-md" style={{ opacity: 0.8 }}>
-                  {cap.body}
-                </p>
-              </div>
+              <TiltCard maxTilt={6} glareOpacity={0.06}>
+                <div className="cap-tile">
+                  <p
+                    className="headline-md"
+                    style={{ marginBottom: 'var(--spacing-4)' }}
+                  >
+                    {cap.title}
+                  </p>
+                  <p className="body-md" style={{ opacity: 0.8 }}>
+                    {cap.body}
+                  </p>
+                </div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>

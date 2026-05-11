@@ -11,6 +11,7 @@ import {
 } from 'framer-motion'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
+import { HeroParticles } from '@/components/ui/HeroParticles'
 
 function useCompositeFilter(
   brightness: MotionValue<number>,
@@ -278,6 +279,9 @@ export function ScrollLogoReveal() {
             backgroundColor: bgColor,
           }}
         />
+
+        {/* Interactive particle field */}
+        <HeroParticles scrollProgress={scrollYProgress} />
 
         {/* Radial glow */}
         <motion.div

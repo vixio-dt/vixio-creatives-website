@@ -3,6 +3,7 @@ import { ColorSchemeScript } from '@mantine/core'
 import { MantineClientProvider } from '@/components/providers/MantineClientProvider'
 import { OrbitalNav } from '@/components/layout/OrbitalNav'
 import { Footer } from '@/components/layout/Footer'
+import { CustomCursor } from '@/components/ui/CustomCursor'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <MantineClientProvider>
+          <CustomCursor />
           <OrbitalNav />
           <main id="main-content">{children}</main>
           <Footer />
