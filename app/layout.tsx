@@ -6,11 +6,11 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vixio Creatives — Creative Studio, Hong Kong',
-  description: 'Vixio Creatives is a creative studio based in Hong Kong. We create original stories and bring them to life across formats — physical + digital experiences, artifacts, film, and content.',
+  title: 'Vixio Creatives | Game-Designed Experiences for Physical Spaces',
+  description: 'Venue gamification studio in Hong Kong. We design cooperative game experiences for malls, attractions, and cultural venues. Stories Across Worlds.',
   openGraph: {
-    title: 'Vixio Creatives — Creative Studio, Hong Kong',
-    description: 'Stories Across Worlds. A creative studio based in Hong Kong.',
+    title: 'Vixio Creatives | Game-Designed Experiences for Physical Spaces',
+    description: 'Venue gamification studio in Hong Kong. Cooperative game experiences that turn visitors into players and spaces into stories.',
     url: 'https://vixiocreatives.com',
     siteName: 'Vixio Creatives',
     type: 'website',

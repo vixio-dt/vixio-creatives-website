@@ -1,21 +1,25 @@
 import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
-import { MarqueeStrip } from '@/components/home/MarqueeStrip'
-import { PillarsSection } from '@/components/home/PillarsSection'
-import { CapabilitiesAtlas } from '@/components/home/CapabilitiesAtlas'
-import { FeaturedStat } from '@/components/home/FeaturedStat'
-import { AboutTeaser } from '@/components/home/AboutTeaser'
-import { EmailCaptureCTA } from '@/components/home/EmailCaptureCTA'
+import { ProblemSection } from '@/components/home/ProblemSection'
+import { WhoThisIsFor } from '@/components/home/WhoThisIsFor'
+import { WhatWeDo } from '@/components/home/WhatWeDo'
+import { HowItWorks } from '@/components/home/HowItWorks'
+import { ApproachSection } from '@/components/home/ApproachSection'
+import { StructuralGap } from '@/components/home/StructuralGap'
+import { FollowTheBuild } from '@/components/home/FollowTheBuild'
+import { FinalCTA } from '@/components/home/FinalCTA'
 
 export default function Home() {
   return (
     <>
       <ScrollLogoReveal />
-      <MarqueeStrip />
-      <PillarsSection />
-      <CapabilitiesAtlas />
-      <FeaturedStat />
-      <AboutTeaser />
-      <EmailCaptureCTA />
+      <ProblemSection />
+      <WhoThisIsFor />
+      <WhatWeDo />
+      <HowItWorks />
+      <ApproachSection />
+      <StructuralGap />
+      <FollowTheBuild />
+      <FinalCTA />
     </>
   )
 }
