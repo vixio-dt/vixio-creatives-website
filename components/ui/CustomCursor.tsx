@@ -20,8 +20,10 @@ export function CustomCursor() {
       return
     }
 
-    // Hide default cursor
-    document.documentElement.style.cursor = 'none'
+    // Hide default cursor via injected stylesheet
+    const style = document.createElement('style')
+    style.textContent = '*, *::before, *::after { cursor: none !important; }'
+    document.head.appendChild(style)
 
     const handleMouseMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY }
@@ -65,7 +67,7 @@ export function CustomCursor() {
 
     return () => {
       cancelAnimationFrame(rafRef.current)
-      document.documentElement.style.cursor = ''
+      style.remove()
       window.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('mouseover', handleMouseOver)
       document.removeEventListener('mouseleave', handleMouseLeave)
@@ -125,12 +127,6 @@ export function CustomCursor() {
           transition: 'width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), margin 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s',
         }}
       />
-      <style>{`
-        *, *::before, *::after { cursor: none !important; }
-        @media (hover: none) and (pointer: coarse) {
-          *, *::before, *::after { cursor: auto !important; }
-        }
-      `}</style>
     </>
   )
 }

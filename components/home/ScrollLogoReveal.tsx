@@ -9,9 +9,14 @@ import {
   useReducedMotion,
   type MotionValue,
 } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
-import { HeroParticles } from '@/components/ui/HeroParticles'
+
+const HeroParticles = dynamic(
+  () => import('@/components/ui/HeroParticles').then((m) => m.HeroParticles),
+  { ssr: false },
+)
 
 function useCompositeFilter(
   brightness: MotionValue<number>,
