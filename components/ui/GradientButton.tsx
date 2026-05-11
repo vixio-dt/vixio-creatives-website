@@ -10,8 +10,8 @@ interface GradientButtonProps {
 
 export function GradientButton({ children, href, onClick, type = 'button', className = '' }: GradientButtonProps) {
   const styles: React.CSSProperties = {
-    background: 'linear-gradient(45deg, var(--primary), var(--tertiary))',
-    color: 'var(--on-primary)',
+    background: 'var(--ink)',
+    color: '#F2F0EC',
     borderRadius: 'var(--radius-md)',
     padding: 'var(--spacing-2) var(--spacing-6)',
     border: 'none',
@@ -26,7 +26,7 @@ export function GradientButton({ children, href, onClick, type = 'button', class
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    boxShadow: '0 4px 24px var(--shadow-primary)',
+    boxShadow: '0 2px 12px rgba(14, 15, 18, 0.15)',
     transition: 'all var(--duration-fast) var(--ease-default)',
   }
 

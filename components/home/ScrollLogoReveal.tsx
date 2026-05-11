@@ -13,8 +13,8 @@ import dynamic from 'next/dynamic'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
 
-const HeroParticles = dynamic(
-  () => import('@/components/ui/HeroParticles').then((m) => m.HeroParticles),
+const WireframeHero = dynamic(
+  () => import('@/components/ui/WireframeHero').then((m) => m.WireframeHero),
   { ssr: false },
 )
 
@@ -201,7 +201,7 @@ export function ScrollLogoReveal() {
       <>
         <section
           style={{
-            height: '100vh',
+            height: '100dvh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -221,7 +221,7 @@ export function ScrollLogoReveal() {
         </section>
         <section
           style={{
-            minHeight: '100vh',
+            minHeight: '100dvh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -269,7 +269,7 @@ export function ScrollLogoReveal() {
         style={{
           position: 'sticky',
           top: 0,
-          height: '100vh',
+          height: '100dvh',
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
@@ -285,8 +285,8 @@ export function ScrollLogoReveal() {
           }}
         />
 
-        {/* Interactive particle field */}
-        <HeroParticles scrollProgress={scrollYProgress} />
+        {/* Architectural wireframe */}
+        <WireframeHero />
 
         {/* Radial glow */}
         <motion.div

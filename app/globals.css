@@ -210,12 +210,6 @@ body {
   color: var(--on-surface-variant);
 }
 
-.gradient-text {
-  background: var(--vixio-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 
 /* ============================================
    RESPONSIVE TYPOGRAPHY
@@ -320,7 +314,9 @@ body {
 
 .gradient-btn:hover {
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(58, 174, 216, 0.35) !important;
+  background: var(--primary) !important;
+  color: var(--on-primary) !important;
+  box-shadow: 0 8px 32px rgba(58, 174, 216, 0.25) !important;
 }
 
 .gradient-btn:focus-visible {
