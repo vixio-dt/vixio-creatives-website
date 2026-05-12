@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GradientButton } from '@/components/ui/GradientButton'
@@ -19,6 +20,8 @@ interface Service {
   number: string
   title: string
   accent: string
+  image: string
+  imageAlt: string
   whatItIs: string
   delivers: string
   format: string
@@ -32,6 +35,8 @@ const services: Service[] = [
     number: '01',
     title: 'Venue Gamification',
     accent: 'var(--primary)',
+    image: '/images/service-venue-gamification.webp',
+    imageAlt: 'Mall atrium with glowing brass game waypoints embedded in the floor, guiding visitors between zones',
     whatItIs:
       'Game mechanics designed for a specific physical venue. We map your space, identify dead zones and desire paths, and design interactive systems that route visitors where you need them.',
     delivers:
@@ -45,6 +50,8 @@ const services: Service[] = [
     number: '02',
     title: 'Experience Design',
     accent: 'var(--tertiary)',
+    image: '/images/service-experience-design.webp',
+    imageAlt: 'Four players around an oak table with brass mechanical objects, projection-mapped narrative on concrete walls',
     whatItIs:
       'Concept-to-playable product. We design a complete cooperative game experience: narrative, mechanics, physical touchpoints, sound, light, player journey.',
     delivers:
@@ -59,6 +66,8 @@ const services: Service[] = [
     number: '03',
     title: 'Format Design',
     accent: 'var(--primary)',
+    image: '/images/service-format-design.webp',
+    imageAlt: 'Game format blueprint on oak workbench with brass pins and thread connecting deployment points across venue plans',
     whatItIs:
       'A repeatable game format that deploys across multiple venues, seasons, or cities. One design, many installations.',
     delivers:
@@ -73,6 +82,8 @@ const services: Service[] = [
     number: '04',
     title: 'Corporate Experiences',
     accent: 'var(--tertiary)',
+    image: '/images/service-corporate-experiences.webp',
+    imageAlt: 'Professionals at separate stations in a concrete room with a red countdown timer projected on the wall',
     whatItIs:
       'Cooperative game sessions designed for corporate teams. Not trivia. Not trust falls. Shared-stake decisions where each person’s role matters.',
     delivers:
@@ -87,6 +98,8 @@ const services: Service[] = [
     number: '05',
     title: 'Creative Direction',
     accent: 'var(--primary)',
+    image: '/images/service-creative-direction.webp',
+    imageAlt: 'Creative director at multi-monitor workspace with storyboards, game flow diagrams, and brass prototypes on oak desk',
     whatItIs:
       'Denis Tam directs your experience project. Creative vision, game design oversight, narrative direction, production pipeline management.',
     delivers:
@@ -255,31 +268,24 @@ function ServiceBlock({
             </ScrollReveal>
           </div>
 
-          {/* Visual placeholder column */}
+          {/* Visual column */}
           <div style={{ order: isEven ? 1 : 2 }}>
             <ScrollReveal delay={0.1}>
               <div
                 style={{
-                  background: 'var(--ink)',
                   borderRadius: 'var(--radius-xl)',
                   aspectRatio: '4 / 3',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   position: 'relative',
                   overflow: 'hidden',
                 }}
               >
-                <span
-                  className="display-xl"
-                  style={{
-                    color: service.accent,
-                    opacity: 0.15,
-                    userSelect: 'none',
-                  }}
-                >
-                  {service.number}
-                </span>
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
             </ScrollReveal>
           </div>
