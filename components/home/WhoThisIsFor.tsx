@@ -1,8 +1,45 @@
 'use client'
 
+import { useRef, useCallback } from 'react'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
+
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = ref.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    el.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    const el = ref.current
+    if (!el) return
+    el.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) scale(1)'
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        background: 'var(--surface-container-low)',
+        padding: 'var(--spacing-8)',
+        borderRadius: 'var(--radius-xl)',
+        transition: 'transform 0.15s ease-out',
+        willChange: 'transform',
+      }}
+    >
+      {children}
+    </div>
+  )
+}
 
 export function WhoThisIsFor() {
   return (
@@ -27,7 +64,6 @@ export function WhoThisIsFor() {
         </ScrollReveal>
 
         <div className="wtif-grid">
-          {/* Left column — Players — bigger, bolder */}
           <ScrollReveal delay={0.1} className="wtif-col-players">
             <div>
               <p
@@ -66,15 +102,8 @@ export function WhoThisIsFor() {
             </div>
           </ScrollReveal>
 
-          {/* Right column — Venue Operators — contained, professional */}
           <ScrollReveal delay={0.25} className="wtif-col-venues">
-            <div
-              style={{
-                background: 'var(--surface-container-low)',
-                padding: 'var(--spacing-8)',
-                borderRadius: 'var(--radius-xl)',
-              }}
-            >
+            <TiltCard>
               <p
                 className="label-md"
                 style={{
@@ -105,7 +134,7 @@ export function WhoThisIsFor() {
                 corporate spaces, and cultural venues.
               </p>
               <GhostButton href="#contact">Talk to Us</GhostButton>
-            </div>
+            </TiltCard>
           </ScrollReveal>
         </div>
       </div>

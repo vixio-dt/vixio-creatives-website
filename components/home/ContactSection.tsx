@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { TextInput, Select, Textarea } from '@mantine/core'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { GradientButton } from '@/components/ui/GradientButton'
+import { GhostButton } from '@/components/ui/GhostButton'
 
 const inputStyles = {
   input: {
@@ -58,57 +59,47 @@ export function ContactSection() {
       }}
     >
       <style>{`
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 2fr 3fr;
+          gap: clamp(2rem, 4vw, 4rem);
+          align-items: start;
+        }
         @media (max-width: 768px) {
-          .contact-form-grid {
-            grid-template-columns: 1fr !important;
+          .contact-grid {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
         <ScrollReveal>
+          <p
+            className="label-md"
+            style={{
+              color: 'var(--primary)',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              marginBottom: 'var(--spacing-4)',
+            }}
+          >
+            Get Started
+          </p>
           <h2
             className="display-md"
             style={{
               color: 'var(--on-ink)',
-              textAlign: 'center',
-              marginBottom: 'var(--spacing-4)',
+              marginBottom: 'var(--spacing-12)',
             }}
           >
             Two paths. Pick yours.
           </h2>
-          <p
-            className="body-lg"
-            style={{
-              color: 'var(--on-ink-medium)',
-              textAlign: 'center',
-              maxWidth: '50ch',
-              margin: '0 auto',
-              marginBottom: 'var(--spacing-12)',
-            }}
-          >
-            Whether you want to play or bring game-designed experiences to your venue.
-          </p>
         </ScrollReveal>
 
-        <div
-          className="contact-form-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'var(--spacing-8)',
-          }}
-        >
-          {/* Players form */}
+        <div className="contact-grid">
+          {/* Players — compact, no card */}
           <ScrollReveal delay={0.15}>
-            <div
-              style={{
-                background: 'var(--ink-surface-raised)',
-                padding: 'var(--spacing-8)',
-                borderRadius: 'var(--radius-xl)',
-                border: '1px solid var(--ink-border-subtle)',
-              }}
-            >
+            <div>
               <p
                 className="label-md"
                 style={{
@@ -119,7 +110,7 @@ export function ContactSection() {
                 Players
               </p>
               <h3
-                className="headline-md"
+                className="headline-lg"
                 style={{
                   color: 'var(--on-ink)',
                   marginBottom: 'var(--spacing-2)',
@@ -131,7 +122,7 @@ export function ContactSection() {
                 className="body-md"
                 style={{
                   color: 'var(--on-ink-medium)',
-                  marginBottom: 'var(--spacing-6)',
+                  marginBottom: 'var(--spacing-8)',
                 }}
               >
                 Cooperative game experience in Shenzhen. 4-6 players, 60-90 minutes.
@@ -169,21 +160,21 @@ export function ContactSection() {
                     styles={inputStyles}
                   />
                   <div style={{ marginTop: 'var(--spacing-2)' }}>
-                    <GradientButton type="submit">Join the Waitlist</GradientButton>
+                    <GhostButton type="submit">Join the Waitlist</GhostButton>
                   </div>
                 </form>
               )}
             </div>
           </ScrollReveal>
 
-          {/* Venue Operators form */}
+          {/* Venue Operators — full card, larger */}
           <ScrollReveal delay={0.3}>
             <div
               style={{
                 background: 'var(--ink-surface-raised)',
                 padding: 'var(--spacing-8)',
                 borderRadius: 'var(--radius-xl)',
-                border: '1px solid var(--ink-border-subtle)',
+                borderTop: '2px solid var(--tertiary)',
               }}
             >
               <p
@@ -196,7 +187,7 @@ export function ContactSection() {
                 Venue Operators
               </p>
               <h3
-                className="headline-md"
+                className="headline-lg"
                 style={{
                   color: 'var(--on-ink)',
                   marginBottom: 'var(--spacing-2)',
@@ -208,7 +199,7 @@ export function ContactSection() {
                 className="body-md"
                 style={{
                   color: 'var(--on-ink-medium)',
-                  marginBottom: 'var(--spacing-6)',
+                  marginBottom: 'var(--spacing-8)',
                 }}
               >
                 Tell us about your space and what you are trying to solve.
@@ -268,28 +259,24 @@ export function ContactSection() {
           </ScrollReveal>
         </div>
 
-        {/* Company footer info */}
         <ScrollReveal delay={0.4}>
           <div
             style={{
-              textAlign: 'center',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: 'var(--spacing-4)',
               marginTop: 'var(--spacing-12)',
+              paddingTop: 'var(--spacing-8)',
+              borderTop: '1px solid var(--ink-border-subtle)',
             }}
           >
             <p
-              className="headline-sm"
+              className="body-sm"
               style={{ color: 'var(--on-ink-low)' }}
             >
-              Vixio Creatives Limited
-            </p>
-            <p
-              className="body-sm"
-              style={{
-                color: 'var(--on-ink-muted)',
-                marginTop: 'var(--spacing-1)',
-              }}
-            >
-              Hong Kong
+              Vixio Creatives Limited, Hong Kong
             </p>
             <a
               href="mailto:hello@vixiocreatives.com"
@@ -297,8 +284,6 @@ export function ContactSection() {
               style={{
                 color: 'var(--primary)',
                 textDecoration: 'none',
-                marginTop: 'var(--spacing-2)',
-                display: 'inline-block',
               }}
             >
               hello@vixiocreatives.com

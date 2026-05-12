@@ -4,17 +4,17 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 const steps = [
   {
-    number: '01',
+    label: 'Start',
     title: 'Tell us about your space',
     body: 'Venue type, visitor profile, what you are trying to solve. We map the opportunity.',
   },
   {
-    number: '02',
-    title: 'We design a game system for it',
+    label: 'Design',
+    title: 'We build a game system for it',
     body: 'Cooperative mechanics tailored to your space, your audience, your retail calendar.',
   },
   {
-    number: '03',
+    label: 'Launch',
     title: 'Deploy and measure',
     body: 'Site-specific installation. Footfall, dwell time, repeat visits tracked from day one.',
   },
@@ -30,18 +30,60 @@ export function HowItWorks() {
       }}
     >
       <style>{`
+        .hiw-flow {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 0;
+          position: relative;
+        }
+        .hiw-flow::before {
+          content: '';
+          position: absolute;
+          top: 1.5rem;
+          left: calc(100% / 6);
+          right: calc(100% / 6);
+          height: 1px;
+          background: var(--outline-variant);
+        }
+        .hiw-step {
+          text-align: center;
+          padding: 0 var(--spacing-4);
+        }
+        .hiw-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: var(--primary);
+          margin: 0 auto var(--spacing-8);
+          position: relative;
+          z-index: 1;
+        }
         @media (max-width: 768px) {
-          .hiw-step-grid {
-            grid-template-columns: 1fr !important;
+          .hiw-flow {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-8);
           }
-          .hiw-step-number {
-            display: block;
-            margin-bottom: var(--spacing-2);
+          .hiw-flow::before {
+            display: none;
+          }
+          .hiw-step {
+            text-align: left;
+            padding: 0;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--spacing-4);
+            align-items: start;
+          }
+          .hiw-dot {
+            margin: 0.35rem 0 0 0;
+          }
+          .hiw-step-content {
+            order: unset;
           }
         }
       `}</style>
 
-      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <ScrollReveal>
           <p
             className="label-md"
@@ -63,39 +105,21 @@ export function HowItWorks() {
           </h2>
         </ScrollReveal>
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--spacing-8)',
-          }}
-        >
+        <div className="hiw-flow">
           {steps.map((step, i) => (
-            <ScrollReveal key={step.number} delay={0.15 * (i + 1)}>
-              <div
-                className="hiw-step-grid"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'auto 1fr',
-                  gap: 'var(--spacing-8)',
-                  alignItems: 'start',
-                  paddingBottom: i < steps.length - 1 ? 'var(--spacing-8)' : undefined,
-                  borderBottom: i < steps.length - 1 ? '1px solid var(--outline-variant)' : 'none',
-                }}
-              >
-                <span
-                  className="display-lg hiw-step-number"
-                  style={{
-                    color: 'var(--primary)',
-                    opacity: 0.2,
-                    fontVariantNumeric: 'tabular-nums',
-                    lineHeight: 1,
-                  }}
-                >
-                  {step.number}
-                </span>
-
-                <div>
+            <ScrollReveal key={step.label} delay={0.15 * (i + 1)}>
+              <div className="hiw-step">
+                <div className="hiw-dot" />
+                <div className="hiw-step-content">
+                  <p
+                    className="label-md"
+                    style={{
+                      color: 'var(--primary)',
+                      marginBottom: 'var(--spacing-2)',
+                    }}
+                  >
+                    {step.label}
+                  </p>
                   <h3
                     className="headline-md"
                     style={{
@@ -109,7 +133,8 @@ export function HowItWorks() {
                     className="body-lg"
                     style={{
                       color: 'var(--on-surface-variant)',
-                      maxWidth: '50ch',
+                      maxWidth: '30ch',
+                      margin: '0 auto',
                     }}
                   >
                     {step.body}

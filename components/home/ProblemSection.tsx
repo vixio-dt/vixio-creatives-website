@@ -12,71 +12,91 @@ export function ProblemSection() {
         padding: 'clamp(4rem, 10vw, 8rem) var(--spacing-6)',
       }}
     >
+      <style>{`
+        .problem-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(3rem, 6vw, 6rem);
+          align-items: end;
+        }
+        @media (max-width: 768px) {
+          .problem-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
+
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ maxWidth: '700px' }}>
-          <ScrollReveal>
-            <p
-              className="label-md"
-              style={{
-                color: 'var(--primary)',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                marginBottom: 'var(--spacing-6)',
-              }}
-            >
-              The Problem
-            </p>
-          </ScrollReveal>
+        <ScrollReveal>
+          <p
+            className="label-md"
+            style={{
+              color: 'var(--primary)',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              marginBottom: 'var(--spacing-6)',
+            }}
+          >
+            The Problem
+          </p>
+        </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <h2
-              className="display-md"
-              style={{
-                color: 'var(--on-ink)',
-                marginBottom: 'var(--spacing-8)',
-              }}
-            >
-              Events end. Systems compound.
-            </h2>
-          </ScrollReveal>
+        <div className="problem-grid">
+          <div>
+            <ScrollReveal delay={0.1}>
+              <h2
+                className="display-md"
+                style={{
+                  color: 'var(--on-ink)',
+                  marginBottom: 'var(--spacing-8)',
+                }}
+              >
+                Events end. Systems compound.
+              </h2>
+            </ScrollReveal>
 
-          <ScrollReveal delay={0.2}>
-            <p
-              className="body-lg"
-              style={{
-                color: 'var(--on-ink-medium)',
-                marginBottom: 'var(--spacing-6)',
-              }}
-            >
-              Mall operators spend millions on activations that spike for two
-              weeks and fade. Celebrity appearances. Seasonal decor. Pop-up
-              installations.
-            </p>
-          </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p
+                className="body-lg"
+                style={{
+                  color: 'var(--on-ink-medium)',
+                  marginBottom: 'var(--spacing-6)',
+                }}
+              >
+                Mall operators spend millions on activations that spike for two
+                weeks and fade. Celebrity appearances. Seasonal decor. Pop-up
+                installations.
+              </p>
+            </ScrollReveal>
 
-          <ScrollReveal delay={0.3}>
-            <p
-              className="body-lg"
-              style={{
-                color: 'var(--on-ink-medium)',
-                marginBottom: 'var(--spacing-6)',
-              }}
-            >
-              Footfall returns to baseline. No repeat visits. No behavioral
-              change. No data beyond headcount.
-            </p>
-          </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <p
+                className="body-lg"
+                style={{ color: 'var(--on-ink-medium)' }}
+              >
+                Footfall returns to baseline. No repeat visits. No behavioral
+                change. No data beyond headcount.
+              </p>
+            </ScrollReveal>
+          </div>
 
-          <ScrollReveal delay={0.5}>
-            <p
-              className="headline-lg"
+          <ScrollReveal delay={0.4}>
+            <div
               style={{
-                color: 'var(--on-ink)',
-                marginTop: 'var(--spacing-12)',
+                borderLeft: '2px solid var(--primary)',
+                paddingLeft: 'var(--spacing-6)',
               }}
             >
-              The gap is not awareness. It is execution.
-            </p>
+              <p
+                className="display-lg"
+                style={{
+                  color: 'var(--on-ink)',
+                  lineHeight: 1.15,
+                }}
+              >
+                The gap is not awareness. It is execution.
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </div>
