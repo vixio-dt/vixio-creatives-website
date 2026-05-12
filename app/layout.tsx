@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { ColorSchemeScript } from '@mantine/core'
 import { MantineClientProvider } from '@/components/providers/MantineClientProvider'
 import { OrbitalNav } from '@/components/layout/OrbitalNav'
-import { Footer } from '@/components/layout/Footer'
 import { CustomCursor } from '@/components/ui/CustomCursor'
 import './globals.css'
 
@@ -40,7 +39,6 @@ export default function RootLayout({
           <CustomCursor />
           <OrbitalNav />
           <main id="main-content">{children}</main>
-          <Footer />
         </MantineClientProvider>
       </body>
     </html>

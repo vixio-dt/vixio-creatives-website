@@ -64,6 +64,7 @@ export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
             <button
               onClick={onClose}
               aria-label="Close menu"
+              className="menu-close-btn"
               style={{
                 position: 'absolute',
                 top: 'var(--spacing-6)',
@@ -93,7 +94,7 @@ export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
                 >
                   <button
                     onClick={() => handleNav(item.href)}
-                    className="headline-lg"
+                    className="headline-lg menu-nav-btn"
                     style={{
                       background: 'none',
                       border: 'none',

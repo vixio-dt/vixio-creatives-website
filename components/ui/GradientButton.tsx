@@ -27,7 +27,7 @@ export function GradientButton({ children, href, onClick, type = 'button', class
     justifyContent: 'center',
     textDecoration: 'none',
     boxShadow: '0 2px 12px rgba(14, 15, 18, 0.15)',
-    transition: 'all var(--duration-fast) var(--ease-default)',
+    transition: 'transform var(--duration-fast) var(--ease-default), background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default)',
   }
 
   const hoverClass = 'gradient-btn'

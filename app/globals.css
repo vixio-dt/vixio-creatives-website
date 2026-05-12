@@ -105,10 +105,6 @@ html {
    BASE STYLES
    ============================================ */
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-body);
   background-color: var(--surface);
@@ -338,6 +334,10 @@ body {
   box-shadow: 0 8px 32px rgba(58, 174, 216, 0.25) !important;
 }
 
+.gradient-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
 .gradient-btn:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -346,6 +346,10 @@ body {
 .ghost-btn:hover {
   background: var(--primary-container) !important;
   box-shadow: inset 0 0 0 1.5px rgba(58, 174, 216, 0.4) !important;
+}
+
+.ghost-btn:active {
+  transform: scale(0.97);
 }
 
 .ghost-btn:focus-visible {
@@ -397,7 +401,7 @@ body {
   right: 50%;
   height: 1px;
   background: var(--primary);
-  transition: all var(--duration-fast) var(--ease-default);
+  transition: left var(--duration-fast) var(--ease-default), right var(--duration-fast) var(--ease-default);
 }
 
 .text-link:hover::after {
@@ -458,6 +462,31 @@ body {
 
 .menu-trigger:hover {
   box-shadow: 0 8px 32px var(--shadow-ambient), 0 2px 16px var(--shadow-primary) !important;
+}
+
+/* FullScreenMenu close button */
+.menu-close-btn {
+  transition: background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default);
+}
+
+.menu-close-btn:hover {
+  background: var(--surface-container-highest) !important;
+}
+
+.menu-close-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* FullScreenMenu nav buttons */
+.menu-nav-btn:hover {
+  color: var(--primary) !important;
+}
+
+.menu-nav-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
 }
 
 /* FullScreenMenu nav item hover */

@@ -27,7 +27,7 @@ export function GhostButton({ children, href, onClick, type = 'button', classNam
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    transition: 'all var(--duration-fast) var(--ease-default)',
+    transition: 'transform var(--duration-fast) var(--ease-default), background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default)',
   }
 
   const hoverClass = 'ghost-btn'
