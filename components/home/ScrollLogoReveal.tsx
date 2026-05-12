@@ -9,14 +9,8 @@ import {
   useReducedMotion,
   type MotionValue,
 } from 'framer-motion'
-import dynamic from 'next/dynamic'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
-
-const WireframeHero = dynamic(
-  () => import('@/components/ui/WireframeHero').then((m) => m.WireframeHero),
-  { ssr: false },
-)
 
 function useCompositeFilter(
   brightness: MotionValue<number>,
@@ -254,8 +248,8 @@ export function ScrollLogoReveal() {
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
             >
-              <GradientButton href="/experiences">See the Experience</GradientButton>
-              <GhostButton href="/contact">Bring This to Your Venue</GhostButton>
+              <GradientButton href="#experience">See the Experience</GradientButton>
+              <GhostButton href="#contact">Bring This to Your Venue</GhostButton>
             </div>
           </div>
         </section>
@@ -284,9 +278,6 @@ export function ScrollLogoReveal() {
             backgroundColor: bgColor,
           }}
         />
-
-        {/* Architectural wireframe */}
-        <WireframeHero />
 
         {/* Radial glow */}
         <motion.div
@@ -407,8 +398,8 @@ export function ScrollLogoReveal() {
                 pointerEvents: 'auto',
               }}
             >
-              <GradientButton href="/experiences">See the Experience</GradientButton>
-              <GhostButton href="/contact">Bring This to Your Venue</GhostButton>
+              <GradientButton href="#experience">See the Experience</GradientButton>
+              <GhostButton href="#contact">Bring This to Your Venue</GhostButton>
             </motion.div>
           </div>
         </div>

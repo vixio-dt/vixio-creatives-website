@@ -11,10 +11,12 @@ export function OrbitalNav() {
   const [scrolled, setScrolled] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [revealVisible, setRevealVisible] = useState(true)
+  const [atTop, setAtTop] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      setAtTop(window.scrollY < 100)
 
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = docHeight > 0 ? window.scrollY / docHeight : 0
@@ -57,6 +59,7 @@ export function OrbitalNav() {
     }
   }, [])
 
+  const showNav = !revealVisible && !atTop
   const circumference = 2 * Math.PI * 16
 
   return (
@@ -69,11 +72,11 @@ export function OrbitalNav() {
           left: 0,
           right: 0,
           height: '80px',
-          background: scrolled && !revealVisible ? 'rgba(250, 250, 248, 0.75)' : 'transparent',
-          backdropFilter: scrolled && !revealVisible ? 'blur(16px)' : 'none',
-          WebkitBackdropFilter: scrolled && !revealVisible ? 'blur(16px)' : 'none',
-          opacity: revealVisible ? 0 : 1,
-          transition: 'all var(--duration-fast) var(--ease-default)',
+          background: scrolled && showNav ? 'rgba(250, 250, 248, 0.75)' : 'transparent',
+          backdropFilter: scrolled && showNav ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled && showNav ? 'blur(16px)' : 'none',
+          opacity: showNav ? 1 : 0,
+          transition: 'background var(--duration-fast) var(--ease-default), backdrop-filter var(--duration-fast) var(--ease-default), opacity var(--duration-fast) var(--ease-default)',
           zIndex: 49,
           pointerEvents: 'none',
         }}
@@ -87,9 +90,9 @@ export function OrbitalNav() {
           top: '-10px',
           left: 'var(--spacing-4)',
           zIndex: 50,
-          opacity: revealVisible ? 0 : 1,
+          opacity: showNav ? 1 : 0,
           transition: 'opacity 300ms var(--ease-default)',
-          pointerEvents: revealVisible ? 'none' : 'auto',
+          pointerEvents: showNav ? 'auto' : 'none',
         }}
       >
         <Image
@@ -121,9 +124,9 @@ export function OrbitalNav() {
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: '0 4px 24px var(--shadow-ambient)',
-          opacity: revealVisible ? 0 : 1,
+          opacity: showNav ? 1 : 0,
           transition: 'background var(--duration-fast) var(--ease-default), opacity 300ms var(--ease-default)',
-          pointerEvents: revealVisible ? 'none' : 'auto',
+          pointerEvents: showNav ? 'auto' : 'none',
         }}
         className="menu-trigger"
       >
@@ -137,9 +140,9 @@ export function OrbitalNav() {
           bottom: 'var(--spacing-6)',
           right: 'var(--spacing-6)',
           zIndex: 50,
-          opacity: revealVisible ? 0 : 1,
+          opacity: showNav ? 1 : 0,
           transition: 'opacity 300ms var(--ease-default)',
-          pointerEvents: revealVisible ? 'none' : 'auto',
+          pointerEvents: showNav ? 'auto' : 'none',
         }}
       >
         <svg width="40" height="40" viewBox="0 0 36 36" aria-hidden="true">

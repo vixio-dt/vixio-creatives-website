@@ -1,12 +1,10 @@
 import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
 import { ProblemSection } from '@/components/home/ProblemSection'
 import { WhoThisIsFor } from '@/components/home/WhoThisIsFor'
-import { WhatWeDo } from '@/components/home/WhatWeDo'
+import { ServicesManifest } from '@/components/home/ServicesManifest'
+import { ExperienceSection } from '@/components/home/ExperienceSection'
 import { HowItWorks } from '@/components/home/HowItWorks'
-import { ApproachSection } from '@/components/home/ApproachSection'
-import { StructuralGap } from '@/components/home/StructuralGap'
-import { FollowTheBuild } from '@/components/home/FollowTheBuild'
-import { FinalCTA } from '@/components/home/FinalCTA'
+import { ContactSection } from '@/components/home/ContactSection'
 
 export default function Home() {
   return (
@@ -14,12 +12,10 @@ export default function Home() {
       <ScrollLogoReveal />
       <ProblemSection />
       <WhoThisIsFor />
-      <WhatWeDo />
+      <ServicesManifest />
+      <ExperienceSection />
       <HowItWorks />
-      <ApproachSection />
-      <StructuralGap />
-      <FollowTheBuild />
-      <FinalCTA />
+      <ContactSection />
     </>
   )
 }

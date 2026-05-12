@@ -1,21 +1,11 @@
 import Image from 'next/image'
-import Link from 'next/link'
-
-const navLinks = [
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'Services', href: '/services' },
-  { label: 'Lab', href: '/lab' },
-  { label: 'About', href: '/about' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'Contact', href: '/contact' },
-]
 
 export function Footer() {
   return (
     <footer
       style={{
         background: 'var(--surface-container-low)',
-        padding: 'var(--spacing-16) var(--spacing-6)',
+        padding: 'var(--spacing-12) var(--spacing-6)',
       }}
     >
       <div
@@ -23,55 +13,39 @@ export function Footer() {
           maxWidth: '1200px',
           margin: '0 auto',
           display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--spacing-8)',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 'var(--spacing-4)',
         }}
       >
-        {/* Main footer content */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-          {/* Left — Logo + Location */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
-            <Image
-              src="/vixio-logo.svg"
-              alt="Vixio Creatives"
-              width={120}
-              height={60}
-              className="w-[120px]"
-            />
-            <span className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>Hong Kong</span>
-            <span className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>© 2026 Vixio Creatives</span>
-          </div>
-
-          {/* Center — Nav Links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="body-sm text-link"
-                style={{
-                  color: 'var(--on-surface-variant)',
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Right — Email */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', alignItems: 'flex-start' }}>
-            <a
-              href="mailto:hello@vixiocreatives.com"
-              className="body-sm"
-              style={{
-                color: 'var(--on-surface-variant)',
-                textDecoration: 'none',
-              }}
-            >
-              hello@vixiocreatives.com
-            </a>
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-4)' }}>
+          <Image
+            src="/vixio-logo.svg"
+            alt="Vixio Creatives"
+            width={100}
+            height={50}
+            className="w-[100px]"
+          />
+          <span className="body-sm" style={{ color: 'var(--on-surface-variant)' }}>
+            Hong Kong
+          </span>
         </div>
+
+        <a
+          href="mailto:hello@vixiocreatives.com"
+          className="body-sm"
+          style={{
+            color: 'var(--on-surface-variant)',
+            textDecoration: 'none',
+          }}
+        >
+          hello@vixiocreatives.com
+        </a>
+
+        <span className="label-sm" style={{ color: 'var(--on-surface-variant)' }}>
+          © 2026 Vixio Creatives
+        </span>
       </div>
     </footer>
   )

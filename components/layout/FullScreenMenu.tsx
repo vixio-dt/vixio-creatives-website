@@ -1,7 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
+import { useEffect } from 'react'
 import { X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FocusTrap } from '@mantine/core'
@@ -12,17 +11,30 @@ interface FullScreenMenuProps {
 }
 
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'Studio Services', href: '/services' },
-  { label: 'Lab', href: '/lab' },
-  { label: 'About', href: '/about' },
-  { label: 'Journal', href: '/journal' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'The Problem', href: '#problem' },
+  { label: 'Services', href: '#services' },
+  { label: 'The Experience', href: '#experience' },
+  { label: 'Process', href: '#process' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
-  const pathname = usePathname()
+  useEffect(() => {
+    if (!isOpen) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen, onClose])
+
+  function handleNav(href: string) {
+    onClose()
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      el?.scrollIntoView({ behavior: 'smooth' })
+    }, 350)
+  }
 
   return (
     <AnimatePresence>
@@ -79,18 +91,23 @@ export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.05, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 >
-                  <Link
-                    href={item.href}
-                    onClick={onClose}
+                  <button
+                    onClick={() => handleNav(item.href)}
                     className="headline-lg"
                     style={{
-                      textDecoration: 'none',
-                      color: pathname === item.href ? 'var(--primary)' : 'var(--on-surface)',
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      color: 'var(--on-surface)',
+                      fontFamily: 'inherit',
+                      fontSize: 'inherit',
+                      fontWeight: 'inherit',
+                      letterSpacing: 'inherit',
                       transition: 'color var(--duration-fast) var(--ease-default)',
                     }}
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
             </nav>
