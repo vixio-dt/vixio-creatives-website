@@ -55,7 +55,7 @@ export function EmailCaptureCTA() {
           <div
             style={{
               background: 'var(--ink)',
-              color: '#F2F0EC',
+              color: 'var(--on-ink)',
               padding: 'var(--spacing-12)',
               borderRadius: 'var(--radius-xl)',
               minHeight: '320px',
@@ -67,7 +67,7 @@ export function EmailCaptureCTA() {
           >
             <span
               className="mono-tag"
-              style={{ color: 'rgba(242, 240, 236, 0.6)' }}
+              style={{ color: 'var(--on-ink-low)' }}
             >
               {'// open for commissions'}
             </span>
@@ -90,13 +90,13 @@ export function EmailCaptureCTA() {
                   fontFamily: 'var(--font-body)',
                   fontSize: '1rem',
                   lineHeight: 1.55,
-                  color: 'rgba(242, 240, 236, 0.7)',
+                  color: 'var(--on-ink-medium)',
                   maxWidth: '50ch',
                   margin: 0,
                   marginBottom: 'var(--spacing-6)',
                 }}
               >
-                Galleries, museums, brands, festivals, cultural venues — bring us a problem.
+                Galleries, museums, brands, festivals, cultural venues: bring us a problem.
               </p>
               <a
                 href="mailto:hello@vixiocreatives.com"
@@ -106,7 +106,7 @@ export function EmailCaptureCTA() {
                   fontWeight: 600,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  color: '#F2F0EC',
+                  color: 'var(--on-ink)',
                   textDecoration: 'none',
                   borderBottom: '1.5px solid var(--primary)',
                   paddingBottom: '4px',

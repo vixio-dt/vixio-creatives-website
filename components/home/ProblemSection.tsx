@@ -7,7 +7,7 @@ export function ProblemSection() {
     <section
       style={{
         background: 'var(--ink)',
-        color: '#F2F0EC',
+        color: 'var(--on-ink)',
         padding: 'clamp(4rem, 10vw, 8rem) var(--spacing-6)',
       }}
     >
@@ -24,7 +24,7 @@ export function ProblemSection() {
         <ScrollReveal delay={0.1}>
           <h2
             className="display-md"
-            style={{ color: '#F2F0EC', marginBottom: 'var(--spacing-8)' }}
+            style={{ color: 'var(--on-ink)', marginBottom: 'var(--spacing-8)' }}
           >
             Events end. Systems compound.
           </h2>
@@ -34,7 +34,7 @@ export function ProblemSection() {
           <p
             className="body-lg"
             style={{
-              color: 'rgba(242, 240, 236, 0.75)',
+              color: 'var(--on-ink-medium)',
               marginBottom: 'var(--spacing-6)',
               maxWidth: '65ch',
             }}
@@ -49,7 +49,7 @@ export function ProblemSection() {
           <p
             className="body-lg"
             style={{
-              color: 'rgba(242, 240, 236, 0.75)',
+              color: 'var(--on-ink-medium)',
               marginBottom: 'var(--spacing-6)',
               maxWidth: '65ch',
             }}
@@ -67,14 +67,14 @@ export function ProblemSection() {
               gap: 'var(--spacing-6)',
               marginTop: 'var(--spacing-8)',
               paddingTop: 'var(--spacing-8)',
-              borderTop: '1px solid rgba(242, 240, 236, 0.1)',
+              borderTop: '1px solid var(--ink-border-subtle)',
             }}
           >
             <div>
               <p className="display-md" style={{ color: 'var(--primary)', marginBottom: '0.25rem' }}>
                 $132B
               </p>
-              <p className="body-sm" style={{ color: 'rgba(242, 240, 236, 0.5)' }}>
+              <p className="body-sm" style={{ color: 'var(--on-ink-low)' }}>
                 Global retailtainment market
               </p>
             </div>
@@ -82,7 +82,7 @@ export function ProblemSection() {
               <p className="display-md" style={{ color: 'var(--primary)', marginBottom: '0.25rem' }}>
                 85%
               </p>
-              <p className="body-sm" style={{ color: 'rgba(242, 240, 236, 0.5)' }}>
+              <p className="body-sm" style={{ color: 'var(--on-ink-low)' }}>
                 HK malls without experiential retail
               </p>
             </div>
@@ -90,7 +90,7 @@ export function ProblemSection() {
               <p className="display-md" style={{ color: 'var(--primary)', marginBottom: '0.25rem' }}>
                 20%
               </p>
-              <p className="body-sm" style={{ color: 'rgba(242, 240, 236, 0.5)' }}>
+              <p className="body-sm" style={{ color: 'var(--on-ink-low)' }}>
                 Sales uplift where adopted
               </p>
             </div>
@@ -101,7 +101,7 @@ export function ProblemSection() {
           <p
             className="headline-md"
             style={{
-              color: '#F2F0EC',
+              color: 'var(--on-ink)',
               marginTop: 'var(--spacing-8)',
             }}
           >

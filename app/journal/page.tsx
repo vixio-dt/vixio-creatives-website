@@ -3,10 +3,10 @@ import { JournalHero } from '@/components/journal/JournalHero'
 import { PostList } from '@/components/journal/PostList'
 
 export const metadata: Metadata = {
-  title: 'Journal — Vixio Creatives',
+  title: 'Journal | Vixio Creatives',
   description: 'Creative process, industry observations, and behind-the-scenes from a creative studio in Hong Kong.',
   openGraph: {
-    title: 'Journal — Vixio Creatives',
+    title: 'Journal | Vixio Creatives',
     description: 'Thinking out loud. From the Vixio Creatives studio.',
   },
 }

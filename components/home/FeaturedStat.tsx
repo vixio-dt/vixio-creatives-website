@@ -5,7 +5,7 @@ export function FeaturedStat() {
     <section
       style={{
         background: 'var(--ink)',
-        color: '#F2F0EC',
+        color: 'var(--on-ink)',
         padding: 'var(--spacing-20) var(--spacing-6)',
       }}
     >
@@ -39,7 +39,7 @@ export function FeaturedStat() {
           <div>
             <span
               className="mono-tag"
-              style={{ color: 'rgba(242, 240, 236, 0.5)', display: 'block', marginBottom: 'var(--spacing-4)' }}
+              style={{ color: 'var(--on-ink-low)', display: 'block', marginBottom: 'var(--spacing-4)' }}
             >
               People per room · cooperative
             </span>
@@ -51,7 +51,7 @@ export function FeaturedStat() {
                 letterSpacing: '-0.015em',
                 lineHeight: 1.05,
                 margin: 0,
-                color: '#F2F0EC',
+                color: 'var(--on-ink)',
               }}
             >
               The outcome depends on everyone in the room.
@@ -62,11 +62,11 @@ export function FeaturedStat() {
                 fontSize: '1.0625rem',
                 lineHeight: 1.55,
                 marginTop: 'var(--spacing-6)',
-                color: 'rgba(242, 240, 236, 0.7)',
+                color: 'var(--on-ink-medium)',
                 maxWidth: '50ch',
               }}
             >
-              Cooperative by design — the story branches based on what the group does, not what any one
+              Cooperative by design: the story branches based on what the group does, not what any one
               person chooses. You leave with an NFC-embedded artifact unique to your run.
             </p>
           </div>

@@ -63,6 +63,19 @@
   --ink: #0E0F12;
   --ink-soft: #1E2128;
 
+  /* Text on dark (--ink) surfaces */
+  --on-ink: #F2F0EC;
+  --on-ink-high: rgba(242, 240, 236, 0.85);
+  --on-ink-medium: rgba(242, 240, 236, 0.7);
+  --on-ink-low: rgba(242, 240, 236, 0.5);
+  --on-ink-muted: rgba(242, 240, 236, 0.45);
+
+  /* Borders & surfaces on dark */
+  --ink-border: rgba(242, 240, 236, 0.12);
+  --ink-border-subtle: rgba(242, 240, 236, 0.08);
+  --ink-surface-subtle: rgba(255, 255, 255, 0.03);
+  --ink-surface-raised: rgba(255, 255, 255, 0.06);
+
   /* Brand gradient */
   --vixio-gradient: linear-gradient(45deg, #3AAED8, #D4A843);
 

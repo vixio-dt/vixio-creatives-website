@@ -84,7 +84,7 @@ export function HeroSection() {
         <h1
           className="display-lg fade-in-up"
           style={{
-            color: '#F2F0EC',
+            color: 'var(--on-ink)',
             marginBottom: 'var(--spacing-6)',
             animationDelay: '0.3s',
           }}
@@ -95,7 +95,7 @@ export function HeroSection() {
         <p
           className="body-lg fade-in-up"
           style={{
-            color: 'rgba(242, 240, 236, 0.85)',
+            color: 'var(--on-ink-high)',
             maxWidth: '580px',
             margin: '0 auto',
             marginBottom: 'var(--spacing-8)',
@@ -103,7 +103,7 @@ export function HeroSection() {
           }}
         >
           Vixio Creatives is a creative studio based in Hong Kong. We create original
-          stories and bring them to life across formats — physical + digital experiences,
+          stories and bring them to life across formats: physical + digital experiences,
           artifacts, film, and content. Every format serves the story. Every story deserves more
           than one world.
         </p>

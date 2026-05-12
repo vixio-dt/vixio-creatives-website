@@ -7,7 +7,7 @@ export function StructuralGap() {
     <section
       style={{
         background: 'var(--ink)',
-        color: '#F2F0EC',
+        color: 'var(--on-ink)',
         padding: 'clamp(4rem, 10vw, 8rem) var(--spacing-6)',
       }}
     >
@@ -25,7 +25,7 @@ export function StructuralGap() {
           <p
             className="body-lg"
             style={{
-              color: 'rgba(242, 240, 236, 0.85)',
+              color: 'var(--on-ink-high)',
               marginBottom: 'var(--spacing-6)',
               maxWidth: '65ch',
             }}
@@ -39,7 +39,7 @@ export function StructuralGap() {
           <p
             className="body-lg"
             style={{
-              color: 'rgba(242, 240, 236, 0.85)',
+              color: 'var(--on-ink-high)',
               marginBottom: 'var(--spacing-6)',
               maxWidth: '65ch',
             }}
@@ -54,7 +54,7 @@ export function StructuralGap() {
           <p
             className="headline-lg"
             style={{
-              color: '#F2F0EC',
+              color: 'var(--on-ink)',
               marginTop: 'var(--spacing-4)',
             }}
           >

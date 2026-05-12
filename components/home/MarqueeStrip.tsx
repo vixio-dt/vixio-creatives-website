@@ -15,7 +15,7 @@ export function MarqueeStrip() {
         aria-hidden="true"
         style={{
           background: 'var(--ink)',
-          color: '#F2F0EC',
+          color: 'var(--on-ink)',
           padding: 'var(--spacing-8) 0',
           overflow: 'hidden',
         }}

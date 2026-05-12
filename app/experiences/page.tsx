@@ -237,7 +237,7 @@ export default function ExperiencesPage() {
             <h2
               className="headline-lg"
               style={{
-                color: '#F2F0EC',
+                color: 'var(--on-ink)',
                 marginBottom: 'var(--spacing-12)',
                 textAlign: 'center',
               }}
@@ -254,7 +254,7 @@ export default function ExperiencesPage() {
               gridTemplateColumns: '1fr 1fr',
               gap: 'var(--spacing-6)',
               paddingBottom: 'var(--spacing-4)',
-              borderBottom: '1px solid rgba(242, 240, 236, 0.12)',
+              borderBottom: '1px solid var(--ink-border)',
             }}
           >
             <p
@@ -265,7 +265,7 @@ export default function ExperiencesPage() {
             </p>
             <p
               className="label-md"
-              style={{ color: 'rgba(242, 240, 236, 0.45)' }}
+              style={{ color: 'var(--on-ink-muted)' }}
             >
               What it isn&apos;t
             </p>
@@ -283,22 +283,22 @@ export default function ExperiencesPage() {
                   padding: 'var(--spacing-4) 0',
                   borderBottom:
                     i < comparisonRows.length - 1
-                      ? '1px solid rgba(242, 240, 236, 0.08)'
+                      ? '1px solid var(--ink-border-subtle)'
                       : 'none',
                 }}
               >
                 <p
                   className="body-md"
-                  style={{ color: '#F2F0EC' }}
+                  style={{ color: 'var(--on-ink)' }}
                 >
                   {row.is}
                 </p>
                 <p
                   className="body-md"
                   style={{
-                    color: 'rgba(242, 240, 236, 0.45)',
+                    color: 'var(--on-ink-muted)',
                     textDecoration: 'line-through',
-                    textDecorationColor: 'rgba(242, 240, 236, 0.25)',
+                    textDecorationColor: 'var(--on-ink-muted)',
                   }}
                 >
                   {row.isnt}

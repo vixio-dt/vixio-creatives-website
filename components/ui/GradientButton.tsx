@@ -11,7 +11,7 @@ interface GradientButtonProps {
 export function GradientButton({ children, href, onClick, type = 'button', className = '' }: GradientButtonProps) {
   const styles: React.CSSProperties = {
     background: 'var(--ink)',
-    color: '#F2F0EC',
+    color: 'var(--on-ink)',
     borderRadius: 'var(--radius-md)',
     padding: 'var(--spacing-2) var(--spacing-6)',
     border: 'none',

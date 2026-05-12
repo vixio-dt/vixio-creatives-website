@@ -154,7 +154,7 @@ export default function AboutPage() {
               <span
                 className="display-md"
                 style={{
-                  color: 'rgba(255, 255, 255, 0.12)',
+                  color: 'var(--ink-border)',
                   userSelect: 'none',
                 }}
               >
@@ -251,7 +251,7 @@ export default function AboutPage() {
             <h2
               className="headline-lg"
               style={{
-                color: '#F2F0EC',
+                color: 'var(--on-ink)',
                 marginBottom: 'var(--spacing-4)',
               }}
             >
@@ -260,7 +260,7 @@ export default function AboutPage() {
             <p
               className="body-lg"
               style={{
-                color: 'rgba(242, 240, 236, 0.7)',
+                color: 'var(--on-ink-medium)',
                 marginBottom: 'var(--spacing-12)',
               }}
             >
@@ -284,8 +284,8 @@ export default function AboutPage() {
                     padding: 'var(--spacing-6)',
                     background:
                       i % 2 === 0
-                        ? 'rgba(255, 255, 255, 0.03)'
-                        : 'rgba(255, 255, 255, 0.06)',
+                        ? 'var(--ink-surface-subtle)'
+                        : 'var(--ink-surface-raised)',
                   }}
                 >
                   <MechanicRow
@@ -301,7 +301,7 @@ export default function AboutPage() {
             <p
               className="body-md"
               style={{
-                color: 'rgba(242, 240, 236, 0.6)',
+                color: 'var(--on-ink-low)',
                 marginTop: 'var(--spacing-12)',
                 maxWidth: '65ch',
               }}
@@ -425,14 +425,14 @@ function MechanicRow({
       <p
         className="headline-sm"
         style={{
-          color: '#F2F0EC',
+          color: 'var(--on-ink)',
           minWidth: '14rem',
           flexShrink: 0,
         }}
       >
         {name}
       </p>
-      <p className="body-md" style={{ color: 'rgba(242, 240, 236, 0.7)' }}>
+      <p className="body-md" style={{ color: 'var(--on-ink-medium)' }}>
         {description}
       </p>
     </div>
