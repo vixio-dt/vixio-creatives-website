@@ -355,11 +355,12 @@ body {
 
 .skip-link {
   position: absolute;
-  left: -9999px;
-  top: auto;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   width: 1px;
   height: 1px;
   overflow: hidden;
+  white-space: nowrap;
   z-index: 9999;
   font-family: var(--font-display);
   font-size: 0.875rem;
