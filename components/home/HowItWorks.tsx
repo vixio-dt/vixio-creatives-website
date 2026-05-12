@@ -50,13 +50,14 @@ export function HowItWorks() {
           padding: 0 var(--spacing-4);
         }
         .hiw-dot {
-          width: 12px;
-          height: 12px;
+          width: 16px;
+          height: 16px;
           border-radius: 50%;
           background: var(--primary);
           margin: 0 auto var(--spacing-8);
           position: relative;
           z-index: 1;
+          box-shadow: 0 0 0 4px var(--surface-container-low), 0 0 0 5px var(--outline-variant);
         }
         @media (max-width: 768px) {
           .hiw-flow {

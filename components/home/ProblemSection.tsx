@@ -9,13 +9,13 @@ export function ProblemSection() {
       style={{
         background: 'var(--ink)',
         color: 'var(--on-ink)',
-        padding: 'clamp(4rem, 10vw, 8rem) var(--spacing-6)',
+        padding: 'clamp(6rem, 14vw, 12rem) var(--spacing-6)',
       }}
     >
       <style>{`
         .problem-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 2fr 3fr;
           gap: clamp(3rem, 6vw, 6rem);
           align-items: end;
         }
@@ -45,9 +45,9 @@ export function ProblemSection() {
           <div>
             <ScrollReveal delay={0.1}>
               <h2
-                className="display-md"
+                className="headline-lg"
                 style={{
-                  color: 'var(--on-ink)',
+                  color: 'var(--on-ink-medium)',
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
@@ -59,7 +59,7 @@ export function ProblemSection() {
               <p
                 className="body-lg"
                 style={{
-                  color: 'var(--on-ink-medium)',
+                  color: 'var(--on-ink-low)',
                   marginBottom: 'var(--spacing-6)',
                 }}
               >
@@ -72,7 +72,7 @@ export function ProblemSection() {
             <ScrollReveal delay={0.3}>
               <p
                 className="body-lg"
-                style={{ color: 'var(--on-ink-medium)' }}
+                style={{ color: 'var(--on-ink-low)' }}
               >
                 Footfall returns to baseline. No repeat visits. No behavioral
                 change. No data beyond headcount.
@@ -81,22 +81,18 @@ export function ProblemSection() {
           </div>
 
           <ScrollReveal delay={0.4}>
-            <div
+            <p
+              className="display-xl"
               style={{
-                borderLeft: '2px solid var(--primary)',
-                paddingLeft: 'var(--spacing-6)',
+                color: 'var(--on-ink)',
+                lineHeight: 0.94,
               }}
             >
-              <p
-                className="display-lg"
-                style={{
-                  color: 'var(--on-ink)',
-                  lineHeight: 1.15,
-                }}
-              >
-                The gap is not awareness. It is execution.
-              </p>
-            </div>
+              The gap is not awareness.{' '}
+              <span style={{ color: 'var(--primary)' }}>
+                It is execution.
+              </span>
+            </p>
           </ScrollReveal>
         </div>
       </div>

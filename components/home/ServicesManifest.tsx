@@ -66,10 +66,10 @@ function ServiceRow({
         }}
       >
         <span
-          className="display-md"
+          className="display-md sr-number"
           style={{
             color: 'var(--on-ink-low)',
-            opacity: 0.4,
+            opacity: 0.25,
             minWidth: '4rem',
             flexShrink: 0,
           }}
@@ -78,9 +78,9 @@ function ServiceRow({
         </span>
 
         <span
-          className="headline-md"
+          className="headline-md sr-title"
           style={{
-            color: 'var(--on-ink)',
+            color: 'var(--on-ink-high)',
             flexGrow: 1,
           }}
         >
@@ -126,10 +126,23 @@ export function ServicesManifest() {
       <style>{`
         .service-row-wrap {
           background-color: transparent;
-          transition: background-color 0.2s var(--ease-default);
+          transition: background-color 0.25s var(--ease-default);
+        }
+        .service-row-wrap .sr-number {
+          transition: opacity 0.25s var(--ease-default), color 0.25s var(--ease-default);
+        }
+        .service-row-wrap .sr-title {
+          transition: color 0.25s var(--ease-default);
         }
         .service-row-wrap:hover {
           background-color: var(--ink-surface-raised);
+        }
+        .service-row-wrap:hover .sr-number {
+          opacity: 1 !important;
+          color: var(--primary) !important;
+        }
+        .service-row-wrap:hover .sr-title {
+          color: var(--on-ink) !important;
         }
         @media (max-width: 768px) {
           .service-row-wrap {

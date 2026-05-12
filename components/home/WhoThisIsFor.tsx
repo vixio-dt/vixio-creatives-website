@@ -47,7 +47,7 @@ export function WhoThisIsFor() {
       id="audience"
       style={{
         background: 'var(--surface)',
-        padding: 'clamp(4rem, 10vw, 8rem) var(--spacing-6)',
+        padding: 'clamp(5rem, 12vw, 10rem) var(--spacing-6)',
       }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
