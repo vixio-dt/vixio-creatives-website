@@ -242,14 +242,14 @@ export function ScrollLogoReveal() {
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Premium physical products and playable experiences. Physical-first,
-              digitally enhanced.
+              Premium physical products and playable experiences. Crafted to be
+              held, opened, solved, and shared.
             </p>
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
             >
-              <GradientButton href="#experience">See What We Make</GradientButton>
-              <GhostButton href="#contact">Collaborate With Us</GhostButton>
+              <GradientButton href="#experience">Join the First Drop List</GradientButton>
+              <GhostButton href="#contact">Start a Creator Collaboration</GhostButton>
             </div>
           </div>
         </section>
@@ -383,8 +383,8 @@ export function ScrollLogoReveal() {
                 opacity: bodyOpacity,
               }}
             >
-              Premium physical products and playable experiences. Physical-first,
-              digitally enhanced.
+              Premium physical products and playable experiences. Crafted to be
+              held, opened, solved, and shared.
             </motion.p>
 
             <motion.div
@@ -398,8 +398,8 @@ export function ScrollLogoReveal() {
                 pointerEvents: 'auto',
               }}
             >
-              <GradientButton href="#experience">See What We Make</GradientButton>
-              <GhostButton href="#contact">Collaborate With Us</GhostButton>
+              <GradientButton href="#experience">Join the First Drop List</GradientButton>
+              <GhostButton href="#contact">Start a Creator Collaboration</GhostButton>
             </motion.div>
           </div>
         </div>

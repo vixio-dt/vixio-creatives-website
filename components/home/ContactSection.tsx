@@ -104,7 +104,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Buy Something
+                Join the First Drop List
               </p>
               <h3
                 className="headline-lg"
@@ -165,7 +165,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Make Something Together
+                Start a Creator Collaboration
               </p>
               <h3
                 className="headline-lg"
