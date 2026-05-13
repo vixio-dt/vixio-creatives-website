@@ -73,7 +73,7 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-4)',
                 }}
               >
-                Players
+                For You
               </p>
               <h3
                 className="display-md"
@@ -82,7 +82,7 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-4)',
                 }}
               >
-                Play together.
+                Hold it. Solve it. Share it.
               </h3>
               <p
                 className="body-lg"
@@ -92,12 +92,12 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                Cooperative game experiences in Shenzhen. 4-6 players, 60-90
-                minutes. A story you play together. Not a walking tour. A game
-                designed to be played.
+                Premium physical products and playable experiences you keep,
+                gift, and play together. Not content. Not merch. Objects
+                engineered to be worth your time.
               </p>
-              <GradientButton href="#experience">
-                See the Experience
+              <GradientButton href="#products">
+                See What We Make
               </GradientButton>
             </div>
           </ScrollReveal>
@@ -111,7 +111,7 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-3)',
                 }}
               >
-                Venue Operators
+                For Creators
               </p>
               <h3
                 className="headline-md"
@@ -120,7 +120,7 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-3)',
                 }}
               >
-                Make your space playable.
+                Make something together.
               </h3>
               <p
                 className="body-md"
@@ -129,11 +129,11 @@ export function WhoThisIsFor() {
                   marginBottom: 'var(--spacing-6)',
                 }}
               >
-                Experiential retail that drives measurable footfall, dwell time,
-                and repeat visits. Game-designed formats for malls, attractions,
-                corporate spaces, and cultural venues.
+                You bring the vision. We bring engineering, production, and GBA
+                manufacturing. Premium physical products and playable experiences
+                with your name on them.
               </p>
-              <GhostButton href="#contact">Talk to Us</GhostButton>
+              <GhostButton href="#contact">Start a Collaboration</GhostButton>
             </TiltCard>
           </ScrollReveal>
         </div>

@@ -51,7 +51,7 @@ export function ProblemSection() {
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                Events end. Systems compound.
+                Everything is a screen now.
               </h2>
             </ScrollReveal>
 
@@ -63,9 +63,9 @@ export function ProblemSection() {
                   marginBottom: 'var(--spacing-6)',
                 }}
               >
-                Mall operators spend millions on activations that spike for two
-                weeks and fade. Celebrity appearances. Seasonal decor. Pop-up
-                installations.
+                Gifts feel mass-produced. Entertainment defaults to streaming.
+                Merch is disposable. The things we buy don't ask anything of us,
+                and we don't keep them.
               </p>
             </ScrollReveal>
 
@@ -74,8 +74,8 @@ export function ProblemSection() {
                 className="body-lg"
                 style={{ color: 'var(--on-ink-low)' }}
               >
-                Footfall returns to baseline. No repeat visits. No behavioral
-                change. No data beyond headcount.
+                The physical world got quieter. Objects stopped being
+                interesting. We think digital solved everything. It didn't.
               </p>
             </ScrollReveal>
           </div>
@@ -88,9 +88,9 @@ export function ProblemSection() {
                 lineHeight: 0.94,
               }}
             >
-              The gap is not awareness.{' '}
+              The object leads.{' '}
               <span style={{ color: 'var(--primary)' }}>
-                It is execution.
+                Digital serves.
               </span>
             </p>
           </ScrollReveal>
