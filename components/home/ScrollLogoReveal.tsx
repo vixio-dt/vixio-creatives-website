@@ -242,8 +242,7 @@ export function ScrollLogoReveal() {
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Premium physical products and playable experiences. Crafted to be
-              held, opened, solved, and shared.
+              Crafted to be held, opened, solved, and shared.
             </p>
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
@@ -383,8 +382,7 @@ export function ScrollLogoReveal() {
                 opacity: bodyOpacity,
               }}
             >
-              Premium physical products and playable experiences. Crafted to be
-              held, opened, solved, and shared.
+              Crafted to be held, opened, solved, and shared.
             </motion.p>
 
             <motion.div
