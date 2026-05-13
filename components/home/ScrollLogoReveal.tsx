@@ -231,7 +231,7 @@ export function ScrollLogoReveal() {
               className="display-lg"
               style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
             >
-              Crafted to be held, opened, solved, and shared.
+              A creative studio that engineers premium physical products and playable experiences.
             </h1>
             <p
               className="body-lg"
@@ -369,7 +369,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Crafted to be held, opened, solved, and shared.
+              A creative studio that engineers premium physical products and playable experiences.
             </motion.h1>
 
             <motion.p
