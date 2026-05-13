@@ -225,13 +225,13 @@ export function ScrollLogoReveal() {
         >
           <div style={{ textAlign: 'center', maxWidth: '700px' }}>
             <p className="label-sm" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-4)' }}>
-              Stories Across Worlds
+              Craft. Play. Object.
             </p>
             <h1
               className="display-lg"
               style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
             >
-              Game-designed experiences for physical spaces.
+              Crafted to be held, opened, solved, and shared.
             </h1>
             <p
               className="body-lg"
@@ -242,14 +242,14 @@ export function ScrollLogoReveal() {
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Cooperative game experiences that turn visitors into players and spaces into
-              stories. 4-6 players. 60-90 minutes. Your venue.
+              Premium physical products and playable experiences. Physical-first,
+              digitally enhanced.
             </p>
             <div
               style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
             >
-              <GradientButton href="#experience">See the Experience</GradientButton>
-              <GhostButton href="#contact">Bring This to Your Venue</GhostButton>
+              <GradientButton href="#experience">See What We Make</GradientButton>
+              <GhostButton href="#contact">Collaborate With Us</GhostButton>
             </div>
           </div>
         </section>
@@ -357,7 +357,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Stories Across Worlds
+              Craft. Play. Object.
             </motion.p>
 
             <motion.h1
@@ -369,7 +369,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Game-designed experiences for physical spaces.
+              Crafted to be held, opened, solved, and shared.
             </motion.h1>
 
             <motion.p
@@ -383,8 +383,8 @@ export function ScrollLogoReveal() {
                 opacity: bodyOpacity,
               }}
             >
-              Cooperative game experiences that turn visitors into players and spaces into
-              stories. 4-6 players. 60-90 minutes. Your venue.
+              Premium physical products and playable experiences. Physical-first,
+              digitally enhanced.
             </motion.p>
 
             <motion.div
@@ -398,8 +398,8 @@ export function ScrollLogoReveal() {
                 pointerEvents: 'auto',
               }}
             >
-              <GradientButton href="#experience">See the Experience</GradientButton>
-              <GhostButton href="#contact">Bring This to Your Venue</GhostButton>
+              <GradientButton href="#experience">See What We Make</GradientButton>
+              <GhostButton href="#contact">Collaborate With Us</GhostButton>
             </motion.div>
           </div>
         </div>

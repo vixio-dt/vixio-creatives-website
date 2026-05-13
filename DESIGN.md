@@ -1,6 +1,6 @@
 # Design System: Vixio Creatives Website
 **Register:** Brand
-**Personality:** Craft. Tension. Play.
+**Personality:** Craft. Play. Object.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Dial | Level | Rationale |
 |------|-------|-----------|
-| **Creativity** | `9` | A game-design studio's site should feel interactive and surprising. Not generic, not chaotic. |
+| **Creativity** | `9` | A studio that makes playable experiences should have a playable website. Not generic, not chaotic. |
 | **Density** | `4` | Gallery-airy. Let the work breathe. Content earns its space through specificity. |
 | **Variance** | `8` | No two sections should feel identical. Asymmetry signals intentionality. |
 | **Motion Intent** | `8` | The site is playable. Physics-based responses, scroll-driven animation, spatial relationships. Motion is a design material, not decoration. |
@@ -121,10 +121,10 @@ Warm cream base with cyan energy and gold accent. The palette is already defined
 6. Hero entrance (0.85-1.00): Headline + body + CTAs stagger in
 
 **Required updates to hero content (not animation):**
-- Headline: "Game-designed experiences for physical spaces."
-- Body: "Cooperative game experiences that turn visitors into players and spaces into stories. 4-6 players. 60-90 minutes. Your venue."
-- CTAs: "See the Experience" (primary) + "Bring This to Your Venue" (secondary)
-- Tagline above/below logo: "Stories Across Worlds"
+- Headline: "Crafted to be held, opened, solved, and shared."
+- Body: "Premium physical products and playable experiences. Physical-first, digitally enhanced."
+- CTAs: "See What We Make" (primary) + "Collaborate With Us" (secondary)
+- Tagline above/below logo: "Craft. Play. Object."
 
 The animation code, timing, and physics must not change. Only the text content and CTA labels.
 
@@ -138,7 +138,7 @@ The animation code, timing, and physics must not change. Only the text content a
 - **Asymmetric layouts:** Avoid centered-everything. Use split layouts, offset grids, asymmetric whitespace.
 - **No 3-equal-cards:** Use 2-column zig-zag, bento grids, or horizontal arrangements.
 - **Section rhythm:** Alternate between cream sections and dark (--ink) sections for contrast.
-- **Dual-path content:** Players and venue operators see different content blocks but share layout patterns and design quality.
+- **Dual-path content:** Buyers and creators see different content blocks but share layout patterns and design quality.
 
 ---
 
@@ -184,27 +184,27 @@ The site is playable. Motion is a design material.
 
 ### Homepage
 1. ScrollLogoReveal (cinematic intro → hero)
-2. The Problem ("Events end. Systems compound.")
-3. Who This Is For (Players | Venue Operators — two-column)
-4. What We Do (cooperative mechanics, cinematic direction, measurable outcomes)
-5. How It Works B2B (3-step: Tell us → We design → Deploy and measure)
-6. The Approach (Build → Prove → Scale)
-7. The Structural Gap (inline narrative, not comparison table)
-8. Follow the Build (journal/process link)
-9. Final CTA ("Play it. Or bring it to your venue.")
+2. The Problem ("In a world full of screens, the physical is the statement.")
+3. Who This Is For (Buyers | Creators — two paths)
+4. What We Make (physical products, playable experiences, creator collaborations)
+5. How It's Made (concept → lore → engineer and design → product → shared experience)
+6. The Stance (physical-first, digitally enhanced — the object leads)
+7. Follow the Build (process journal, behind the craft)
+8. Final CTA ("Hold it. Open it. Solve it. Share it.")
 
-### Services
-- Page header → 5 service cards (What it is / What it delivers / Best for)
-- CTA section
+### Products
+- Product grid / feature cards for each product line
+- Individual product pages as products launch
 
 ### About
-- Studio → Director → 6 Mechanics table → Building in Public → CTA
+- Studio → Founder → How We Work → GBA Manufacturing → CTA
 
-### Experiences
-- "Play it." hero → Debut Experience details → What to Expect → What it is/isn't → CTA
+### Collaborate
+- For creators and IP holders: what collaboration looks like, what Vixio brings, how to start a conversation
+- Contact form
 
 ### Contact
-- "Two paths. Pick yours." → Players form | Venue Operators form
+- "Two paths. Pick yours." → Buy something | Make something together
 
 ---
 

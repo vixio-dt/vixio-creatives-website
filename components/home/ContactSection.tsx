@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { TextInput, Select, Textarea } from '@mantine/core'
+import { TextInput, Textarea } from '@mantine/core'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { GhostButton } from '@/components/ui/GhostButton'
@@ -21,33 +21,30 @@ const inputStyles = {
 }
 
 export function ContactSection() {
-  const [playerForm, setPlayerForm] = useState({
-    groupSize: '',
-    date: '',
+  const [buyerForm, setBuyerForm] = useState({
     contact: '',
   })
 
-  const [venueForm, setVenueForm] = useState({
+  const [creatorForm, setCreatorForm] = useState({
     name: '',
-    company: '',
-    venueType: '',
-    problem: '',
+    portfolio: '',
+    idea: '',
     contact: '',
   })
 
-  const [playerSubmitted, setPlayerSubmitted] = useState(false)
-  const [venueSubmitted, setVenueSubmitted] = useState(false)
+  const [buyerSubmitted, setBuyerSubmitted] = useState(false)
+  const [creatorSubmitted, setCreatorSubmitted] = useState(false)
 
-  function handlePlayerSubmit(e: React.FormEvent) {
+  function handleBuyerSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setPlayerSubmitted(true)
-    setPlayerForm({ groupSize: '', date: '', contact: '' })
+    setBuyerSubmitted(true)
+    setBuyerForm({ contact: '' })
   }
 
-  function handleVenueSubmit(e: React.FormEvent) {
+  function handleCreatorSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setVenueSubmitted(true)
-    setVenueForm({ name: '', company: '', venueType: '', problem: '', contact: '' })
+    setCreatorSubmitted(true)
+    setCreatorForm({ name: '', portfolio: '', idea: '', contact: '' })
   }
 
   return (
@@ -97,7 +94,7 @@ export function ContactSection() {
         </ScrollReveal>
 
         <div className="contact-grid">
-          {/* Players — compact, no card */}
+          {/* Buyers — compact, notify on launch */}
           <ScrollReveal delay={0.15}>
             <div>
               <p
@@ -107,7 +104,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Players
+                Buy Something
               </p>
               <h3
                 className="headline-lg"
@@ -116,7 +113,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Book a session.
+                Be first to know.
               </h3>
               <p
                 className="body-md"
@@ -125,49 +122,33 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                Cooperative game experience in Shenzhen. 4-6 players, 60-90 minutes.
+                Premium physical products and playable experiences, launching soon. Get notified.
               </p>
 
-              {playerSubmitted ? (
+              {buyerSubmitted ? (
                 <p className="headline-md" style={{ color: 'var(--primary)' }}>
-                  Thanks. We will be in touch about your session.
+                  You are on the list. We will reach out when something ships.
                 </p>
               ) : (
-                <form onSubmit={handlePlayerSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-                  <Select
-                    label="Group size"
-                    data={['4', '5', '6']}
-                    placeholder="Select"
-                    required
-                    value={playerForm.groupSize}
-                    onChange={(v) => setPlayerForm((prev) => ({ ...prev, groupSize: v || '' }))}
-                    styles={inputStyles}
-                  />
+                <form onSubmit={handleBuyerSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
                   <TextInput
-                    label="Preferred date"
-                    type="date"
+                    label="Email"
+                    placeholder="you@example.com"
+                    type="email"
                     required
-                    value={playerForm.date}
-                    onChange={(e) => setPlayerForm((prev) => ({ ...prev, date: e.currentTarget.value }))}
-                    styles={inputStyles}
-                  />
-                  <TextInput
-                    label="Contact"
-                    placeholder="Email or WeChat"
-                    required
-                    value={playerForm.contact}
-                    onChange={(e) => setPlayerForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
+                    value={buyerForm.contact}
+                    onChange={(e) => setBuyerForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
                   <div style={{ marginTop: 'var(--spacing-2)' }}>
-                    <GhostButton type="submit">Join the Waitlist</GhostButton>
+                    <GhostButton type="submit">Notify Me</GhostButton>
                   </div>
                 </form>
               )}
             </div>
           </ScrollReveal>
 
-          {/* Venue Operators — full card, larger */}
+          {/* Creators — full card, collaboration inquiry */}
           <ScrollReveal delay={0.3}>
             <div
               style={{
@@ -184,7 +165,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Venue Operators
+                Make Something Together
               </p>
               <h3
                 className="headline-lg"
@@ -193,7 +174,7 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-2)',
                 }}
               >
-                Bring this to your venue.
+                Start a collaboration.
               </h3>
               <p
                 className="body-md"
@@ -202,52 +183,44 @@ export function ContactSection() {
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                Tell us about your space and what you are trying to solve.
+                You bring the vision. We bring engineering, production, and GBA manufacturing.
               </p>
 
-              {venueSubmitted ? (
+              {creatorSubmitted ? (
                 <p className="headline-md" style={{ color: 'var(--tertiary)' }}>
                   Thanks. We will reach out to start the conversation.
                 </p>
               ) : (
-                <form onSubmit={handleVenueSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+                <form onSubmit={handleCreatorSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
                   <TextInput
                     label="Name"
                     required
-                    value={venueForm.name}
-                    onChange={(e) => setVenueForm((prev) => ({ ...prev, name: e.currentTarget.value }))}
+                    value={creatorForm.name}
+                    onChange={(e) => setCreatorForm((prev) => ({ ...prev, name: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
                   <TextInput
-                    label="Company"
-                    required
-                    value={venueForm.company}
-                    onChange={(e) => setVenueForm((prev) => ({ ...prev, company: e.currentTarget.value }))}
-                    styles={inputStyles}
-                  />
-                  <Select
-                    label="Venue type"
-                    data={['Mall', 'Attraction', 'Corporate', 'Cultural', 'Other']}
-                    required
-                    value={venueForm.venueType}
-                    onChange={(v) => setVenueForm((prev) => ({ ...prev, venueType: v || '' }))}
+                    label="Portfolio or social"
+                    placeholder="Link to your work"
+                    value={creatorForm.portfolio}
+                    onChange={(e) => setCreatorForm((prev) => ({ ...prev, portfolio: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
                   <Textarea
-                    label="What are you trying to solve?"
+                    label="What do you want to make?"
                     autosize
                     minRows={3}
                     required
-                    value={venueForm.problem}
-                    onChange={(e) => setVenueForm((prev) => ({ ...prev, problem: e.currentTarget.value }))}
+                    value={creatorForm.idea}
+                    onChange={(e) => setCreatorForm((prev) => ({ ...prev, idea: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
                   <TextInput
                     label="Contact"
-                    placeholder="Email or WhatsApp"
+                    placeholder="Email or social handle"
                     required
-                    value={venueForm.contact}
-                    onChange={(e) => setVenueForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
+                    value={creatorForm.contact}
+                    onChange={(e) => setCreatorForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
                   <div style={{ marginTop: 'var(--spacing-2)' }}>

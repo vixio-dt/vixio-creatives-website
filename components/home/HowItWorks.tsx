@@ -4,19 +4,19 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 const steps = [
   {
-    label: 'Start',
-    title: 'Tell us about your space',
-    body: 'Venue type, visitor profile, what you are trying to solve. We map the opportunity.',
+    label: 'Concept',
+    title: 'Start with the object',
+    body: 'What do you hold? What do you open? What do you solve? The physical thing comes first.',
   },
   {
-    label: 'Design',
-    title: 'We build a game system for it',
-    body: 'Cooperative mechanics tailored to your space, your audience, your retail calendar.',
+    label: 'Engineer',
+    title: 'Build the experience layer',
+    body: 'IoT, code, and craft. The digital serves the physical. Manufactured through GBA.',
   },
   {
-    label: 'Launch',
-    title: 'Deploy and measure',
-    body: 'Site-specific installation. Footfall, dwell time, repeat visits tracked from day one.',
+    label: 'Ship',
+    title: 'Into your hands',
+    body: 'Premium products and playable experiences, shipped direct. Hold it. Open it. Solve it. Share it.',
   },
 ]
 
@@ -102,7 +102,7 @@ export function HowItWorks() {
               marginBottom: 'var(--spacing-12)',
             }}
           >
-            From conversation to deployment.
+            From concept to your hands.
           </h2>
         </ScrollReveal>
 

@@ -5,33 +5,33 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 const services = [
   {
     number: '01',
-    title: 'Venue Gamification',
-    oneLiner: 'Game mechanics designed for your specific physical space.',
-    duration: '6–12 weeks',
+    title: 'Premium Physical Products',
+    oneLiner: 'Plush, collectibles, and objects engineered to keep.',
+    duration: 'Creator collabs',
   },
   {
     number: '02',
-    title: 'Experience Design',
-    oneLiner: 'Concept-to-playable cooperative game product.',
-    duration: '8–16 weeks',
+    title: 'Playable Experiences',
+    oneLiner: 'Mystery kits, puzzle boxes, and games you play together.',
+    duration: 'Ships to you',
   },
   {
     number: '03',
-    title: 'Format Design',
-    oneLiner: 'One game format, many venues. Repeatable deployment.',
-    duration: '12–20 weeks',
+    title: 'DIY Builds',
+    oneLiner: 'Physical-digital maker kits. Build it, play it, keep it.',
+    duration: 'IoT + craft',
   },
   {
     number: '04',
-    title: 'Corporate Experiences',
-    oneLiner: 'Cooperative sessions for teams. Not trust falls.',
-    duration: '2–4 hours',
+    title: 'Creator Collaborations',
+    oneLiner: 'Your IP, our engineering. Premium products with your name.',
+    duration: 'Partnership',
   },
   {
     number: '05',
-    title: 'Creative Direction',
-    oneLiner: 'Creative vision and game design oversight for your project.',
-    duration: '4–24 weeks',
+    title: 'Digital Layer Engineering',
+    oneLiner: 'The app, the interface, the code that makes the object playable.',
+    duration: 'In-house',
   },
 ]
 
@@ -172,7 +172,7 @@ export function ServicesManifest() {
                 marginBottom: 'var(--spacing-4)',
               }}
             >
-              Services
+              What We Make
             </p>
           </ScrollReveal>
 
@@ -181,7 +181,7 @@ export function ServicesManifest() {
               className="headline-lg"
               style={{ color: 'var(--on-ink)' }}
             >
-              Five ways to make spaces playable.
+              Physical-first. Digitally enhanced. Always playable.
             </h2>
           </ScrollReveal>
         </div>

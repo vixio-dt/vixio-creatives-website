@@ -35,7 +35,7 @@ export function ExperienceSection() {
               marginBottom: 'var(--spacing-8)',
             }}
           >
-            The Experience
+            How It's Made
           </p>
         </ScrollReveal>
 
@@ -48,7 +48,7 @@ export function ExperienceSection() {
                 lineHeight: 0.94,
               }}
             >
-              Play it.
+              Built, not sourced.
             </h2>
           </ScrollReveal>
 
@@ -61,9 +61,9 @@ export function ExperienceSection() {
                   marginBottom: 'var(--spacing-4)',
                 }}
               >
-                Cooperative game experiences designed by Vixio Creatives. Not an
-                escape room. Not a walking tour. A game where every player
-                matters.
+                Every product starts as a concept, merges with story, gets
+                engineered and designed, becomes a physical object, and ends as
+                a shared experience.
               </p>
               <p
                 className="headline-md"
@@ -72,9 +72,9 @@ export function ExperienceSection() {
                   marginBottom: 'var(--spacing-8)',
                 }}
               >
-                4-6 players. 60-90 minutes. Shenzhen, 2026.
+                Concept. Lore. Engineering. Product. Shared experience.
               </p>
-              <GradientButton href="#contact">Join the Waitlist</GradientButton>
+              <GradientButton href="#contact">Follow the Build</GradientButton>
             </div>
           </ScrollReveal>
         </div>
