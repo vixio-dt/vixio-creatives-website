@@ -225,13 +225,13 @@ export function ScrollLogoReveal() {
         >
           <div style={{ textAlign: 'center', maxWidth: '700px' }}>
             <p className="label-sm" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-4)' }}>
-              Craft. Play. Object.
+              Vixio Creatives
             </p>
             <h1
               className="display-lg"
               style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
             >
-              A creative studio that engineers premium physical products and playable experiences.
+              Premium physical products and playable experiences.
             </h1>
             <p
               className="body-lg"
@@ -356,7 +356,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              Craft. Play. Object.
+              Vixio Creatives
             </motion.p>
 
             <motion.h1
@@ -368,7 +368,7 @@ export function ScrollLogoReveal() {
                 opacity: headlineOpacity,
               }}
             >
-              A creative studio that engineers premium physical products and playable experiences.
+              Premium physical products and playable experiences.
             </motion.h1>
 
             <motion.p
