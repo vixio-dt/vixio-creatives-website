@@ -34,17 +34,48 @@ export function ContactSection() {
 
   const [buyerSubmitted, setBuyerSubmitted] = useState(false)
   const [creatorSubmitted, setCreatorSubmitted] = useState(false)
+  const [buyerLoading, setBuyerLoading] = useState(false)
+  const [creatorLoading, setCreatorLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleBuyerSubmit(e: React.FormEvent) {
+  async function handleBuyerSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setBuyerSubmitted(true)
-    setBuyerForm({ contact: '' })
+    setBuyerLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'buyer', ...buyerForm }),
+      })
+      if (!res.ok) throw new Error('Submission failed')
+      setBuyerSubmitted(true)
+      setBuyerForm({ contact: '' })
+    } catch {
+      setError('Something went wrong. Please email us directly.')
+    } finally {
+      setBuyerLoading(false)
+    }
   }
 
-  function handleCreatorSubmit(e: React.FormEvent) {
+  async function handleCreatorSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setCreatorSubmitted(true)
-    setCreatorForm({ name: '', portfolio: '', idea: '', contact: '' })
+    setCreatorLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'creator', ...creatorForm }),
+      })
+      if (!res.ok) throw new Error('Submission failed')
+      setCreatorSubmitted(true)
+      setCreatorForm({ name: '', portfolio: '', idea: '', contact: '' })
+    } catch {
+      setError('Something went wrong. Please email us directly.')
+    } finally {
+      setCreatorLoading(false)
+    }
   }
 
   return (
@@ -140,8 +171,13 @@ export function ContactSection() {
                     onChange={(e) => setBuyerForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
+                  {error && (
+                    <p className="body-sm" style={{ color: '#ef4444' }}>{error}</p>
+                  )}
                   <div style={{ marginTop: 'var(--spacing-2)' }}>
-                    <GhostButton type="submit">Notify Me</GhostButton>
+                    <GhostButton type="submit" disabled={buyerLoading}>
+                      {buyerLoading ? 'Submitting...' : 'Notify Me'}
+                    </GhostButton>
                   </div>
                 </form>
               )}
@@ -223,8 +259,13 @@ export function ContactSection() {
                     onChange={(e) => setCreatorForm((prev) => ({ ...prev, contact: e.currentTarget.value }))}
                     styles={inputStyles}
                   />
+                  {error && (
+                    <p className="body-sm" style={{ color: '#ef4444' }}>{error}</p>
+                  )}
                   <div style={{ marginTop: 'var(--spacing-2)' }}>
-                    <GradientButton type="submit">Start a Conversation</GradientButton>
+                    <GradientButton type="submit" disabled={creatorLoading}>
+                      {creatorLoading ? 'Submitting...' : 'Start a Conversation'}
+                    </GradientButton>
                   </div>
                 </form>
               )}

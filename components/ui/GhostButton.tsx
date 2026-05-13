@@ -6,9 +6,10 @@ interface GhostButtonProps {
   onClick?: () => void
   type?: 'button' | 'submit'
   className?: string
+  disabled?: boolean
 }
 
-export function GhostButton({ children, href, onClick, type = 'button', className = '' }: GhostButtonProps) {
+export function GhostButton({ children, href, onClick, type = 'button', className = '', disabled }: GhostButtonProps) {
   const styles: React.CSSProperties = {
     boxShadow: 'inset 0 0 0 1.5px rgba(200, 196, 191, 0.3)',
     border: 'none',
@@ -41,7 +42,7 @@ export function GhostButton({ children, href, onClick, type = 'button', classNam
   }
 
   return (
-    <button type={type} onClick={onClick} className={`${hoverClass} ${className}`} style={styles}>
+    <button type={type} onClick={onClick} disabled={disabled} className={`${hoverClass} ${className}`} style={{ ...styles, ...(disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}) }}>
       {children}
     </button>
   )

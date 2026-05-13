@@ -6,9 +6,10 @@ interface GradientButtonProps {
   onClick?: () => void
   type?: 'button' | 'submit'
   className?: string
+  disabled?: boolean
 }
 
-export function GradientButton({ children, href, onClick, type = 'button', className = '' }: GradientButtonProps) {
+export function GradientButton({ children, href, onClick, type = 'button', className = '', disabled }: GradientButtonProps) {
   const styles: React.CSSProperties = {
     background: 'var(--ink)',
     color: 'var(--on-ink)',
@@ -41,7 +42,7 @@ export function GradientButton({ children, href, onClick, type = 'button', class
   }
 
   return (
-    <button type={type} onClick={onClick} className={`${hoverClass} ${className}`} style={styles}>
+    <button type={type} onClick={onClick} disabled={disabled} className={`${hoverClass} ${className}`} style={{ ...styles, ...(disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}) }}>
       {children}
     </button>
   )
