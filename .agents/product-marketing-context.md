@@ -2,171 +2,174 @@
 
 ## Product Overview
 
-Vixio Creatives is a venue gamification studio based in Hong Kong. We design cooperative game experiences for physical spaces: malls, attractions, cultural venues. The studio sits in a structural gap between game design companies (SCRAP) that lack cinematic production value and cinematic spectacle companies (Moment Factory) that lack game design depth. No incumbent combines both.
+**One-liner:** Vixio Creatives is a creative label for entertainment IPs. We produce narrative-driven experiences around characters and worlds we believe in, one collaboration at a time.
 
-The website serves two conversion paths: players book cooperative game sessions, venue operators initiate B2B conversations. The site must demonstrate what Vixio does through its own design. A game-designed studio's website should feel interactive and playable, not static and corporate.
+**What it does:** Vixio finds, develops, and promotes entertainment IPs under its label. The through-line is taste, not genre. The medium is not locked: it emerges from each collaboration. What stays constant is the standard. Limited drops. Honest pricing. No tricks.
 
-**Tagline:** Stories Across Worlds
-**One-liner:** Game-designed experiences for physical spaces.
-**Category:** Venue Gamification Studio
+**Category:** Creative label (entertainment IPs)
+
+**Product type:** Label. Find, develop, or partner with IPs. Not an agency, not work-for-hire. Vixio develops and promotes IPs under its umbrella, hiring or partnering for execution.
+
+**Business model:**
+- Label releases: physical and digital products tied to IP collaborations (format decided per project)
+- Creator partnerships: full production capability for creators who bring the vision
+- Creative direction consulting: advisory without full production
+- Distribution partnerships: longer-term revenue-share arrangements (future)
+
+**Current stage:** Pre-launch. Producing first collaboration. No revenue yet. The label is only as real as its first release.
 
 ## Target Audiences
 
-### Primary ICP: Mall Operators (HK/GBA)
+### Creators and Studios (Primary)
 
-**Who:** Marketing directors and tenant engagement leads at commercial property groups in Hong Kong and the Greater Bay Area.
+Independent creators (illustrators, animators, game designers, comic artists) with worlds worth bringing into physical form. Small studios with strong IP and no production infrastructure. Established IP holders exploring label partnerships beyond standard merch licensing.
 
-**Target companies:**
-- Link REIT (60+ malls in HK)
-- K11 / New World Development
-- Swire Properties (Pacific Place, Citygate, Taikoo)
-- Sino Group (Olympian City, Citywalk)
-- Sun Hung Kai Properties (APM, Metroplaza, New Town Plaza)
+### Fans and Collectors
 
-**What they need:**
-1. Contained destination experiences: a room or zone people come TO within the mall (dead zone activation)
-2. Serialized engagement systems: episodic games requiring repeated visits with persistent progress
-3. Measurable outcomes: foot traffic routing, dwell time increase, tenant cross-traffic, repeat visit rate
+Adults (22-40) who value craft and story over mass production. Collectors who want objects tied to narratives, not random-pull mechanics. Gift buyers looking for something with intent behind it. People who follow labels (A24, Pop Mart) not just individual products.
 
-**Budget authority:** Marketing spend (not capex). Marketing directors approve $10K-$50K without board sign-off.
+### Distribution Partners (Future)
 
-**Decision process:** Relationship-driven, not tender-driven. They arrive via LinkedIn, industry referrals, or after seeing Vixio's public experience content.
+Retail curators and boutique distributors interested in label-branded physical products. Cultural venues and festivals programming limited-run experiences. Online platforms aligned with the limited-drop, honest-commerce model.
 
-**Why mall operators first:** Recurring seasonal need (repeat business), fast decision speed (vs. theme parks or government), geographic density (physically visitable in HK), and the relationship path leads to larger DHR venue deals.
+**Geographic focus:** Hong Kong (base and launch) → Greater Bay Area → selective international
 
-### Secondary ICP: Players (Shenzhen/GBA)
+## Personas
 
-**Who:** Groups of 4-6 friends or colleagues in Shenzhen and the Greater Bay Area looking for cooperative game experiences more engaging than an escape room or walking tour.
+| Persona | Cares about | Challenge | Value we promise |
+|---------|-------------|-----------|------------------|
+| Independent Creator / Small Studio | Getting their world into physical form, maintaining creative integrity, reaching fans beyond digital | No production capability, no supply chain access, merch licensing flattens the IP into a logo on disposable products | Full production partnership. You bring the vision, we handle the build. Your name stays on it. Your world stays intact. |
+| Fan / Collector | Craft, story, objects that mean something. Follows labels and creators, not algorithms | Most physical products are mass-produced disposable merch. No connection to the world. Blind-box mechanics feel exploitative. | Limited drops tied to real collaborations. Honest pricing. Objects designed with the same care as the IP itself. You know what you're getting. |
+| Distribution Partner | Differentiated product, reliable quality, label brand value | Most creator merch is inconsistent quality and unreliable supply. Finding labels with both creative taste and production capability is hard. | Curated releases, consistent production standard, label that creators and fans already trust. |
 
-**How they arrive:** Social media, word-of-mouth, search.
+## Core Problem
 
-**What they want:** Know what the experience is, see it in action, book a session. Specific details matter: player count, duration, mechanics, what makes it different.
+Creators with rich worlds have no good path to bring them into physical form with integrity. The options are: do nothing (stay digital), license to a merch company (lose creative control), hire an activation agency (get a template with your IP skinned on), or build in-house (become a production company instead of a creator).
 
-**Price sensitivity:** RMB 150-200/person for a 60-90 minute experience.
+### Why Current Paths Fall Short
 
-### Future ICPs (not active yet)
-- IP holders (anime, gaming IPs): Denis's personal motivation. Requires portfolio first.
-- Tourism/heritage venues
-- Corporate event buyers (fastest path to cash flow: 30% of escape room industry revenue is corporate)
-- Entertainment venues, brand activation agencies, FEC/LBE operators
+- **Merch licensing:** Disposable products that flatten the IP into a logo. No depth, no ongoing relationship with fans. Creator loses control.
+- **Activation agencies:** Produce to a brief, not a belief. Generic templates. No long-term investment. They leave after the event.
+- **DIY / in-house:** Most creators lack production capability, supply chain access, and ops experience. Building that means becoming a different kind of company.
+- **Doing nothing:** World stays trapped in one medium. Fan relationship stays shallow. Revenue limited to screen-based monetization.
 
-## Five Services
+### Emotional Tension
 
-| Service | Description | Readiness |
-|---------|------------|-----------|
-| **Venue Gamification** (lead) | Design game mechanics for malls, attractions, cultural venues | After SZ proof case |
-| **Experience Design** | End-to-end: concept to playable product (narrative, mechanics, spatial design, production direction) | After SZ proof case |
-| **Format Design** | Repeatable game formats deployable across multiple venues or seasons | Requires multiple built formats |
-| **Corporate Experiences** | Cooperative team-building sessions. Facilitated, measured, debriefed. | Earliest to deliver |
-| **Creative Direction** | Game and cinematic direction for IP holders and event agencies | Requires 2-3 proof cases |
+Creators pour years into building worlds. Characters with arcs, environments with logic, stories that earn their payoffs. Then the "physical activation" is a logo on a mug. The physical expression of the IP should be as crafted as the IP itself. Nobody's offering that.
 
-**What Vixio does NOT sell:** Video/film production, event logistics, branding/graphic design, visual art, software/app development, methodology consulting without building.
+## Competitive Landscape
 
-## Go-to-Market Strategy
+Framed as a creative label, not a venue operator or production house.
 
-**Build-first, not consulting-first.** Vixio builds a public experience in Shenzhen (small-scale, ticketed, cooperative game), films it, measures it, then lets mall operators come inbound.
+| Label | Model | Vixio distinction |
+|-------|-------|-------------------|
+| **A24** | Indie film label. Taste-as-brand. Creators seek them out for creative freedom + distribution. | Vixio applies the same model to physical IP products instead of film. |
+| **Annapurna Interactive** | Games label. Creator-first partnerships, taste-curated roster. | Vixio's founder-led model avoids the principal-agent trap (Annapurna near-collapse in 2024). |
+| **Pop Mart** | Designer toy label. Artist collaborations, physical collectibles, Dongguan manufacturing. | Vixio's products are story-tied (not random pulls), and honest commerce means no blind-box mechanics. |
+| **Sanrio** | Character IP licensing at massive scale (450 characters, 109 countries). | The 60-year endgame. Vixio's narrative-rich approach builds more defensible IP. |
 
-1. **Build** a real, public, ticketed cooperative game in SZ (HKD 30-50K budget, weekend pop-up format)
-2. **Film and measure** it: footage + engagement data = portfolio
-3. **Build public presence**: website with real footage, social content, booking. Not a consulting firm's site.
-4. **B2B inbound from visibility**: "We sold out in Shenzhen. Want us to bring it to your venue?"
+**What Vixio competes for:** Creator attention and trust. The question is: "why should a creator partner with Vixio instead of licensing to a merch company, hiring an agency, or doing nothing?"
 
-This is the SCRAP model: public experience builds audience and brand, B2B operators see the demand and come inbound.
+## Differentiation
 
-## Competitive Positioning
+**As a label:**
+- Taste is the filter. Everything shipped meets the goosebump standard. One collaboration at a time.
+- Creative integrity. The creator's name stays on it. Your world, our craft.
+- Long-term IP investment. Not work-for-hire. Not one-and-done.
+- Medium emerges from the collaboration. Not locked upfront. The through-line is taste, not genre.
 
-### The Structural Gap
+**As a production partner:**
+- Full production capability. Creative direction, design, manufacturing, distribution.
+- Supply chain access. Dongguan family manufacturing network. Most indie creators can't access this.
+- Honest commerce. No blind boxes, no gacha, no manufactured grind. Transparent pricing.
 
-Theater people can't do games. Game people can't do cinema. The gap is structural, not temporary.
+**Why creators choose a label:**
+- vs. doing nothing: "My world deserves physical expression, but I can't produce it alone"
+- vs. merch licensing: "I don't want my IP flattened into a logo on products I don't control"
+- vs. activation agency: "I want a partner who believes in the world, not a vendor who skins a template"
+- vs. building in-house: "I'm a creator, not a production company"
 
-| Competitor | Strengths | Missing |
-|-----------|-----------|---------|
-| **SCRAP** (Tokyo, ¥4.52B revenue) | Invented Real Escape Game. 80+ IP collaborations. 60-70 new titles/year. | Paper-based, no cinematic production, format unchanged 15+ years |
-| **Moment Factory** (Montreal, $140-180M) | World-class cinematic AV, 550+ projects across 6 continents | No game design depth. "Augmented Games" is a tech platform in search of game design |
-| **LOST HK** | 6 locations, strong B2B (HSBC, Google, Meta) | Puzzle-forward, not cinematic. No IP-driven work |
-| **Luna Entertainment** (UK, loss-making) | Licensed IP experiences (Squid Game, Peaky Blinders) | Owns no IP, outsources design, Squid Game experience failed on game quality |
-| **INCUBASE** (HK) | Ambient art exhibitions (Van Gogh Alive style) | Observation-based, no interactivity, no game mechanics |
+## Objections
 
-**Vixio's position:** Directed cinematic cooperative experiences with measurable business outcomes. The Nolan/Punchdrunk/Zimmer register applied to cooperative game design.
+| Objection | Response |
+|-----------|----------|
+| "You haven't shipped anything yet" | True. First collaboration is in production. Early partners get co-creation input and early-mover terms. The label model is proven (A24, Pop Mart). The application to creator-led physical IP is new. |
+| "Why not just license to a merch company?" | A merch company prints your logo on their products. A label invests in your world. We build the next release. They move on after the run. |
+| "What do I give up?" | Creative approval stays with you. Your name stays on it. Think A24 directors: the director's vision is the product. |
+| "I can do this myself" | You can. But you'll need production management, supply chain, manufacturing QA, distribution, and marketing. We handle the build so you stay creative. |
 
-### Defensibility
-1. **Format**: Cooperative mechanics are not trivially copied (SCRAP proved this in Japan; unoccupied in HK)
-2. **Taste**: Directed cinematic register is personal to Denis; hard to replicate quickly
-3. **Supply chain**: Dongguan NFC artifact manufacturing = structural cost advantage
-4. **Data**: Cross-run fan identity + artifact history = platform value over time
+**Anti-persona:**
+- IP holders who want cheap, fast merch (logo on a mug, no craft required)
+- Creators looking for a vendor to execute a brief, not a partner
+- Brands wanting "limited edition" as a buzzword without committing to quality
+- Anyone who asks "can we make it more Instagrammable" as the primary criterion
+- Anyone who wants blind-box, gacha, or manufactured-scarcity mechanics
 
-## Engagement Design Methodology
+## Brand Voice
 
-Supporting framework for B2B conversations. NOT the lead product.
+**Tone:** Direct, precise, emotionally honest. Confident without arrogance. Restrained before impact. Understatement amplifies.
 
-| Cooperative Mechanic | What It Forces | Client KPI |
-|---------------------|---------------|------------|
-| Information Asymmetry | Players split up, explore different zones | Dead zone traffic, zone coverage |
-| Role Division | Visit specific locations only they can access | Directed foot traffic |
-| Communication Constraints | Stay in place, coordinate, take time | Dwell time |
-| Physical Coordination | Be in specific spots at specific times | Zone activation |
-| Shared-Stake Decisions | Return to try different choices/outcomes | Repeat visits |
-| Time Pressure | Complete the loop, don't abandon | Completion rate |
+**Style:** Compressed, specific, object-first. One strong claim per sentence. No stacking superlatives. Specifics do the work.
 
-Framework cycle: Audit, Design, Deploy, Measure, Iterate.
+**Three traits:** Craft. Tension. Play.
 
-## Pricing
+**For creators:** Professional, direct, respectful of their craft. "You bring the vision. We handle the build. Your name stays on it."
 
-- **Player tickets (SZ debut):** RMB 150-200/person, 4-6 players, 60-90 minutes
-- **B2B venue gamification:** Project-based, $10K-$50K range (marketing budget authority)
-- **NFC collectible artifact:** COGS HK$66-111 @ 1K units, retail HK$280-350
-- **Format licensing:** Revenue share or flat fee (requires proven formats, 18-24 months out)
+**For fans:** Invitational, honest, no hype. "Objects crafted with the same care as the worlds they come from. You know what you're getting."
 
-## Brand Personality
+### Words to Use
 
-**Three words:** Craft. Tension. Play.
+Release, collaboration, artifact, crafted, limited drops, earned, real
 
-**Voice:** Direct, craft-driven, game-literate. A maker who directs, not a consultant who advises. Confident without arrogance. Honest about stage without deficit framing. Compressed, specific, problem-first. Think: a game designer explaining their work to a peer, not a salesperson pitching to a prospect.
+### Words to Avoid
 
-**Creative register (Goosebump Standard):** Directed attention, controlled pacing, intentional silence, earned climax. References: Attack on Titan (Reiner/Bertholt reveal), Zimmer, JJK, Arcane, Nolan, Peaky Blinders.
+Innovative, disruptive, cutting-edge, world-class, immersive (as lead descriptor), content, merch, team-building, escape room, excited to share, we're thrilled
 
-### Language Rules
+### Voice Rules Out
 
-| Use This | Not This |
-|----------|----------|
-| Episodes | Drops, runs |
-| Cooperative experience system | Format engine |
-| Adaptable per IP | Re-skinnable |
-| Debut experience | Pilot project |
-| Shared-stake experience | Team-building activity |
-| Cooperative experience | Escape room (publicly) |
-| Phygital (sparingly) | Character rescue |
-| Transmedia object | Trophy, collectible |
+Buzzwords (innovate, disrupt, transform), fake enthusiasm, deficit framing, em dashes in copy, Instagrammable as criterion, busy layouts, competing CTAs, spectacle without substance
 
-**Banned words:** Metaverse, innovative, cutting-edge, synergy, disrupt, transform. No em dashes. No fake enthusiasm ("Excited to share..."). No deficit framing ("no portfolio yet").
+### Glossary
 
-### Anti-References
-- **Generic agency sites**: Grid of logos, "we're passionate about creating meaningful experiences," stock photography
-- **Escape room websites**: Dark backgrounds, neon green/purple, countdown timers, padlock imagery, horror aesthetics
-- **Corporate consulting sites**: Stock photos of diverse teams in glass conference rooms, blue gradients, "innovative solutions"
+| Term | Meaning |
+|------|---------|
+| Release | A Vixio label product. Could be physical, digital, or experiential. Format per collaboration. |
+| Collaboration | A creator/studio partnership under the Vixio label. One at a time. |
+| Artifact | A crafted physical object tied to an IP. Proof of care, not disposable merch. |
+| Goosebump standard | Denis's quality bar. If it doesn't earn the feeling, it doesn't ship. |
+| Honest commerce | No blind boxes, no gacha, no manufactured grind. Transparent pricing. |
 
-### Design References (aspire to)
-- **Tearable Cloth** (pushmatrix): Physics-driven interaction where emergent behavior IS the aesthetic
-- **makemepulse "Nomadic Tribe"**: Illustrated world-building, unusual navigation, coherence of style + tech + story
-- **Moment Factory**: Dark-mode confidence, cinematic full-bleed imagery, work speaks for itself
-- **Playable patterns**: Mouse/scroll as gameplay input, progression structures, audio-visual feedback
+## Proof Points
 
-## Market Context
+Pre-launch. Honest about it.
 
-- GBA immersive entertainment market: ¥927B, 98% fragmented
-- B2B segment: 30% of revenue, growing
-- HK mall vacancy: 8-9%, rents down 14.3% (opportunity for experiential activation)
-- 76% of surveyed audiences report insufficient immersive entertainment options
-- 38% of escape room players willing to pay premium for tech-enhanced cinematic experiences
-- Corporate experiences: 30% of escape room customers, 29.7% of industry revenue
+**Structural proof:**
+- A24 proves taste-as-brand works for film. Pop Mart proves it for designer toys. Model is proven. Application is new.
+- EY M&E Pulse Poll 2025: 48% purchased local entertainment, 84% plan to. 20% plan to spend more.
+- Gen Z least cost-sensitive; rates unique (25% vs 17%) and premium (21% vs 17%) higher.
+- Ambient spectacle venues closing in HK. Spectacle without craft is failing.
 
-## Team
+**What exists today:**
+- Label positioning locked
+- First collaboration in production
+- Supply chain relationships (Dongguan manufacturing network)
+- Website (live, copy rewrite in progress)
 
-- **Denis Tam** (Founder, Creative Director): Producer archetype. Taste, vision, assembly. Not a game designer or filmmaker. Needs collaborators.
-- **Ivan Ng** (3D Tech Artist, Blender): Contracted
-- **Game designer collaborator**: #1 priority hire (BIZ-121)
-- **Agent structure**: Denis directs, Aizo orchestrates, Claude Code executes
+**What does not exist yet:**
+- Shipped product, revenue, testimonials, portfolio
 
-## Current Stage
+## Conversion Actions
 
-Pre-revenue. Building toward SZ debut experience (Q4 2026). Website is the current deliverable. Portfolio will come from the SZ pop-up footage and data, not from spec case studies.
+- **Creators:** Start a collaboration (portfolio + idea submission)
+- **Fans:** Join the first release list (email capture)
+- **Distribution:** Partnership inquiry
+
+## Notes
+
+This document feeds marketing copy skills. It is the single source of truth for who Vixio is, who it's for, and how it speaks.
+
+Medium is deliberately unspecified. The medium emerges from each collaboration. Copy should reflect this: Vixio is a label, not a product type.
+
+Pre-launch framing is honest, not defensive. State what exists and what doesn't. "Currently producing our first collaboration." Not "launching soon" and not "we don't have anything yet."
+
+Founder: Denis Tam. Producer archetype. ENFP. Transmedia creative director. Hong Kong. The studio directs taste and feel; hires or partners for execution.
