@@ -1,297 +1,246 @@
 # Customer Personas: Vixio Creatives
 
-Synthesized from: HK LBE demand research (2026-04-27), primary ICP decision (2026-05-10), product marketing context (2026-05-11).
+Synthesized from: Product marketing context (2026-05-11), customer research (2026-05-18), label positioning.
 
 ---
 
-## Persona 1: Grace Leung — Mall Marketing Director (B2B)
-
-### Role
-Senior Marketing Director at a major Hong Kong commercial property group (Link REIT, K11, Swire, Sino Group, or Sun Hung Kai Properties).
+## Persona 1: Sammi Lau — Independent Creator / Art Toy Designer
 
 ### Demographics
-- **Age:** 38-48
-- **Location:** Hong Kong (Central/Kowloon office, manages properties across HK)
-- **Education:** MBA or marketing degree from a HK/UK university
-- **Income:** HKD 80,000-150,000/month
-- **Budget authority:** Can approve HKD 10,000-50,000 marketing spend without board sign-off
+- **Age:** 31
+- **Location:** Shek Kip Mei, Hong Kong (studio at JCCAC)
+- **Occupation:** Freelance illustrator and art toy designer with her own original character IP
+- **Income:** HKD 15,000-25,000/month (mix of commissions, convention sales, and part-time teaching)
+- **Education:** BA in Visual Communication from PolyU
 
-### Psychographics
-- Measured by foot traffic, dwell time, tenant satisfaction, and repeat visit rates. Every initiative must move a KPI.
-- Follows global retail innovation trends (Westfield, CapitaLand, Tokyo malls). Subscribed to Retail Asia, HKTB updates, and LinkedIn retail groups.
-- Under constant pressure from tenants complaining about declining foot traffic. HK mall vacancy sits at 8-9%, rents down 14.3%. Needs to justify marketing spend with measurable outcomes.
-- Culturally sophisticated. Attends Art Basel, knows K11 MUSEA's art-mall model. Appreciates craft and creative ambition but will not take a risk on something unproven.
-- Pragmatic decision-maker. Relationship-driven, not tender-driven. Prefers referrals and seeing proof before committing.
+### Background / Context
+Sammi has been building her character world for four years. She started with digital illustration on Instagram, grew a following of 12,000 through consistent posting and a recognizable style — soft horror creatures with distinct personalities and backstories. She sells prints, stickers, and art books at ACGHK's doujin zone and the HK Illustration & Creative Show. She's had two successful Kickstarter campaigns for art books.
 
-### Pain Points
-1. **Dead zones.** Every mall has underperforming wings and floors. Standard activations (pop-up shops, photo walls) provide temporary foot traffic but no sustained engagement or tenant cross-traffic.
-2. **Seasonal campaign fatigue.** She runs 4-6 seasonal campaigns a year. Event agencies deliver the same formats: celebrity appearances, lucky draws, Instagram photo spots. Tenants and visitors are bored.
-3. **No repeat visit mechanic.** Pop-up events are one-and-done. She cannot point to a single activation that drove visitors back a second or third time within the same campaign period.
-4. **Measurement gaps.** She can measure total foot traffic but struggles to prove an activation caused visitors to enter specific zones or visit specific tenants. Attribution is weak.
-5. **Tenant pressure.** Tenants in low-traffic zones are threatening to break leases. She needs a solution that routes foot traffic to specific areas, not just the atrium.
+She wants to go physical. She's seen what happened when Kasing Lung's Labubu exploded after Lisa was spotted with it. She knows her characters could work as designer toys. But she has no idea how to get from an illustration to a vinyl figure on someone's shelf.
 
-### Goals
-1. Activate dead zones with contained destination experiences people come TO within the mall
-2. Deploy a serialized engagement system that requires repeated visits (not a one-day event)
-3. Demonstrate measurable outcomes: zone foot traffic routing, dwell time increase, tenant cross-traffic, repeat visit rate
-4. Differentiate her mall from competitors with something genuinely novel (not another photo wall or pop-up market)
-5. Build a case study that justifies next quarter's budget to senior leadership
+She tried print-on-demand for phone cases and tote bags. The margins were 18%. The products felt generic — her characters printed on the same blanks as everyone else. It didn't feel like her work. She looked into Pop Mart but heard the terms: 8-15% royalty, 24-month exclusives, non-compete clauses, and a 10-14 month timeline where she has no control over the toy design. That's not a partnership; that's renting out her IP.
 
-### How She Finds Vixio
-- Sees social media content from Vixio's public Shenzhen experience (Xiaohongshu/Instagram posts from players, media coverage)
-- LinkedIn: a peer at another property group mentions working with a "venue gamification studio"
-- Industry referral from an event agency or HKTB contact
-- Discovers Vixio's website while researching immersive retail activations
+She's considered going direct to factories in Dongguan, but the minimum orders, the relationship requirements, the QC process — she'd have to become a production manager. She's a creator, not an operations company.
 
-### Decision Criteria
-- **Proof of concept.** Has it been built and run? Real footage, real data, real player reactions. Not a pitch deck.
-- **Measurable KPIs.** Can Vixio provide foot traffic, dwell time, and repeat visit data? Does the methodology connect game mechanics to business metrics?
-- **Operational fit.** Can it run within mall hours? Does it disrupt tenants? What's the physical footprint? What staff does it require?
-- **Budget alignment.** HKD 10,000-50,000 per engagement is the comfortable range. Not capex, not infrastructure.
-- **Scalability.** Can this be deployed seasonally? Can it be adapted for different themes/IPs per quarter?
+### Goals and Motivations
+- Bring her characters into physical form (designer toys, collectible figures) without flattening them into logos on commodity products
+- Maintain creative control — her name on it, her aesthetic preserved, her story intact
+- Reach fans beyond Instagram and convention halls, especially into the mainland market via Xiaohongshu
+- Build something that compounds: a product line, not a one-off merch run
+- Stay a creator, not become a supply chain manager
 
-### Objections
-- "We've never worked with a venue gamification studio before. What category are you?"
-- "How do I know this will drive foot traffic to specific zones? Show me the data."
-- "My last 'innovative activation' underperformed. I need proof before I pitch this to leadership."
-- "We already have event agencies. What do you do that they can't?"
-- "Is this just a fancy escape room? We had one in 2023 and tenants complained about noise."
+### Pain Points and Frustrations
+- **POD is a dead end.** 15-20% margins on generic blanks. Her characters deserve better than a mug.
+- **Pop Mart terms are extractive.** 24-month exclusives, 8-15% royalties, no control over design execution. She'd be licensing her soul, not building her brand.
+- **Factory access requires infrastructure she doesn't have.** Dongguan factories need relationships, minimum orders, and someone managing QC. She can't do production and creation simultaneously.
+- **Convention sales don't scale.** She can sell 200 art books at ACGHK, but that's four days of work for HKD 20,000 revenue. It doesn't build a sustainable business.
+- **Income pressure is real.** More than 50% of creators globally earn under USD $15,000/year. HK rent doesn't care about her artistic ambitions.
+- **Nobody takes emerging creators seriously.** Most production partners want proven sales numbers before they'll even have a conversation.
 
-### What Wins Her Over
-- Real footage from a public experience with visible player engagement. Not renders, not concepts.
-- A clear methodology that maps cooperative game mechanics to her specific KPIs (information asymmetry forces players to explore different zones = zone coverage; role division sends players to specific tenant locations = directed foot traffic).
-- A case where she can see the data: "This game routed 78% of players through the east wing, dwell time in Zone B increased 12 minutes on average."
-- Meeting Denis in person. She makes relationship-driven decisions. A 30-minute walkthrough of the format in a physical space closes more than any deck.
-- Pricing below her existing team-building and event agency spend, reducing perceived risk.
+### Decision Criteria (What Makes Her Say Yes to Vixio)
+- **Creative control is non-negotiable.** Her name stays on it. Her world stays intact. If Vixio treats her IP like raw material for their own product line, she walks.
+- **Production quality matches her standard.** She'll inspect prototypes. If the figure doesn't capture what makes her character distinctive, it's a no.
+- **Terms that aren't Pop Mart terms.** No multi-year exclusives. No loss of design approval. Revenue share that respects the creator's contribution.
+- **Proof of taste.** She needs to see that Vixio's aesthetic sensibility matches hers. The label's other work (or first collaboration) tells her everything.
+- **The A24 analogy resonates.** She follows A24. If Vixio can credibly position as "A24 for physical IP," the pitch clicks instantly.
 
-### Key Quotes
-- "I don't need another Instagram wall. I need people to walk to the third floor."
-- "Show me something that's actually been built. I've sat through enough concept presentations this year."
-- "If tenants in Wing B see 20% more foot traffic during this activation, I can justify the next three quarters."
-- "My boss will ask: what's the repeat visit rate? If there's no answer, the budget dies."
-- "I'll take a meeting if you can show me real data from a real venue. Not projections."
+### Objections (What Makes Her Hesitate)
+- **"You haven't shipped anything yet."** Pre-launch means pre-proof. She's putting her IP in the hands of a label with no track record. What if the quality isn't there?
+- **"What do I give up?"** She needs the terms spelled out clearly. Ownership, approval rights, exclusivity (or lack of it), revenue split, timeline.
+- **"Can I just do this myself?"** She's been told she can learn production management. YouTube tutorials exist. Maybe she doesn't need a partner.
+- **"What if my style doesn't translate to 3D?"** She's never designed for manufacturing. The gap between illustration and physical product feels large.
+- **"Is this just another merch company with better branding?"** She's been burned by people who talk about "creative partnership" and deliver logo-on-product.
+
+### Discovery Channels
+- **Instagram:** Primary. She follows other art toy designers, sees who they work with, notices new labels. A Vixio post featuring a collaboration that matches her aesthetic sensibility stops her scroll.
+- **HKBTA network:** She's an associate member. Word travels fast in the HK art toy community — if Vixio works with one respected designer, every other designer hears about it.
+- **ACGHK and HK Art Toys Expo:** She's there every year. Meeting Denis in person at a convention is the highest-trust channel.
+- **DLAB cohort network:** She went through the 6th cohort. DLAB alumni share leads on production partners.
+- **Xiaohongshu:** She's starting to post there for mainland reach. Vixio content showing craft and process would register.
+- **Peer referral:** The single strongest signal. If a creator she respects says "I'm working with Vixio and the experience is good," she'll reach out the same week.
+
+### Representative Quote
+> "I want my character in someone's hands, not just on their screen. But not at the cost of turning my world into someone else's product."
+
+### Outreach Approach
+Lead with the production partnership pitch: "You bring the vision. We handle the build. Your name stays on it." Do not lead with business terms — lead with taste. Show her Vixio's first collaboration. Show her the production process, the prototyping, the attention to detail. She needs to see that Vixio cares about craft the way she does.
+
+**Specific tactics:**
+- Direct Instagram DM after engaging with her work genuinely (comment on posts, share her work)
+- In-person introduction at ACGHK 2026 doujin zone (Jul 24-28)
+- Warm intro through HKBTA or DLAB network
+- Invite to studio visit or production walkthrough — show, don't pitch
+- Share behind-the-scenes content of the first collaboration's production process
 
 ---
 
-## Persona 2: Marcus Ho — Corporate Event Buyer (B2B)
-
-### Role
-HR Business Partner / Learning & Development Manager at a multinational financial institution or tech company in Hong Kong (HSBC, Google, Meta, Deloitte, or similar).
+## Persona 2: Kelvin Tsang — Fan / Collector
 
 ### Demographics
-- **Age:** 32-42
-- **Location:** Hong Kong (Central/Quarry Bay office)
-- **Education:** HR or business degree; CIPD or SHRM certified
-- **Income:** HKD 50,000-90,000/month
-- **Team size responsibility:** 50-200 employees across 2-4 departments
-- **Annual team-building budget:** HKD 800-1,500 per person for professionally facilitated programming (verified industry benchmark)
+- **Age:** 28
+- **Location:** Mong Kok, Hong Kong (crosses to Shenzhen regularly for designer toy shops)
+- **Occupation:** Graphic designer at a mid-size agency
+- **Income:** HKD 25,000-35,000/month
+- **Education:** Higher Diploma in Multimedia Design
+- **Collecting budget:** HKD 1,500-3,000/month on designer toys, art books, and limited releases
 
-### Psychographics
-- Responsible for team cohesion, engagement scores, and retention. Measures success through post-event surveys and quarterly engagement pulse checks.
-- Has booked escape rooms (LOST corporate packages, Fox in a Box group bookings), cooking classes, outdoor challenges, and CSR charity events. Has cycled through most available formats in HK.
-- Increasingly under pressure to justify L&D spend with measurable outcomes. "Data that HR teams can use after the experience, such as collaboration patterns or engagement insights" is the stated industry need.
-- Privately frustrated that current options feel formulaic. The escape room format is tired. Colleagues groan when they hear "team building." He needs something that generates genuine enthusiasm, not compliance.
-- Values operational reliability. Cancellation policies, group size flexibility, and scheduling precision matter. Sandbox VR's rigid rebooking policy (a documented complaint pattern) is the kind of friction he avoids.
+### Background / Context
+Kelvin has been collecting designer toys for five years. He started with Pop Mart blind boxes, went through the Labubu phase, and now finds the whole blind-box model exhausting. He's opened too many boxes hoping for the secret edition and gotten four duplicates of the regular he didn't want. The randomized-pull mechanic that once felt exciting now feels like a slot machine designed to extract money.
 
-### Pain Points
-1. **Formulaic options.** Escape rooms are the default corporate activity in HK, but reviews consistently cite problems: "hints = solutions," poor maintenance, non-foreigner-friendly clues, linear puzzle design where only one person can work at a time.
-2. **No post-experience data.** He needs to report outcomes to leadership. Current team-building providers deliver a fun afternoon but zero measurable data on collaboration patterns, role dynamics, or engagement.
-3. **Individual tracks, not team dynamics.** Most activities are parallel experiences (everyone does the same thing side by side) or bottlenecked (one puzzle at a time, most people watch). Nothing uses the team as a system.
-4. **Employee cynicism.** The word "team building" triggers eye-rolls. He needs an experience that employees genuinely want to attend, not an obligation.
-5. **Scheduling rigidity.** Many providers have inflexible cancellation policies (Sandbox VR: "once you booked your date and time it's unchangeable"). Corporate schedules shift constantly.
+He's migrated toward labels and individual creators. He follows A24's merch drops. He owns two pieces from How2work. He tracks emerging HK designers on Instagram and Xiaohongshu. He's the kind of collector who reads the character backstory on the packaging and notices when the colorway on a figure doesn't match the original illustration.
 
-### Goals
-1. Book 1-4 team-building sessions per year that employees actually look forward to
-2. Deliver a genuinely cooperative experience where every team member has a meaningful role, not a passive audience
-3. Generate post-experience data or stories that demonstrate team dynamics (for leadership reporting and internal comms)
-4. Stay within the established HKD 800-1,500/pp budget while delivering something novel
-5. Build a go-to relationship with a provider who understands corporate needs and can deliver quarterly without repeating the same format
+He values craft and intentionality. A figure designed as a standalone piece with a story behind it is worth HKD 600 to him. A randomly-pulled figure from a series of 12 is worth nothing emotionally, even if it's technically the same quality. He wants to know what he's buying before he buys it.
 
-### How He Finds Vixio
-- LinkedIn: content about cooperative experience design for teams, or a recommendation from an HR peer
-- WhatsApp: a colleague at another company shares their team's experience
-- Direct outreach from Vixio via LinkedIn or email
-- Google search: "unique team building Hong Kong 2026," "immersive team experience Hong Kong"
-- HR professional community or HKTB MICE event
+He goes to ACGHK every year, not just to buy but to meet creators. He follows the HK art toy scene because it's where he grew up — the "City of Art Toys" identity matters to him. He wants to support local creators, but most of them can only offer prints and stickers. When they have physical products, it's usually through Pop Mart — which means blind boxes again.
 
-### Decision Criteria
-- **Employee enthusiasm.** Will his team actually want to do this? Can he share a video or description that generates excitement, not compliance?
-- **Cooperative mechanics.** Does every person have a distinct role? Is there genuine interdependence, or is it a group puzzle where two people do the work and six watch?
-- **Debrief value.** What story comes out of the experience? Can he use it in internal comms? "Team 2 made the sacrifice that unlocked the final outcome" is a story. "We solved 5 out of 7 puzzles" is not.
-- **Operational flexibility.** Can sessions accommodate 15-50 people? Can bookings be rescheduled without penalty? Is the venue accessible from Central?
-- **Price position.** At HKD 600-900/pp, Vixio sits below the HKD 800-1,500/pp ceiling for professionally facilitated team building. The cost objection is pre-solved.
+### Goals and Motivations
+- Own objects with story and intent behind them, not random-pull mystery boxes
+- Support creators directly — know who made it, why it exists, what the story is
+- Build a collection with coherence: pieces that reflect his taste, not algorithmic luck
+- Find new labels and creators before they blow up — discovery is part of the identity
+- Objects that feel crafted, not manufactured. He can tell the difference between a figure that was designed with care and one that was optimized for production efficiency.
 
-### Objections
-- "My team did an escape room last quarter. How is this different?"
-- "Can you handle a group of 30? We need the whole department, not just one team."
-- "What happens if I need to reschedule? Half my team has client meetings that move weekly."
-- "I need something I can report on. What data do I get after the session?"
-- "Is this appropriate for mixed seniority? I can't have the MD feeling awkward."
+### Pain Points and Frustrations
+- **Blind-box fatigue.** Pop Mart's model is psychologically manipulative. He's spent HKD 2,000 trying to get one specific figure. The randomness isn't fun anymore — it's a tax on his actual preferences.
+- **Mass-produced merch has no soul.** Brand collaborations where a character is printed on a generic hoodie. No craft, no connection to the IP's world.
+- **No connection between product and creator.** Most collectible products are produced by companies, not by the artists who designed the characters. The creator's involvement ends at the sketch. Kelvin wants products where the creator's hand is visible in the final object.
+- **Limited options in HK.** The designer toy scene exists, but it's fragmented. Convention sales are the main channel. Between events, there's nowhere to discover and buy quality local designer toys consistently.
+- **"Limited edition" has been weaponized.** Everyone claims limited runs. Most of them are just manufactured scarcity to drive FOMO. He wants genuine limited drops — small runs because the production was careful, not because the marketing said so.
 
-### What Wins Him Over
-- A demo session. Let him experience it with 3-4 HR peers. The format sells itself when felt, not described.
-- Information asymmetry mechanics explained clearly: "Each player receives different information the others need. The team cannot succeed unless everyone contributes their piece. No one can carry, no one can coast."
-- A debrief framework that yields a narrative: team decisions, sacrifice moments, role dynamics. Something he can screenshot and share in the Monday all-hands.
-- Pricing at HKD 600-900/pp, which is visibly below his existing team-building budget. He saves money while upgrading quality.
-- Flexible booking terms. The ability to reschedule within 48 hours is a competitive differentiator against rigid providers.
+### Decision Criteria (What Makes Him Say Yes to Vixio)
+- **Transparent product.** He knows what he's getting before he pays. No blind-box, no mystery mechanic, no gacha. Honest commerce.
+- **Creator involvement is visible.** The product page tells him who designed it, what the character's story is, why this collaboration exists. He's buying into a world, not just a figure.
+- **Quality justifies the price.** At HKD 400-800, he expects intentional design, good materials, and packaging that feels considered. He compares against How2work and Pop Mart's premium lines.
+- **The label has taste.** He follows labels the way cinephiles follow A24. If Vixio's first few releases demonstrate consistent quality and aesthetic judgment, he'll buy the next one on label reputation alone.
+- **Limited drops feel genuine.** Small runs because the production was careful, not because the marketing team decided 500 units creates better Instagram urgency.
 
-### Key Quotes
-- "I've run out of ideas. We've done escape rooms, cooking classes, hiking, charity builds. My team needs something they haven't seen before."
-- "The last escape room, three people solved everything while the rest stood around. That's not team building."
-- "If I could show the CEO a 2-minute clip of the team actually collaborating under pressure and having an emotional reaction at the end, that justifies my entire annual budget."
-- "Don't make me fight for budget. If it's under what we normally pay, I can book it this week."
-- "The best team building I've ever done was one where people talked about it at lunch for a month. Give me that."
+### Objections (What Makes Him Hesitate)
+- **"I've never heard of this label."** New label = unproven. What if the quality doesn't match the marketing? He's been burned by products that looked great online and arrived feeling cheap.
+- **"Is this just anti-Pop Mart positioning?"** Defining yourself against blind boxes is easy. Actually producing something better is hard. He wants to see the product, not just the critique.
+- **"HKD 600 for a figure from an unknown label?"** Price sensitivity isn't about the absolute number — it's about trust. He'll pay HKD 800 for a How2work piece because he's held their products. Vixio needs to earn that trust.
+- **"What's the return/exchange policy?"** Online purchases of limited-edition collectibles carry risk. If it arrives damaged or doesn't match the photos, what happens?
+
+### Discovery Channels
+- **Xiaohongshu:** Primary discovery platform. He scrolls daily for designer toy posts, unboxings, and collection shots. A well-photographed Vixio product with the right tags reaches him.
+- **Instagram:** Follows HK art toy designers and labels. Discovery through creator accounts sharing collaboration announcements.
+- **ACGHK 2026:** He'll be there Jul 24-28. A Vixio booth or presence in the art toys area puts the product in his hands.
+- **Pop Mart stores (ironic but true):** He still visits Pop Mart stores in Mong Kok and Causeway Bay as a habit. Nearby retail or cross-promotion with non-competing stores reaches this audience.
+- **Word of mouth:** His collector friends share finds in a WeChat group. If one of them buys a Vixio piece and posts it, the group notices.
+- **Designer toy community forums and groups:** Facebook groups (HK-based), Reddit r/designertoys, collector Discord servers.
+
+### Representative Quote
+> "I want to know what I'm buying and why it matters. Show me the character, tell me the story, let me decide. Stop making me gamble for the one I actually want."
+
+### Outreach Approach
+Kelvin is not someone Denis approaches directly — he's reached through the product and the creator. The outreach strategy is indirect:
+
+**Specific tactics:**
+- Ensure the first Vixio release is visible on Xiaohongshu with high-quality product photography and the creator story
+- Get the collaborating creator to announce the partnership on their own channels — Kelvin follows creators, not labels (at first)
+- Present at ACGHK 2026 with physical product people can hold. Kelvin needs to touch it.
+- No blind-box mechanics, ever. This is a feature, not just a principle. Make it explicit in product descriptions: "You know what you're getting."
+- Behind-the-scenes production content (factory visits, prototype iterations, colorway decisions) — this signals craft to collectors
+- Launch an email list for "first release" access. Kelvin will sign up if the product and creator are compelling. He wants early access, not newsletters.
 
 ---
 
-## Persona 3: Joanne Chan — The Friend Group Organizer (B2C)
-
-### Role
-The person in her friend group who plans outings, books restaurants, and organizes birthday gatherings. Professionally, she works in marketing, design, or finance.
+## Persona 3: Ryan Cheung — Game Designer (Hiring Target)
 
 ### Demographics
-- **Age:** 27
-- **Location:** Shenzhen (originally from Hong Kong, works in GBA tech/creative industry)
-- **Income:** RMB 15,000-25,000/month
-- **Friend group size:** Core group of 5-6 friends, scattered across Shenzhen, Guangzhou, and Hong Kong
-- **Entertainment budget:** RMB 300-500 per outing, willing to go higher for special occasions
+- **Age:** 29
+- **Location:** Pok Fu Lam, Hong Kong (near Cyberport)
+- **Occupation:** Game designer at a mobile game studio (sub-10 person team)
+- **Income:** HKD 28,000-38,000/month (mid-level, 4 years experience)
+- **Education:** BSc in Creative Media from City University of Hong Kong
 
-### Psychographics
-- The "social planner" archetype. Gets energy from organizing group activities. Her WeChat group is the one that actually happens, not the one that says "we should hang out" forever.
-- Discovery-driven. Scrolls Xiaohongshu (Red Note) daily for new restaurants, experiences, and things to do. Follows lifestyle KOLs. Screenshots and forwards links to her group chat.
-- Compares experiences against the last good one. Her mental benchmark is the best escape room she did two years ago, the Sandbox VR session that was over too fast, and the EDM night that was "the same as every other EDM night."
-- Values social proof and visual shareability. If it doesn't photograph well or produce content for her social media, it loses points. Discovery and attendance are partially performative.
-- Group budget dynamics are real. She knows that suggesting HKD 500/pp will get pushback from at least one friend. She pre-calculates total cost per person before proposing an activity.
+### Background / Context
+Ryan has been designing games for four years. He joined a small HK studio out of university, drawn by the promise of creative freedom at a startup. The reality: he designs monetization loops for casual mobile games. His job title says "game designer" but his actual work is optimizing gacha pull rates, designing daily login rewards, and A/B testing in-app purchase flows. The games ship in Cantonese (a genuine differentiator for HK studios), but the design philosophy is engagement metrics first, player experience second.
 
-### Pain Points
-1. **Escape rooms are played out.** Her group has done LOST and Fox in a Box multiple times. The format feels formulaic: "the same locked room with different wallpaper." Reviews confirm: worn-out props, poor lighting, "hints = solutions."
-2. **VR is isolating.** Sandbox VR puts headsets on everyone. "We're supposedly together but we can't even see each other's faces." The inflexible cancellation policy is a secondary frustration.
-3. **EDM and nightlife are homogeneous.** Timeout HK: "In this era of EDM and throwback pop-heavy party scene, it would be nice to enjoy something authentic that sounds different for once."
-4. **Nothing uses the whole group.** Escape rooms bottleneck on one puzzle at a time (most people watch). Karaoke rotates one singer at a time. Bowling is parallel play. No activity in HK uses 4-6 people as a cooperative system simultaneously.
-5. **Coordinating schedules is hard enough. The activity shouldn't add friction.** One friend is always late, one always cancels. She needs flexible booking and clear logistics.
+He went into game design because he wanted to build systems that create meaningful choices. His thesis project was a cooperative board game about resource allocation during a crisis — players had to decide who to help and what to sacrifice. It generated real emotional responses during playtesting. That's the work he wants to do.
 
-### Goals
-1. Find something genuinely new that her group hasn't done before (novelty is the primary filter)
-2. An activity where everyone is actively involved for the full duration, not taking turns or watching
-3. Something that produces a shared story the group retells: "Remember when we were the team that..." not "Remember when we ate at that place"
-4. Visually shareable moments for Xiaohongshu and Instagram (group photos, dramatic settings, video-worthy reactions)
-5. Stay within RMB 150-300/pp for a 60-90 minute experience (HKD 160-320/pp equivalent), willing to go to RMB 400-500/pp for a birthday or special reunion
+He's aware the HK game industry is constrained. There are 150+ studios (per GameDeva), but most are sub-10 people working on mobile. AAA is impossible locally due to rent and labor costs. The studios that do interesting narrative work — like Genuine Studio (Detective Kobayashi, Rainy Butcher) — are rare. Government support (GEPS HK$500K grants, Cyberport incubation) keeps the scene alive but doesn't change the fundamental economics.
 
-### How She Finds Vixio
-- **Xiaohongshu (Red Note):** Primary discovery. Sees a post from another group showing their experience, dramatic setting, group reactions. Screenshots it and sends to group chat: "Next Saturday?"
-- **Instagram:** Secondary discovery through lifestyle accounts or friends' stories
-- **WhatsApp/WeChat group sharing:** A friend who went sends the link directly. This is the highest-conversion channel: peer recommendation within the friend group.
-- **Google/Klook:** Searches "unique group activity Shenzhen" or "things to do with friends Shenzhen" when actively planning
+He's been looking at job listings. Most openings are more of the same: mobile game companies, casual puzzles, social casino. He's seen some VR studios (VAR LIVE at Cyberport) but VR game design in HK is a tiny niche. He occasionally browses LinkedIn and Reddit gamedev, looking for something different.
 
-### Decision Criteria
-- **Novelty.** "Have we done this before?" is the first filter. If it sounds like an escape room, it's already rejected.
-- **Group fit.** Does it work for exactly 4-6 people? Too few and some friends are left out. Too many and it's a different social dynamic.
-- **Duration and timing.** 60-90 minutes is the sweet spot. Shorter feels like a ripoff (Sandbox VR complaints: "only 5 minutes game time"). Longer competes with dinner plans.
-- **Price per person.** She calculates total before proposing. RMB 150-200/pp for a standard outing. RMB 300-500/pp for a birthday or reunion.
-- **Social proof.** Xiaohongshu reviews, group photos from other players, video content showing genuine reactions. If she can't find social proof, she won't propose it to the group.
+What he doesn't know yet is that a creative label building physical IP with narrative depth and game-design thinking could be his next move. He hasn't thought of "designer toy studio" as a career path because nobody has framed it that way.
 
-### Objections
-- "RMB 200 per person for one hour? We could do karaoke for 3 hours for less."
-- "Is this basically just an escape room with better lighting?"
-- "What if one of us cancels last minute? Can we reschedule?"
-- "My friends aren't gamers. Will they understand what to do?"
-- "It looks cool online but is it actually fun, or just Instagram bait?"
+### Goals and Motivations
+- Design systems that make people feel something — tension, sacrifice, delight — not just spend money
+- Work on IP with creative integrity and narrative depth
+- Be part of something where the design matters as much as the business model
+- Build a career that uses his game design skills without being trapped in mobile monetization
+- Stay in Hong Kong (or GBA) — he doesn't want to relocate to Japan or the US for a "real" game design job
 
-### What Wins Her Over
-- Xiaohongshu content showing a real group having visible emotional reactions (not posed photos, real gameplay moments). The group dynamic IS the content.
-- Clear differentiation from escape rooms: "No puzzles. No locks. You each have different information and different roles. The group succeeds or fails together based on your decisions, not your puzzle-solving speed."
-- A pricing frame that compares favorably: "Less than Sandbox VR per person, longer than Sandbox VR, and you can actually see each other's faces."
-- Flexible rebooking policy. Her group WILL need to change the date at least once.
-- A post-experience shareable moment: a group photo in a dramatic setting, a personalized outcome they can screenshot, something that makes the Xiaohongshu post write itself.
+### Pain Points and Frustrations
+- **Most game jobs in HK are mobile/casual.** The studios hiring are optimizing for engagement and monetization, not player experience. Creative freedom is a pitch for the job interview, not the job.
+- **Limited career paths.** At his current studio, "senior game designer" just means he optimizes bigger monetization loops. There's no path toward the kind of design work he actually cares about.
+- **The "indie dream" is economically brutal.** He's thought about starting his own studio. But the income reality is harsh: HK$500K GEPS grant sounds good until you divide it by 12 months and 3 team members. Cyberport's HK$500K + HK$200K rental subsidy helps, but it's still not enough to sustain a team building something ambitious.
+- **Physical product design is invisible to him.** Nobody in his network talks about game design skills applied to physical IP, toys, or narrative experiences outside screens. The connection hasn't been drawn.
+- **Talent drain.** The best designers he graduated with left HK for studios in Shanghai, Tokyo, or LA. He stayed for family reasons, but the options feel narrow.
 
-### Key Quotes
-- "I'm the one who always plans. If I suggest another escape room, they'll roast me."
-- "We did Sandbox VR last month. It was fine but it was over in 20 minutes and we couldn't even high-five each other because of the headsets."
-- "If my Xiaohongshu post about it gets 500+ likes, I'm booking it again for someone's birthday."
-- "It needs to be easy to explain in the group chat. If I can't describe it in two sentences, half the group won't commit."
-- "The best group experiences we've had are the ones we still bring up months later. That's what I'm looking for."
+### Decision Criteria (What Makes Him Say Yes to Vixio)
+- **The work is creatively meaningful.** He needs to see that the role involves genuine design challenges — narrative systems, character world-building, product design with depth — not just "help us make merch."
+- **Game design skills are valued, not decorative.** If the job description says "game designer" but the actual work is project management with a creative title, he'll see through it immediately.
+- **The team cares about craft.** He'll judge Vixio by its first release and by how Denis talks about the work. If the goosebump standard is real, that's the pitch.
+- **Compensation is competitive.** At HKD 320,000-480,000/year (mid-level benchmark), he's not taking a pay cut for "creative freedom." He's heard that promise before.
+- **Growth trajectory exists.** A small label means he could be the first game designer on the team. That's either an opportunity to shape the creative direction or a dead-end role at a company that might not survive. He needs to believe in the business model.
 
----
+### Objections (What Makes Him Hesitate)
+- **"This isn't really game design."** Physical IP, designer toys, narrative products — how does his game design skillset actually apply? He needs the translation explained concretely: systems thinking, mechanic design, player psychology, narrative architecture.
+- **"A pre-launch startup is risky."** No revenue yet. First collaboration still in production. He has a stable job. The risk-reward calculation needs to favor the move.
+- **"I've never heard of this company."** Vixio has no public profile in the game dev community. Denis isn't a known name at Cyberport or GameDeva events (yet).
+- **"Will I be the only designer?"** Being employee #1 in a role is exciting to some and terrifying to others. He needs to know there's a creative partner (Denis), not just a boss who delegates.
+- **"What happens if the first collaboration doesn't sell?"** He's joining a label that hasn't shipped. If the first release underperforms, does his role survive?
 
-## Persona 4: Kevin Yip — The Experience Collector (B2C)
+### Discovery Channels
+- **LinkedIn:** He checks it weekly. A well-written job post from a creative label in HK — especially one that explicitly values game design thinking applied to physical IP — would stand out from the mobile game studio listings.
+- **Cyberport network:** He attends events, knows other incubatees. If Vixio has any Cyberport connection or presents at a Cyberport event, he'd hear about it.
+- **GameDeva Discord:** He lurks. A post from Denis about hiring a game designer for a "creative label, not a game studio" would generate curiosity.
+- **HKDEA / GEPS alumni network:** He knows people who went through GEPS. Industry word of mouth.
+- **Reddit r/gamedev and r/gamedesign:** He reads these for career advice and industry discussion. Less likely to discover Vixio here, but a post about "applying game design to physical IP" would resonate with the community.
+- **Game jams:** He participates in Global Game Jam (HK site at Cyberport) and local jams. Meeting Denis or a Vixio team member at a jam is high-trust.
+- **Referral from a peer.** If someone in his network says "there's this creative label in HK looking for a game designer, and the work is actually interesting," he'll look into it immediately.
 
-### Role
-An avid consumer of immersive and location-based entertainment. Visits 6+ immersive experiences per year (consistent with the Gensler 2025 Immersive Industry Report finding that 52% of immersive experience audiences visit 6+ per year). His social identity is partially built around being "the person who's done everything."
+### Representative Quote
+> "I want to design systems that make people feel something, not just spend money. If there's a place in Hong Kong where game design thinking is applied to something with real creative integrity, I haven't found it yet."
 
-### Demographics
-- **Age:** 30
-- **Location:** Hong Kong (Wan Chai), frequently crosses to Shenzhen and Macau for experiences
-- **Occupation:** UX designer at a fintech company
-- **Income:** HKD 40,000-60,000/month
-- **Entertainment spend:** HKD 2,000-4,000/month on experiences (dining, immersive entertainment, travel for experiences)
-- **Willing to travel:** 73% of immersive experience audiences are willing to travel to experiences that piqued their interest (Gensler 2025)
+### Outreach Approach
+Ryan isn't actively looking for Vixio — he doesn't know it exists. The outreach needs to find him where he already is and reframe what his skills are worth.
 
-### Psychographics
-- Connoisseur mindset. He doesn't just attend experiences; he evaluates them. Rates them on a mental scale against teamLab (Tokyo), Meow Wolf, Punchdrunk's "Sleep No More," and the best SCRAP Real Escape Games.
-- Quality over quantity (despite high frequency). He'll pay HKD 600+ for a 60-minute experience that delivers craft and emotional impact, but will publicly roast a HKD 300 experience that feels like a cash grab.
-- Active content creator. Posts detailed reviews on Xiaohongshu and Instagram. His reviews are discovery channels for others. When he says something is worth it, his followers listen.
-- Seeks novelty and craft simultaneously. "New" alone isn't enough. The execution must demonstrate intentionality: sound design, lighting, pacing, the moment of surprise.
-- Skeptical of marketing. He's been burned by experiences that looked spectacular online and were underwhelming in person. He trusts peer reviews, behind-the-scenes content, and credible creator accounts over brand advertising.
-
-### Pain Points
-1. **HK's immersive entertainment scene is thin.** 76% of surveyed audiences report insufficient immersive entertainment options. He's done LOST (all 7 rooms), Fox in a Box (all 8 rooms), Sandbox VR (multiple scenarios), teamLab Future Park (HKD 198-220), Dialogue in the Dark. He's running out of options without crossing the border.
-2. **Escape rooms have stagnated.** TripAdvisor only lists 14 escape rooms for all of HK. He's done most of them. The format hasn't evolved: "worn out and in need of maintenance," "linear, with only ever a single puzzle for all members of the group to work on."
-3. **Spectacle without substance.** INCUBASE-style ambient art exhibitions (Van Gogh Alive format) look great on Instagram but offer no interactivity, no agency, no game mechanics. "I stood in a room while pretty pictures played on the walls. That's not an experience, that's a screensaver."
-4. **VR isolates rather than connects.** Sandbox VR's full-body tracking is impressive technology, but the headset removes the social layer. He values shared reactions, eye contact, the moment when the group collectively realizes what's happening.
-5. **No venue in HK combines cinematic production value with genuine cooperative game design.** SCRAP has game design but paper-based production. Moment Factory has cinematic spectacle but no game depth. The structural gap is something he can articulate, even if not in those exact words.
-
-### Goals
-1. Find experiences that push the boundary of what's possible: craft, surprise, emotional payoff
-2. Be the first among his circle to discover and review something genuinely new
-3. Share content that demonstrates his taste and builds his reputation as the go-to person for experience recommendations
-4. Feel genuine tension, surprise, or emotional response during the experience (the "goosebump moment"). He can tell when something is designed with intention versus assembled from a template
-5. Connect with a community of fellow experience enthusiasts who share his standards
-
-### How He Finds Vixio
-- **Xiaohongshu deep scroll.** He follows immersive experience hashtags, checks new posts daily. A post showing a cooperative experience with cinematic production value in Shenzhen will stop his scroll.
-- **Instagram:** Follows immersive entertainment accounts globally. Notices when something new appears in his geographic area.
-- **Word of mouth from fellow collectors.** His experience-collector friends in SZ/GBA share discoveries via WeChat. A trusted peer's recommendation is the highest-signal channel.
-- **Klook/TripAdvisor new listings.** He checks for new immersive experiences regularly. A listing with a handful of 5-star reviews from credible accounts triggers investigation.
-- **Behind-the-scenes content.** A post showing the design process, the sound design choices, the game mechanic rationale hooks him harder than a polished marketing video.
-
-### Decision Criteria
-- **Craft.** Is this designed with intention? Sound design, lighting, pacing, information architecture. He evaluates production value relative to the format (he doesn't expect teamLab-scale AV from a 6-person cooperative game, but he does expect every element to be deliberate).
-- **Cooperative depth.** "Does every player matter, or could three of us carry?" He's done enough escape rooms to spot formats where one smart player solves everything.
-- **Novelty.** Has he done anything like this before? If it maps onto escape room, VR, or ambient art, it's already categorized and de-prioritized.
-- **Emotional payoff.** Does the experience build to a moment? A climax that earns its impact through pacing and stakes, not through jump scares or volume.
-- **Shareability with integrity.** He won't post about something just because it's photogenic. It needs to be genuinely good so his recommendation maintains credibility.
-
-### Objections
-- "I've done everything in HK. What makes this different from the 14 escape rooms I've already finished?"
-- "Your Instagram looks good, but so did that Van Gogh exhibition. I need to know the game design is real, not just the production."
-- "Is this a one-time visit, or is there replay value? At HKD 500+, I need to know the experience is deep enough to justify the price."
-- "How long has this been running? If it's brand new, the kinks might not be worked out."
-- "I'm bringing friends who are also experienced. They won't be impressed by something that works on novelty alone."
-
-### What Wins Him Over
-- **Behind-the-scenes content.** A post or video explaining a specific design choice (why a mechanic exists, how sound design builds tension, what cooperative information asymmetry means in practice). This signals craft, not just spectacle.
-- **Visible emotional reactions in unedited footage.** Not a highlight reel. A 30-second clip of a group's genuine reaction at the climax moment. He can tell the difference between performed and real.
-- **The WTP anchor is already validated.** At HKD 350-600/pp for a 60-minute experience, he's within the $50-99 USD range that 52% of immersive experience audiences already spend. This is not a price objection; it's a quality question.
-- **Outcome branching.** If the experience has multiple endings based on the group's decisions, he'll come back. Replay value transforms a single visit into a collector's pursuit.
-- **Recognition of his expertise.** A format that rewards experienced players with deeper layers, Easter eggs, or advanced difficulty options signals that the designers respect their audience.
-
-### Key Quotes
-- "I've visited teamLab in Tokyo, Meow Wolf in Santa Fe, and every escape room in Hong Kong. I know what good looks like. Show me something I haven't seen."
-- "The test is simple: did I feel something real, or did I just take a photo? If I felt something, I'll tell everyone I know."
-- "I'll pay HKD 600 for 60 minutes if the 60 minutes are designed with the same intentionality as a Nolan film. I won't pay HKD 200 for something that feels like a theme park queue activity."
-- "My followers trust my recommendations because I don't recommend things that are just 'fine.' If I post about you, it's because you earned it."
-- "The best immersive experiences I've had all share one thing: I could feel that someone cared about every detail. The music, the lighting, the timing. When everything is deliberate, you feel it."
+**Specific tactics:**
+- Post the role on LinkedIn with a clear pitch: "Game designer wanted. Not for a mobile game. For a creative label building physical IP with narrative depth. Systems thinking, not monetization loops." This framing alone differentiates from every other HK game job listing.
+- Post in GameDeva Discord. Be direct about what the role is and what it isn't.
+- Attend a Cyberport event or game jam. Denis meeting Ryan in person — talking about how game design thinking applies to physical products, character worlds, and cooperative experiences — is more persuasive than any job listing.
+- Ask Philip at GameDeva (philip@gamedeva.hk) for referrals. He knows who's talented and underutilized.
+- Connect through GEPS alumni or HKDEA network.
+- Share content about "game design beyond games" — a LinkedIn post or short essay from Denis about why Vixio hired a game designer would reach exactly this audience.
+- Be honest about the stage: "We're pre-launch. First collaboration in production. This is a founding role, not a mid-career lateral move. If you want safety, stay where you are. If you want to shape something, let's talk."
 
 ---
 
 ## Cross-Persona Summary
 
-| Attribute | Grace (Mall Director) | Marcus (Corporate Buyer) | Joanne (Friend Organizer) | Kevin (Experience Collector) |
-|-----------|----------------------|--------------------------|--------------------------|------------------------------|
-| **Segment** | B2B | B2B | B2C | B2C |
-| **Budget range** | HKD 10K-50K/project | HKD 600-900/pp (below existing ceiling) | RMB 150-300/pp standard, 400-500/pp occasion | HKD 350-600/pp |
-| **Primary channel** | LinkedIn, referral, social proof from public experience | LinkedIn, HR networks, WhatsApp peer | Xiaohongshu, WeChat group sharing | Xiaohongshu, peer word-of-mouth, behind-the-scenes content |
-| **Core need** | Measurable foot traffic and zone activation | Team cohesion with post-experience narrative | Novelty, full-group engagement, shareable moments | Craft, emotional payoff, genuine cooperative depth |
-| **Decision speed** | Weeks to months (relationship-driven) | Days to weeks (budget pre-approved) | Hours to days (group chat consensus) | Immediate if quality signals are present |
-| **Biggest objection** | "Show me data from a real venue" | "How is this different from an escape room?" | "Is this worth the price for all of us?" | "Is this actually good, or just good marketing?" |
-| **What closes** | Real data + in-person walkthrough | Demo session + pricing below existing budget | Xiaohongshu social proof + flexible booking | Behind-the-scenes craft content + visible genuine reactions |
+| Attribute | Sammi (Creator) | Kelvin (Collector) | Ryan (Game Designer) |
+|-----------|----------------|-------------------|---------------------|
+| **Relationship to Vixio** | Production partner / collaborator | Customer / fan | Employee / team member |
+| **Core need** | Get her IP into physical form without losing creative control | Own objects with story and craft, not blind-box randomness | Apply game design skills to work with creative integrity |
+| **Primary pain** | No production path between "do nothing" and "license to Pop Mart" | Blind-box fatigue, mass-produced merch with no soul | Most HK game jobs are mobile monetization loops |
+| **What closes** | Seeing Vixio's craft firsthand + terms that respect the creator | Holding the product + creator story + honest commerce | Meeting Denis + seeing the creative vision is real + competitive pay |
+| **Biggest objection** | "You haven't shipped anything yet" | "I've never heard of this label" | "Is this really game design?" |
+| **Primary channel** | Instagram, HKBTA, ACGHK, peer referral | Xiaohongshu, Instagram, ACGHK, collector communities | LinkedIn, Cyberport, GameDeva Discord, game jams |
+| **Decision speed** | Weeks to months (relationship-driven, needs trust) | Days (product-driven, needs to see/hold it) | Weeks (career decision, needs conviction) |
+| **Geographic context** | HK-based, JCCAC/PMQ creative spaces | HK + Shenzhen (crosses border for toy shops) | HK-based, Cyberport-adjacent |
+| **Budget / Salary** | Revenue share / partnership terms | HKD 400-800 per piece | HKD 320,000-480,000/year (mid-level) |
+
+---
+
+## How the Three Personas Connect
+
+Sammi creates the IP. Kelvin buys the product. Ryan designs the systems that give the IP depth beyond a static figure.
+
+The flywheel: Vixio partners with creators like Sammi, producing physical products that collectors like Kelvin value because the craft and story are real. Ryan's game design thinking adds narrative depth and systemic richness to the IP — turning a character into a world, and a product into an artifact with meaning.
+
+Each persona validates a different part of Vixio's model:
+- **Sammi validates the supply side.** If creators with good IP choose Vixio over Pop Mart or doing nothing, the label model works.
+- **Kelvin validates the demand side.** If collectors pay a premium for honest commerce and story-tied products, the business model works.
+- **Ryan validates the team.** If talented designers choose Vixio over conventional game studios, the creative engine scales.
