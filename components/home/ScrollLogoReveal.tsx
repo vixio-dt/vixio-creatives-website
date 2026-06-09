@@ -46,23 +46,23 @@ export function ScrollLogoReveal() {
   /*
    * TIMELINE (400vh section = 300vh scroll distance)
    *
-   * Phase 1  (0.00→0.15)  Emergence       Logo fades in, deblurs
-   * Phase 2  (0.15→0.40)  Peak glow       Brightness peaks, glow/streak
-   * Phase 3  (0.40→0.50)  Effects fade    ALL effects → 0
-   * Phase 4  (0.48→0.58)  Bg transition   Dark → light
-   * Phase 4b (0.58→0.70)  Logo moment     Logo rests centered
-   * Phase 5  (0.70→0.85)  Logo pull-back  Logo zooms out + fades (camera pulls back)
-   * Phase 6  (0.85→1.00)  Hero entrance   Hero fades up into the space the logo vacated
+   * Phase 1  (0.00->0.15)  Emergence       Logo fades in, deblurs
+   * Phase 2  (0.15->0.40)  Peak glow       Brightness peaks, glow/streak
+   * Phase 3  (0.40->0.50)  Effects fade    ALL effects -> 0
+   * Phase 4  (0.48->0.58)  Bg transition   Dark -> dark surface (#0C0D10)
+   * Phase 4b (0.58->0.70)  Logo moment     Logo rests centered
+   * Phase 5  (0.70->0.85)  Logo pull-back  Logo zooms out + fades
+   * Phase 6  (0.85->1.00)  Hero entrance   Hero fades up
    */
 
-  // --- Background: stays dark through phases 1-3, transitions in phase 4 ---
+  // Background: dark throughout, stays dark (#0C0D10 = --surface)
   const bgColor = useTransform(
     scrollYProgress,
     [0,        0.48,      0.51,      0.54,      0.57,      0.58,      1],
-    ['#0A0A0A','#0A0A0A', '#444444', '#888888', '#CDCAC6', '#FAFAF8', '#FAFAF8'],
+    ['#0A0A0A','#0A0A0A', '#0A0A0A', '#0B0C0F', '#0C0D10', '#0C0D10', '#0C0D10'],
   )
 
-  // --- Logo brightness: peaks at 0.38, returns to 1.0 by 0.48 (before bg lightens) ---
+  // Logo brightness: peaks at 0.38, returns to 1.0 by 0.48
   const logoBrightness = useTransform(
     scrollYProgress,
     [0,   0.06, 0.15, 0.25, 0.34, 0.38, 0.44, 0.48, 1],
@@ -75,14 +75,14 @@ export function ScrollLogoReveal() {
     [6, 3,    0,    0],
   )
 
-  // --- Logo scale: settles at 1.0 through cinematic, zooms OUT during Phase 5 pull-back ---
+  // Logo scale: settles at 1.0, zooms out during Phase 5 pull-back
   const logoScale = useTransform(
     scrollYProgress,
     [0,    0.15, 0.70, 0.85, 1],
     [0.97, 1.0,  1.0,  0.45, 0.45],
   )
 
-  // --- Drop shadow: ends by 0.44, well before bg lightens at 0.48 ---
+  // Drop shadow: ends by 0.44
   const dsRadius = useTransform(
     scrollYProgress,
     [0, 0.20, 0.25, 0.34, 0.38, 0.44, 1],
@@ -99,7 +99,7 @@ export function ScrollLogoReveal() {
 
   const logoFilter = useCompositeFilter(logoBrightness, logoBlur, dsRadius, dsR, dsG, dsB, dsOpacity)
 
-  // --- Logo opacity: fade in (phase 1), hold through moment, fade out during pull-back ---
+  // Logo opacity: fade in (phase 1), hold, fade out during pull-back
   const logoOpacity = useTransform(scrollYProgress, (p) => {
     if (p <= 0) return 0.15
     if (p <= 0.06) return 0.15 + (p / 0.06) * 0.35
@@ -109,14 +109,14 @@ export function ScrollLogoReveal() {
     return 1 - (p - 0.70) / 0.15
   })
 
-  // --- Logo Y: subtle translate UP during pull-back to reinforce camera receding ---
+  // Logo Y: subtle translate UP during pull-back
   const logoY = useTransform(scrollYProgress, (p) => {
     if (p <= 0.70) return 0
     if (p >= 0.85) return -60
     return -60 * ((p - 0.70) / 0.15)
   })
 
-  // --- Radial glow: ends by 0.44 ---
+  // Radial glow: ends by 0.44
   const glowOpacity = useTransform(scrollYProgress, (p) => {
     if (p <= 0 || p >= 0.44) return 0
     if (p <= 0.15) return p / 0.15 * 0.15
@@ -132,7 +132,7 @@ export function ScrollLogoReveal() {
     [0.5, 0.7, 0.9, 1.2,  1.4,  1.1,  0.5,  0.5],
   )
 
-  // --- Anamorphic streak: ends by 0.44 ---
+  // Anamorphic streak: ends by 0.44
   const streakOpacity = useTransform(scrollYProgress, (p) => {
     if (p <= 0.26 || p >= 0.44) return 0
     if (p <= 0.30) return (p - 0.26) / 0.04 * 0.4
@@ -147,16 +147,7 @@ export function ScrollLogoReveal() {
     [0, -1200, -600, -150, 0,    600,  1200, 1200],
   )
 
-  // --- Scroll indicator ---
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, (p) => {
-    if (p >= 0.10) return 0
-    if (p <= 0) return 0.6
-    if (p <= 0.04) return 0.6 - (p / 0.04) * 0.2
-    return 0.4 * (1 - (p - 0.04) / 0.06)
-  })
-
-  // --- Hero entrance (Phase 6, 0.85→1.00): fades up AFTER logo pull-back completes ---
-  // Staggered Y-rise: headline first, body, buttons last
+  // Hero entrance (Phase 6, 0.85->1.00): staggered Y-rise
   const headlineY = useTransform(scrollYProgress, (p) => {
     if (p <= 0.85) return 40
     if (p >= 0.93) return 0
@@ -195,11 +186,12 @@ export function ScrollLogoReveal() {
       <>
         <section
           style={{
-            height: '100dvh',
+            minHeight: '100dvh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             background: 'var(--surface)',
+            paddingTop: '64px',
           }}
         >
           <div style={{ width: 'var(--logo-width)' }}>
@@ -220,35 +212,30 @@ export function ScrollLogoReveal() {
             alignItems: 'center',
             justifyContent: 'center',
             background: 'var(--surface)',
-            padding: 'calc(var(--spacing-20) + 80px) var(--spacing-6) var(--spacing-20)',
+            padding: 'var(--spacing-20) var(--spacing-6)',
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '700px' }}>
-            <p className="label-sm" style={{ color: 'var(--on-surface-variant)', marginBottom: 'var(--spacing-4)' }}>
-              Vixio Creatives
-            </p>
             <h1
               className="display-lg"
-              style={{ color: 'var(--on-surface)', marginBottom: 'var(--spacing-6)' }}
+              style={{ color: 'var(--text)', marginBottom: 'var(--spacing-6)' }}
             >
-              Premium physical products and playable experiences.
+              Worlds worth entering.
             </h1>
             <p
               className="body-lg"
               style={{
-                color: 'var(--on-surface-variant)',
-                maxWidth: '580px',
+                color: 'var(--text-secondary)',
+                maxWidth: '540px',
                 margin: '0 auto',
                 marginBottom: 'var(--spacing-8)',
               }}
             >
-              Crafted to be held, opened, solved, and shared.
+              Vixio is a creative label for story-rich worlds. Hong Kong based, craft obsessed.
             </p>
-            <div
-              style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}
-            >
-              <GradientButton href="#experience">Join the First Drop List</GradientButton>
-              <GhostButton href="#contact">Start a Creator Collaboration</GhostButton>
+            <div style={{ display: 'flex', gap: 'var(--spacing-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <GradientButton href="/contact">Start a conversation</GradientButton>
+              <GhostButton href="/studio">Inside the studio</GhostButton>
             </div>
           </div>
         </section>
@@ -334,7 +321,7 @@ export function ScrollLogoReveal() {
           }}
         />
 
-        {/* Hero content — enters from right during handoff */}
+        {/* Hero content - dark theme */}
         <div
           style={{
             position: 'absolute',
@@ -347,42 +334,30 @@ export function ScrollLogoReveal() {
           }}
         >
           <div style={{ textAlign: 'center', maxWidth: '700px', padding: '0 var(--spacing-6)' }}>
-            <motion.p
-              className="label-sm"
-              style={{
-                color: 'var(--on-surface-variant)',
-                marginBottom: 'var(--spacing-4)',
-                y: headlineY,
-                opacity: headlineOpacity,
-              }}
-            >
-              Vixio Creatives
-            </motion.p>
-
             <motion.h1
               className="display-lg"
               style={{
-                color: 'var(--on-surface)',
+                color: 'var(--text)',
                 marginBottom: 'var(--spacing-6)',
                 y: headlineY,
                 opacity: headlineOpacity,
               }}
             >
-              Premium physical products and playable experiences.
+              Worlds worth entering.
             </motion.h1>
 
             <motion.p
               className="body-lg"
               style={{
-                color: 'var(--on-surface-variant)',
-                maxWidth: '580px',
+                color: 'var(--text-secondary)',
+                maxWidth: '540px',
                 margin: '0 auto',
                 marginBottom: 'var(--spacing-8)',
                 y: bodyY,
                 opacity: bodyOpacity,
               }}
             >
-              Crafted to be held, opened, solved, and shared.
+              Vixio is a creative label for story-rich worlds. Hong Kong based, craft obsessed.
             </motion.p>
 
             <motion.div
@@ -396,37 +371,11 @@ export function ScrollLogoReveal() {
                 pointerEvents: 'auto',
               }}
             >
-              <GradientButton href="#experience">Join the First Drop List</GradientButton>
-              <GhostButton href="#contact">Start a Creator Collaboration</GhostButton>
+              <GradientButton href="/contact">Start a conversation</GradientButton>
+              <GhostButton href="/studio">Inside the studio</GhostButton>
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            bottom: '2rem',
-            left: '50%',
-            x: '-50%',
-            opacity: scrollIndicatorOpacity,
-            pointerEvents: 'none',
-          }}
-        >
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '0.6875rem',
-              fontWeight: 500,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase' as const,
-              color: 'rgba(255, 255, 255, 0.5)',
-            }}
-          >
-            Scroll
-          </span>
-        </motion.div>
       </div>
     </section>
   )

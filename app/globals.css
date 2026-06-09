@@ -2,10 +2,8 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-@import "@mantine/core/styles.css";
-
 /* ============================================
-   DESIGN TOKENS — Luminous Ether / Morning Light
+   DESIGN TOKENS — Dark Cinematic System
    ============================================ */
 
 html {
@@ -14,32 +12,62 @@ html {
 
 :root {
   /* Surfaces */
-  --surface: #FAFAF8;
-  --surface-container-low: #F5F3F0;
-  --surface-container-high: #EDEAE6;
-  --surface-container-highest: #E5E2DD;
-
-  /* Primary */
-  --primary: #3AAED8;
-  --primary-soft: #8FE1FF;
-  --primary-container: #E8F7FC;
-  --on-primary: #FFFFFF;
-
-  /* Tertiary */
-  --tertiary: #D4A843;
-  --tertiary-container: #FDF5E6;
-  --on-tertiary: #FFFFFF;
+  --surface: #0C0D10;
+  --surface-raised: #14161B;
+  --surface-high: #1C1F26;
 
   /* Text */
-  --on-surface: #1A1A1A;
-  --on-surface-variant: #555555;
+  --text: #F2F0EC;
+  --text-secondary: rgba(242, 240, 236, 0.68);
+  --text-muted: rgba(242, 240, 236, 0.45);
 
-  /* Borders */
-  --outline-variant: #C8C4BF;
+  /* Accent — ONE accent color */
+  --accent: #3AAED8;
+  --accent-soft: #8FE1FF;
 
-  /* Shadows */
-  --shadow-ambient: rgba(160, 140, 120, 0.06);
-  --shadow-primary: rgba(58, 174, 216, 0.15);
+  /* Gold: ONLY for logo asset and hero gradient treatment */
+  --gold: #D4A843;
+
+  /* Line / border */
+  --line: rgba(242, 240, 236, 0.10);
+
+  /* Legacy ink tokens (used by ScrollLogoReveal) */
+  --ink: #0C0D10;
+  --ink-soft: #14161B;
+  --on-ink: #F2F0EC;
+  --on-ink-medium: rgba(242, 240, 236, 0.68);
+  --on-ink-low: rgba(242, 240, 236, 0.45);
+  --ink-border: rgba(242, 240, 236, 0.10);
+  --ink-border-subtle: rgba(242, 240, 236, 0.07);
+  --ink-surface-raised: rgba(255, 255, 255, 0.05);
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Brand gradient (logo treatment + hero gradient only) */
+  --vixio-gradient: linear-gradient(45deg, #3AAED8, #D4A843);
+
+  /* Logo sizing */
+  --logo-width: 280px;
+
+  /* Radius system: ONE scale */
+  /* Interactive: 9999px (pill) | Containers: 16px */
+  --radius-interactive: 9999px;
+  --radius-container: 16px;
+  /* Legacy names mapped to new scale */
+  --radius-sm: 4px;
+  --radius-md: 9999px;
+  --radius-lg: 16px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Motion */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-medium: 400ms;
+  --duration-slow: 600ms;
 
   /* Spacing */
   --spacing-1: 0.25rem;
@@ -49,50 +77,14 @@ html {
   --spacing-5: 1.25rem;
   --spacing-6: 1.5rem;
   --spacing-8: 2rem;
-  --spacing-12: 4rem;
-  --spacing-16: 5.5rem;
-  --spacing-20: 8rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
 
-  /* Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1.25rem;
-  --radius-full: 9999px;
-
-  /* Typography */
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Manrope', sans-serif;
-  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-
-  /* Kinetic surfaces (dark) */
-  --ink: #0E0F12;
-  --ink-soft: #1E2128;
-
-  /* Text on dark (--ink) surfaces */
-  --on-ink: #F2F0EC;
-  --on-ink-high: rgba(242, 240, 236, 0.85);
-  --on-ink-medium: rgba(242, 240, 236, 0.7);
-  --on-ink-low: rgba(242, 240, 236, 0.5);
-  --on-ink-muted: rgba(242, 240, 236, 0.45);
-
-  /* Borders & surfaces on dark */
-  --ink-border: rgba(242, 240, 236, 0.12);
-  --ink-border-subtle: rgba(242, 240, 236, 0.08);
-  --ink-surface-subtle: rgba(255, 255, 255, 0.03);
-  --ink-surface-raised: rgba(255, 255, 255, 0.06);
-
-  /* Brand gradient */
-  --vixio-gradient: linear-gradient(45deg, #3AAED8, #D4A843);
-
-  /* Logo sizing (shared between LogoReveal + LogoHero) */
-  --logo-width: 280px;
-
-  /* Motion */
-  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast: 300ms;
-  --duration-medium: 500ms;
-  --duration-slow: 700ms;
+  /* Primary kept as alias for accent (GradientButton/GhostButton CSS) */
+  --primary: #3AAED8;
+  --on-primary: #0C0D10;
+  --primary-container: rgba(58, 174, 216, 0.12);
 }
 
 @media (min-width: 768px) {
@@ -108,7 +100,7 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--surface);
-  color: var(--on-surface);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -128,7 +120,7 @@ body {
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -136,7 +128,7 @@ body {
 
 .display-md {
   font-family: var(--font-display);
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.15;
@@ -166,14 +158,6 @@ body {
   line-height: 1.3;
 }
 
-.title-md {
-  font-family: var(--font-body);
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1.4;
-}
-
 .body-lg {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -198,108 +182,23 @@ body {
   line-height: 1.5;
 }
 
-.label-md {
-  font-family: var(--font-display);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.label-sm {
-  font-family: var(--font-display);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-.mono-tag {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--on-surface-variant);
-}
-
-
-/* ============================================
-   RESPONSIVE TYPOGRAPHY
-   ============================================ */
-
-@media (max-width: 768px) {
-  .display-lg {
-    font-size: 2.5rem;
-  }
-  .display-md {
-    font-size: 2rem;
-  }
-  .headline-lg {
-    font-size: 1.625rem;
-  }
-}
-
 /* ============================================
    CSS ENTRANCE ANIMATIONS
-   These work without JS — no SSR opacity:0 issue
    ============================================ */
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in-up {
   animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-@keyframes vxMarquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-33.333%); }
-}
+/* ============================================
+   SCROLL REVEAL (used by ScrollReveal.tsx)
+   ============================================ */
 
-.marquee-track {
-  display: flex;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: vxMarquee 40s linear infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
-
-/* Dark capability tile — flips to brand cyan on hover */
-.cap-tile {
-  background: var(--ink);
-  color: #F2F0EC;
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 300ms var(--ease-default), background 300ms var(--ease-default);
-}
-.cap-tile:hover {
-  transform: translateY(-4px);
-  background: var(--primary);
-}
-
-/* Scroll reveal: JS adds .scroll-reveal-pending to below-fold elements,
-   then .scroll-reveal-visible when they enter viewport.
-   Content is ALWAYS visible by default (no JS = no hiding). */
 .scroll-reveal-pending {
   opacity: 0;
   transform: translateY(20px) translateX(-8px);
@@ -324,14 +223,21 @@ body {
 }
 
 /* ============================================
-   COMPONENT STYLES
+   BUTTON STYLES (dark token system)
    ============================================ */
 
+/* Primary pill button: cyan fill, dark text */
+.gradient-btn {
+  background: var(--accent) !important;
+  color: var(--surface) !important;
+  min-height: 44px;
+}
+
 .gradient-btn:hover {
-  transform: translateY(-1px) scale(1.02);
-  background: var(--primary) !important;
-  color: var(--on-primary) !important;
-  box-shadow: 0 8px 32px rgba(58, 174, 216, 0.25) !important;
+  transform: translateY(-1px);
+  background: var(--accent) !important;
+  color: var(--surface) !important;
+  box-shadow: 0 6px 24px rgba(58, 174, 216, 0.30) !important;
 }
 
 .gradient-btn:active {
@@ -339,13 +245,21 @@ body {
 }
 
 .gradient-btn:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
+/* Secondary pill button: 1px border, text colored */
+.ghost-btn {
+  border: 1px solid var(--line) !important;
+  color: var(--text) !important;
+  background: transparent !important;
+  min-height: 44px;
+}
+
 .ghost-btn:hover {
-  background: var(--primary-container) !important;
-  box-shadow: inset 0 0 0 1.5px rgba(58, 174, 216, 0.4) !important;
+  border-color: rgba(242, 240, 236, 0.25) !important;
+  background: rgba(242, 240, 236, 0.05) !important;
 }
 
 .ghost-btn:active {
@@ -353,9 +267,13 @@ body {
 }
 
 .ghost-btn:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ============================================
+   SKIP LINK
+   ============================================ */
 
 .skip-link {
   position: absolute;
@@ -369,10 +287,10 @@ body {
   font-family: var(--font-display);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--on-primary);
-  background: var(--primary);
+  color: var(--surface);
+  background: var(--accent);
   padding: var(--spacing-2) var(--spacing-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-interactive);
   text-decoration: none;
 }
 
@@ -385,208 +303,105 @@ body {
   overflow: visible;
 }
 
-/* Text link with underline expansion */
-.text-link {
-  color: var(--primary);
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
+/* ============================================
+   FORM INPUT STYLES (native, dark)
+   ============================================ */
+
+.vx-input {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-container);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  min-height: 44px;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-.text-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  right: 50%;
-  height: 1px;
-  background: var(--primary);
-  transition: left var(--duration-fast) var(--ease-default), right var(--duration-fast) var(--ease-default);
+.vx-input::placeholder {
+  color: var(--text-muted);
 }
 
-.text-link:hover::after {
-  left: 0;
-  right: 0;
+.vx-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(58, 174, 216, 0.25);
 }
 
-/* Card hover */
-.card-hover {
-  transition: background-color var(--duration-medium) var(--ease-default),
-              box-shadow var(--duration-medium) var(--ease-default),
-              transform var(--duration-medium) var(--ease-default);
-}
-
-.card-hover:hover {
-  background-color: var(--surface-container-highest);
-  box-shadow: 0 12px 48px var(--shadow-ambient), 0 4px 16px rgba(0, 0, 0, 0.04);
-  transform: translateY(-3px) scale(1.01);
-}
-
-/* Image zoom inner — parent card-hover hover triggers scale */
-.img-zoom-inner {
-  transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
-  will-change: transform;
-}
-
-.card-hover:hover .img-zoom-inner {
-  transform: scale(1.05);
-}
-
-/* Animated gradient accent line */
-@keyframes accentSweep {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.accent-line {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--primary) 35%,
-    var(--tertiary) 65%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: accentSweep 4s ease-in-out infinite;
-  border-radius: var(--radius-full);
-  opacity: 0.8;
-}
-
-/* OrbitalNav floating button hover */
-.menu-trigger {
-  transition: background var(--duration-fast) var(--ease-default),
-              opacity 300ms var(--ease-default),
-              box-shadow var(--duration-fast) var(--ease-default) !important;
-}
-
-.menu-trigger:hover {
-  box-shadow: 0 8px 32px var(--shadow-ambient), 0 2px 16px var(--shadow-primary) !important;
-}
-
-/* FullScreenMenu close button */
-.menu-close-btn {
-  transition: background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default);
-}
-
-.menu-close-btn:hover {
-  background: var(--surface-container-highest) !important;
-}
-
-.menu-close-btn:focus-visible {
-  outline: 2px solid var(--primary);
+.vx-input:focus-visible {
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* FullScreenMenu nav buttons */
-.menu-nav-btn:hover {
-  color: var(--primary) !important;
+.vx-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.375rem;
 }
 
-.menu-nav-btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
-  border-radius: var(--radius-sm);
+.vx-error {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #f87171;
+  margin-top: 0.375rem;
 }
 
-/* FullScreenMenu nav item hover */
-.menu-nav-wrapper {
-  position: relative;
-  padding-left: 0;
-  transition: padding-left var(--duration-medium) var(--ease-default);
-}
-
-.menu-nav-wrapper:hover {
-  padding-left: 0.75rem;
-}
-
-.menu-nav-wrapper::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--primary);
-  border-radius: var(--radius-full);
-  transition: width var(--duration-medium) var(--ease-default);
-}
-
-.menu-nav-wrapper:hover::before {
-  width: 0.5rem;
-}
-
-.menu-nav-link {
-  color: var(--on-surface);
-  text-decoration: none;
-  transition: color var(--duration-medium) var(--ease-default);
-}
-
-.menu-nav-link:hover {
-  color: var(--primary);
-}
-
-.menu-nav-link[data-active='true'] {
-  color: var(--primary);
-}
-
-/* Footer nav link hover */
-.footer-link {
-  color: var(--on-surface-variant);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default);
-  position: relative;
-}
-
-.footer-link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--primary);
-  transition: width var(--duration-fast) var(--ease-default);
-}
-
-.footer-link:hover {
-  color: var(--on-surface);
-}
-
-.footer-link:hover::after {
-  width: 100%;
+textarea.vx-input {
+  resize: vertical;
+  min-height: 120px;
 }
 
 /* ============================================
-   GRAIN TEXTURE OVERLAY
+   NAV LINK
    ============================================ */
 
-.grain-overlay {
-  position: relative;
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-default);
 }
 
-.grain-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/texture-grain-overlay.webp');
-  background-repeat: repeat;
-  opacity: 0.04;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: 1;
+.nav-link:hover {
+  color: var(--text);
 }
 
-.grain-overlay > * {
-  position: relative;
-  z-index: 2;
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
-/* Subtle concrete wall texture */
-.texture-concrete-bg {
-  background-image: url('/images/texture-concrete-wall.webp');
-  background-repeat: repeat;
-  background-size: 400px 400px;
-  background-blend-mode: overlay;
+/* ============================================
+   FOOTER LINK
+   ============================================ */
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.footer-link:hover {
+  color: var(--text-secondary);
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
