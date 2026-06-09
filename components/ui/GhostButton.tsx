@@ -11,38 +11,43 @@ interface GhostButtonProps {
 
 export function GhostButton({ children, href, onClick, type = 'button', className = '', disabled }: GhostButtonProps) {
   const styles: React.CSSProperties = {
-    boxShadow: 'inset 0 0 0 1.5px rgba(200, 196, 191, 0.3)',
-    border: 'none',
-    color: 'var(--primary)',
+    border: '1px solid var(--line)',
     background: 'transparent',
-    borderRadius: 'var(--radius-md)',
-    padding: 'var(--spacing-2) var(--spacing-6)',
-    cursor: 'pointer',
+    color: 'var(--text)',
+    borderRadius: 'var(--radius-interactive)',
+    padding: '0.75rem 1.75rem',
+    cursor: disabled ? 'not-allowed' : 'pointer',
     fontFamily: 'var(--font-display)',
-    fontSize: '0.8125rem',
-    fontWeight: 500,
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase' as const,
+    fontSize: '0.9375rem',
+    fontWeight: 600,
+    letterSpacing: '-0.01em',
     lineHeight: 1.4,
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    transition: 'transform var(--duration-fast) var(--ease-default), background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default)',
+    minHeight: '44px',
+    whiteSpace: 'nowrap',
+    opacity: disabled ? 0.5 : 1,
+    transition: 'transform 200ms cubic-bezier(0.4, 0, 0.2, 1), border-color 200ms cubic-bezier(0.4, 0, 0.2, 1), background 200ms cubic-bezier(0.4, 0, 0.2, 1)',
   }
-
-  const hoverClass = 'ghost-btn'
 
   if (href) {
     return (
-      <Link href={href} className={`${hoverClass} ${className}`} style={styles}>
+      <Link href={href} className={`ghost-btn ${className}`} style={styles}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={`${hoverClass} ${className}`} style={{ ...styles, ...(disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}) }}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`ghost-btn ${className}`}
+      style={styles}
+    >
       {children}
     </button>
   )

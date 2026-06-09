@@ -11,38 +11,43 @@ interface GradientButtonProps {
 
 export function GradientButton({ children, href, onClick, type = 'button', className = '', disabled }: GradientButtonProps) {
   const styles: React.CSSProperties = {
-    background: 'var(--ink)',
-    color: 'var(--on-ink)',
-    borderRadius: 'var(--radius-md)',
-    padding: 'var(--spacing-2) var(--spacing-6)',
+    background: 'var(--accent)',
+    color: 'var(--surface)',
+    borderRadius: 'var(--radius-interactive)',
+    padding: '0.75rem 1.75rem',
     border: 'none',
-    cursor: 'pointer',
+    cursor: disabled ? 'not-allowed' : 'pointer',
     fontFamily: 'var(--font-display)',
-    fontSize: '0.8125rem',
-    fontWeight: 500,
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase' as const,
+    fontSize: '0.9375rem',
+    fontWeight: 600,
+    letterSpacing: '-0.01em',
     lineHeight: 1.4,
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     textDecoration: 'none',
-    boxShadow: '0 2px 12px rgba(14, 15, 18, 0.15)',
-    transition: 'transform var(--duration-fast) var(--ease-default), background var(--duration-fast) var(--ease-default), box-shadow var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default)',
+    minHeight: '44px',
+    whiteSpace: 'nowrap',
+    opacity: disabled ? 0.5 : 1,
+    transition: 'transform 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1)',
   }
-
-  const hoverClass = 'gradient-btn'
 
   if (href) {
     return (
-      <Link href={href} className={`${hoverClass} ${className}`} style={styles}>
+      <Link href={href} className={`gradient-btn ${className}`} style={styles}>
         {children}
       </Link>
     )
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={`${hoverClass} ${className}`} style={{ ...styles, ...(disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}) }}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`gradient-btn ${className}`}
+      style={styles}
+    >
       {children}
     </button>
   )

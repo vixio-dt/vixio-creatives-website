@@ -1,21 +1,19 @@
 import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
-import { ProblemSection } from '@/components/home/ProblemSection'
-import { WhoThisIsFor } from '@/components/home/WhoThisIsFor'
-import { ServicesManifest } from '@/components/home/ServicesManifest'
-import { ExperienceSection } from '@/components/home/ExperienceSection'
-import { HowItWorks } from '@/components/home/HowItWorks'
-import { ContactSection } from '@/components/home/ContactSection'
+import { LabelStatement } from '@/components/home/LabelStatement'
+import { WhatWeMake } from '@/components/home/WhatWeMake'
+import { NowInProduction } from '@/components/home/NowInProduction'
+import { TheBar } from '@/components/home/TheBar'
+import { HomeCTA } from '@/components/home/HomeCTA'
 
 export default function Home() {
   return (
     <>
       <ScrollLogoReveal />
-      <ProblemSection />
-      <WhoThisIsFor />
-      <ServicesManifest />
-      <ExperienceSection />
-      <HowItWorks />
-      <ContactSection />
+      <LabelStatement />
+      <WhatWeMake />
+      <NowInProduction />
+      <TheBar />
+      <HomeCTA />
     </>
   )
 }
