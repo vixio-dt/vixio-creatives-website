@@ -11,6 +11,7 @@ export function SiteFooter() {
       }}
     >
       <div
+        className="vx-footer-grid"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
@@ -23,10 +24,10 @@ export function SiteFooter() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           <Link href="/" aria-label="Vixio Creatives, home" style={{ display: 'inline-block' }}>
             <Image
-              src="/vixio-logo.svg"
+              src="/vixio-wordmark.svg"
               alt="Vixio Creatives"
-              width={80}
-              height={26}
+              width={56}
+              height={24}
               style={{ height: '24px', width: 'auto' }}
             />
           </Link>
@@ -53,7 +54,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <nav aria-label="Footer navigation" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-end' }}>
+        <nav aria-label="Footer navigation" className="vx-footer-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-end' }}>
           <Link href="/studio" className="footer-link">
             Studio
           </Link>
@@ -68,11 +69,11 @@ export function SiteFooter() {
 
       <style>{`
         @media (max-width: 640px) {
-          footer > div > div:last-child {
-            align-items: flex-start;
-          }
-          footer > div {
+          .vx-footer-grid {
             grid-template-columns: 1fr;
+          }
+          .vx-footer-nav {
+            align-items: flex-start;
           }
         }
       `}</style>

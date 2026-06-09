@@ -37,10 +37,10 @@ export function SiteNav() {
           style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
         >
           <Image
-            src="/vixio-logo.svg"
+            src="/vixio-wordmark.svg"
             alt="Vixio Creatives"
-            width={100}
-            height={32}
+            width={65}
+            height={28}
             priority
             style={{ height: '28px', width: 'auto' }}
           />

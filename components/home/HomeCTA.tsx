@@ -30,7 +30,7 @@ export function HomeCTA() {
             marginBottom: '2rem',
           }}
         >
-          Start a conversation.
+          Working on a world worth entering?
         </motion.h2>
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 16 }}

@@ -1,18 +1,27 @@
 # Vixio Creatives Website
 
-Marketing landing page for [vixiocreatives.com](https://vixiocreatives.com) — a creative production studio that develops and produces original story IP using AI-assisted production.
+A creative label for story-rich worlds.
+
+Marketing website for [vixiocreatives.com](https://vixiocreatives.com) -- Next.js 16 App Router, TypeScript, server-side rendering.
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | Next.js 16 (App Router, static export) |
+| Framework | Next.js 16 (App Router) |
 | Language | TypeScript |
-| UI Library | Mantine |
-| Styling | Tailwind CSS v4 |
+| Styling | Tailwind CSS v4 + CSS custom properties |
 | Animation | Framer Motion |
-| Icons | Lucide React |
-| Fonts | Space Grotesk + Inter (Google Fonts) |
+| Fonts | Space Grotesk (display) + Manrope (body) via next/font |
+
+## Routes
+
+| Route | Page |
+|-------|------|
+| `/` | Homepage |
+| `/studio` | Studio |
+| `/contact` | Contact |
+| `/api/contact` | Contact form API (Resend) |
 
 ## Development
 
@@ -23,46 +32,29 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Build & Serve
+## Build and Serve
 
 ```bash
-npm run build     # Static export to out/
-npm run start     # Serve out/ on port 3000
+npm run build     # Production build
+npm run start     # Run production server
+npm run lint      # ESLint check
+npm run typecheck # TypeScript check
 ```
 
-## Project Structure
+### Offline / CI builds
 
-```
-vixio-creatives-website/
-├── app/
-│   ├── layout.tsx                  # Root layout (Mantine, fonts, CSS)
-│   ├── page.tsx                    # Home page
-│   └── globals.css                 # Tailwind + marketing styles
-├── components/
-│   ├── marketing/                  # Landing page sections
-│   │   ├── HeroSection.tsx
-│   │   ├── StudioSection.tsx
-│   │   ├── BoundaryShowcase.tsx
-│   │   ├── CapabilitiesSection.tsx
-│   │   ├── FounderSection.tsx
-│   │   └── ContactSection.tsx
-│   └── providers/
-│       └── MantineClientProvider.tsx
-├── lib/
-│   └── theme/
-│       └── mantine-theme.ts        # Mantine theme config
-├── public/
-│   └── vixio-logo.svg
-└── docs/
-    └── codebase-assessment.md
+Normal deployments fetch Google Fonts at build time and the mock file is ignored. If you need to build without network access (e.g. offline CI), set the env var before building:
+
+```bash
+NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build
 ```
 
-## Scripts
+## Environment Variables
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start dev server |
-| `npm run build` | Build static export |
-| `npm run start` | Serve static build |
-| `npm run lint` | Run ESLint |
-| `npm run typecheck` | TypeScript check |
+| Variable | Purpose |
+|----------|---------|
+| `SUPABASE_URL` or `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_ANON_KEY` or `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key |
+| `RESEND_API_KEY` | Resend API key for contact form emails |
+
+Set these in `.env.local` for local development or in your deployment environment.

@@ -19,6 +19,7 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vixiocreatives.com'),
   title: {
     default: 'Vixio Creatives',
     template: '%s · Vixio Creatives',
@@ -30,6 +31,20 @@ export const metadata: Metadata = {
     url: 'https://vixiocreatives.com',
     siteName: 'Vixio Creatives',
     type: 'website',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vixio Creatives. A creative label for story-rich worlds.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vixio Creatives',
+    description: 'A creative label for story-rich worlds. Hong Kong.',
+    images: ['/og.png'],
   },
 }
 
