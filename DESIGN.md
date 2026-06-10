@@ -56,7 +56,7 @@ Fonts load via `next/font` with CSS variables. Casing is sentence case everywher
 
 ## 4. Motion (ADR-11)
 
-Complete inventory: whileInView fade-rise (24px, 0.6s, ease [0.16, 1, 0.3, 1], once) on tiles and section content; hover scale 1.02 on tile media inside overflow-hidden bounds; mount fade on the hero text block. Chrome static. Everything gates on `useReducedMotion`; `scroll-behavior: smooth` sits behind `prefers-reduced-motion: no-preference`. Banned: window scroll listeners, marquees, parallax, scroll-driven choreography, custom cursors. Anything beyond this inventory needs a new ADR.
+Complete inventory: whileInView fade-rise (24px, 0.6s, ease [0.16, 1, 0.3, 1], once) on tiles and section content; hover scale 1.02 on tile media inside overflow-hidden bounds; mount fade on the hero text block; and the homepage LogoPrelude (300vh scroll-scrubbed logo opening on paper, added by founder decision in ADR-15: emergence, cyan light pass, brand-color hold, pull-back, dissolve into the catalog; the nav holds hidden until it completes; renders nothing under reduced motion). Chrome static. Everything gates on `useReducedMotion`; `scroll-behavior: smooth` sits behind `prefers-reduced-motion: no-preference`. Banned: raw window scroll listeners, marquees, parallax beyond the prelude, custom cursors. Anything beyond this inventory needs a new ADR.
 
 ## 5. Architecture
 

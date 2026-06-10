@@ -36,7 +36,7 @@ Adding a work = adding one entry to `lib/slate.ts`. Status display (kind-qualifi
 
 - White theme only: paper `#FAFAF8`, ink `#121417`, accent `#15718F` (interactive), raw brand cyan `#3AAED8` non-text inside media/logo only, gold logo-only. Full token table with ratios in ADR-01.
 - One radius system: 0 everywhere. Zero eyebrows: status headers are sentence case. No three-equal-cards, no split-headers.
-- Motion inventory is fixed by ADR-11 (in-view fade-rise, tile hover scale, hero mount fade; chrome static). Everything gates on `useReducedMotion`. NO `window.addEventListener('scroll')`, NO `h-screen` (use `min-h-[100dvh]`), no custom cursors.
+- Motion inventory is fixed by ADR-11 plus ADR-15 (in-view fade-rise, tile hover scale, hero mount fade, and the homepage LogoPrelude scroll-scrubbed opening; chrome static otherwise). Everything gates on `useReducedMotion`; the prelude renders nothing under reduced motion. NO `window.addEventListener('scroll')`, NO `h-screen` (use `min-h-[100dvh]`), no custom cursors. The brand gradient may fill logo geometry inside media treatments only, never UI or text (ADR-15).
 - WCAG 2.1 AA: visible 2px accent focus rings, 44px targets, labels above inputs, live-region form states.
 
 ## Mandatory verification
