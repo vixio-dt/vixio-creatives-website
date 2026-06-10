@@ -1,46 +1,50 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { copy } from '@/lib/copy'
 
-export function Founder() {
+export function StudioFounder() {
   const reduce = useReducedMotion()
 
   return (
     <section
       style={{
-        background: 'var(--surface-raised)',
-        padding: 'clamp(4rem, 8vw, 7rem) 1.5rem',
+        background: 'var(--surface)',
+        padding: 'clamp(4rem, 10vw, 8rem) 1.5rem',
         borderTop: '1px solid var(--line)',
       }}
     >
-      <div className="founder-inner">
+      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}
         >
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontSize: 'clamp(1.75rem, 4vw, 3rem)',
               fontWeight: 700,
               letterSpacing: '-0.025em',
+              lineHeight: 1.2,
               color: 'var(--text)',
-              marginBottom: '0.5rem',
+              marginBottom: '0.375rem',
             }}
           >
-            Denis Tam
+            {copy.studio.founder.name}
           </h2>
           <p
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: '1rem',
-              color: 'var(--accent)',
               fontWeight: 500,
+              color: 'var(--text-secondary)',
+              lineHeight: 1.5,
             }}
           >
-            Founder &amp; Executive Producer
+            {copy.studio.founder.role}
           </p>
         </motion.div>
 
@@ -48,36 +52,19 @@ export function Founder() {
           initial={reduce ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
           style={{
             fontFamily: 'var(--font-body)',
             fontSize: '1rem',
+            fontWeight: 400,
             lineHeight: 1.7,
             color: 'var(--text-secondary)',
             maxWidth: '52ch',
-            alignSelf: 'center',
           }}
         >
-          Denis leads every production at Vixio. Based in Hong Kong, working with collaborators
-          across animation, film, and physical craft.
+          {copy.studio.founder.bio}
         </motion.p>
       </div>
-
-      <style>{`
-        .founder-inner {
-          max-width: 1280px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(2rem, 5vw, 4rem);
-          align-items: center;
-        }
-        @media (max-width: 767px) {
-          .founder-inner {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </section>
   )
 }

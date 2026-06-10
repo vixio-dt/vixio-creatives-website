@@ -1,21 +1,24 @@
 import type { Metadata } from 'next'
-import { StudioHero } from '@/components/studio/StudioHero'
-import { HowWeWork } from '@/components/studio/HowWeWork'
-import { AIStance } from '@/components/studio/AIStance'
-import { Founder } from '@/components/studio/Founder'
+import { copy } from '@/lib/copy'
+import { StudioLead } from '@/components/studio/StudioLead'
+import { StudioFacts } from '@/components/studio/StudioFacts'
+import { StudioAIStance } from '@/components/studio/StudioAIStance'
+import { StudioFounder } from '@/components/studio/StudioFounder'
+import { StudioCTA } from '@/components/studio/StudioCTA'
 
 export const metadata: Metadata = {
-  title: 'Studio',
-  description: 'Vixio is a creative label for story-rich worlds, founded in Hong Kong. Small by design, high craft bar.',
+  title: copy.meta.studio.title,
+  description: copy.meta.studio.description,
 }
 
 export default function StudioPage() {
   return (
     <>
-      <StudioHero />
-      <HowWeWork />
-      <AIStance />
-      <Founder />
+      <StudioLead />
+      <StudioFacts />
+      <StudioAIStance />
+      <StudioFounder />
+      <StudioCTA />
     </>
   )
 }
