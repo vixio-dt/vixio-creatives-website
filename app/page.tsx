@@ -11,7 +11,7 @@ export default function Home() {
     <>
       {featured && <FeaturedWork entry={featured} />}
 
-      {Array.from(sections.entries()).map(([status, entries]) => (
+      {sections.map(([status, entries]) => (
         <SlateSection key={status} status={status} entries={entries} />
       ))}
 

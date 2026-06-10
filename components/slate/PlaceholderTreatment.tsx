@@ -6,7 +6,6 @@ import type { PlaceholderId } from '@/lib/slate'
 
 interface PlaceholderTreatmentProps {
   id: PlaceholderId
-  className?: string
 }
 
 // HOME-HERO-01: paper field, oversized cropped ink triangle bleeding off frame,
@@ -144,10 +143,10 @@ function ObjectTileTreatment() {
   )
 }
 
-export function PlaceholderTreatment({ id, className }: PlaceholderTreatmentProps) {
+export function PlaceholderTreatment({ id }: PlaceholderTreatmentProps) {
   if (id === 'HOME-HERO-01') {
     return (
-      <div className={className} style={{ position: 'absolute', inset: 0 }}>
+      <div style={{ position: 'absolute', inset: 0 }}>
         <HeroTreatment />
       </div>
     )
@@ -155,7 +154,7 @@ export function PlaceholderTreatment({ id, className }: PlaceholderTreatmentProp
 
   if (id === 'HOME-SLATE-TILE-01') {
     return (
-      <div className={className} style={{ position: 'absolute', inset: 0 }}>
+      <div style={{ position: 'absolute', inset: 0 }}>
         <FilmTileTreatment />
       </div>
     )
@@ -163,7 +162,7 @@ export function PlaceholderTreatment({ id, className }: PlaceholderTreatmentProp
 
   if (id === 'HOME-SLATE-TILE-02') {
     return (
-      <div className={className} style={{ position: 'absolute', inset: 0 }}>
+      <div style={{ position: 'absolute', inset: 0 }}>
         <ObjectTileTreatment />
       </div>
     )

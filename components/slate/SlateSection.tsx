@@ -1,20 +1,13 @@
 // Server component: renders a status group header and tile grid.
 // Renders nothing when the entries array is empty.
 
-import { copy } from '@/lib/copy'
+import { sectionHeading } from '@/lib/slate'
 import { SlateTile } from './SlateTile'
-import type { SlateEntry } from '@/lib/slate'
-
-type SlateStatus = SlateEntry['status']
+import type { SlateEntry, SlateStatus } from '@/lib/slate'
 
 interface SlateSectionProps {
   status: SlateStatus
   entries: SlateEntry[]
-}
-
-function getStatusLabel(status: SlateStatus): string {
-  const labelKey = status as keyof typeof copy.statusLabels
-  return copy.statusLabels[labelKey] ?? status
 }
 
 export function SlateSection({ status, entries }: SlateSectionProps) {
@@ -44,7 +37,7 @@ export function SlateSection({ status, entries }: SlateSectionProps) {
             marginBottom: 'clamp(2rem, 4vw, 3rem)',
           }}
         >
-          {getStatusLabel(status)}
+          {sectionHeading(status, entries)}
         </h2>
 
         {/* Tile grid */}

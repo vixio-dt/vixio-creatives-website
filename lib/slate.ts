@@ -1,7 +1,7 @@
 import { copy } from './copy'
 
 // ADR-05 types
-type SlateStatus = 'in-production' | 'in-development' | 'coming' | 'released'
+export type SlateStatus = 'in-production' | 'in-development' | 'coming' | 'released'
 type SlateKind = 'film' | 'object' | 'labs'
 export type PlaceholderId =
   | 'HOME-HERO-01'
@@ -44,6 +44,11 @@ export const slate: SlateEntry[] = [
 ]
 
 /**
+ * Live and dated work outranks undated development work on a catalog page.
+ */
+export const STATUS_ORDER: SlateStatus[] = ['in-production', 'coming', 'released', 'in-development']
+
+/**
  * Returns the single featured entry, or undefined if none exists.
  */
 export function featuredWork(): SlateEntry | undefined {
@@ -51,28 +56,83 @@ export function featuredWork(): SlateEntry | undefined {
 }
 
 /**
- * Groups non-featured entries by status, preserving slate order.
- * Returns only statuses that have entries.
- * Status display strings resolve through copy.statusLabels;
- * renders `${label}, ${year}` when the entry has a year.
+ * Resolves the display label for one entry through copy.statusLabels.
+ * - 'released' + kind 'film' or 'labs' => copy.statusLabels['released-film']
+ * - 'released' + kind 'object'          => copy.statusLabels['released-object']
+ * - 'coming'   + year                   => `${copy.statusLabels.coming} ${entry.year}`
+ * - 'coming'   (no year)                => copy.statusLabels.coming
+ * - all other statuses                  => direct lookup
  */
-export function slateByStatus(): Map<SlateStatus, SlateEntry[]> {
-  const result = new Map<SlateStatus, SlateEntry[]>()
-  for (const entry of slate) {
-    if (entry.featured) continue
-    const group = result.get(entry.status) ?? []
-    group.push(entry)
-    result.set(entry.status, group)
+export function statusLabel(entry: SlateEntry): string {
+  if (entry.status === 'released') {
+    return entry.kind === 'object'
+      ? copy.statusLabels['released-object']
+      : copy.statusLabels['released-film']
   }
-  return result
+  if (entry.status === 'coming') {
+    return entry.year != null
+      ? `${copy.statusLabels.coming} ${entry.year}`
+      : copy.statusLabels.coming
+  }
+  return copy.statusLabels[entry.status]
 }
 
 /**
  * Renders the status line for a tile entry.
- * Format: `${label}, ${year}` when year exists, else `${label}`.
+ * For 'coming': year already composed into the label, return as-is (no comma).
+ * For all other statuses: `${label}, ${year}` when year exists, else label.
  */
 export function statusLine(entry: SlateEntry): string {
-  const labelKey = entry.status as keyof typeof copy.statusLabels
-  const label = copy.statusLabels[labelKey] ?? entry.status
+  if (entry.status === 'coming') {
+    return statusLabel(entry)
+  }
+  const label = statusLabel(entry)
   return entry.year != null ? `${label}, ${entry.year}` : label
+}
+
+/**
+ * Renders the section heading for a status group.
+ * - 'coming':   if all entries share one defined year => `${copy.statusLabels.coming} ${year}`,
+ *               else copy.statusLabels.coming
+ * - 'released': if all entries share one kind => that kind's released label,
+ *               else the film released label (released wording is confirmed at first release per ADR-03)
+ * - others:     direct lookup (no fallback: the union is total, TypeScript proves it)
+ */
+export function sectionHeading(status: SlateStatus, entries: SlateEntry[]): string {
+  if (status === 'coming') {
+    const years = entries.map((e) => e.year).filter((y): y is number => y != null)
+    const allSameYear = years.length === entries.length && new Set(years).size === 1
+    return allSameYear
+      ? `${copy.statusLabels.coming} ${years[0]}`
+      : copy.statusLabels.coming
+  }
+  if (status === 'released') {
+    const kinds = entries.map((e) => e.kind)
+    const allSameKind = new Set(kinds).size === 1
+    if (allSameKind) {
+      return kinds[0] === 'object'
+        ? copy.statusLabels['released-object']
+        : copy.statusLabels['released-film']
+    }
+    // released wording is confirmed at first release per ADR-03
+    return copy.statusLabels['released-film']
+  }
+  return copy.statusLabels[status]
+}
+
+/**
+ * Groups non-featured entries by status, ordered by STATUS_ORDER.
+ * Returns only statuses that have entries.
+ */
+export function slateByStatus(): Array<[SlateStatus, SlateEntry[]]> {
+  const grouped = new Map<SlateStatus, SlateEntry[]>()
+  for (const entry of slate) {
+    if (entry.featured) continue
+    const group = grouped.get(entry.status) ?? []
+    group.push(entry)
+    grouped.set(entry.status, group)
+  }
+  return STATUS_ORDER
+    .filter((status) => grouped.has(status))
+    .map((status) => [status, grouped.get(status)!])
 }
