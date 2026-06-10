@@ -31,6 +31,8 @@
 
   /* Line / border */
   --line: rgba(18, 20, 23, 0.14); /* hairlines, decorative */
+  /* brand gradient: logo geometry and media treatments ONLY, never UI or text */
+  --vixio-gradient: linear-gradient(90deg, #3AAED8, #D4A843);
 
   /* Typography */
   --font-display: var(--font-space-grotesk), sans-serif;
@@ -190,7 +192,7 @@ textarea.vx-input {
 }
 
 .nav-link:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .nav-link:focus-visible {
@@ -211,7 +213,7 @@ textarea.vx-input {
 }
 
 .footer-link:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .footer-link:focus-visible {

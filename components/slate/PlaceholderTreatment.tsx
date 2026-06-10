@@ -1,6 +1,9 @@
 // Server component: renders a designed interim for a given PlaceholderId.
 // No 'use client' - this is server-safe.
 // All shapes are aria-hidden; no text inside the treatment itself.
+// Brand gradient (cyan-to-gold) fills logo-derived triangles per ADR-15.
+// HeroTreatment uses gradient id "vx-tri-hero"; FilmTileTreatment uses "vx-tri-tile"
+// to avoid duplicate-id collisions when both render on one page.
 
 import type { PlaceholderId } from '@/lib/slate'
 
@@ -8,8 +11,8 @@ interface PlaceholderTreatmentProps {
   id: PlaceholderId
 }
 
-// HOME-HERO-01: paper field, oversized cropped ink triangle bleeding off frame,
-// one soft cyan light gradient under 12% opacity.
+// HOME-HERO-01: paper field, oversized cropped brand-gradient triangle bleeding off frame,
+// one soft cyan light gradient at 16% peak opacity.
 function HeroTreatment() {
   return (
     <div
@@ -20,7 +23,7 @@ function HeroTreatment() {
         overflow: 'hidden',
       }}
     >
-      {/* Oversized apex-down ink triangle (logo geometry) bleeding off top-right */}
+      {/* Oversized apex-down brand-gradient triangle (logo geometry) bleeding off top-right */}
       <svg
         aria-hidden="true"
         viewBox="0 0 100 110"
@@ -35,21 +38,27 @@ function HeroTreatment() {
         }}
         preserveAspectRatio="xMaxYMin meet"
       >
+        <defs>
+          <linearGradient id="vx-tri-hero" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#3AAED8"/>
+            <stop offset="1" stopColor="#D4A843"/>
+          </linearGradient>
+        </defs>
         <polygon
           points="8,0 100,0 54,84"
-          fill="var(--text)"
+          fill="url(#vx-tri-hero)"
           opacity="1"
         />
       </svg>
 
-      {/* Soft cyan light gradient: reads as light falling across the ink edge */}
+      {/* Soft cyan light gradient: reads as light falling across the brand edge */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'radial-gradient(ellipse 60% 50% at 68% 45%, rgba(58, 174, 216, 0.12) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 50% at 68% 45%, rgba(58, 174, 216, 0.16) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -57,7 +66,8 @@ function HeroTreatment() {
   )
 }
 
-// HOME-SLATE-TILE-01: ink-on-paper tile with hairline border, brand triangle at small scale.
+// HOME-SLATE-TILE-01: brand-gradient-on-paper tile with hairline border, brand triangle at small scale.
+// Uses gradient id "vx-tri-tile" (distinct from "vx-tri-hero") to avoid duplicate-id collisions.
 function FilmTileTreatment() {
   return (
     <div
@@ -71,16 +81,22 @@ function FilmTileTreatment() {
         justifyContent: 'center',
       }}
     >
-      {/* Brand geometry: apex-down triangle, solid ink, ~56px wide */}
+      {/* Brand geometry: apex-down triangle, brand gradient, ~56px wide */}
       <svg
         aria-hidden="true"
         viewBox="0 0 100 110"
         xmlns="http://www.w3.org/2000/svg"
         style={{ width: '56px', height: 'auto' }}
       >
+        <defs>
+          <linearGradient id="vx-tri-tile" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#3AAED8"/>
+            <stop offset="1" stopColor="#D4A843"/>
+          </linearGradient>
+        </defs>
         <polygon
           points="8,0 100,0 54,84"
-          fill="var(--text)"
+          fill="url(#vx-tri-tile)"
           opacity="1"
         />
       </svg>
