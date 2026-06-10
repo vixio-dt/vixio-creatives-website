@@ -47,7 +47,7 @@ Run before claiming work complete:
 npm run typecheck && npm run lint && npm run build
 ```
 
-Offline builds: `NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build`. No test framework exists; the gate plus the two scans above are the check.
+Offline builds: `NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build`. `npm test` (Vitest, `tests/`) is part of the gate; run it alongside typecheck and lint before claiming work complete.
 
 ## Key directories
 
