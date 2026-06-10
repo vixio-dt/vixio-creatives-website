@@ -13,6 +13,12 @@
       "skillPath": "skills/output-skill/SKILL.md",
       "computedHash": "26bd29ce4c5e02c7666b2d503609bf466bd32290822e91f0e984147048dbb924"
     },
+    "improve": {
+      "source": "shadcn/improve",
+      "sourceType": "github",
+      "skillPath": "skills/improve/SKILL.md",
+      "computedHash": "6fec25022b25a049dbe5c18148e6eea9897150c2eeeeb39207732f949a3c797d"
+    },
     "gpt-taste": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",
