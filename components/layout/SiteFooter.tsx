@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { copy } from '@/lib/copy'
 
 export function SiteFooter() {
   return (
@@ -15,17 +16,19 @@ export function SiteFooter() {
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr auto',
           gap: '2rem',
           alignItems: 'start',
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-          <Link href="/" aria-label="Vixio Creatives, home" style={{ display: 'inline-block' }}>
+          <Link
+            href="/"
+            aria-label={copy.footer.homeAriaLabel}
+            style={{ display: 'inline-block' }}
+          >
             <Image
               src="/vixio-wordmark.svg"
-              alt="Vixio Creatives"
+              alt={copy.footer.logoAlt}
               width={56}
               height={24}
               style={{ height: '24px', width: 'auto' }}
@@ -39,7 +42,7 @@ export function SiteFooter() {
               lineHeight: 1.5,
             }}
           >
-            A creative label for story-rich worlds.
+            {copy.footer.descriptor}
           </p>
           <p
             style={{
@@ -50,33 +53,29 @@ export function SiteFooter() {
               marginTop: '0.5rem',
             }}
           >
-            &copy; 2026 Vixio Creatives Limited, Hong Kong
+            {copy.footer.legal}
           </p>
         </div>
 
-        <nav aria-label="Footer navigation" className="vx-footer-nav" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-end' }}>
+        <nav
+          aria-label={copy.footer.ariaLabel}
+          className="vx-footer-nav"
+          style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
+        >
           <Link href="/studio" className="footer-link">
-            Studio
+            {copy.footer.studio}
           </Link>
           <Link href="/contact" className="footer-link">
-            Contact
+            {copy.footer.contact}
           </Link>
-          <a href="mailto:hello@vixiocreatives.com" className="footer-link">
-            hello@vixiocreatives.com
+          <Link href="/#newsletter" className="footer-link">
+            {copy.footer.newsletter}
+          </Link>
+          <a href={`mailto:${copy.footer.email}`} className="footer-link">
+            {copy.footer.email}
           </a>
         </nav>
       </div>
-
-      <style>{`
-        @media (max-width: 640px) {
-          .vx-footer-grid {
-            grid-template-columns: 1fr;
-          }
-          .vx-footer-nav {
-            align-items: flex-start;
-          }
-        }
-      `}</style>
     </footer>
   )
 }
