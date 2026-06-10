@@ -3,7 +3,7 @@ import { copy } from './copy'
 // ADR-05 types
 type SlateStatus = 'in-production' | 'in-development' | 'coming' | 'released'
 type SlateKind = 'film' | 'object' | 'labs'
-type PlaceholderId =
+export type PlaceholderId =
   | 'HOME-HERO-01'
   | 'HOME-SLATE-TILE-01'
   | 'HOME-SLATE-TILE-02'
