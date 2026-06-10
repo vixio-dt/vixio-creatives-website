@@ -19,6 +19,14 @@
 - **Depends on**: none
 - **Category**: security / migration
 - **Planned at**: commit `3ea5bbf`, 2026-06-10
+- **Outcome (2026-06-10)**: DONE, reconciled. The executor correctly hit STOP
+  condition #1: no stable `next@16.3.x` exists (latest stable is 16.2.9; the
+  advisory range closes only in 16.3 canaries). Reviewer reconciliation:
+  landed `next@16.2.9` + `npm audit fix`, which cleared the high-severity
+  transitive advisories (fast-uri, brace-expansion). Residual: 2 moderate
+  advisories (next itself and its bundled postcss). Follow-up: bump to 16.3
+  when stable releases; until then `npm audit --omit=dev` reporting those two
+  moderates is expected.
 
 ## Why this matters
 

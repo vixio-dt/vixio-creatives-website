@@ -10,12 +10,12 @@ fully before starting, honor its STOP conditions, and update your row when done.
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001 | Update Next.js past advisory range, prune unused deps | P1 | S | none | TODO |
+| 001 | Update Next.js past advisory range, prune unused deps | P1 | S | none | DONE (reconciled: no stable 16.3.x exists yet; landed on 16.2.9 + audit fix; residual 2 moderate advisories tracked in the plan file) |
 | 002 | Harden /api/contact input validation | P1 | M | owner approval | BLOCKED (AGENTS.md: "Never touch app/api/" — needs owner sign-off) |
-| 003 | Test baseline: Vitest for slate logic + contact route | P1 | M | 001 | TODO |
-| 004 | CI gate, scan scripts, .env.example, stale-doc fixes | P2 | M | 003 | TODO |
-| 005 | sitemap.xml and robots.txt metadata routes | P2 | S | none | TODO |
-| 006 | Shared fade-rise motion variant in lib/motion.ts | P3 | S | none (after 003 preferred) | TODO |
+| 003 | Test baseline: Vitest for slate logic + contact route | P1 | M | 001 | DONE (37 tests, 2 files) |
+| 004 | CI gate, scan scripts, .env.example, stale-doc fixes | P2 | M | 003 | DONE |
+| 005 | sitemap.xml and robots.txt metadata routes | P2 | S | none | DONE |
+| 006 | Shared fade-rise motion variant in lib/motion.ts | P3 | S | none (after 003 preferred) | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (reason) | REJECTED (rationale)
 
