@@ -176,19 +176,6 @@ textarea.vx-input {
 }
 
 /* ============================================
-   NAV HOLD (LogoPrelude)
-   ============================================ */
-
-header {
-  transition: opacity 300ms var(--ease-default);
-}
-
-html.vx-prelude-hold header {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ============================================
    NAV LINK
    ============================================ */
 
