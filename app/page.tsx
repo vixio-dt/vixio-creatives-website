@@ -1,7 +1,7 @@
 import { FeaturedWork } from '@/components/slate/FeaturedWork'
 import { SlateSection } from '@/components/slate/SlateSection'
 import { Newsletter } from '@/components/home/Newsletter'
-import { LogoPrelude } from '@/components/home/LogoPrelude'
+import { LogoTransition } from '@/components/home/LogoTransition'
 import { featuredWork, slateByStatus } from '@/lib/slate'
 
 export default function Home() {
@@ -10,9 +10,9 @@ export default function Home() {
 
   return (
     <>
-      <LogoPrelude />
-
       {featured && <FeaturedWork entry={featured} />}
+
+      <LogoTransition />
 
       {sections.map(([status, entries]) => (
         <SlateSection key={status} status={status} entries={entries} />

@@ -1,13 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import {
   motion,
   useScroll,
   useTransform,
   useReducedMotion,
-  useMotionValueEvent,
   type MotionValue,
 } from 'framer-motion'
 
@@ -20,7 +19,7 @@ function useBlurFilter(blur: MotionValue<number>): MotionValue<string> {
   })
 }
 
-export function LogoPrelude() {
+export function LogoTransition() {
   const prefersReducedMotion = useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
@@ -29,101 +28,77 @@ export function LogoPrelude() {
     offset: ['start start', 'end end'],
   })
 
-  // NAV HOLD: add/remove vx-prelude-hold class with small hysteresis (add below 0.80, remove at/above 0.85).
-  // Gated on reduced motion: when the prelude renders null, the class must never be added,
-  // otherwise the nav would stay hidden forever (the scroll target ref never attaches).
-  useEffect(() => {
-    if (prefersReducedMotion) return
-    document.documentElement.classList.add('vx-prelude-hold')
-    return () => {
-      document.documentElement.classList.remove('vx-prelude-hold')
-    }
-  }, [prefersReducedMotion])
-
-  useMotionValueEvent(scrollYProgress, 'change', (p: number) => {
-    if (p >= 0.85) {
-      document.documentElement.classList.remove('vx-prelude-hold')
-    } else if (p < 0.80) {
-      document.documentElement.classList.add('vx-prelude-hold')
-    }
-  })
-
-  // TIMELINE (300vh section)
+  // TIMELINE (200vh interstitial section)
   //
-  // Phase 1  (0.00->0.18)  Emergence    logo deblurs and fades in
-  // Phase 2  (0.18->0.62)  Hold         logo at full opacity, glow + streak mid-range
-  // Phase 3  (0.62->0.80)  Pull-back    logo fades, scales down, moves up
-  // Phase 4  (0.86->0.98)  Handoff      sticky stage fades out to paper
+  // Phase 1  (0.06->0.30)  Projector ignition  lamp flicker, deblur, scale settle
+  // Phase 2  (0.30->0.62)  Hold                logo at full opacity + ambient glow
+  // Phase 3  (0.35->0.62)  Beam sweep          cyan streak crosses once
+  // Phase 4  (0.62->end)   Ambient hold        logo stays full, glow dims to 0.35
+  //
+  // No opacity, scale, or y exit ramps -- scroll is the exit.
 
-  // Logo opacity: piecewise like the original
+  // PROJECTOR IGNITION FLICKER: scrub-driven piecewise over p.
+  // 0 for p <= 0.06; linear segments (0.06,0)->(0.10,0.55)->(0.14,0.25)->(0.18,0.80)
+  // ->(0.22,0.45)->(0.30,1); then 1 for all p > 0.30.
   const logoOpacity = useTransform(scrollYProgress, (p: number) => {
-    if (p <= 0) return 0
-    if (p <= 0.18) return p / 0.18
-    if (p <= 0.62) return 1
-    if (p >= 0.80) return 0
-    return 1 - (p - 0.62) / 0.18
+    if (p <= 0.06) return 0
+    if (p <= 0.10) return (p - 0.06) / 0.04 * 0.55
+    if (p <= 0.14) return 0.55 - (p - 0.10) / 0.04 * 0.30
+    if (p <= 0.18) return 0.25 + (p - 0.14) / 0.04 * 0.55
+    if (p <= 0.22) return 0.80 - (p - 0.18) / 0.04 * 0.35
+    if (p <= 0.30) return 0.45 + (p - 0.22) / 0.08 * 0.55
+    return 1
   })
 
-  // Logo blur: 6px -> 0 over [0, 0.18], then stays 0
+  // Logo blur: 6px -> 0 over [0.06, 0.30], then stays 0
   const logoBlur = useTransform(
     scrollYProgress,
-    [0, 0.18, 1],
+    [0.06, 0.30, 1],
     [6, 0, 0],
   )
 
   const logoFilter = useBlurFilter(logoBlur)
 
-  // Logo scale: 0.96 -> 1.0 over [0, 0.18], hold to 0.62, then 1.0 -> 0.5 over [0.62, 0.80]
+  // Logo scale: 0.97 -> 1.0 over [0.06, 0.30], hold 1.0 forever. No y transform.
   const logoScale = useTransform(
     scrollYProgress,
-    [0, 0.18, 0.62, 0.80, 1],
-    [0.96, 1.0, 1.0, 0.5, 0.5],
+    [0, 0.06, 0.30, 1],
+    [0.97, 0.97, 1.0, 1.0],
   )
 
-  // Logo y: 0 until 0.62, then 0 -> -48 over [0.62, 0.80]
-  const logoY = useTransform(scrollYProgress, (p: number) => {
-    if (p <= 0.62) return 0
-    if (p >= 0.80) return -48
-    return -48 * ((p - 0.62) / 0.18)
-  })
-
-  // Cyan glow opacity: 0 at 0.10, ramp to 1 at [0.30, 0.40], down to 0 by 0.55
+  // Cyan glow opacity: 0 until 0.20, ramp to 1 over [0.20, 0.45],
+  // hold 1 to 0.60, settle down to 0.35 over [0.60, 0.80], hold 0.35 to end.
   const glowOpacity = useTransform(scrollYProgress, (p: number) => {
-    if (p <= 0.10 || p >= 0.55) return 0
-    if (p <= 0.30) return (p - 0.10) / 0.20
-    if (p <= 0.40) return 1
-    return 1 - (p - 0.40) / 0.15
+    if (p <= 0.20) return 0
+    if (p <= 0.45) return (p - 0.20) / 0.25
+    if (p <= 0.60) return 1
+    if (p <= 0.80) return 1 - (p - 0.60) / 0.20 * 0.65
+    return 0.35
   })
 
-  // Cyan glow scale: 0.6 -> 1.25 over [0.10, 0.40], back to 0.9 by 0.55
+  // Cyan glow scale: 0.6 at 0.20 -> 1.2 at 0.55 -> 1.0 at 0.80, hold.
   const glowScale = useTransform(
     scrollYProgress,
-    [0.10, 0.40, 0.55, 1],
-    [0.6, 1.25, 0.9, 0.9],
+    [0.20, 0.55, 0.80, 1],
+    [0.6, 1.2, 1.0, 1.0],
   )
 
-  // Cyan streak opacity: 0 until 0.26, peak 1 at 0.38, 0 by 0.50
+  // Cyan streak opacity: beam sweep compressed into [0.35, 0.62].
+  // 0 until 0.35, peak 1 at 0.50, 0 at/after 0.62.
   const streakOpacity = useTransform(scrollYProgress, (p: number) => {
-    if (p <= 0.26 || p >= 0.50) return 0
-    if (p <= 0.30) return (p - 0.26) / 0.04 * 0.4
-    if (p <= 0.36) return 0.4 + (p - 0.30) / 0.06 * 0.45
-    if (p <= 0.38) return 0.85 + (p - 0.36) / 0.02 * 0.15
-    if (p <= 0.42) return 1.0 - (p - 0.38) / 0.04 * 0.5
-    return (1 - (p - 0.42) / 0.08) * 0.5
+    if (p <= 0.35 || p >= 0.62) return 0
+    if (p <= 0.38) return (p - 0.35) / 0.03 * 0.4
+    if (p <= 0.44) return 0.4 + (p - 0.38) / 0.06 * 0.45
+    if (p <= 0.50) return 0.85 + (p - 0.44) / 0.06 * 0.15
+    if (p <= 0.54) return 1.0 - (p - 0.50) / 0.04 * 0.5
+    return (1 - (p - 0.54) / 0.08) * 0.5
   })
 
-  // Cyan streak x: same travel as original ([-1200 ... 1200] across [0.26, 0.50])
+  // Cyan streak x: [-1200 at 0.35 -> 0 at 0.50 -> 1200 at 0.62], holding ends.
   const streakX = useTransform(
     scrollYProgress,
-    [0, 0.26, 0.30, 0.36, 0.38, 0.42, 0.50, 1],
-    [0, -1200, -600, -150, 0, 600, 1200, 1200],
-  )
-
-  // Stage fade-out handoff: 1 -> 0 over [0.86, 0.98]
-  const stageOpacity = useTransform(
-    scrollYProgress,
-    [0.86, 0.98],
-    [1, 0],
+    [0, 0.35, 0.50, 0.62, 1],
+    [-1200, -1200, 0, 1200, 1200],
   )
 
   if (prefersReducedMotion) return null
@@ -132,9 +107,9 @@ export function LogoPrelude() {
     <section
       ref={containerRef}
       aria-hidden="true"
-      style={{ height: '300vh', position: 'relative', background: 'var(--surface)' }}
+      style={{ height: '200vh', position: 'relative', background: 'var(--surface)' }}
     >
-      <motion.div
+      <div
         style={{
           position: 'sticky',
           top: 0,
@@ -144,10 +119,9 @@ export function LogoPrelude() {
           alignItems: 'center',
           justifyContent: 'center',
           background: 'var(--surface)',
-          opacity: stageOpacity,
         }}
       >
-        {/* Cyan glow behind logo */}
+        {/* Cyan glow behind logo -- lamp stays lit at ambient level */}
         <motion.div
           style={{
             position: 'absolute',
@@ -162,7 +136,7 @@ export function LogoPrelude() {
           }}
         />
 
-        {/* Logo */}
+        {/* Logo -- ignites via flicker, holds full opacity, never fades */}
         <motion.div
           style={{
             width: 'min(280px, 60vw)',
@@ -171,7 +145,6 @@ export function LogoPrelude() {
             opacity: logoOpacity,
             scale: logoScale,
             filter: logoFilter,
-            y: logoY,
             willChange: 'filter, transform, opacity',
             pointerEvents: 'none',
           }}
@@ -187,7 +160,7 @@ export function LogoPrelude() {
           />
         </motion.div>
 
-        {/* Cyan anamorphic streak (restyled for paper) */}
+        {/* Cyan anamorphic streak -- one beam sweep mid-scrub */}
         <motion.div
           style={{
             position: 'absolute',
@@ -201,7 +174,7 @@ export function LogoPrelude() {
             pointerEvents: 'none',
           }}
         />
-      </motion.div>
+      </div>
     </section>
   )
 }
