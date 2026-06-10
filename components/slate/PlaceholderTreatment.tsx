@@ -43,7 +43,7 @@ function HeroTreatment() {
         />
       </svg>
 
-      {/* Soft cyan light gradient — reads as light falling across the ink edge */}
+      {/* Soft cyan light gradient: reads as light falling across the ink edge */}
       <div
         aria-hidden="true"
         style={{
