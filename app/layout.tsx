@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Manrope } from 'next/font/google'
 import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
+import { copy } from '@/lib/copy'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,29 +22,29 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL('https://vixiocreatives.com'),
   title: {
-    default: 'Vixio Creatives',
-    template: '%s · Vixio Creatives',
+    default: copy.meta.home.title,
+    template: copy.meta.titleTemplate,
   },
-  description: 'A creative label for story-rich worlds. Hong Kong.',
+  description: copy.meta.home.description,
   openGraph: {
-    title: 'Vixio Creatives',
-    description: 'A creative label for story-rich worlds. Hong Kong.',
+    title: copy.meta.home.title,
+    description: copy.meta.home.description,
     url: 'https://vixiocreatives.com',
-    siteName: 'Vixio Creatives',
+    siteName: copy.meta.siteName,
     type: 'website',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Vixio Creatives. A creative label for story-rich worlds.',
+        alt: copy.meta.ogImageAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vixio Creatives',
-    description: 'A creative label for story-rich worlds. Hong Kong.',
+    title: copy.meta.home.title,
+    description: copy.meta.home.description,
     images: ['/og.png'],
   },
 }
@@ -59,8 +60,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
-      <body>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
+      <body style={{ backgroundColor: 'var(--surface)', color: 'var(--text)' }}>
+        <a href="#main-content" className="skip-link">{copy.skipLink}</a>
         <SiteNav />
         <main id="main-content">{children}</main>
         <SiteFooter />

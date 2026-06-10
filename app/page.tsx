@@ -1,19 +1,21 @@
-import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
-import { LabelStatement } from '@/components/home/LabelStatement'
-import { WhatWeMake } from '@/components/home/WhatWeMake'
-import { NowInProduction } from '@/components/home/NowInProduction'
-import { TheBar } from '@/components/home/TheBar'
-import { HomeCTA } from '@/components/home/HomeCTA'
+import { FeaturedWork } from '@/components/slate/FeaturedWork'
+import { SlateSection } from '@/components/slate/SlateSection'
+import { Newsletter } from '@/components/home/Newsletter'
+import { featuredWork, slateByStatus } from '@/lib/slate'
 
 export default function Home() {
+  const featured = featuredWork()
+  const sections = slateByStatus()
+
   return (
     <>
-      <ScrollLogoReveal />
-      <LabelStatement />
-      <WhatWeMake />
-      <NowInProduction />
-      <TheBar />
-      <HomeCTA />
+      {featured && <FeaturedWork entry={featured} />}
+
+      {sections.map(([status, entries]) => (
+        <SlateSection key={status} status={status} entries={entries} />
+      ))}
+
+      <Newsletter />
     </>
   )
 }

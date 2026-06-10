@@ -19,17 +19,17 @@ Every image/video slot on the restructured site, keyed by ID. Use this document 
 - **Generation prompt (video):** "Abstract cinematic loop: a dark doorway of light opening in a field of soft paper-white haze, volumetric cyan light bleeding through, slow push-in, film grain, anamorphic flare hinted, no text, no characters, loopable, 8 seconds."
 - **Interim treatment:** flat paper field with the logo geometry (triangle, hourglass, circle) as oversized cropped shapes in ink, title set in Space Grotesk.
 
-### HOME-SLATE-TILE-01 · Signal Reel No.001 tile
+### HOME-SLATE-TILE-01 · First film tile (public title per ADR-04: "Untitled Vixio Film")
 - **Format:** still, 16:9 (1920x1080) plus 4:5 crop (1080x1350) for mobile/social reuse.
-- **Represents:** the visual study, pre-release. Post-release: a real still replaces it.
+- **Represents:** the first film, pre-release. Post-release: a real still replaces it.
 - **Generation prompt:** "Single empty cinema seat in a white void studio, one blade of cyan light across the floor, photographic, 35mm grain, quiet and monumental, no text."
-- **Interim treatment:** ink-on-paper typographic tile: "Signal Reel No.001 / In production, 2026."
+- **Interim treatment (as shipped):** ink-on-paper tile, hairline border, brand triangle glyph in solid ink; the tile's title and status lines ("Untitled Vixio Film" / "In Production, 2026") render from lib/slate.ts outside the treatment. Internal codenames never appear in rendered copy.
 
 ### HOME-SLATE-TILE-02 · Artifact drop tile
 - **Format:** still, 4:5 (1600x2000), object-photography register.
 - **Represents:** the small-run physical artifact (in development). Replace with REAL product photography when the object exists; do not fake the object itself before then.
 - **Generation prompt (mood only, not the product):** "Empty museum display plinth under a soft spotlight, paper-white seamless backdrop, faint cyan rim light, medium format product photography mood, no object, no text."
-- **Interim treatment:** paper tile with a hairline-drawn plinth glyph and "Object No.001 / In development."
+- **Interim treatment (as shipped):** paper tile with a hairline-drawn plinth glyph; the tile's title and status lines ("Untitled Edition" / "In Development", per ADR-04) render from lib/slate.ts outside the treatment.
 
 ### HOME-SLATE-TILE-03 · Vixio Labs tile (optional lane)
 - **Format:** still, 16:9 (1920x1080).
