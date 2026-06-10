@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { fadeRiseInView } from '@/lib/motion'
 import { copy } from '@/lib/copy'
 
 export function StudioFounder() {
@@ -16,10 +17,7 @@ export function StudioFounder() {
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          {...fadeRiseInView(reduce, 0, 0.3)}
           style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}
         >
           <h2
@@ -49,10 +47,7 @@ export function StudioFounder() {
         </motion.div>
 
         <motion.p
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          {...fadeRiseInView(reduce, 0.08, 0.3)}
           style={{
             fontFamily: 'var(--font-body)',
             fontSize: '1rem',

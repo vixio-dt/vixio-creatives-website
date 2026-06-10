@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { fadeRiseMount } from '@/lib/motion'
 import { copy } from '@/lib/copy'
 
 export function StudioLead() {
@@ -18,9 +19,7 @@ export function StudioLead() {
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}>
         <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          {...fadeRiseMount(reduce)}
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
@@ -34,9 +33,7 @@ export function StudioLead() {
           {copy.studio.heading}
         </motion.h1>
         <motion.p
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          {...fadeRiseMount(reduce, 0.08)}
           style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2rem, 5vw, 3.5rem)',

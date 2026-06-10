@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { fadeRiseInView } from '@/lib/motion'
 import { copy } from '@/lib/copy'
 
 export function StudioFacts() {
@@ -18,10 +19,7 @@ export function StudioFacts() {
         {copy.studio.facts.map((fact, i) => (
           <motion.div
             key={i}
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            {...fadeRiseInView(reduce, i * 0.08, 0.4)}
             style={{
               borderTop: '1px solid var(--line)',
               padding: 'clamp(1.25rem, 2.5vw, 2rem) 0',

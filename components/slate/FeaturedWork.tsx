@@ -1,6 +1,7 @@
 'use client'
 
 import { useReducedMotion, motion } from 'framer-motion'
+import { fadeRiseMount } from '@/lib/motion'
 import { PlaceholderTreatment } from './PlaceholderTreatment'
 import { Button } from '@/components/ui/Button'
 import { copy } from '@/lib/copy'
@@ -13,17 +14,6 @@ interface FeaturedWorkProps {
 
 export function FeaturedWork({ entry }: FeaturedWorkProps) {
   const reducedMotion = useReducedMotion()
-
-  const motionProps = reducedMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 24 },
-        animate: { opacity: 1, y: 0 },
-        transition: {
-          duration: 0.6,
-          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-        },
-      }
 
   const heroId = entry.media.hero ?? 'HOME-HERO-01'
 
@@ -44,7 +34,7 @@ export function FeaturedWork({ entry }: FeaturedWorkProps) {
 
       {/* Text block: bottom-left, above nav offset */}
       <motion.div
-        {...motionProps}
+        {...fadeRiseMount(reducedMotion)}
         style={{
           position: 'relative',
           zIndex: 1,

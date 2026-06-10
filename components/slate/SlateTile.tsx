@@ -1,6 +1,7 @@
 'use client'
 
 import { useReducedMotion, motion } from 'framer-motion'
+import { fadeRiseInView } from '@/lib/motion'
 import { PlaceholderTreatment } from './PlaceholderTreatment'
 import { statusLine } from '@/lib/slate'
 import type { SlateEntry } from '@/lib/slate'
@@ -19,23 +20,11 @@ function getTileAspectRatio(tileId: string): string {
 export function SlateTile({ entry }: SlateTileProps) {
   const reducedMotion = useReducedMotion()
 
-  const tileMotionProps = reducedMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 24 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true },
-        transition: {
-          duration: 0.6,
-          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-        },
-      }
-
   const tileId = entry.media.tile
 
   return (
     <motion.article
-      {...tileMotionProps}
+      {...fadeRiseInView(reducedMotion)}
       style={{
         display: 'flex',
         flexDirection: 'column',

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
+import { fadeRiseInView } from '@/lib/motion'
 import { Button } from '@/components/ui/Button'
 import { copy } from '@/lib/copy'
 
@@ -17,10 +18,7 @@ export function StudioCTA() {
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          {...fadeRiseInView(reduce, 0, 0.4)}
         >
           <Button variant="primary" href="/contact">
             {copy.studio.cta}
