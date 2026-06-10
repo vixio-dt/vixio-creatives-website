@@ -47,6 +47,7 @@ npm run build     # Production build
 npm run start     # Run production server
 npm run lint      # ESLint check
 npm run typecheck # TypeScript check
+npm run verify    # Full gate: typecheck + lint + tests + copy scans
 ```
 
 ### Offline / CI builds
@@ -59,10 +60,16 @@ NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build
 
 ## Environment Variables
 
+Copy `.env.example` to `.env.local` and fill in the values:
+
+```bash
+cp .env.example .env.local
+```
+
 | Variable | Purpose |
 |----------|---------|
 | `SUPABASE_URL` or `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_ANON_KEY` or `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key |
-| `RESEND_API_KEY` | Resend API key for contact form emails |
+| `RESEND_API_KEY` | Resend API key for contact form emails (optional) |
 
 Set these in `.env.local` for local development or in your deployment environment.

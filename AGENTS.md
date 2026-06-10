@@ -7,7 +7,7 @@ alwaysApply: true
 
 ## Project Overview
 
-Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-first label site where the slate of work is the homepage. Next.js 16 App Router, TypeScript, Tailwind v4 + CSS custom properties, Framer Motion. Production uses `next build` (output in `dist/`) and `next start`. Restructured 10 June 2026; decisions live in `docs/adr/0001` through `0014`, the glossary in `CONTEXT.md`, the design system in `DESIGN.md`.
+Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-first label site where the slate of work is the homepage. Next.js 16 App Router, TypeScript, Tailwind v4 + CSS custom properties, Framer Motion. Production uses `next build` (output in `dist/`) and `next start`. Restructured 10 June 2026; decisions live in `docs/adr/0001` through `0016`, the glossary in `CONTEXT.md`, the design system in `DESIGN.md`.
 
 ## Frozen contracts (never change these)
 
@@ -21,12 +21,13 @@ Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-f
 - Banned tokens: underserved, deserve(s), overlooked, forgotten, rescue, revive; adapt/adaptation, "best expression", "the worlds we love", "partner with existing IP", world-first; any real IP or franchise name; innovate, disrupt, transform, cutting-edge, elevate, seamless, unleash, next-gen, revolutionize; fake enthusiasm; deficit framing ("coming soon"); internal codenames (Signal Reel, No.001, Meta-Drop, Track 1/2, Move 1/2/3); "visual studies", "experiences", "playable".
 - Em dashes and en dashes: ZERO, anywhere in `app/`, `components/`, `lib/`, including code comments.
 - The single contact CTA string is "Contact" (ADR-13). Tiles carry title + year + status + at most one functional verb, nothing else.
-- Mechanical scans, zero hits required before any commit touching copy:
+- Mechanical scans, zero hits required before any commit touching copy (banned tokens in `lib/copy.ts`/`lib/slate.ts`, and em/en dashes in `app/`, `components/`, `lib/`):
 
 ```bash
-grep -rinE "underserved|deserve|overlooked|forgotten|rescue|reviv|adapt|best expression|worlds we love|existing ip|world[ -]first|innovat|disrupt|transform|cutting[ -]edge|elevat|seamless|unleash|next[ -]gen|revolutioni|signal reel|no\.? ?001|meta[ -]drop|track [0-9]|move [0-9]|visual stud|experience|playable" lib/copy.ts lib/slate.ts
-LC_ALL=en_US.UTF-8 grep -rnP "[\x{2013}\x{2014}]" app components lib
+npm run scan
 ```
+
+When updating banned tokens, update the `scan:copy` pattern in `package.json` in the same commit.
 
 ## The slate growth path
 
@@ -44,10 +45,16 @@ Adding a work = adding one entry to `lib/slate.ts`. Status display (kind-qualifi
 Run before claiming work complete:
 
 ```bash
-npm run typecheck && npm run lint && npm run build
+npm run verify
 ```
 
-Offline builds: `NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build`. `npm test` (Vitest, `tests/`) is part of the gate; run it alongside typecheck and lint before claiming work complete.
+For a hermetic build (no network, offline/CI):
+
+```bash
+NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build
+```
+
+`npm run verify` runs typecheck, lint, the Vitest suite in `tests/`, and both copy scans in sequence.
 
 ## Key directories
 

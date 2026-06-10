@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "scan:copy": "grep -rinE \"underserved|deserve|overlooked|forgotten|rescue|reviv|adapt|best expression|worlds we love|existing ip|world[ -]first|innovat|disrupt|transform|cutting[ -]edge|elevat|seamless|unleash|next[ -]gen|revolutioni|signal reel|no\\.? ?001|meta[ -]drop|track [0-9]|move [0-9]|visual stud|experience|playable\" lib/copy.ts lib/slate.ts && exit 1 || true",
+    "scan:dashes": "grep -rn $'\\u2013\\|\\u2014' app components lib && exit 1 || true",
+    "scan": "npm run scan:copy && npm run scan:dashes",
+    "verify": "npm run typecheck && npm run lint && npm test && npm run scan"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0",
