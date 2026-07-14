@@ -7,113 +7,71 @@ alwaysApply: true
 
 ## Project Overview
 
-This is the marketing website for Vixio Creatives (`vixiocreatives.com`). It is a Next.js 16 App Router site with 7 pages, using Mantine, Tailwind CSS v4, and Framer Motion. Production uses `next build` and `next start` (not static export). The homepage email form is handled by `app/api/subscribe` (Resend); set `RESEND_API_KEY` in the deployment environment or `.env.local` for local testing.
+Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-first label site where the slate of work is the homepage. Next.js 16 App Router, TypeScript, Tailwind v4 + CSS custom properties, Framer Motion. Production uses `next build` (output in `dist/`) and `next start`. Restructured 10 June 2026; decisions live in `docs/adr/0001` through `0014`, the glossary in `CONTEXT.md`, the design system in `DESIGN.md`.
 
-## Mandatory Rules
+## Frozen contracts (never change these)
 
-1. **95% Confidence Rule**: Do NOT make changes until you have 95% confidence you understand what to build.
-2. **Verify Before Claiming Done**: Run `npm run typecheck` and `npm run lint` before claiming work is complete.
-3. **Keep It Simple**: This is a marketing site. Avoid adding unnecessary complexity, extra server surface, or heavy dependencies beyond the existing needs (e.g. the Resend subscribe route).
+1. **The contact API**: POST `/api/contact` accepts exactly `{type:'creator', name, portfolio, idea, contact}` or `{type:'buyer', contact}`. Never rename fields. Never touch `app/api/` or `lib/supabase.ts`.
+2. **Brand assets**: `public/vixio-logo.svg`, `public/vixio-wordmark.svg`.
+3. **Locked brand lines**: descriptor "A creative label for story-rich worlds." and hero promise "Worlds worth entering." Used with restraint; never paraphrased.
 
-## Tech Stack
+## Copy rules (zero tolerance in visible strings)
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 16 (App Router, static export) |
-| Language | TypeScript |
-| UI Library | Mantine |
-| Styling | Tailwind CSS v4 + CSS custom properties |
-| Animation | Framer Motion |
-| Icons | Lucide React |
-| Fonts | Space Grotesk (headlines/labels) + Manrope (body) |
+- Every visible string lives in `lib/copy.ts`; slate content in `lib/slate.ts`. Components NEVER define copy. Metadata reads from the copy module.
+- Banned tokens: underserved, deserve(s), overlooked, forgotten, rescue, revive; adapt/adaptation, "best expression", "the worlds we love", "partner with existing IP", world-first; any real IP or franchise name; innovate, disrupt, transform, cutting-edge, elevate, seamless, unleash, next-gen, revolutionize; fake enthusiasm; deficit framing ("coming soon"); internal codenames (Signal Reel, No.001, Meta-Drop, Track 1/2, Move 1/2/3); "visual studies", "experiences", "playable".
+- Em dashes and en dashes: ZERO, anywhere in `app/`, `components/`, `lib/`, including code comments.
+- The single contact CTA string is "Contact" (ADR-13). Tiles carry title + year + status + at most one functional verb, nothing else.
+- Mechanical scans, zero hits required before any commit touching copy:
 
-## Site Architecture
+```bash
+grep -rinE "underserved|deserve|overlooked|forgotten|rescue|reviv|adapt|best expression|worlds we love|existing ip|world[ -]first|innovat|disrupt|transform|cutting[ -]edge|elevat|seamless|unleash|next[ -]gen|revolutioni|signal reel|no\.? ?001|meta[ -]drop|track [0-9]|move [0-9]|visual stud|experience|playable" lib/copy.ts lib/slate.ts
+LC_ALL=en_US.UTF-8 grep -rnP "[\x{2013}\x{2014}]" app components lib
+```
 
-| Route | Page |
-|-------|------|
-| `/` | Homepage |
-| `/experiences` | Original Experiences |
-| `/services` | Studio Services |
-| `/lab` | The Lab (R&D) |
-| `/about` | About / Manifesto |
-| `/journal` | Journal |
-| `/contact` | Contact |
+## The slate growth path
 
-## Key Directories
+Adding a work = adding one entry to `lib/slate.ts`. Status display (kind-qualified released labels, year-composed coming labels, section headings, section order) resolves entirely inside `lib/slate.ts`; do not duplicate lookups in components. Statuses: `in-production`, `in-development`, `coming`, `released`. Kinds: `film`, `object`, `labs` (Labs deferred from the site per ADR-08; Notes deferred per ADR-07). Media slots key to `PLACEHOLDER-ASSETS.md` IDs; when a real asset lands, point the entry at the file and delete the interim treatment.
 
-- `app/` — Pages (App Router)
-- `components/layout/` — OrbitalNav, FullScreenMenu, Footer
-- `components/ui/` — Shared components (buttons, inputs, placeholders)
-- `components/home/` — Homepage sections
-- `components/experiences/` — Experiences page sections
-- `components/services/` — Services page sections
-- `components/lab/` — Lab page sections
-- `components/about/` — About page sections
-- `components/journal/` — Journal page sections
-- `components/contact/` — Contact page sections
-- `lib/theme/` — Mantine theme configuration
+## Design system invariants
 
-## Design System
+- White theme only: paper `#FAFAF8`, ink `#121417`, accent `#15718F` (interactive), raw brand cyan `#3AAED8` non-text inside media/logo only, gold logo-only. Full token table with ratios in ADR-01.
+- One radius system: 0 everywhere. Zero eyebrows: status headers are sentence case. No three-equal-cards, no split-headers.
+- Motion inventory is fixed by ADR-11 plus ADR-15 (in-view fade-rise, tile hover scale, hero mount fade, and the homepage LogoPrelude scroll-scrubbed opening; chrome static otherwise). Everything gates on `useReducedMotion`; the prelude renders nothing under reduced motion. NO `window.addEventListener('scroll')`, NO `h-screen` (use `min-h-[100dvh]`), no custom cursors. The brand gradient may fill logo geometry inside media treatments only, never UI or text (ADR-15).
+- WCAG 2.1 AA: visible 2px accent focus rings, 44px targets, labels above inputs, live-region form states.
 
-- CSS custom properties defined in `app/globals.css`
-- "Morning Light" aesthetic: warm off-whites, no pure #FFFFFF
-- No 1px borders — use tonal layering
-- Gradient placeholders instead of images
+## Mandatory verification
 
-## Scripts
+Run before claiming work complete:
 
-| Script | Purpose |
-|--------|---------|
-| `npm run dev` | Start dev server |
-| `npm run build` | Production Next.js build |
-| `npm run start` | Run production server (`next start`) |
-| `npm run lint` | ESLint check |
-| `npm run typecheck` | TypeScript check |
+```bash
+npm run typecheck && npm run lint && npm run build
+```
 
-## Cursor Cloud specific instructions
+Offline builds: `NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js npm run build`. No test framework exists; the gate plus the two scans above are the check.
 
-- **Local dev**: Run `npm run dev` (Next.js dev server on port 3000). For a production-like check locally, run `npm run build` then `npm run start` — do not run `dev` and `start` on the same port simultaneously.
-- **Lint warning**: `npm run lint` produces one expected warning (`@next/next/no-page-custom-font` in `app/layout.tsx`) about custom fonts not in `pages/_document.js`. This is harmless for App Router projects and can be ignored.
-- **API route**: The site includes a server route for email signup (`/api/subscribe`). It needs `RESEND_API_KEY` where the server runs; it is not a purely static HTML export.
-- **No test framework**: There are no automated test suites (no Jest, Vitest, etc.). Verification is done via `npm run typecheck` and `npm run lint`.
+## Key directories
 
-## Learned User Preferences
+- `lib/copy.ts`, `lib/slate.ts`: all strings and slate data (the only files the ban scan needs)
+- `components/slate/`: FeaturedWork, SlateSection, SlateTile, PlaceholderTreatment
+- `components/home/Newsletter.tsx`: the relationship channel (frozen buyer payload)
+- `components/layout/`: SiteNav, SiteFooter (chrome; never animates)
+- `components/ui/Button.tsx`: the one button
+- `docs/adr/`: decisions; `docs/agents/`: issue tracker + triage + domain doc conventions; `.scratch/`: local issue tracker
 
-- For planning open-ended or creative UI work, use the superpowers brainstorming skill instead of the deprecated `/brainstorm` Cursor command.
-- For the homepage logo moment, prefer scroll-scrubbed (Apple-style) reveals over autoplay video or timer-only sequences.
-- After the scroll-driven logo reveal settles, hold the logo centered in its original brand colors briefly before the following section (e.g. hero) slides or transitions in.
-- On the homepage, keep the OrbitalNav menu trigger and header wordmark hidden until the scroll logo-reveal sequence has finished, then show them.
+## Agent skills
 
-## Design Skills (Taste Skill)
+### Issue tracker
 
-The following Claude Code skills are installed in `.agents/skills/` and should be loaded for all design work:
+Issues live as local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
 
-| Skill | Use When |
-|-------|----------|
-| `design-taste-frontend` | Default frontend design — anti-slop, high-agency |
-| `high-end-visual-design` | Premium visual effects, liquid glass, micro-interactions |
-| `minimalist-ui` | Clean, reduced interfaces |
-| `industrial-brutalist-ui` | Raw, utilitarian aesthetics |
-| `redesign-existing-projects` | Auditing and upgrading current UI |
-| `image-to-code` | Converting reference images to code |
-| `stitch-design-taste` | Combining multiple design systems |
-| `full-output-enforcement` | Ensuring complete implementation |
-| `gpt-taste` | GPT-specific taste rules |
+### Triage labels
 
-**Key parameters:**
-- `DESIGN_VARIANCE: 8` (1=symmetry, 10=chaos)
-- `MOTION_INTENSITY: 6` (1=static, 10=cinematic)
-- `VISUAL_DENSITY: 4` (1=airy, 10=packed)
+Default five-role vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
 
-**Critical rules:**
-- NO emojis in code or markup
-- NO "AI Purple/Blue" — use neutral bases + 1 accent
-- NO `h-screen` — use `min-h-[100dvh]`
-- Use `grid` over flex-math for layouts
-- Animate only `transform` and `opacity`
+### Domain docs
 
-## Learned Workspace Facts
+Single-context: `CONTEXT.md` at the repo root plus `docs/adr/`. See `docs/agents/domain.md`.
 
-- When present, homepage design review notes live at `.kombai/resources/design-review-homepage.md`.
-- The logo animation video (`vixio logo animation.mp4`) was created with Google Whisk; no source project exists for re-export or transparency-enabled rendering.
-- Frame-sequence Lottie/JSON from that asset is very large and looks poor when scaled to hero logo width; matching the cinematic look is better pursued with `/vixio-logo.svg` plus scroll-driven CSS/Framer effects than with a small raster canvas.
+## History
+
+The dark cinematic system (June 2026, with the 400vh ScrollLogoReveal) was rejected and fully removed; see DESIGN.md's history note and ADR-02. Do not resurrect its patterns from git history without a new ADR.

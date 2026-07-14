@@ -1,240 +1,82 @@
 # Design System: Vixio Creatives Website
-**Register:** Brand
-**Personality:** Craft. Play. Object.
+
+**Register:** Brand, Layer 3 (public-safe) per Company Compass v2.0
+**System:** White Catalog. Restructured 10 June 2026. Decisions in `docs/adr/0001` through `0014`; glossary in `CONTEXT.md`.
+
+**History note.** A June 2026 redesign shipped a dark cinematic system (near-black ink surfaces, cyan glow, a 400vh scroll-driven logo intro). It was rejected days later for inverting the reference doctrine: chrome played the hero while the work waited four viewports below, and the homepage described the label instead of showing the slate. The white catalog replaces it entirely; the dark system's ink (#0C0D10 family) survives only as the new text color's ancestry. Details: git history and ADR-02.
 
 ---
 
-## Configuration
+## 0. Design Read
 
-| Dial | Level | Rationale |
-|------|-------|-----------|
-| **Creativity** | `9` | A studio that makes playable experiences should have a playable website. Not generic, not chaotic. |
-| **Density** | `4` | Gallery-airy. Let the work breathe. Content earns its space through specificity. |
-| **Variance** | `8` | No two sections should feel identical. Asymmetry signals intentionality. |
-| **Motion Intent** | `8` | The site is playable. Physics-based responses, scroll-driven animation, spatial relationships. Motion is a design material, not decoration. |
+> A catalog-first label site for industry contacts first and story-world fans second, with a white gallery-utilitarian language: CSS custom properties + Tailwind v4, Space Grotesk display, motion inside media only.
 
----
+| Dial | Value | Rationale |
+|---|---|---|
+| DESIGN_VARIANCE | 6 | The catalog grid is deliberately calm; variance lives inside tile media |
+| MOTION_INTENSITY | 4 | In-view reveals and hover scale only; chrome never animates |
+| VISUAL_DENSITY | 2 | Gallery air; the slate needs room, not company |
 
-## 1. Visual Theme & Atmosphere
+## 1. Doctrine
 
-Warm, tactile, cinematic. The atmosphere is a lit workshop, not a dark screening room and not a sterile agency grid. Cream surfaces with moments of dark contrast. The site feels physical: elements respond to interaction with weight and friction, like objects on a table. Tension lives in the contrast between warm analog textures and precise digital craft.
+1. The catalog is the argument. The label never describes itself on the homepage; self-description lives in exactly three places: `/studio`, the footer descriptor line, and metadata.
+2. Every work is title + year + status. Nothing else on tiles; at most one functional verb.
+3. Status vocabulary is industry-plain and supplies the only catalog headers (In Production, In Development; reserved: Coming {year}, Watch, Shop).
+4. Microcopy is functional verbs (Notify Me, Subscribe, Send, Contact). Never decorative, never enthusiastic.
+5. The newsletter is a first-class object with expectation-setting copy and a real capture path.
+6. Objects interleave as peers of the films under the same tile doctrine.
 
-**Reference DNA:**
-- **Tearable Cloth** — physics-driven interaction where emergent behavior IS the aesthetic. Zero chrome.
-- **makemepulse "Nomadic Tribe"** — illustrated world-building where every interaction serves a narrative, unusual navigation, coherence of style + tech + story
-- **Moment Factory** — dark-mode confidence, cinematic full-bleed imagery, work speaks for itself, restrained motion
-- **Playable patterns** — mouse/scroll as gameplay input, progression structures, audio-visual feedback that rewards exploration
+## 2. Tokens (app/globals.css, ratios per ADR-01)
 
-**Anti-references (banned aesthetics):**
-- Generic agency grid (logos, "we're passionate about...")
-- Escape room dark/neon/countdown
-- Corporate consulting blue-gradient/stock-photo
+| Token | Value | Role | Contrast on paper |
+|---|---|---|---|
+| `--surface` | #FAFAF8 | Paper, page background | n/a |
+| `--surface-raised` | #F4F4F2 | Bands | n/a |
+| `--text` | #121417 | Ink: text, buttons, links | 17.66:1 |
+| `--text-secondary` | rgba(18,20,23,0.72) | Body secondary | 7.25:1 |
+| `--text-muted` | #5C6167 | Status lines, captions | 5.98:1 |
+| `--accent` | #15718F | Focus rings, form focus, inline links | 5.30:1 |
+| `--accent-media` | #3AAED8 | Brand cyan as light, NON-TEXT, media + logo only | 2.44:1 (confined) |
+| `--error` | #A8231B | Form errors only | 6.88:1 |
+| `--line` | rgba(18,20,23,0.14) | Hairlines | decorative |
+| `--radius` | 0 | One system, all-sharp | n/a |
 
----
+Locks: one accent system (brand cyan in two values); gold is logo-artwork only and has no token; no pure #000 or #FFF; theme locked light-only (documented single-theme override).
 
-## 2. Color Palette & Roles
+## 3. Typography (ADR-12)
 
-Warm cream base with cyan energy and gold accent. The palette is already defined in CSS custom properties and must not change.
+| Role | Spec |
+|---|---|
+| Display | Space Grotesk 700, tracking -0.02em; featured title clamp(2.5rem, 7vw, 5.5rem); tile titles clamp(1.5rem, 3vw, 2.25rem) |
+| Status headers | Space Grotesk 700, sentence case, clamp(1.125rem, 2vw, 1.375rem). Never uppercase-tracked: zero eyebrows site-wide |
+| Body | Manrope 400/500, 1rem, line-height 1.6, max 65ch |
+| Status lines | Manrope 500, 0.9375rem, `--text-muted` |
 
-| Token | Value | Role |
-|-------|-------|------|
-| `--surface` | #FAFAF8 | Primary background. Warm cream, never clinical white |
-| `--surface-container-low` | #F5F3F0 | Card fills, secondary surfaces |
-| `--surface-container-high` | #EDEAE6 | Elevated containers, hover states |
-| `--surface-container-highest` | #E5E2DD | Active states, strong contrast |
-| `--primary` | #3AAED8 | Primary accent. Cyan energy. CTAs, links, active states |
-| `--primary-soft` | #8FE1FF | Glow effects, light accents |
-| `--primary-container` | #E8F7FC | Hover backgrounds, selected states |
-| `--tertiary` | #D4A843 | Gold accent. Sparingly. Badges, highlights, premium moments |
-| `--tertiary-container` | #FDF5E6 | Gold hover backgrounds |
-| `--on-surface` | #1A1A1A | Primary text. Near-black, never pure black |
-| `--on-surface-variant` | #555555 | Secondary text, body copy |
-| `--ink` | #0E0F12 | Dark sections, capability tiles, cinematic moments |
-| `--ink-soft` | #1E2128 | Dark section secondary |
+Fonts load via `next/font` with CSS variables. Casing is sentence case everywhere.
 
-**Brand gradient:** `linear-gradient(45deg, #3AAED8, #D4A843)` — use for the primary CTA button and select accent moments. Never for large surfaces.
+## 4. Motion (ADR-11)
 
-### Banned Colors
-- Pure black (#000000) — always use --ink or --on-surface
-- Neon green, neon purple, or any escape-room palette
-- Blue corporate gradients
-- Oversaturated accents above 80%
+Complete inventory: whileInView fade-rise (24px, 0.6s, ease [0.16, 1, 0.3, 1], once) on tiles and section content; hover scale 1.02 on tile media inside overflow-hidden bounds; mount fade on the hero text block; and the homepage LogoPrelude (300vh scroll-scrubbed logo opening on paper, added by founder decision in ADR-15: emergence, cyan light pass, brand-color hold, pull-back, dissolve into the catalog; the nav holds hidden until it completes; renders nothing under reduced motion). Chrome static. Everything gates on `useReducedMotion`; `scroll-behavior: smooth` sits behind `prefers-reduced-motion: no-preference`. Banned: raw window scroll listeners, marquees, parallax beyond the prelude, custom cursors. Anything beyond this inventory needs a new ADR.
 
----
+## 5. Architecture
 
-## 3. Typography Rules
+- All visible strings: `lib/copy.ts` (typed `SiteCopy`). All slate content: `lib/slate.ts` (typed `SlateEntry`). Components never define strings (ADR-14).
+- Adding a work is a data-only change (ADR-05). Status display resolution (kind-qualified released labels, year-composed coming labels, section order) lives entirely in `lib/slate.ts`.
+- Placeholder media render as designed treatments keyed to `PLACEHOLDER-ASSETS.md` IDs (ADR-10): paper fields, ink logo geometry, hairline glyphs, brand cyan as light. Never gray boxes, stock, or fake renders.
+- Routes: `/` (the slate), `/studio` (the one self-description), `/contact`, `/api/contact` (frozen). Nav: wordmark + Studio + Contact (ADR-07). Labs and Notes deferred (ADR-08).
 
-| Role | Family | Weight | Size | Tracking | Leading |
-|------|--------|--------|------|----------|---------|
-| Display XL | Space Grotesk | 700 | clamp(3.5rem, 8vw, 7.5rem) | -0.03em | 0.94 |
-| Display LG | Space Grotesk | 700 | 3.5rem (2.5rem mobile) | -0.02em | 1.1 |
-| Display MD | Space Grotesk | 700 | 2.75rem (2rem mobile) | -0.015em | 1.15 |
-| Headline LG | Space Grotesk | 600 | 2rem (1.625rem mobile) | -0.01em | 1.2 |
-| Headline MD | Space Grotesk | 600 | 1.5rem | -0.005em | 1.25 |
-| Body LG | Manrope | 400 | 1rem | 0 | 1.6 |
-| Body MD | Manrope | 400 | 0.9375rem | 0 | 1.6 |
-| Label MD | Space Grotesk | 500 | 0.8125rem | 0.1em | 1.4 (uppercase) |
-| Mono tag | System mono | 500 | 0.6875rem | 0.18em | uppercase |
+## 6. Copy rules (Layer 3)
 
-### Banned Fonts
-- Inter — not distinctive enough for brand register
-- Generic serifs (Times, Georgia, Garamond)
-- Any font not Space Grotesk or Manrope in production code
+Banned in any visible string: underserved, deserve(s), overlooked, forgotten, rescue, revive; adapt/adaptation, "best expression", "the worlds we love", "partner with existing IP", world-first; any real IP or franchise name; em and en dashes (zero, anywhere); innovate, disrupt, transform, cutting-edge, elevate, seamless, unleash, next-gen, revolutionize; fake enthusiasm; deficit framing; internal codenames (Signal Reel, No.001, Meta-Drop, Track/Move vocabulary); "visual studies", "experiences", "playable". Voice: restrained label copy, short declaratives, momentum framing. The single contact CTA string is "Contact" (ADR-13).
 
----
+## 7. Accessibility
 
-## 4. Component Stylings
+WCAG 2.1 AA on white (token table above). Skip link; semantic landmarks; visible 2px `--accent` focus rings (offset 2px); 44px targets; labels above inputs with `aria-describedby` errors and live-region states; reduced-motion paths on every animation; `min-h-[100dvh]` never `h-screen`; alt text per the copy module; decorative treatment shapes `aria-hidden`.
 
-**Buttons:**
-- Primary (GradientButton): Brand gradient fill, white text, rounded-full. Hover: translateY(-1px) scale(1.02), cyan glow shadow. No outer glow at rest.
-- Secondary (GhostButton): Transparent with subtle border. Hover: primary-container fill, inset border.
-- Touch targets: minimum 44px. Full-width on mobile.
+## 8. Pre-Flight (run before any merge)
 
-**Cards/Containers:**
-- Rounded corners (--radius-lg to --radius-xl). Surface-container-low fill. 
-- Hover: translateY(-3px) scale(1.01), ambient shadow deepens.
-- Dark variant (cap-tile): --ink background, flips to --primary on hover.
-
-**Section Labels:**
-- Mono-tag style: uppercase, tracked, small, --on-surface-variant.
-- Used above section headlines to categorize content ("THE PROBLEM", "WHO THIS IS FOR").
-
-**Navigation (OrbitalNav):**
-- Floating pill, not sticky bar. Minimal chrome.
-- Full-screen menu overlay for all pages.
-
-**Forms:**
-- Label above input. No floating labels.
-- Focus: 2px primary outline, 2px offset.
-- Error: inline, contextual.
-
----
-
-## 5. Hero Section (ScrollLogoReveal)
-
-**PRESERVE EXACTLY.** The ScrollLogoReveal is a 424-line cinematic scroll-driven animation with 6 phases:
-1. Emergence (0.00-0.15): Logo fades in, deblurs from dark
-2. Peak glow (0.15-0.40): Brightness peaks, cyan glow + anamorphic streak
-3. Effects fade (0.40-0.50): All effects dissolve
-4. Bg transition (0.48-0.58): Dark (#0A0A0A) → cream (#FAFAF8)
-5. Logo pull-back (0.70-0.85): Logo scales down + fades (camera pulls back)
-6. Hero entrance (0.85-1.00): Headline + body + CTAs stagger in
-
-**Required updates to hero content (not animation):**
-- Headline: "Crafted to be held, opened, solved, and shared."
-- Body: "Premium physical products and playable experiences. Physical-first, digitally enhanced."
-- CTAs: "See What We Make" (primary) + "Collaborate With Us" (secondary)
-- Tagline above/below logo: "Craft. Play. Object."
-
-The animation code, timing, and physics must not change. Only the text content and CTA labels.
-
----
-
-## 6. Layout Principles
-
-- **Grid-first:** CSS Grid for structural layouts. No flexbox percentage math.
-- **Containment:** max-width 1200px centered, generous padding (1rem mobile, 2rem tablet, 4rem desktop).
-- **Full-height sections:** min-height: 100dvh where appropriate. Never height: 100vh.
-- **Asymmetric layouts:** Avoid centered-everything. Use split layouts, offset grids, asymmetric whitespace.
-- **No 3-equal-cards:** Use 2-column zig-zag, bento grids, or horizontal arrangements.
-- **Section rhythm:** Alternate between cream sections and dark (--ink) sections for contrast.
-- **Dual-path content:** Buyers and creators see different content blocks but share layout patterns and design quality.
-
----
-
-## 7. Responsive Rules
-
-- **Mobile-first collapse (<768px):** Single column. width: 100%, padding: 1rem.
-- **No horizontal scroll.** This is a critical failure.
-- **Typography scales** via clamp() — body never below 14px.
-- **Touch targets:** 44px minimum. Buttons full-width on mobile.
-- **Testing viewports:** 375px, 390px, 768px, 1024px, 1440px.
-- **ScrollLogoReveal:** Already responsive (uses vw units for glow, CSS var for logo width).
-
----
-
-## 8. Motion & Interaction
-
-The site is playable. Motion is a design material.
-
-**Physics-first:**
-- Spring-based transitions via Framer Motion. No linear easing.
-- Scroll-driven animations (ScrollLogoReveal pattern) for key moments.
-- Elements respond to interaction with weight and momentum.
-
-**Scroll behaviors:**
-- ScrollReveal component for below-fold entrance animations (CSS-based, no JS = visible).
-- Staggered orchestration: lists mount with cascaded delays.
-- Parallax on select hero/section images.
-
-**Interactive moments (aspirational, per design principles):**
-- Physics-based hover responses on capability tiles
-- Cursor-reactive elements that demonstrate cooperative mechanics
-- Micro-interactions that reward exploration
-
-**Performance rules:**
-- Animate ONLY transform and opacity. Never layout properties.
-- Grain/texture on fixed pseudo-elements, pointer-events: none.
-- 60fps minimum. Heavy animations isolated in leaf components.
-- prefers-reduced-motion: all animations disabled, content visible.
-
----
-
-## 9. Page Structure (from copy deck)
-
-### Homepage
-1. ScrollLogoReveal (cinematic intro → hero)
-2. The Problem ("In a world full of screens, the physical is the statement.")
-3. Who This Is For (Buyers | Creators — two paths)
-4. What We Make (physical products, playable experiences, creator collaborations)
-5. How It's Made (concept → lore → engineer and design → product → shared experience)
-6. The Stance (physical-first, digitally enhanced — the object leads)
-7. Follow the Build (process journal, behind the craft)
-8. Final CTA ("Hold it. Open it. Solve it. Share it.")
-
-### Products
-- Product grid / feature cards for each product line
-- Individual product pages as products launch
-
-### About
-- Studio → Founder → How We Work → GBA Manufacturing → CTA
-
-### Collaborate
-- For creators and IP holders: what collaboration looks like, what Vixio brings, how to start a conversation
-- Contact form
-
-### Contact
-- "Two paths. Pick yours." → Buy something | Make something together
-
----
-
-## 10. Anti-Patterns (Banned)
-
-- No emojis in UI
-- No pure black (#000000)
-- No escape-room aesthetics (dark + neon + countdown)
-- No stock photography
-- No "Scroll to explore" or scroll arrows (let content pull)
-- No buzzwords: "innovate," "disrupt," "transform," "cutting-edge"
-- No deficit framing: "no portfolio yet," "coming soon" without momentum
-- No em dashes in copy (use commas, colons, semicolons, periods)
-- No fake enthusiasm: "Excited to share," "We're thrilled"
-- No Inter font
-- No circular loading spinners
-- No overlapping text on images
-- No 3-equal-card layouts
-- No h-screen (use min-h-[100dvh])
-
----
-
-## 11. Tech Stack
-
-- **Framework:** Next.js 16 (App Router)
-- **Styling:** Tailwind CSS v4 + CSS custom properties (globals.css)
-- **Components:** Mantine v8 (for forms, overlays)
-- **Animation:** Framer Motion v12
-- **Icons:** Lucide React
-- **Fonts:** Google Fonts (Space Grotesk + Manrope)
-- **Testing:** Playwright
-
-All design tokens live in globals.css as CSS custom properties. Tailwind is used for utility classes alongside the custom property system. Mantine provides form inputs and overlay components with light customization.
+1. `npm run typecheck && npm run lint && npm run build` (offline: `NEXT_FONT_GOOGLE_MOCKED_RESPONSES=$(pwd)/font-mocks.js`)
+2. Ban scan: the Section 6 grep over `lib/copy.ts` and `lib/slate.ts` returns zero hits
+3. Dash scan: `LC_ALL=en_US.UTF-8 grep -rnP "[\x{2013}\x{2014}]" app components lib` returns zero hits
+4. One accent system, radius 0 everywhere, zero eyebrows, no layout-family repeats, tile purity (title + year + status + at most one verb)
+5. Reduced-motion verified per animation; first viewport shows featured title/year/status at 1440x900 and 390x844 with zero scroll

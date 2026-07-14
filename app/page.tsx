@@ -1,21 +1,24 @@
-import { ScrollLogoReveal } from '@/components/home/ScrollLogoReveal'
-import { ProblemSection } from '@/components/home/ProblemSection'
-import { WhoThisIsFor } from '@/components/home/WhoThisIsFor'
-import { ServicesManifest } from '@/components/home/ServicesManifest'
-import { ExperienceSection } from '@/components/home/ExperienceSection'
-import { HowItWorks } from '@/components/home/HowItWorks'
-import { ContactSection } from '@/components/home/ContactSection'
+import { FeaturedWork } from '@/components/slate/FeaturedWork'
+import { SlateSection } from '@/components/slate/SlateSection'
+import { Newsletter } from '@/components/home/Newsletter'
+import { LogoTransition } from '@/components/home/LogoTransition'
+import { featuredWork, slateByStatus } from '@/lib/slate'
 
 export default function Home() {
+  const featured = featuredWork()
+  const sections = slateByStatus()
+
   return (
     <>
-      <ScrollLogoReveal />
-      <ProblemSection />
-      <WhoThisIsFor />
-      <ServicesManifest />
-      <ExperienceSection />
-      <HowItWorks />
-      <ContactSection />
+      {featured && <FeaturedWork entry={featured} />}
+
+      <LogoTransition />
+
+      {sections.map(([status, entries]) => (
+        <SlateSection key={status} status={status} entries={entries} />
+      ))}
+
+      <Newsletter />
     </>
   )
 }
