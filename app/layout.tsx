@@ -6,14 +6,22 @@ import { CustomCursor } from '@/components/ui/CustomCursor'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Vixio Creatives | Game-Designed Experiences for Physical Spaces',
-  description: 'Venue gamification studio in Hong Kong. We design cooperative game experiences for malls, attractions, and cultural venues. Stories Across Worlds.',
+  title: 'Vixio Creatives — Storyworld Activation & Co-Production Label',
+  description: 'A Hong Kong creative label helping selected story-rich worlds reach new audiences through Signals, Episodes, Editions and Encounters.',
+  alternates: {
+    canonical: 'https://vixiocreatives.com/',
+  },
   openGraph: {
-    title: 'Vixio Creatives | Game-Designed Experiences for Physical Spaces',
-    description: 'Venue gamification studio in Hong Kong. Cooperative game experiences that turn visitors into players and spaces into stories.',
-    url: 'https://vixiocreatives.com',
+    title: 'Vixio Creatives — Storyworld Activation & Co-Production Label',
+    description: 'A Hong Kong creative label helping selected story-rich worlds reach new audiences through Signals, Episodes, Editions and Encounters.',
+    url: 'https://vixiocreatives.com/',
     siteName: 'Vixio Creatives',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Vixio Creatives — Storyworld Activation & Co-Production Label',
+    description: 'A Hong Kong creative label helping selected story-rich worlds reach new audiences through Signals, Episodes, Editions and Encounters.',
   },
 }
 
