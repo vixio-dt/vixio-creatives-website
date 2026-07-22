@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { copy } from '@/lib/copy'
 import { StudioLead } from '@/components/studio/StudioLead'
-import { StudioFacts } from '@/components/studio/StudioFacts'
+import { StudioSelection } from '@/components/studio/StudioSelection'
+import { StudioGateways } from '@/components/studio/StudioGateways'
+import { StudioMethod } from '@/components/studio/StudioMethod'
 import { StudioAIStance } from '@/components/studio/StudioAIStance'
 import { StudioFounder } from '@/components/studio/StudioFounder'
 import { StudioCTA } from '@/components/studio/StudioCTA'
@@ -15,7 +17,9 @@ export default function StudioPage() {
   return (
     <>
       <StudioLead />
-      <StudioFacts />
+      <StudioSelection />
+      <StudioGateways />
+      <StudioMethod />
       <StudioAIStance />
       <StudioFounder />
       <StudioCTA />

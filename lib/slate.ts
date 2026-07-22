@@ -24,22 +24,17 @@ export interface SlateEntry {
 }
 
 export const slate: SlateEntry[] = [
+  // ADR-17: one provisional work until a collaboration is agreed. "Untitled collaboration"
+  // becomes permitted at agreement; the real title appears once written public permission exists.
   {
-    slug: 'untitled-vixio-film',
-    title: 'Untitled Vixio Film',
+    slug: 'untitled-work',
+    title: 'Untitled work',
     year: 2026,
-    status: 'in-production',
+    status: 'in-development',
     kind: 'film',
     featured: true,
     media: { hero: 'HOME-HERO-01', tile: 'HOME-SLATE-TILE-01' },
-    action: { label: 'Notify Me', href: '#newsletter' },
-  },
-  {
-    slug: 'untitled-edition',
-    title: 'Untitled Edition',
-    status: 'in-development',
-    kind: 'object',
-    media: { tile: 'HOME-SLATE-TILE-02' },
+    action: { label: 'Notify me', href: '#newsletter' },
   },
 ]
 
