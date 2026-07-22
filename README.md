@@ -1,6 +1,6 @@
 # Vixio Creatives Website
 
-A creative label for story-rich worlds.
+Vixio develops new expressions of selected story worlds with creators and rights holders.
 
 Marketing website for [vixiocreatives.com](https://vixiocreatives.com): a white, catalog-first label site where the slate is the homepage. Next.js 16 App Router, TypeScript, server-side rendering.
 

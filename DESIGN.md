@@ -1,7 +1,7 @@
 # Design System: Vixio Creatives Website
 
 **Register:** Brand, Layer 3 (public-safe) per Company Compass v2.0
-**System:** White Catalog. Restructured 10 June 2026. Decisions in `docs/adr/0001` through `0014`; glossary in `CONTEXT.md`.
+**System:** White Catalog. Restructured 10 June 2026; positioning updated to White Catalog 2.0 on 22 July 2026 (ADR-17). Decisions in `docs/adr/0001` through `0017`; glossary in `CONTEXT.md`.
 
 **History note.** A June 2026 redesign shipped a dark cinematic system (near-black ink surfaces, cyan glow, a 400vh scroll-driven logo intro). It was rejected days later for inverting the reference doctrine: chrome played the hero while the work waited four viewports below, and the homepage described the label instead of showing the slate. The white catalog replaces it entirely; the dark system's ink (#0C0D10 family) survives only as the new text color's ancestry. Details: git history and ADR-02.
 
@@ -63,11 +63,11 @@ Complete inventory: whileInView fade-rise (24px, 0.6s, ease [0.16, 1, 0.3, 1], o
 - All visible strings: `lib/copy.ts` (typed `SiteCopy`). All slate content: `lib/slate.ts` (typed `SlateEntry`). Components never define strings (ADR-14).
 - Adding a work is a data-only change (ADR-05). Status display resolution (kind-qualified released labels, year-composed coming labels, section order) lives entirely in `lib/slate.ts`.
 - Placeholder media render as designed treatments keyed to `PLACEHOLDER-ASSETS.md` IDs (ADR-10): paper fields, ink logo geometry, hairline glyphs, brand cyan as light. Never gray boxes, stock, or fake renders.
-- Routes: `/` (the slate), `/studio` (the one self-description), `/contact`, `/api/contact` (frozen). Nav: wordmark + Studio + Contact (ADR-07). Labs and Notes deferred (ADR-08).
+- Routes: `/` (the slate), `/studio` (the one self-description, carrying the gateway grammar per ADR-17), `/contact`, `/api/contact` (frozen). Nav: wordmark + Studio + Contact (ADR-07). Labs and Notes deferred (ADR-08).
 
 ## 6. Copy rules (Layer 3)
 
-Banned in any visible string: underserved, deserve(s), overlooked, forgotten, rescue, revive; adapt/adaptation, "best expression", "the worlds we love", "partner with existing IP", world-first; any real IP or franchise name; em and en dashes (zero, anywhere); innovate, disrupt, transform, cutting-edge, elevate, seamless, unleash, next-gen, revolutionize; fake enthusiasm; deficit framing; internal codenames (Signal Reel, No.001, Meta-Drop, Track/Move vocabulary); "visual studies", "experiences", "playable". Voice: restrained label copy, short declaratives, momentum framing. The single contact CTA string is "Contact" (ADR-13).
+Banned in any visible string: underserved, deserve(s), overlooked, forgotten, rescue, revive; adapt/adaptation, "best expression", "the worlds we love", "partner with existing IP", world-first; any real IP or franchise name; em and en dashes (zero, anywhere); innovate, disrupt, transform, cutting-edge, elevate, seamless, unleash, next-gen, revolutionize; fake enthusiasm; deficit framing; internal codenames (Signal Reel, No.001, Meta-Drop, Track/Move vocabulary); "visual studies", "experiences", "playable". Voice: restrained label copy, short declaratives, momentum framing. The single contact CTA string is "Contact" (ADR-13). The gateway grammar terms (Signal, Episode, Edition, Encounter) and their function labels (Discovery, Continuation, Ownership, Presence) are permitted only as editorial classifications on `/studio` and future work pages, never as CTAs or button labels (ADR-17).
 
 ## 7. Accessibility
 
