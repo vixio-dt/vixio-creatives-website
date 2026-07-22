@@ -1,3 +1,14 @@
+export interface Gateway {
+  name: string
+  functionLabel: string
+  body: string
+}
+
+export interface MethodStep {
+  name: string
+  body: string
+}
+
 export interface SiteCopy {
   meta: {
     siteName: string
@@ -59,7 +70,15 @@ export interface SiteCopy {
   studio: {
     heading: string
     lead: string
-    facts: readonly [string, string, string, string]
+    leadBody: string
+    selection: {
+      heading: string
+      body: string
+    }
+    method: {
+      heading: string
+      steps: readonly [MethodStep, MethodStep, MethodStep, MethodStep, MethodStep]
+    }
     aiStanceHeading: string
     aiStance: string
     founder: {
@@ -68,6 +87,11 @@ export interface SiteCopy {
       bio: string
     }
     cta: string
+  }
+  gateways: {
+    heading: string
+    items: readonly [Gateway, Gateway, Gateway, Gateway]
+    closing: string
   }
   contact: {
     heading: string
@@ -101,12 +125,12 @@ export const copy: SiteCopy = {
     siteName: 'Vixio Creatives',
     titleTemplate: '%s · Vixio Creatives',
     home: {
-      title: 'Vixio Creatives — Storyworld Activation & Co-Production Label',
-      description: 'A Hong Kong creative label helping selected story-rich worlds reach new audiences through Signals, Episodes, Editions and Encounters.',
+      title: 'Vixio Creatives',
+      description: 'Vixio is a Hong Kong creative label working with selected creators and rights holders to develop new expressions of distinctive story worlds.',
     },
     studio: {
       title: 'Studio',
-      description: 'Vixio Creatives Limited, Hong Kong. A creative label for story-rich worlds. Founded by Denis Tam.',
+      description: 'Vixio Creatives Limited, Hong Kong. Vixio develops new expressions of selected story worlds with creators and rights holders. Founded by Denis Tam.',
     },
     contact: {
       title: 'Contact',
@@ -124,7 +148,7 @@ export const copy: SiteCopy = {
   },
   skipLink: 'Skip to main content',
   hero: {
-    promise: 'Worlds worth entering.',
+    promise: 'Stories across worlds',
   },
   statusLabels: {
     'in-production': 'In Production',
@@ -151,26 +175,61 @@ export const copy: SiteCopy = {
     contact: 'Contact',
     newsletter: 'Newsletter',
     email: 'hello@vixiocreatives.com',
-    descriptor: 'A creative label for story-rich worlds.',
+    descriptor: 'Vixio develops new expressions of selected story worlds with creators and rights holders.',
     legal: '© 2026 Vixio Creatives Limited, Hong Kong',
   },
   studio: {
     heading: 'Studio',
-    lead: 'A creative label for story-rich worlds.',
-    facts: [
-      'Vixio Creatives Limited, Hong Kong.',
-      'Vixio produces short films and films, AI-assisted under human direction.',
-      'Alongside the films: physical objects in gallery-grade small runs.',
-      'The first release is in production for 2026.',
-    ],
+    lead: 'Stories across worlds',
+    leadBody: 'Vixio is a Hong Kong creative label working with selected creators and rights holders. We develop new expressions of distinctive story worlds and test where they may go next.',
+    selection: {
+      heading: 'The world determines the form.',
+      body: 'A game may lead to a film. An illustrated character may lead to its first story. A comic may lead to an object, publication or gathering. Vixio begins with what is already present in the world, then identifies what is missing.',
+    },
+    method: {
+      heading: 'Method',
+      steps: [
+        { name: 'Select', body: 'Find worlds with a distinctive voice and room to grow.' },
+        { name: 'Interpret', body: 'Identify what should come next: an idea, character, object or unanswered part of the world.' },
+        { name: 'Make', body: 'Build the work with specialist collaborators chosen for it.' },
+        { name: 'Release', body: 'Bring the work to the people most likely to care.' },
+        { name: 'Learn', body: 'Measure the response and decide, with the creator, what follows.' },
+      ],
+    },
     aiStanceHeading: 'On AI',
     aiStance: 'AI is a tool in our pipeline, never the director. Every frame answers to a human eye.',
     founder: {
       name: 'Denis Tam',
-      role: 'Founder & Executive Producer',
-      bio: 'Denis leads every production at Vixio. Based in Hong Kong, working with collaborators across animation, film, and physical craft.',
+      role: 'Founder & Creative Producer',
+      bio: 'Vixio was founded in Hong Kong by Denis Tam. He leads selection, creative direction and partnerships, assembling specialist collaborators according to each work.',
     },
     cta: 'Contact',
+  },
+  gateways: {
+    heading: 'Creative grammar',
+    items: [
+      {
+        name: 'Signal',
+        functionLabel: 'Discovery',
+        body: 'A film, trailer, motion work or transmission created to carry a world towards a new audience.',
+      },
+      {
+        name: 'Episode',
+        functionLabel: 'Continuation',
+        body: 'A new narrative work that develops a character, relationship or part of the world.',
+      },
+      {
+        name: 'Edition',
+        functionLabel: 'Ownership',
+        body: 'A publication, artifact or physical release made to belong to the world rather than sit outside it.',
+      },
+      {
+        name: 'Encounter',
+        functionLabel: 'Presence',
+        body: 'A screening, installation, exhibition or gathering that places the world and its audience in the same space.',
+      },
+    ],
+    closing: 'A project may take one form or several. Not every world requires all four.',
   },
   contact: {
     heading: 'Contact',

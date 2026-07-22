@@ -7,13 +7,13 @@ alwaysApply: true
 
 ## Project Overview
 
-Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-first label site where the slate of work is the homepage. Next.js 16 App Router, TypeScript, Tailwind v4 + CSS custom properties, Framer Motion. Production uses `next build` (output in `dist/`) and `next start`. Restructured 10 June 2026; decisions live in `docs/adr/0001` through `0014`, the glossary in `CONTEXT.md`, the design system in `DESIGN.md`.
+Marketing website for Vixio Creatives (`vixiocreatives.com`): a white, catalog-first label site where the slate of work is the homepage. Next.js 16 App Router, TypeScript, Tailwind v4 + CSS custom properties, Framer Motion. Production uses `next build` (output in `dist/`) and `next start`. Restructured 10 June 2026; positioning updated to White Catalog 2.0 on 22 July 2026 (ADR-17). Decisions live in `docs/adr/0001` through `0017`, the glossary in `CONTEXT.md`, the design system in `DESIGN.md`.
 
 ## Frozen contracts (never change these)
 
 1. **The contact API**: POST `/api/contact` accepts exactly `{type:'creator', name, portfolio, idea, contact}` or `{type:'buyer', contact}`. Never rename fields. Never touch `app/api/` or `lib/supabase.ts`.
 2. **Brand assets**: `public/vixio-logo.svg`, `public/vixio-wordmark.svg`.
-3. **Locked brand lines**: descriptor "A creative label for story-rich worlds." and hero promise "Worlds worth entering." Used with restraint; never paraphrased.
+3. **Locked brand lines (White Catalog 2.0, ADR-17)**: the brand slogan, canonical wording "Stories Across Worlds", rendered on-site in sentence case as "Stories across worlds" (the featured viewport quiet promise line; never all caps, never an eyebrow), and the footer descriptor "Vixio develops new expressions of selected story worlds with creators and rights holders." Used with restraint; never paraphrased.
 
 ## Copy rules (zero tolerance in visible strings)
 
