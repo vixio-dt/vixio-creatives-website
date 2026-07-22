@@ -206,7 +206,7 @@ export const copy: SiteCopy = {
     cta: 'Contact',
   },
   gateways: {
-    heading: 'Four gateways',
+    heading: 'Creative grammar',
     items: [
       {
         name: 'Signal',
